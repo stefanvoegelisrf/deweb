@@ -16,8 +16,7 @@ body {
     grid-template-areas:
         "title title title"
         "blocks blocks blocks"
-        "artists detail detail";
-    max-height: 100vh;
+        "detail detail detail";
 }
 
 .title {
@@ -32,23 +31,39 @@ body {
 }
 
 .artists {
-    grid-area: artists;
     font-size: 2rem;
     font-weight: bold;
+    width: 40%;
+}
+
+.info {
+    width: 60%;
+}
+
+@media screen and (max-width: 960px) {
+    .artists,
+    .info {
+        width: 100%;
+    }
 }
 
 .detail {
     grid-area: detail;
 }
 
-.detail-row {
+.row {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.detail-col-title {
+.info-col-title {
     width: 40%;
 }
 
-.detail-col-info {
+.info-col-info {
     width: 60%;
+}
+
+p {
+    margin: 0;
 }
