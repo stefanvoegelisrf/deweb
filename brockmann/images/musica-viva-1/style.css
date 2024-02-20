@@ -75,12 +75,48 @@ body {
 
 .block-2 {
     left: calc(50% - var(--half-block-width));
-    top: 0;
+    top: calc(50% - var(--half-block-width));
+    animation-name: appear, block-2-in;
+    animation-duration: 1s, .5s;
+    animation-delay: 0s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes block-2-in {
+    0% {
+        left: calc(50% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
+
+    100% {
+        left: calc(50% - var(--half-block-width));
+        top: 0;
+    }
 }
 
 .block-3 {
     left: calc(50% - var(--half-block-width));
-    top: calc(70% - var(--half-block-width));
+    top: calc(50% - var(--half-block-width));
+    animation-name: appear, block-3-in;
+    animation-duration: 1s, 1s;
+    animation-delay: 0s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes block-3-in {
+    0% {
+        left: calc(50% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
+
+    100% {
+        left: calc(50% - var(--half-block-width));
+        top: calc(70% - var(--half-block-width));
+    }
 }
 
 .block-4 {
