@@ -1,22 +1,27 @@
 :root {
     --color-background-body: #f0ede4;
     font-family: "Roboto", sans-serif;
+    --block-width: 4rem;
+    --half-block-width: 2rem;
 }
 
 body {
     background-color: var(--color-background-body);
+    margin: 0;
 }
 
 .container {
+    margin: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 5fr 3fr;
+    grid-template-rows: 10% 60% 30%;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
         "title title title"
         "blocks blocks blocks"
         "detail detail detail";
+    height: 100vh;
 }
 
 .title {
@@ -28,6 +33,67 @@ body {
 
 .blocks {
     grid-area: blocks;
+    position: relative;
+}
+
+.block {
+    width: var(--block-width);
+    height: var(--block-width);
+    position: absolute;
+}
+
+.block-1 {
+    left: calc(50% - var(--half-block-width));
+    top: calc(50% - var(--half-block-width));
+}
+
+.block-2 {
+    left: calc(50% - var(--half-block-width));
+}
+
+.block-3 {
+    left: calc(50% - var(--half-block-width));
+    top: calc(70% - var(--half-block-width));
+}
+
+.block-4{
+    left: calc(40% - var(--half-block-width));
+    top: calc(50% - var(--half-block-width));
+}
+
+.block-5{
+    left: calc(30% - var(--half-block-width));
+    top: calc(50% - var(--half-block-width));
+}
+
+.block-6{
+    left: calc(60% - var(--half-block-width));
+    top: calc(50% - var(--half-block-width));
+}
+
+.block-7{
+    left: calc(70% - var(--half-block-width));
+    top: calc(50% - var(--half-block-width));
+}
+
+.red {
+    background-color: #BD1E23;
+}
+
+.black {
+    background-color: #020307;
+}
+
+.blue {
+    background-color: #044A7E;
+}
+
+.orange {
+    background-color: #FAB41E;
+}
+
+.grey {
+    background-color: #898F8F;
 }
 
 .artists {
@@ -41,6 +107,7 @@ body {
 }
 
 @media screen and (max-width: 960px) {
+
     .artists,
     .info {
         width: 100%;

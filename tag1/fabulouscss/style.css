@@ -1,0 +1,44 @@
+/*-----Tags----*/
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+
+body {
+    background-color: #fff0db;
+}
+
+h1 {
+    color: #806238;
+    font-size: xx-large;
+    font-family: "Merriweather", sans-serif;
+}
+
+p {
+    font-family: "Lato", sans-serif;
+    color: #BFA784;
+    font-size: large;
+}
+
+
+/*-----ID----*/
+#poetry {
+    width: 50vw;
+    margin: 10vh auto 0 auto;
+    background-color: #DBF1FF;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 15px 5px #DBF1FF;
+}
+
+/*-----Klassen----*/
+.first {
+    text-align: start;
+}
+
+.second {
+    text-align: center;
+}
+
+.third {
+    text-align: end;
+}
