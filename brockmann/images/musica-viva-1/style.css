@@ -1,0 +1,54 @@
+:root {
+    --color-background-body: #f0ede4;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: var(--color-background-body);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr 3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "title title title"
+        "blocks blocks blocks"
+        "artists detail detail";
+    max-height: 100vh;
+}
+
+.title {
+    grid-area: title;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.blocks {
+    grid-area: blocks;
+}
+
+.artists {
+    grid-area: artists;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.detail {
+    grid-area: detail;
+}
+
+.detail-row {
+    display: flex;
+}
+
+.detail-col-title {
+    width: 40%;
+}
+
+.detail-col-info {
+    width: 60%;
+}
