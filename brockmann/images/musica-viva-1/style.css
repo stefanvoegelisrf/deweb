@@ -8,6 +8,7 @@
 body {
     background-color: var(--color-background-body);
     margin: 0;
+    overflow-x: hidden;
 }
 
 .container {
@@ -34,21 +35,47 @@ body {
 .blocks {
     grid-area: blocks;
     position: relative;
+    max-width: 100%;
 }
 
 .block {
     width: var(--block-width);
     height: var(--block-width);
     position: absolute;
+    overflow: hidden;
 }
 
 .block-1 {
     left: calc(50% - var(--half-block-width));
     top: calc(50% - var(--half-block-width));
+    animation-name: block-1-in;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    z-index: 100;
+}
+
+@keyframes block-1-in {
+    0% {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    100% {
+        width: var(--block-width);
+        height: var(--block-width);
+        left: calc(50% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
 }
 
 .block-2 {
     left: calc(50% - var(--half-block-width));
+    top: 0;
 }
 
 .block-3 {
@@ -56,24 +83,107 @@ body {
     top: calc(70% - var(--half-block-width));
 }
 
-.block-4{
-    left: calc(40% - var(--half-block-width));
+.block-4 {
+    left: -50vw;
     top: calc(50% - var(--half-block-width));
+    animation-name: appear, block-4-in;
+    animation-duration: 1s, 1s;
+    animation-delay: 0s, 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
-.block-5{
-    left: calc(30% - var(--half-block-width));
-    top: calc(50% - var(--half-block-width));
+@keyframes block-4-in {
+    0% {
+        left: -50vw;
+        top: calc(50% - var(--half-block-width));
+    }
+
+    100% {
+        left: calc(40% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
 }
 
-.block-6{
-    left: calc(60% - var(--half-block-width));
+.block-5 {
+    left: -50vw;
     top: calc(50% - var(--half-block-width));
+    animation-name: appear, block-5-in;
+    animation-duration: 1s, 1s;
+    animation-delay: 0s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
-.block-7{
-    left: calc(70% - var(--half-block-width));
+@keyframes block-5-in {
+    0% {
+        left: -50vw;
+        top: calc(50% - var(--half-block-width));
+    }
+
+    100% {
+        left: calc(30% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
+}
+
+.block-6 {
+    left: 150vw;
     top: calc(50% - var(--half-block-width));
+    animation-name: appear, block-6-in;
+    animation-duration: 1s, 1s;
+    animation-delay: 0s, 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes block-6-in {
+    0% {
+        left: 150vw;
+        top: calc(50% - var(--half-block-width));
+    }
+
+    100% {
+        left: calc(60% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
+}
+
+.block-7 {
+    left: 150vw;
+    top: calc(50% - var(--half-block-width));
+    animation-name: appear, block-7-in;
+    animation-duration: 2s, 1s;
+    animation-delay: 0s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes block-7-in {
+    0% {
+        left: 150vw;
+        top: calc(50% - var(--half-block-width));
+    }
+
+    100% {
+        left: calc(70% - var(--half-block-width));
+        top: calc(50% - var(--half-block-width));
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
 
 .red {
