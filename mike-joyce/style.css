@@ -37,16 +37,61 @@ body {
 .bg-cyan {
     background-color: cyan;
     transform: translateY(-.3rem);
+    animation: bg-cyan-up-down 1s infinite;
+}
+
+@keyframes bg-cyan-up-down {
+    0% {
+        transform: translateY(-.3rem);
+    }
+
+    50% {
+        transform: translateY(.3rem);
+    }
+
+    100% {
+        transform: translateY(-.3rem);
+    }
 }
 
 .bg-magenta {
     background-color: magenta;
     transform: translateX(-.3rem) translateY(.3rem);
+    animation: bg-magenta-left-right 1s infinite;
+}
+
+@keyframes bg-magenta-left-right {
+    0% {
+        transform: translateX(-.3rem) translateY(.3rem);
+    }
+
+    50% {
+        transform: translateX(.3rem) translateY(.3rem);
+    }
+
+    100% {
+        transform: translateX(-.3rem) translateY(.3rem);
+    }
 }
 
 .bg-yellow {
     background-color: yellow;
     transform: translateX(.3rem) translateY(.3rem);
+    animation: bg-yellow-left-right 1s infinite;
+}
+
+@keyframes bg-yellow-left-right {
+    0% {
+        transform: translateX(.3rem) translateY(.3rem);
+    }
+
+    50% {
+        transform: translateX(-.3rem) translateY(.3rem);
+    }
+
+    100% {
+        transform: translateX(.3rem) translateY(.3rem);
+    }
 }
 
 .cell {
@@ -62,7 +107,10 @@ body {
     position: absolute;
     display: inline-block;
     mix-blend-mode: multiply;
-    animation: rotate-around-center 1s infinite;
+}
+
+.cell>span:hover {
+    animation: none !important;
 }
 
 .cell-1>span {
@@ -157,21 +205,4 @@ body {
 
 .details {
     width: 100%;
-}
-
-@keyframes rotate-around-center {
-    0% {
-        transform: translate()
-    }
-
-    25% {
-        transform: translate(0.2rem, 0.2rem);
-    }
-
-    50% {
-        transform: translate(0.2rem, 0rem);
-    }
-    75% {
-        transform: translate(-0.2rem, 0.2rem);
-    }
 }
