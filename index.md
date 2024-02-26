@@ -33,6 +33,7 @@ While implementing the poster, I came across a valuable resource for css animati
 Another helpful resource for CSS animations is also [w3schools - CSS Animations](https://www.w3schools.com/css/css3_animations.asp)
 
 I have also created a version of the fabulouscss excercise, which can be found here: [fabulouscss](tag1/fabulouscss/)
+
 An important an helpful resource here was, how to import Google Fonts purely with CSS, as we were not allowed to change the html. See: [w3docs.com - how to import Google fonts in CSS file](https://www.w3docs.com/snippets/css/how-to-import-google-fonts-in-css-file.html)
 
 We were given a handful of useful visual inspiration, which is listed below:
@@ -48,3 +49,4 @@ For today, our preparation is to choose our poster, which we can to create. I wi
 
 ![Poster of Mike Joyce - The Police](/mike-joyce-the%20police.jpeg)
 
+The work this reminded me of, is the work of Felipe Pantone. See: [instagram.com - Felipe Pantone](https://www.instagram.com/felipepantone/). He has a lot of physical artwork, that creates visually appealing color combinations with movable (i assume) plexyglass disks. I wan to combine this with the poster and create digital versions of the physical artworks.
