@@ -1,0 +1,78 @@
+:root {
+    margin: 0;
+    font-family: "Roboto", sans-serifs;
+}
+
+body {
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . ."
+        ". . . . . . . . . . .";
+}
+
+.cell {
+    width: 4rem;
+    height: 4rem;
+    background-color: red;
+}
+
+.cell-1{
+
+}
+
+.cell-2{
+    
+}
+
+.cell-3{
+    
+}
+
+.cell-4{
+    
+}
+
+.cell-5{
+    
+}
+
+.cell-6{
+    
+}
+
+.cell-7{
+    
+}
+
+.cell-8{
+    
+}
+
+.cell-9{
+    
+}
+
+.cell-10{
+    
+}
+
+.cell-11{
+    
+}
