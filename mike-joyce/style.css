@@ -36,7 +36,6 @@ body {
 .bg-magenta {
     background-color: magenta;
     transform: translateX(-.3rem) translateY(.3rem);
-
 }
 
 .bg-yellow {
@@ -49,7 +48,6 @@ body {
     height: 4rem;
     position: relative;
     margin: auto;
-    /* background-color: red; */
 }
 
 .cell>span {
@@ -57,6 +55,7 @@ body {
     border-radius: 100%;
     position: absolute;
     display: inline-block;
+    mix-blend-mode: multiply;
 }
 
 .cell-1>span {
