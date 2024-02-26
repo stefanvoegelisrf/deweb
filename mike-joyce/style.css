@@ -27,52 +27,86 @@ body {
         ". . . . . . . . . . .";
 }
 
+.bg-cyan {
+    background-color: cyan;
+}
+
+.bg-magenta {
+    background-color: magenta;
+}
+
+.bg-yellow {
+    background-color: yellow;
+}
+
 .cell {
     width: 4rem;
     height: 4rem;
-    background-color: red;
+    /* background-color: red; */
 }
 
-.cell-1{
-
+.cell-1>span {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
 }
 
-.cell-2{
-    
+.cell-2>span {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
-.cell-3{
-    
+.cell-3>span {
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
-.cell-4{
-    
+.cell-4>span {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
 }
 
-.cell-5{
-    
+.cell-5>span {
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
 }
 
-.cell-6{
-    
+.cell-6>span {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
 }
 
-.cell-7{
-    
+.cell-7>span {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
 }
 
-.cell-8{
-    
+.cell-8 {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
-.cell-9{
-    
+.cell-9 {
+    display: inline-block;
+    width: 2.6rem;
+    height: 2.6rem;
 }
 
-.cell-10{
-    
+.cell-10 {
+    display: inline-block;
+    width: 2.8rem;
+    height: 2.8em;
 }
 
-.cell-11{
-    
+.cell-11 {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
 }
