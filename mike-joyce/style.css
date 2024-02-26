@@ -3,14 +3,50 @@
     font-family: "Roboto", sans-serifs;
 }
 
+@media screen and (min-width: 1200px) {
+    :root {
+        font-size: 12px;
+    }
+
+    body {
+        max-width: 60vw;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+    :root {
+        font-size: 10px;
+    }
+    body {
+        max-width: 70vw;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 899px) {
+    :root {
+        font-size: 8px;
+    }
+    body {
+        max-width: 80vw;
+    }
+}
+@media screen and (max-width: 599px) {
+    :root {
+        font-size: 6px;
+    }
+    body {
+        max-width: 90vw;
+    }
+    
+}
+
 body {
     margin: 0 auto;
-    max-width: 50vw;
 }
 
 .poster {
     background-color: #dae0d4;
-
+    scale: 100%;
 }
 
 .grid-container {
@@ -192,6 +228,7 @@ body {
 
 .title {
     font-size: 10rem;
+    padding-left: 1rem;
 }
 
 .row {
@@ -201,8 +238,10 @@ body {
 .col-4 {
     max-width: 33.333333%;
     min-width: 33.333333%;
+    padding-left: 1rem;
 }
 
 .details {
     width: 100%;
+    font-size: small;
 }
