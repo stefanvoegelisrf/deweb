@@ -47,6 +47,6 @@ We were given a handful of useful visual inspiration, which is listed below:
 ### 27.02.2024
 For today, our preparation is to choose our poster, which we can to create. I will choose a work of Mike Joyce due to the fact, that it reminded me of an idea, that i wanted to realize anyway. He did this work for his SwissTed project which can be found here: [swissted.com](https://www.swissted.com/)
 
-![Poster of Mike Joyce - The Police](/mike-joyce-the%20police.jpeg)
+![Poster of Mike Joyce - The Police](mike-joyce-the%20police.jpeg)
 
 The work this reminded me of, is the work of Felipe Pantone. See: [instagram.com - Felipe Pantone](https://www.instagram.com/felipepantone/). He has a lot of physical artwork, that creates visually appealing color combinations with movable (i assume) plexyglass disks. I wan to combine this with the poster and create digital versions of the physical artworks.
