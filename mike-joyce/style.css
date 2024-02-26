@@ -17,6 +17,7 @@
     :root {
         font-size: 10px;
     }
+
     body {
         max-width: 70vw;
     }
@@ -26,18 +27,21 @@
     :root {
         font-size: 8px;
     }
+
     body {
         max-width: 80vw;
     }
 }
+
 @media screen and (max-width: 599px) {
     :root {
         font-size: 6px;
     }
+
     body {
         max-width: 90vw;
     }
-    
+
 }
 
 body {
@@ -46,7 +50,6 @@ body {
 
 .poster {
     background-color: #dae0d4;
-    scale: 100%;
 }
 
 .grid-container {
