@@ -1,4 +1,12 @@
 # Kickstart Web Development
+- [Kickstart Web Development](#kickstart-web-development)
+  - [Wiki for module](#wiki-for-module)
+  - [Project](#project)
+  - [Game Project](#game-project)
+  - [Journal](#journal)
+    - [20.02.2024](#20022024)
+    - [27.02.2024](#27022024)
+
 
 ## Wiki for module
 > See: [github.com - KickWeb2024](https://github.com/digitalideation/KickWeb2024/wiki)
@@ -36,3 +44,7 @@ We were given a handful of useful visual inspiration, which is listed below:
   - Showcase of various creative websites
 
 ### 27.02.2024
+For today, our preparation is to choose our poster, which we can to create. I will choose a work of Mike Joyce due to the fact, that it reminded me of an idea, that i wanted to realize anyway. He did this work for his SwissTed project which can be found here: [swissted.com](https://www.swissted.com/)
+
+![Poster of Mike Joyce - The Police](/mike-joyce-the%20police.jpeg)
+
