@@ -148,7 +148,8 @@ body {
     mix-blend-mode: multiply;
 }
 
-.cell>span:hover {
+.cell>span:hover,
+.cell>span:active {
     animation: none !important;
 }
 
