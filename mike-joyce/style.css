@@ -30,18 +30,18 @@ body {
 
 .bg-cyan {
     background-color: cyan;
-    transform: translateY(-40%);
+    transform: translateY(-.3rem);
 }
 
 .bg-magenta {
     background-color: magenta;
-    transform: translateX(-40%) translateY(40%);
+    transform: translateX(-.3rem) translateY(.3rem);
 
 }
 
 .bg-yellow {
     background-color: yellow;
-    transform: translateX(40%) translateY(40%);
+    transform: translateX(.3rem) translateY(.3rem);
 }
 
 .cell {
