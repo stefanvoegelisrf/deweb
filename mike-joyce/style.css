@@ -4,7 +4,8 @@
 }
 
 body {
-    margin: 0;
+    margin: 0 auto;
+    max-width: 50vw;
 }
 
 .grid-container {
@@ -145,6 +146,7 @@ body {
 
 .col-4 {
     max-width: 33.333333%;
+    min-width: 33.333333%;
 }
 
 .details {
