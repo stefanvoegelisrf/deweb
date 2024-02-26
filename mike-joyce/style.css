@@ -8,6 +8,11 @@ body {
     max-width: 50vw;
 }
 
+.poster {
+    background-color: #dae0d4;
+
+}
+
 .grid-container {
     display: grid;
     margin: 0 auto;
