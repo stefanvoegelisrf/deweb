@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sensors testpage</title>
     <script type="text/javascript" src="script.js"></script>
 </head>
+
 <body>
     <main>
         <h1>Sensors testpage</h1>
         <p id="device-motion-available"></p>
         <button id="device-motion-button">Start device motion</button>
-        <p id="motion"></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Acceleration</th>
+                    <th>Value</th>
+                    <th>Including Gravity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>X</td>
+                    <td id="x"></td>
+                    <td id="xg"></td>
+                </tr>
+                <tr>
+                    <td>Y</td>
+                    <td id="y"></td>
+                    <td id="yg"></td>
+                </tr>
+                <tr>
+                    <td>Z</td>
+                    <td id="z"></td>
+                    <td id="zg"></td>
+                </tr>
+            </tbody>
+        </table>
         <button id="device-orientation-button">Start device orientation</button>
         <p id="orientation"></p>
     </main>
 </body>
+
 </html>

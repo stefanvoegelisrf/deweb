@@ -42,8 +42,18 @@ function onDeviceOrientationButtonClick() {
 }
 
 function handleMotion(event) {
-    let motionElement = document.getElementById("motion");
-    motionElement.innerHTML = `Acceleration: x: ${event.acceleration.x}, y: ${event.acceleration.y}, z: ${event.acceleration.z}`;
+    let x = document.getElementById("x");
+    let xg = document.getElementById("xg");
+    let y = document.getElementById("y");
+    let yg = document.getElementById("yg");
+    let z = document.getElementById("z");
+    let zg = document.getElementById("zg");
+    x.innerHTML = event.acceleration.x;
+    xg.innerHTML = event.accelerationIncludingGravity.x;
+    y.innerHTML = event.acceleration.y;
+    yg.innerHTML = event.accelerationIncludingGravity.y;
+    z.innerHTML = event.acceleration.z;
+    zg.innerHTML = event.accelerationIncludingGravity.z;
 }
 
 function handleOrientation(event) {
