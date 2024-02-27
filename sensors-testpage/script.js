@@ -57,6 +57,28 @@ function handleMotion(event) {
 }
 
 function handleOrientation(event) {
-    let orientationElement = document.getElementById("orientation");
-    orientationElement.innerHTML = `Orientation: alpha: ${event.alpha}, beta: ${event.beta} ${event.gamma}`;
+    let alpha= document.getElementById("alpha");
+    let alphaNormalized = document.getElementById("alpha-normalized");
+    let beta = document.getElementById("beta");
+    let betaNormalized= document.getElementById("beta-normalized");
+    let gamma = document.getElementById("gamma");
+    let gammaNormalized = document.getElementById("gamma-normalized");
+    alpha.innerHTML = event.alpha;
+    alphaNormalized.innerHTML = normalizeAngle(event.alpha);
+    beta.innerHTML = event.beta;
+    betaNormalized.innerHTML = normalizeAngle(event.beta);
+    gamma.innerHTML = event.gamma;
+    gammaNormalized.innerHTML = normalizeAngle(event.gamma);
+}
+
+function normalizeAngle(angle) {
+    // Reduce the angle to be between 0 and 360
+    angle = angle % 360;
+    // Force it to be the positive remainder, so that 0 <= angle < 360
+    angle = (angle + 360) % 360;
+    // Force into the minimum absolute value residue class, so that -180 < angle <= 180
+    if (angle > 180) {
+        angle -= 360;
+    }
+    return angle;
 }
