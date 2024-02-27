@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 900px) and (max-width: 1199px) {
     :root {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     body {
@@ -25,7 +25,7 @@
 
 @media screen and (min-width: 600px) and (max-width: 899px) {
     :root {
-        font-size: 8px;
+        font-size: 10px;
     }
 
     body {
@@ -35,7 +35,7 @@
 
 @media screen and (max-width: 599px) {
     :root {
-        font-size: 6px;
+        font-size: 9px;
     }
 
     body {
