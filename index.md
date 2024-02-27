@@ -13,6 +13,7 @@
       - [Mike Joyce poster](#mike-joyce-poster)
       - [Matter.js](#matterjs)
       - [Accessing device sensors](#accessing-device-sensors)
+        - [Documentation resources](#documentation-resources)
 
 
 ## Wiki for module
@@ -167,3 +168,7 @@ This page displays the acceleration and the orientation. Acceleration is not ava
 >
 > Once opened, the value for alpha, beta and gamma can be adjusted with a little preview.
 > ![Simulate Orientation](simulate-orientation.png)
+
+##### Documentation resources
+- Documentation for device motion: [developer.mozilla.org - devicemotion event](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event)
+- Documentation for device orientation: [developer.mozilla.org - deviceorientation events](https://developer.mozilla.org/en-US/docs/Web/API/Window/deviceorientation_event)
