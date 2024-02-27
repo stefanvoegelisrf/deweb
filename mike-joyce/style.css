@@ -44,10 +44,6 @@
 
 }
 
-/* body {
-    margin: 0 auto;
-} */
-
 .poster {
     background-color: #dae0d4;
     position: absolute;
@@ -145,7 +141,6 @@
 }
 
 .cell>span {
-    /* opacity: 0.9; */
     border-radius: 100%;
     position: absolute;
     display: inline-block;
