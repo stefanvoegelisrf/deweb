@@ -72,11 +72,11 @@ function handleOrientation(event) {
 }
 
 function normalizeAngleToZeroOne(angle) {
-    // Reduce the angle to be between 0 and 360
+    // Reduce the angle to be between -360 and 360
     angle = angle % 360;
-    // Force it to be the positive remainder, so that 0 <= angle < 360
+    // Force it to be the positive remainder, so that -360 <= angle < 360
     angle = (angle + 360) % 360;
     // Normalize to the range [0, 1]
-    const normalizedValue = angle / 360;
+    const normalizedValue = (angle + 360) % 360 / 360;
     return normalizedValue;
 }
