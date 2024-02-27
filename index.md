@@ -12,6 +12,7 @@
     - [27.02.2024](#27022024)
       - [Mike Joyce poster](#mike-joyce-poster)
       - [Matter.js](#matterjs)
+      - [Accessing device sensors](#accessing-device-sensors)
 
 
 ## Wiki for module
@@ -153,3 +154,8 @@ class CustomBox {
 ```
 
 > The working example can be tried out here: [Falling boxes](codingtrain-matterjs-introduction/)
+
+#### Accessing device sensors
+To try out, how I can access the sensor data of a device, I have started a testpage.
+
+> See: [Sensor testpage](sensors-testpage/)
