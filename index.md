@@ -159,3 +159,11 @@ class CustomBox {
 To try out, how I can access the sensor data of a device, I have started a testpage.
 
 > See: [Sensor testpage](sensors-testpage/)
+
+This page displays the acceleration and the orientation. Acceleration is not available on desktop for most devices. Orientation can be simulated in the browser.
+
+> To simulate the orientation, go into dev tools and then click on `More tools` and then `Sensors`
+> ![More Tools Sensors](tools-sensors.png)
+>
+> Once opened, the value for alpha, beta and gamma can be adjusted with a little preview.
+> ![Simulate Orientation](simulate-orientation.png)
