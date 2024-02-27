@@ -71,14 +71,12 @@ function handleOrientation(event) {
     gammaNormalized.innerHTML = normalizeAngle(event.gamma);
 }
 
-function normalizeAngle(angle) {
+function normalizeAngleToZeroOne(angle) {
     // Reduce the angle to be between 0 and 360
     angle = angle % 360;
     // Force it to be the positive remainder, so that 0 <= angle < 360
     angle = (angle + 360) % 360;
-    // Force into the minimum absolute value residue class, so that -180 < angle <= 180
-    if (angle > 180) {
-        angle -= 360;
-    }
-    return angle;
+    // Normalize to the range [0, 1]
+    const normalizedValue = angle / 360;
+    return normalizedValue;
 }
