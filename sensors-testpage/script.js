@@ -5,7 +5,7 @@ addEventListener("load", (event) => {
         DeviceMotionEvent.requestPermission()
             .then((state) => {
                 if (state === 'granted') {
-                    window.addEventListener('devicemotion', handleOrientation);
+                    window.addEventListener('devicemotion', handleMotion);
                 } else {
                     deviceMotionAvailable.innerHTML = "Request to access the orientation was rejected";
                 }
@@ -14,13 +14,19 @@ addEventListener("load", (event) => {
     } else {
         // Handle regular non iOS 13+ devices.
         deviceMotionAvailable.innerHTML = "DeviceMotion is available";
-        window.addEventListener('devicemotion', handleOrientation);
+        window.addEventListener('devicemotion', handleMotion);
     }
+
+    window.addEventListener('deviceorientation', handleOrientation);
 });
 
-
-
-addEventListener("devicemotion", (event) => {
+function handleMotion(event) {
     let accelerationSpan = document.getElementById("acceleration");
+    console.log(event);
     accelerationSpan.innerHTML = `x: ${event.acceleration.x} y: ${event.acceleration.y} z: ${event.acceleration.z}`;
-});
+}
+
+function handleOrientation(event){
+    let orientationSpan = document.getElementById("orientation");
+    orientationSpan.innerHTML = `alpha: ${event.alpha} beta: ${event.beta} gamma: ${event.gamma}`;
+}
