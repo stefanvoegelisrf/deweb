@@ -48,27 +48,84 @@ function handleMotion(event) {
     let yg = document.getElementById("yg");
     let z = document.getElementById("z");
     let zg = document.getElementById("zg");
-    x.innerHTML = event.acceleration.x;
-    xg.innerHTML = event.accelerationIncludingGravity.x;
-    y.innerHTML = event.acceleration.y;
-    yg.innerHTML = event.accelerationIncludingGravity.y;
-    z.innerHTML = event.acceleration.z;
-    zg.innerHTML = event.accelerationIncludingGravity.z;
+    if (event.acceleration === null || event.accelerationIncludingGravity === null) {
+        x.innerHTML = "N/A";
+        xg.innerHTML = "N/A";
+        y.innerHTML = "N/A";
+        yg.innerHTML = "N/A";
+        z.innerHTML = "N/A";
+        zg.innerHTML = "N/A";
+        return;
+    }
+    let decimalPlacesValue = getDecimalPlaces();
+
+    if (event.acceleration.x === null) {
+        x.innerHTML = "N/A";
+    }
+    else {
+        x.innerHTML = event.acceleration.x.toFixed(decimalPlacesValue);
+    }
+    if (event.accelerationIncludingGravity.x === null) {
+        xg.innerHTML = "N/A";
+    }
+    else {
+        xg.innerHTML = event.accelerationIncludingGravity.x.toFixed(decimalPlacesValue);
+    }
+    if (event.acceleration.y === null) {
+        y.innerHTML = "N/A";
+    }
+    else {
+        y.innerHTML = event.acceleration.y.toFixed(decimalPlacesValue);
+    }
+    if (event.accelerationIncludingGravity.y === null) {
+        yg.innerHTML = "N/A";
+    }
+    else {
+        yg.innerHTML = event.accelerationIncludingGravity.y.toFixed(decimalPlacesValue);
+    }
+    if (event.acceleration.z === null) {
+        z.innerHTML = "N/A";
+    }
+    else {
+        z.innerHTML = event.acceleration.z.toFixed(decimalPlacesValue);
+    }
+    if (event.accelerationIncludingGravity.z === null) {
+        zg.innerHTML = "N/A";
+    }
+    else {
+        zg.innerHTML = event.accelerationIncludingGravity.z.toFixed(decimalPlacesValue);
+    }
 }
 
+function getDecimalPlaces() {
+    let decimalPlacesElement = document.getElementById("decimal-places");
+    return parseInt(decimalPlacesElement.value);
+}
+
+
 function handleOrientation(event) {
-    let alpha= document.getElementById("alpha");
+    let alpha = document.getElementById("alpha");
     let alphaNormalized = document.getElementById("alpha-normalized");
     let beta = document.getElementById("beta");
-    let betaNormalized= document.getElementById("beta-normalized");
+    let betaNormalized = document.getElementById("beta-normalized");
     let gamma = document.getElementById("gamma");
     let gammaNormalized = document.getElementById("gamma-normalized");
-    alpha.innerHTML = event.alpha;
-    alphaNormalized.innerHTML = normalizeAngleToZeroOne(event.alpha);
-    beta.innerHTML = event.beta;
-    betaNormalized.innerHTML = normalizeAngleToZeroOne(event.beta);
-    gamma.innerHTML = event.gamma;
-    gammaNormalized.innerHTML = normalizeAngleToZeroOne(event.gamma);
+    if (event.alpha === null || event.beta === null || event.gamma === null) {
+        alpha.innerHTML = "N/A";
+        alphaNormalized.innerHTML = "N/A";
+        beta.innerHTML = "N/A";
+        betaNormalized.innerHTML = "N/A";
+        gamma.innerHTML = "N/A";
+        gammaNormalized.innerHTML = "N/A";
+        return;
+    }
+    let decimalPlacesValue = getDecimalPlaces();
+    alpha.innerHTML = event.alpha.toFixed(decimalPlacesValue);
+    alphaNormalized.innerHTML = normalizeAngleToZeroOne(event.alpha).toFixed(decimalPlacesValue);
+    beta.innerHTML = event.beta.toFixed(decimalPlacesValue);
+    betaNormalized.innerHTML = normalizeAngleToZeroOne(event.beta).toFixed(decimalPlacesValue);
+    gamma.innerHTML = event.gamma.toFixed(decimalPlacesValue);
+    gammaNormalized.innerHTML = normalizeAngleToZeroOne(event.gamma).toFixed(decimalPlacesValue);
 }
 
 function normalizeAngleToZeroOne(angle) {
