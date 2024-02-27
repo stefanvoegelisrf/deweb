@@ -64,11 +64,11 @@ function handleOrientation(event) {
     let gamma = document.getElementById("gamma");
     let gammaNormalized = document.getElementById("gamma-normalized");
     alpha.innerHTML = event.alpha;
-    alphaNormalized.innerHTML = normalizeAngle(event.alpha);
+    alphaNormalized.innerHTML = normalizeAngleToZeroOne(event.alpha);
     beta.innerHTML = event.beta;
-    betaNormalized.innerHTML = normalizeAngle(event.beta);
+    betaNormalized.innerHTML = normalizeAngleToZeroOne(event.beta);
     gamma.innerHTML = event.gamma;
-    gammaNormalized.innerHTML = normalizeAngle(event.gamma);
+    gammaNormalized.innerHTML = normalizeAngleToZeroOne(event.gamma);
 }
 
 function normalizeAngleToZeroOne(angle) {
