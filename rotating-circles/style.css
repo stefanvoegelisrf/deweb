@@ -37,36 +37,34 @@ main {
     mix-blend-mode: multiply;
 }
 
-.circle-container-magenta {
-    left: calc(30% - var(--circle-radius));
-    top: calc(55% - var(--circle-radius));
-    padding-left: 10%;
-}
-
 .circle-container-cyan {
     left: calc(50% - var(--circle-radius));
     top: calc(30% - var(--circle-radius));
     padding-top: 10%;
+}
 
+.circle-container-magenta {
+    left: calc(30% - var(--circle-radius));
+    top: calc(50% - var(--circle-radius));
+    padding-left: 10%;
 }
 
 .circle-container-yellow {
-    left: calc(20% + var(--circle-radius));
-    top: calc(55% - var(--circle-radius));
+    left: calc(60% - var(--circle-radius));
+    top: calc(50% - var(--circle-radius));
     padding-right: 10%;
 }
 
 .cyan {
-    background-color: cyan;
+    background: radial-gradient(rgba(0,255,255,1), rgba(255,255,255,0));
 }
 
 .magenta {
-    background-color: magenta;
+    background: radial-gradient(rgba(255,0,255,1), rgba(255,255,255,0));
 }
 
 .yellow {
-    background-color: yellow;
-
+    background: radial-gradient(rgba(255,255,0,1), rgba(255,255,255,0));
 }
 
 .rotate-clockwise {
