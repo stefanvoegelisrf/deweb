@@ -122,39 +122,39 @@ main {
 }
 
 .cyan {
-    background: radial-gradient(rgba(0, 255, 255, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(0, 255, 255, 1), rgba(255, 255, 255, .1));
 }
 
 .magenta {
-    background: radial-gradient(rgba(255, 0, 255, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(255, 0, 255, 1), rgba(255, 255, 255, .1));
 }
 
 .yellow {
-    background: radial-gradient(rgba(255, 255, 0, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(255, 255, 0, 1), rgba(255, 255, 255, .1));
 }
 
 .red {
-    background: radial-gradient(rgba(255, 0, 0, .7), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(255, 0, 0, .7), rgba(255, 255, 255, 0.1));
 }
 
 .green {
-    background: radial-gradient(rgba(0, 255, 0, .7), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(0, 255, 0, .7), rgba(255, 255, 255, 0.1));
 }
 
 .blue {
-    background: radial-gradient(rgba(0, 0, 255, .7), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(0, 0, 255, .7), rgba(255, 255, 255, 0.1));
 }
 
 .bright-pink {
-    background: radial-gradient(rgba(255, 2, 133, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(255, 2, 133, 1), rgba(255, 255, 255, 0.1));
 }
 
 .maximum-red-purple {
-    background: radial-gradient(rgba(170, 58, 116, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(170, 58, 116, 1), rgba(255, 255, 255, 0.1));
 }
 
 .vivid-yellow {
-    background: radial-gradient(rgba(255, 255, 3, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(255, 255, 3, 1), rgba(255, 255, 255, 0.1));
 }
 
 .rotate-clockwise {
