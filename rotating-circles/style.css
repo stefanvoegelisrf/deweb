@@ -308,19 +308,23 @@ main {
 .color-picker-mix-color.cyan,
 .color-picker-mix-color.red,
 .color-picker-mix-color.maximum-red-purple {
-    top: -75%
+    top: -50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 
 .color-picker-mix-color.magenta,
 .color-picker-mix-color.blue,
 .color-picker-mix-color.bright-pink {
     left: -75%;
-    bottom: -75%;
+    bottom: -50%;
+    transform: translate(-20%,40%);
 }
 
 .color-picker-mix-color.yellow,
 .color-picker-mix-color.green,
 .color-picker-mix-color.vivid-yellow {
     right: -75%;
-    bottom: -75%;
+    bottom: -50%;
+    transform: translate(20%,40%);
 }
