@@ -14,6 +14,7 @@
       - [Matter.js](#matterjs)
       - [Accessing device sensors](#accessing-device-sensors)
         - [Documentation resources](#documentation-resources)
+      - [Trying out blending circles](#trying-out-blending-circles)
 
 
 ## Wiki for module
@@ -172,3 +173,8 @@ This page displays the acceleration and the orientation. Acceleration is not ava
 ##### Documentation resources
 - Documentation for device motion: [developer.mozilla.org - devicemotion event](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event)
 - Documentation for device orientation: [developer.mozilla.org - deviceorientation events](https://developer.mozilla.org/en-US/docs/Web/API/Window/deviceorientation_event)
+
+#### Trying out blending circles
+As an excercise to try out rotation circles and blending colors, I created another test page.
+
+> See: [Dancing circles](rotating-circles/)
