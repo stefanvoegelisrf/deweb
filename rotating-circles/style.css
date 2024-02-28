@@ -9,12 +9,14 @@
 
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 .circle {
     width: calc(var(--circle-radius) * 2);
     height: calc(var(--circle-radius) * 2);
     border-radius: 100%;
+    /* border: 1px solid black; */
 }
 
 main {
@@ -32,7 +34,7 @@ main {
     width: 100%;
     height: 100%;
     animation-name: zoom-out;
-    animation-duration: 2s;
+    animation-duration: 10s;
     animation-timing-function: ease-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -40,10 +42,10 @@ main {
 
 @keyframes zoom-out {
     0% {
-        transform: scale(5);
+        transform: scale(10);
     }
     100% {
-        transform: scale(1);
+        transform: scale(3);
     }
     
 }
@@ -55,19 +57,19 @@ main {
 
 .circle-container-cyan {
     left: calc(50% - var(--circle-radius));
-    top: calc(40% - var(--circle-radius));
-    padding-top: 10%;
+    top: calc(50% - var(--circle-radius));
+    /* padding-top: 10%; */
 }
 
 .circle-container-magenta {
     left: calc(30% - var(--circle-radius));
-    top: calc(60% - var(--circle-radius));
+    top: calc(55% - var(--circle-radius));
     padding-left: 10%;
 }
 
 .circle-container-yellow {
     left: calc(60% - var(--circle-radius));
-    top: calc(60% - var(--circle-radius));
+    top: calc(55% - var(--circle-radius));
     padding-right: 10%;
 }
 
@@ -84,7 +86,61 @@ main {
 }
 
 .rotate-clockwise {
-    animation: rotate-clockwise 2s infinite linear;
+    animation-name: rotate-clockwise;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.rotate-counterclockwise {
+    animation-name: rotate-counterclockwise;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.rotate-left-right{
+    animation-name: rotate-left-right;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate-left-right {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-90deg);
+    }
+    75% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.move-up-down{
+    animation-name: move-up-down;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move-up-down {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10%);
+    }
+    75% {
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+    
 }
 
 @keyframes rotate-clockwise {
@@ -93,6 +149,15 @@ main {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-counterclockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
     }
 }
 
