@@ -134,15 +134,15 @@ main {
 }
 
 .red {
-    background: radial-gradient(rgba(255, 0, 0, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(255, 0, 0, .7), rgba(255, 255, 255, 0));
 }
 
 .green {
-    background: radial-gradient(rgba(0, 255, 0, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(0, 255, 0, .7), rgba(255, 255, 255, 0));
 }
 
 .blue {
-    background: radial-gradient(rgba(0, 0, 255, 1), rgba(255, 255, 255, 0));
+    background: radial-gradient(rgba(0, 0, 255, .7), rgba(255, 255, 255, 0));
 }
 
 .bright-pink {
@@ -158,21 +158,21 @@ main {
 }
 
 .rotate-clockwise {
-    /* animation-name: rotate-clockwise; */
+    animation-name: rotate-clockwise;
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 .rotate-counterclockwise {
-    /* animation-name: rotate-counterclockwise; */
+    animation-name: rotate-counterclockwise;
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 .rotate-left-right {
-    /* animation-name: rotate-left-right; */
+    animation-name: rotate-left-right;
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -274,13 +274,27 @@ main {
 }
 
 .color-picker-circle {
-    height: 6vh;
-    width: 6vh;
     margin: .5rem;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
 }
+
+@media (orientation: portrait) {
+    .color-picker-circle {
+        height: 8vw;
+        width: 8vw;
+    }
+}
+
+@media (orientation: landscape) {
+    .color-picker-circle {
+        height: 6vh;
+        width: 6vh;
+    }
+    
+}
+
 
 .color-picker-mix-color {
     display: inline-block;
