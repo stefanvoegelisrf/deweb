@@ -19,13 +19,25 @@ body {
     /* border: 1px solid black; */
 }
 
+@media (orientation: landscape) {
+    main {
+        height: 80vh;
+        width: 80vh;
+    }
+}
+
+@media (orientation: portrait) {
+    main {
+        height: 80vw;
+        width: 80vw;
+    }
+}
+
 main {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 80vh;
-    width: 80vh;
     overflow: hidden;
     /* border: 1rem solid #C0C0C0; */
     border-radius: .2rem;
