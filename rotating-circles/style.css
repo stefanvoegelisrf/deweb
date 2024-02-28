@@ -97,7 +97,6 @@ main {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-
 }
 
 .circle-container {
@@ -108,7 +107,6 @@ main {
 .circle-container-cyan {
     left: calc(50% - var(--circle-radius));
     top: calc(50% - var(--circle-radius));
-    /* padding-top: 10%; */
 }
 
 .circle-container-magenta {
@@ -160,21 +158,21 @@ main {
 }
 
 .rotate-clockwise {
-    animation-name: rotate-clockwise;
+    /* animation-name: rotate-clockwise; */
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 .rotate-counterclockwise {
-    animation-name: rotate-counterclockwise;
+    /* animation-name: rotate-counterclockwise; */
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 .rotate-left-right {
-    animation-name: rotate-left-right;
+    /* animation-name: rotate-left-right; */
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -279,6 +277,36 @@ main {
     height: 6vh;
     width: 6vh;
     margin: .5rem;
-    border: 1px solid black;
     border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.color-picker-mix-color {
+    display: inline-block;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    position: absolute;
+    mix-blend-mode: multiply;
+}
+
+.color-picker-mix-color.cyan,
+.color-picker-mix-color.red,
+.color-picker-mix-color.maximum-red-purple {
+    top: -75%
+}
+
+.color-picker-mix-color.magenta,
+.color-picker-mix-color.blue,
+.color-picker-mix-color.bright-pink {
+    left: -75%;
+    bottom: -75%;
+}
+
+.color-picker-mix-color.yellow,
+.color-picker-mix-color.green,
+.color-picker-mix-color.vivid-yellow {
+    right: -75%;
+    bottom: -75%;
 }
