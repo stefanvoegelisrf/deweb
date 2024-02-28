@@ -5,6 +5,7 @@
 * {
     /* border: 1px solid black; */
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -292,7 +293,7 @@ main {
         height: 6vh;
         width: 6vh;
     }
-    
+
 }
 
 
@@ -309,8 +310,8 @@ main {
 .color-picker-mix-color.red,
 .color-picker-mix-color.maximum-red-purple {
     top: -50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .color-picker-mix-color.magenta,
@@ -318,7 +319,7 @@ main {
 .color-picker-mix-color.bright-pink {
     left: -75%;
     bottom: -50%;
-    transform: translate(-20%,40%);
+    transform: translate(-20%, 40%);
 }
 
 .color-picker-mix-color.yellow,
@@ -326,5 +327,15 @@ main {
 .color-picker-mix-color.vivid-yellow {
     right: -75%;
     bottom: -50%;
-    transform: translate(20%,40%);
+    transform: translate(20%, 40%);
+}
+
+header {
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    text-align: center;
+    color: gray;
 }
