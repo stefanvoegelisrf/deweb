@@ -27,6 +27,27 @@ main {
     height: 80vh;
     width: 80vh;
     overflow: hidden;
+    /* border: 1rem solid #C0C0C0; */
+    border-radius: .2rem;
+    animation-name: change-frame;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes change-frame {
+    0% {
+        border-radius: 40%;
+    }
+
+    50% {
+        border-radius: 50%;
+    }
+
+    100% {
+        border-radius: 40%;
+    }
 }
 
 .container {
@@ -37,16 +58,17 @@ main {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    /* animation-fill-mode: forwards; */
 }
 
 @keyframes zoom-out {
     0% {
         transform: scale(10);
     }
+
     50% {
         transform: scale(3);
     }
+
     100% {
         transform: scale(10);
     }
@@ -76,15 +98,15 @@ main {
 }
 
 .cyan {
-    background: radial-gradient(rgba(0,255,255,1), rgba(255,255,255,0));
+    background: radial-gradient(rgba(0, 255, 255, 1), rgba(255, 255, 255, 0));
 }
 
 .magenta {
-    background: radial-gradient(rgba(255,0,255,1), rgba(255,255,255,0));
+    background: radial-gradient(rgba(255, 0, 255, 1), rgba(255, 255, 255, 0));
 }
 
 .yellow {
-    background: radial-gradient(rgba(255,255,0,1), rgba(255,255,255,0));
+    background: radial-gradient(rgba(255, 255, 0, 1), rgba(255, 255, 255, 0));
 }
 
 .rotate-clockwise {
@@ -93,6 +115,7 @@ main {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+
 .rotate-counterclockwise {
     animation-name: rotate-counterclockwise;
     animation-duration: 5s;
@@ -100,7 +123,7 @@ main {
     animation-iteration-count: infinite;
 }
 
-.rotate-left-right{
+.rotate-left-right {
     animation-name: rotate-left-right;
     animation-duration: 5s;
     animation-timing-function: linear;
@@ -111,18 +134,21 @@ main {
     0% {
         transform: rotate(0deg);
     }
+
     25% {
         transform: rotate(-90deg);
     }
+
     75% {
         transform: rotate(90deg);
     }
+
     100% {
         transform: rotate(0deg);
     }
 }
 
-.move-up-down{
+.move-up-down {
     animation-name: move-up-down;
     animation-duration: 5s;
     animation-timing-function: ease-in-out;
@@ -133,22 +159,26 @@ main {
     0% {
         transform: translateY(0);
     }
+
     25% {
         transform: translateY(-10%);
     }
+
     75% {
         transform: translateY(10%);
     }
+
     100% {
         transform: translateY(0);
     }
-    
+
 }
 
 @keyframes rotate-clockwise {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -158,12 +188,13 @@ main {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(-360deg);
     }
 }
 
-@keyframes move-clockwise{
+@keyframes move-clockwise {
     0% {
         transform: translate(0, 0);
     }
