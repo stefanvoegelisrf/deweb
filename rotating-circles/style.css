@@ -24,12 +24,40 @@ body {
         height: 80vh;
         width: 80vh;
     }
+
+    @keyframes zoom-out {
+        0% {
+            transform: scale(10);
+        }
+
+        50% {
+            transform: scale(3);
+        }
+
+        100% {
+            transform: scale(10);
+        }
+    }
 }
 
 @media (orientation: portrait) {
     main {
         height: 80vw;
         width: 80vw;
+    }
+
+    @keyframes zoom-out {
+        0% {
+            transform: scale(5);
+        }
+
+        50% {
+            transform: scale(2.5);
+        }
+
+        100% {
+            transform: scale(5);
+        }
     }
 }
 
@@ -70,20 +98,6 @@ main {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-}
-
-@keyframes zoom-out {
-    0% {
-        transform: scale(10);
-    }
-
-    50% {
-        transform: scale(3);
-    }
-
-    100% {
-        transform: scale(10);
-    }
 }
 
 .circle-container {
