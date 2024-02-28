@@ -2,6 +2,11 @@
     --circle-radius: 15vh;
 }
 
+* {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
 }
@@ -9,9 +14,7 @@ body {
 .circle {
     width: calc(var(--circle-radius) * 2);
     height: calc(var(--circle-radius) * 2);
-    position: absolute;
     border-radius: 100%;
-    mix-blend-mode: multiply;
 }
 
 main {
@@ -23,26 +26,80 @@ main {
     width: 80vh;
 }
 
-.circle-container {
+.container {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
+.circle-container {
+    position: absolute;
+    mix-blend-mode: multiply;
+}
+
+.circle-container-magenta {
+    left: calc(30% - var(--circle-radius));
+    top: calc(55% - var(--circle-radius));
+    padding-left: 10%;
+}
+
+.circle-container-cyan {
+    left: calc(50% - var(--circle-radius));
+    top: calc(30% - var(--circle-radius));
+    padding-top: 10%;
+
+}
+
+.circle-container-yellow {
+    left: calc(20% + var(--circle-radius));
+    top: calc(55% - var(--circle-radius));
+    padding-right: 10%;
+}
+
 .cyan {
     background-color: cyan;
-    left: calc(50% - var(--circle-radius));
-    top: calc(40% - var(--circle-radius))
 }
 
 .magenta {
     background-color: magenta;
-    left: calc(40% - var(--circle-radius));
-    top: calc(55% - var(--circle-radius))
 }
 
 .yellow {
     background-color: yellow;
-    left: calc(20% + var(--circle-radius));
-    top: calc(55% - var(--circle-radius))
+
+}
+
+.rotate-clockwise {
+    animation: rotate-clockwise 2s infinite linear;
+}
+
+@keyframes rotate-clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move-clockwise{
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(50%, 50%);
+    }
+
+    50% {
+        transform: translate(0%, 100%);
+    }
+
+    75% {
+        transform: translate(-50%, 50%);
+    }
+
+    100% {
+        transform: translate(0, 0%)
+    }
 }
