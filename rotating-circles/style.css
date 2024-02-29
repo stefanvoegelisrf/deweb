@@ -39,6 +39,11 @@ body {
         width: 80vh;
     }
 
+    .main-full-size {
+        height: 98vh;
+        width: 98vh;
+    }
+
     @keyframes zoom-out {
         0% {
             transform: scale(10);
@@ -58,6 +63,11 @@ body {
     main {
         height: 80vw;
         width: 80vw;
+    }
+
+    .main-full-size {
+        height: 98vw;
+        width: 98vw;
     }
 
     @keyframes zoom-out {
@@ -90,13 +100,8 @@ main {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    transition-property: height, width;
+    transition-property: height, width, overflow;
     transition-duration: 1s;
-}
-
-.main-full-size {
-    height: 98vh;
-    width: 96vw;
 }
 
 @keyframes change-frame {
