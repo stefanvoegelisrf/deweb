@@ -101,7 +101,7 @@ main {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     transition-property: height, width;
-    transition-duration: 1s;
+    transition-duration: 1.5s;
     animation-play-state: running;
 }
 
@@ -120,15 +120,7 @@ main {
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-.add-border-radius {
-    animation-name: add-border-radius;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: backwards;
+    animation-fill-mode: both;
 }
 
 @keyframes relax-border-radius {
@@ -377,7 +369,7 @@ main {
 }
 
 .color-picker {
-    position: absolute;
+    position: fixed;
     bottom: 1vh;
     left: 50%;
     transform: translateX(-50%);
