@@ -30,3 +30,32 @@ function changeClassesOfCircles(circle1Class, circle2Class, circle3Class) {
     circle3.classList.remove(circle3.classList[1]);
     circle3.classList.add(circle3Class);
 }
+
+let lastKnownScrollPosition = 0;
+let ticking = false;
+
+function onScroll(scrollPos) {
+    let footer = document.querySelector("footer");
+    let header = document.querySelector("header");
+    if (scrollPos > 0) {
+        footer.classList.add("opacity-0");
+        header.classList.add("opacity-0");
+    }
+    if (scrollPos === 0) {
+        footer.classList.remove("opacity-0");
+        header.classList.remove("opacity-0");
+    }
+}
+
+document.addEventListener("scroll", (event) => {
+    lastKnownScrollPosition = window.scrollY;
+
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            onScroll(lastKnownScrollPosition);
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});

@@ -23,7 +23,8 @@
 
 body {
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    min-height: 300vh;
 }
 
 .circle {
@@ -75,7 +76,7 @@ body {
 }
 
 main {
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -380,6 +381,7 @@ main {
     transform: translateX(-50%);
     display: flex;
     justify-content: space-evenly;
+    transition: opacity .5s;
 }
 
 .color-picker-inner {
@@ -438,6 +440,7 @@ header {
     font-size: 3rem;
     text-align: center;
     color: gray;
+    transition: opacity .5s;
 }
 
 #color-picker-circle-active {
@@ -461,4 +464,8 @@ header {
 
 .color-combo-3 {
     left: 66.6666666%;
+}
+
+.opacity-0 {
+    opacity: 0;
 }
