@@ -41,12 +41,18 @@ function onScroll(scrollPos) {
     if (scrollPos > 20) {
         footer.classList.add("opacity-0");
         header.classList.add("opacity-0");
-        main.classList.add("main-full-size")
+        if (!main.classList.contains("main-full-size")) {
+            main.classList.add("main-end-wobbly-frame")
+        }
     }
     if (scrollPos < 20) {
         footer.classList.remove("opacity-0");
         header.classList.remove("opacity-0");
-        main.classList.remove("main-full-size")
+        main.classList.remove("main-end-wobbly-frame")
+        if (main.classList.contains("main-full-size")) {
+            main.classList.remove("main-full-size")
+            main.classList.remove("relax-border-radius");
+        }
     }
 }
 
@@ -60,5 +66,14 @@ document.addEventListener("scroll", (event) => {
         });
 
         ticking = true;
+    }
+});
+
+document.addEventListener("animationend", (event) => {
+    let main = document.querySelector("main");
+    if (event.animationName === "wobbly-frame-2") {
+        main.classList.add("relax-border-radius");
+        main.classList.add("main-full-size");
+        main.classList.remove("main-end-wobbly-frame");
     }
 });

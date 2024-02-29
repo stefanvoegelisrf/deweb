@@ -100,8 +100,45 @@ main {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    transition-property: height, width, overflow;
+    transition-property: height, width;
     transition-duration: 1s;
+    animation-play-state: running;
+}
+
+.main-end-wobbly-frame {
+    animation-iteration-count: 1;
+    animation-duration: 4s;
+}
+
+.main-full-size {
+    height: 100vh;
+    width: 100vw;
+}
+
+.relax-border-radius {
+    animation-name: relax-border-radius;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.add-border-radius {
+    animation-name: add-border-radius;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+
+@keyframes relax-border-radius {
+    0% {
+        border-radius: 40% 45% 50% 40%;
+    }
+
+    100% {
+        border-radius: 0%;
+    }
 }
 
 @keyframes change-frame {
@@ -115,52 +152,6 @@ main {
 
     100% {
         border-radius: 40%;
-    }
-}
-
-@keyframes wobbly-frame {
-    0% {
-        border-radius: 40% 40% 40% 40%;
-    }
-
-    10% {
-        border-radius: 30% 45% 40% 50%;
-    }
-
-    20% {
-        border-radius: 50% 25% 45% 40%;
-    }
-
-    30% {
-        border-radius: 35% 30% 50% 45%;
-    }
-
-    40% {
-        border-radius: 45% 50% 25% 30%;
-    }
-
-    50% {
-        border-radius: 40% 50% 35% 50%;
-    }
-
-    60% {
-        border-radius: 50% 30% 40% 45%;
-    }
-
-    70% {
-        border-radius: 50% 35% 50% 35%;
-    }
-
-    80% {
-        border-radius: 45% 40% 30% 30%;
-    }
-
-    90% {
-        border-radius: 30% 35% 45% 45%;
-    }
-
-    100% {
-        border-radius: 40% 40% 40% 40%;
     }
 }
 
