@@ -178,3 +178,16 @@ This page displays the acceleration and the orientation. Acceleration is not ava
 As an excercise to try out rotation circles and blending colors, I created another test page.
 
 > See: [Dancing circles](rotating-circles/)
+
+While creating this page, I learned a lot about creating smooth animations and also creating transitions between elements.
+
+TODO: Add docu about the following:
+- https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
+- https://css-tricks.com/controlling-css-animations-transitions-javascript/
+- https://www.w3schools.com/css/css3_transitions.asp
+- https://cubic-bezier.com/#.21,.6,.45,.81
+- https://www.color-name.com/hex/ffe103
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio
+- https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient
+- https://www.w3schools.com/css/css3_animations.asp
+- 
