@@ -37,13 +37,16 @@ let ticking = false;
 function onScroll(scrollPos) {
     let footer = document.querySelector("footer");
     let header = document.querySelector("header");
-    if (scrollPos > 0) {
+    let main = document.querySelector("main");
+    if (scrollPos > 20) {
         footer.classList.add("opacity-0");
         header.classList.add("opacity-0");
+        main.classList.add("main-full-size")
     }
-    if (scrollPos === 0) {
+    if (scrollPos < 20) {
         footer.classList.remove("opacity-0");
         header.classList.remove("opacity-0");
+        main.classList.remove("main-full-size")
     }
 }
 

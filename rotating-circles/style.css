@@ -90,7 +90,13 @@ main {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    transition-property: height, width;
+    transition-duration: 1s;
+}
 
+.main-full-size {
+    height: 98vh;
+    width: 96vw;
 }
 
 @keyframes change-frame {
