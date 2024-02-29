@@ -70,8 +70,11 @@ main {
     overflow: hidden;
     /* border: 1rem solid #C0C0C0; */
     border-radius: .2rem;
-    animation-name: change-frame;
-    animation-duration: 10s;
+    /* animation-name: change-frame; */
+    /* animation-name: wobbly-frame; */
+    animation-name: wobbly-frame-2;
+    /* animation-duration: 10s; */
+    animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 
@@ -88,6 +91,98 @@ main {
 
     100% {
         border-radius: 40%;
+    }
+}
+
+@keyframes wobbly-frame {
+    0% {
+        border-radius: 40% 40% 40% 40%;
+    }
+
+    10% {
+        border-radius: 30% 45% 40% 50%;
+    }
+
+    20% {
+        border-radius: 50% 25% 45% 40%;
+    }
+
+    30% {
+        border-radius: 35% 30% 50% 45%;
+    }
+
+    40% {
+        border-radius: 45% 50% 25% 30%;
+    }
+
+    50% {
+        border-radius: 40% 50% 35% 50%;
+    }
+
+    60% {
+        border-radius: 50% 30% 40% 45%;
+    }
+
+    70% {
+        border-radius: 50% 35% 50% 35%;
+    }
+
+    80% {
+        border-radius: 45% 40% 30% 30%;
+    }
+
+    90% {
+        border-radius: 30% 35% 45% 45%;
+    }
+
+    100% {
+        border-radius: 40% 40% 40% 40%;
+    }
+}
+
+@keyframes wobbly-frame-2 {
+    0% {
+        border-radius: 40% 45% 50% 40%;
+    }
+
+    10% {
+        border-radius: 45% 42% 48% 43%;
+    }
+
+    20% {
+        border-radius: 50% 40% 45% 40%;
+    }
+
+    30% {
+        border-radius: 47% 42% 40% 45%;
+    }
+
+    40% {
+        border-radius: 49% 45% 49% 42%;
+    }
+
+    50% {
+        border-radius: 43% 50% 45% 46%;
+    }
+
+    60% {
+        border-radius: 50% 42% 47% 45%;
+    }
+
+    70% {
+        border-radius: 48% 45% 42% 47%;
+    }
+
+    80% {
+        border-radius: 50% 40% 50% 49%;
+    }
+
+    90% {
+        border-radius: 45% 42% 47% 45%;
+    }
+
+    100% {
+        border-radius: 40% 45% 50% 40%;
     }
 }
 
