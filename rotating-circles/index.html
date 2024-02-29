@@ -30,22 +30,25 @@
         </div>
     </main>
     <footer class="color-picker">
-        <div class="color-picker-circle color-picker-cmy" onclick="changeToCMY()">
-            <span class="color-picker-mix-color cyan"></span>
-            <span class="color-picker-mix-color magenta"></span>
-            <span class="color-picker-mix-color yellow"></span>
+        <div class="color-picker-inner">
+            <div id="color-picker-circle-active" class="color-picker-circle-active color-combo-1"></div>
+            <div class="color-picker-circle color-picker-cmy" onclick="changeToCMY()">
+                <span class="color-picker-mix-color cyan"></span>
+                <span class="color-picker-mix-color magenta"></span>
+                <span class="color-picker-mix-color yellow"></span>
+            </div>
+            <div class="color-picker-circle color-picker-rgb" onclick="changeToRGB()">
+                <span class="color-picker-mix-color red"></span>
+                <span class="color-picker-mix-color green"></span>
+                <span class="color-picker-mix-color blue"></span>
+            </div>
+            <div class="color-picker-circle color-picker-ppy" onclick="changeToPPY()">
+                <span class="color-picker-mix-color bright-pink"></span>
+                <span class="color-picker-mix-color maximum-red-purple"></span>
+                <span class="color-picker-mix-color vivid-yellow"></span>
+            </div>
         </div>
-        <div class="color-picker-circle color-picker-rgb" onclick="changeToRGB()">
-            <span class="color-picker-mix-color red"></span>
-            <span class="color-picker-mix-color green"></span>
-            <span class="color-picker-mix-color blue"></span>
-        </div>
-        <div class="color-picker-circle color-picker-ppy" onclick="changeToPPY()">
-            <span class="color-picker-mix-color bright-pink"></span>
-            <span class="color-picker-mix-color maximum-red-purple"></span>
-            <span class="color-picker-mix-color vivid-yellow"></span>
-        </div>
-        </div>
+    </footer>
 </body>
 
 </html>

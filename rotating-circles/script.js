@@ -1,13 +1,22 @@
 function changeToCMY() {
     changeClassesOfCircles("magenta", "cyan", "yellow");
+    changeActiveColorCombo("color-combo-1");
 }
 
 function changeToRGB() {
     changeClassesOfCircles("blue", "red", "green");
+    changeActiveColorCombo("color-combo-2");
 }
 
 function changeToPPY() {
     changeClassesOfCircles("bright-pink", "maximum-red-purple", "vivid-yellow");
+    changeActiveColorCombo("color-combo-3");
+}
+
+function changeActiveColorCombo(combo) {
+    let colorPickerCircleActive = document.getElementById("color-picker-circle-active");
+    colorPickerCircleActive.classList.remove(colorPickerCircleActive.classList[1]);
+    colorPickerCircleActive.classList.add(combo);
 }
 
 function changeClassesOfCircles(circle1Class, circle2Class, circle3Class) {

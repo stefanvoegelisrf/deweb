@@ -2,6 +2,18 @@
     --circle-radius: 15vh;
 }
 
+@media (orientation: portrait) {
+    :root {
+        --color-picker-circle-radius: 4vw;
+    }
+}
+
+@media (orientation: landscape) {
+    :root {
+        --color-picker-circle-radius: 3vh;
+    }
+}
+
 * {
     /* border: 1px solid black; */
     box-sizing: border-box;
@@ -370,28 +382,20 @@ main {
     justify-content: space-evenly;
 }
 
+.color-picker-inner {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .color-picker-circle {
     margin: .5rem;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
+    height: calc(var(--color-picker-circle-radius) * 2);
+    width: calc(var(--color-picker-circle-radius) * 2);
 }
-
-@media (orientation: portrait) {
-    .color-picker-circle {
-        height: 8vw;
-        width: 8vw;
-    }
-}
-
-@media (orientation: landscape) {
-    .color-picker-circle {
-        height: 6vh;
-        width: 6vh;
-    }
-
-}
-
 
 .color-picker-mix-color {
     display: inline-block;
@@ -434,4 +438,27 @@ header {
     font-size: 3rem;
     text-align: center;
     color: gray;
+}
+
+#color-picker-circle-active {
+    position: absolute;
+    background-color: silver;
+    margin: .5rem;
+    height: calc(var(--color-picker-circle-radius) * 2);
+    width: calc(var(--color-picker-circle-radius) * 2);
+    border-radius: 50%;
+    scale: 1.2;
+    transition: left .5s;
+}
+
+.color-combo-1 {
+    left: 0%;
+}
+
+.color-combo-2 {
+    left: 33.3333333%;
+}
+
+.color-combo-3 {
+    left: 66.6666666%;
 }
