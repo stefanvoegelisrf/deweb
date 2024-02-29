@@ -39,14 +39,12 @@ function onScroll(scrollPos) {
     let header = document.querySelector("header");
     let main = document.querySelector("main");
     if (scrollPos > 20) {
-        footer.classList.add("opacity-0");
         header.classList.add("opacity-0");
         if (!main.classList.contains("main-full-size")) {
             main.classList.add("main-end-wobbly-frame")
         }
     }
     if (scrollPos < 20) {
-        footer.classList.remove("opacity-0");
         header.classList.remove("opacity-0");
         main.classList.remove("main-end-wobbly-frame")
         if (main.classList.contains("main-full-size")) {
