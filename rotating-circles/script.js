@@ -41,12 +41,13 @@ function onScroll(scrollPos) {
     if (scrollPos > 20) {
         header.classList.add("opacity-0");
         if (!main.classList.contains("main-full-size")) {
-            main.classList.add("main-end-wobbly-frame")
+            main.classList.add("animation-iteration-count")
         }
+        main.classList.add("main-full-size");
     }
     if (scrollPos < 20) {
         header.classList.remove("opacity-0");
-        main.classList.remove("main-end-wobbly-frame")
+        main.classList.remove("animation-iteration-count")
         if (main.classList.contains("main-full-size")) {
             main.classList.remove("main-full-size")
             main.classList.remove("relax-border-radius");
@@ -69,9 +70,8 @@ document.addEventListener("scroll", (event) => {
 
 document.addEventListener("animationend", (event) => {
     let main = document.querySelector("main");
-    if (event.animationName === "wobbly-frame-2") {
+    if (event.animationName === "wobbly-frame-3") {
         main.classList.add("relax-border-radius");
-        main.classList.add("main-full-size");
-        main.classList.remove("main-end-wobbly-frame");
+        main.classList.remove("animation-iteration-count");
     }
 });

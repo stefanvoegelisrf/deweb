@@ -39,11 +39,6 @@ body {
         width: 80vh;
     }
 
-    .main-full-size {
-        height: 98vh;
-        width: 98vh;
-    }
-
     @keyframes zoom-out {
         0% {
             transform: scale(10);
@@ -63,11 +58,6 @@ body {
     main {
         height: 80vw;
         width: 80vw;
-    }
-
-    .main-full-size {
-        height: 98vw;
-        width: 98vw;
     }
 
     @keyframes zoom-out {
@@ -95,9 +85,9 @@ main {
     border-radius: .2rem;
     /* animation-name: change-frame; */
     /* animation-name: wobbly-frame; */
-    animation-name: wobbly-frame-2;
+    animation-name: wobbly-frame-3;
     /* animation-duration: 10s; */
-    animation-duration: 6s;
+    animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     transition-property: height, width;
@@ -105,14 +95,13 @@ main {
     animation-play-state: running;
 }
 
-.main-end-wobbly-frame {
+.animation-iteration-count {
     animation-iteration-count: 1;
-    animation-duration: 4s;
 }
 
 .main-full-size {
-    height: 100vh;
-    width: 100vw;
+    height: 200vh;
+    width: 200vw;
 }
 
 .relax-border-radius {
@@ -125,7 +114,7 @@ main {
 
 @keyframes relax-border-radius {
     0% {
-        border-radius: 40% 45% 50% 40%;
+        border-radius: 45% 35% 45% 40%;
     }
 
     100% {
@@ -144,6 +133,28 @@ main {
 
     100% {
         border-radius: 40%;
+    }
+}
+
+@keyframes wobbly-frame-3 {
+    0% {
+        border-radius: 45% 35% 45% 40%;
+    }
+
+    25% {
+        border-radius: 35% 40% 35% 45%;
+    }
+
+    50% {
+        border-radius: 40% 35% 45% 35%;
+    }
+
+    75% {
+        border-radius: 35% 45% 40% 40%;
+    }
+
+    100% {
+        border-radius: 45% 35% 45% 40%;
     }
 }
 
