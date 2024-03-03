@@ -83,7 +83,12 @@ function handleTouch(event) {
 
 function handleSwitchClick() {
     let changeToMode = currentMode === "touch" ? "orientation" : "touch";
-    switchMode(changeToMode);
+    if (changeToMode === "touch") {
+        switchToTouchMode();
+    }
+    else {
+        switchToOrientationMode();
+    }
 }
 
 function switchToOrientationMode() {
