@@ -15,14 +15,14 @@ class CircleBox {
 let updateInterval;
 
 addEventListener("load", (event) => {
-    let deviceOrientationButton = document.getElementById("device-orientation-button");
-    deviceOrientationButton.addEventListener("click", onDeviceOrientationButtonClick);
+
     circleBoxRed = new CircleBox(document.getElementById("circle-box-red"));
     circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
     // check if is mobile device
     if (isMobileDevice()) {
-
+        let deviceOrientationButton = document.getElementById("device-orientation-button");
+        deviceOrientationButton.addEventListener("click", onDeviceOrientationButtonClick);
     }
     else {
         addEventListener("mousemove", handleMouseMove);
