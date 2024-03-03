@@ -86,28 +86,6 @@ body {
     animation-delay: 2s;
 }
 
-@keyframes rotate-left-right {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(70deg);
-    }
-
-    50% {
-        transform: rotate(0deg);
-    }
-
-    75% {
-        transform: rotate(-70deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
 .bg-red {
     background: radial-gradient(rgba(255, 0, 0, .7), rgba(255, 255, 255, 0.1));
 }
