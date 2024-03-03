@@ -1,5 +1,5 @@
 function changeToCMY() {
-    changeClassesOfCircles("magenta", "cyan", "yellow");
+    changeClassesOfCircles("bg-magenta", "bg-cyan", "bg-yellow");
     changeActiveColorCombo("color-combo-1");
 }
 
@@ -9,7 +9,7 @@ function changeToRGB() {
 }
 
 function changeToPPY() {
-    changeClassesOfCircles("bright-pink", "maximum-red-purple", "vivid-yellow");
+    changeClassesOfCircles("bg-bright-pink", "bg-maximum-red-purple", "bg-vivid-yellow");
     changeActiveColorCombo("color-combo-3");
 }
 
@@ -23,6 +23,15 @@ function changeClassesOfCircles(circle1Class, circle2Class, circle3Class) {
     let circle1 = document.getElementById("circle1");
     let circle2 = document.getElementById("circle2");
     let circle3 = document.getElementById("circle3");
+    let pendulumCircleBoxRed = document.getElementById("pendulum-circle-box-red").querySelector(".pendulum-circle");
+    let pendulumCircleBoxGreen = document.getElementById("pendulum-circle-box-green").querySelector(".pendulum-circle");
+    let pendulumCircleBoxBlue = document.getElementById("pendulum-circle-box-blue").querySelector(".pendulum-circle");
+    pendulumCircleBoxRed.classList.remove(pendulumCircleBoxRed.classList[1]);
+    pendulumCircleBoxRed.classList.add(circle1Class);
+    pendulumCircleBoxGreen.classList.remove(pendulumCircleBoxGreen.classList[1]);
+    pendulumCircleBoxGreen.classList.add(circle2Class);
+    pendulumCircleBoxBlue.classList.remove(pendulumCircleBoxBlue.classList[1]);
+    pendulumCircleBoxBlue.classList.add(circle3Class);
     circle1.classList.remove(circle1.classList[1]);
     circle1.classList.add(circle1Class);
     circle2.classList.remove(circle2.classList[1]);

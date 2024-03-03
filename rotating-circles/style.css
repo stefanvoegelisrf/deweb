@@ -157,27 +157,27 @@ main {
     background: radial-gradient(rgba(0, 0, 255, .7), rgba(255, 255, 255, 0.1));
 }
 
-.cyan {
+.bg-cyan {
     background: radial-gradient(rgba(0, 255, 255, 1), rgba(255, 255, 255, .1));
 }
 
-.magenta {
+.bg-magenta {
     background: radial-gradient(rgba(255, 0, 255, 1), rgba(255, 255, 255, .1));
 }
 
-.yellow {
+.bg-yellow {
     background: radial-gradient(rgba(255, 255, 0, 1), rgba(255, 255, 255, .1));
 }
 
-.bright-pink {
+.bg-bright-pink {
     background: radial-gradient(rgba(255, 2, 133, 1), rgba(255, 255, 255, 0.1));
 }
 
-.maximum-red-purple {
+.bg-maximum-red-purple {
     background: radial-gradient(rgba(170, 58, 116, 1), rgba(255, 255, 255, 0.1));
 }
 
-.vivid-yellow {
+.bg-vivid-yellow {
     background: radial-gradient(rgba(255, 255, 3, 1), rgba(255, 255, 255, 0.1));
 }
 
@@ -277,25 +277,25 @@ main {
     mix-blend-mode: multiply;
 }
 
-.color-picker-mix-color.cyan,
+.color-picker-mix-color.bgcyan,
 .color-picker-mix-color.bg-red,
-.color-picker-mix-color.maximum-red-purple {
+.color-picker-mix-color.bg-maximum-red-purple {
     top: -50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.color-picker-mix-color.magenta,
+.color-picker-mix-color.bg-magenta,
 .color-picker-mix-color.bg-blue,
-.color-picker-mix-color.bright-pink {
+.color-picker-mix-color.bg-bright-pink {
     left: -75%;
     bottom: -50%;
     transform: translate(-20%, 40%);
 }
 
-.color-picker-mix-color.yellow,
+.color-picker-mix-color.bg-yellow,
 .color-picker-mix-color.bg-green,
-.color-picker-mix-color.vivid-yellow {
+.color-picker-mix-color.bg-vivid-yellow {
     right: -75%;
     bottom: -50%;
     transform: translate(20%, 40%);
