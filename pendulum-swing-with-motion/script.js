@@ -46,7 +46,7 @@ function removeUpdateInterval(){
     clearInterval(updateInterval);
 }
 
-function onDeviceOrientationButtonClick() {
+function onDeviceOrientationModeClick() {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         // Handle iOS 13+ devices.
         DeviceOrientationEvent.requestPermission()
@@ -88,7 +88,7 @@ function switchToOrientationMode() {
     removeUpdateInterval();
     window.removeEventListener("touchmove", handleTouch);
     window.addEventListener("touchstart", handleTouch);
-    onDeviceOrientationButtonClick();
+    onDeviceOrientationModeClick();
 }
 
 function switchToTouchMode() {
