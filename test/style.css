@@ -1,14 +1,28 @@
 * {}
 
+@media (orientation:portrait) {
+    .container {
+        width: 80vw;
+        height: 80vw;
+    }
+}
+
+@media (orientation:landscape) {
+    .container {
+        width: 80vh;
+        height: 80vh;
+    }
+}
+
 .container {
-    width: 80vh;
-    height: 80vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    border: 1px black solid;
+    border: 1rem black solid;
+    /* background-color: black; */
     overflow: hidden;
+    transition-property: width, height;
 }
 
 .inner-container {
@@ -16,14 +30,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transform: scale(10);
+    /* transform: scale(5); */
 }
 
 .circle-container {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -70%);
     mix-blend-mode: difference;
 }
 
@@ -31,11 +45,12 @@
     width: 8rem;
     height: 16rem;
     position: relative;
-    animation-name: rotate-left-right;
+    /* animation-name: rotate-left-right; */
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     border: 1px black solid;
+    transition-property: rotate;
 }
 
 .circle {
@@ -44,7 +59,7 @@
     border-radius: 50%;
     position: absolute;
     bottom: 0;
-    border: 1px black solid;
+    /* border: 1px black solid; */
 }
 
 .delay-1s {
