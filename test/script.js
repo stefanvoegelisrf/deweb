@@ -1,6 +1,23 @@
+let circleBoxRed, circleBoxGreen, circleBoxBlue;
+
+class CircleBox {
+    rotate = 0;
+    element;
+    constructor(element) {
+        this.element = element;
+    }
+    update = function () {
+        this.element.style.rotate = `${this.rotate}deg`;
+        console.log(this.rotate);
+    }
+}
+
 addEventListener("load", (event) => {
     let deviceOrientationButton = document.getElementById("device-orientation-button");
     deviceOrientationButton.addEventListener("click", onDeviceOrientationButtonClick);
+    circleBoxRed = new CircleBox(document.getElementById("circle-box-red"));
+    circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
+    circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
 });
 
 function onDeviceOrientationButtonClick() {
@@ -22,14 +39,20 @@ function onDeviceOrientationButtonClick() {
 }
 
 function handleOrientation(event) {
-    let circleBoxRed = document.getElementById("circle-box-red");
-    let circleBoxGreen = document.getElementById("circle-box-green");
-    let circleBoxBlue = document.getElementById("circle-box-blue");
-    let beta = event.beta - 90;
-    // circleBoxRed.style.rotate = `${event.alpha}deg`;
-    // circleBoxGreen.style.rotate = `${beta}deg`;
-    circleBoxRed.style.rotate = `${event.gamma}deg`;
-    circleBoxGreen.style.rotate = `${event.gamma}deg`;
-    circleBoxBlue.style.rotate = `${event.gamma}deg`;
     console.log(`alpha: ${event.alpha}, beta: ${event.beta}, gamma: ${event.gamma}`);
+    circleBoxRed.rotate = lerp(circleBoxRed.rotate, event.gamma, 0.1);
+    circleBoxGreen.rotate = lerp(circleBoxGreen.rotate, event.gamma, 0.2);
+    circleBoxBlue.rotate = lerp(circleBoxBlue.rotate, event.gamma, 0.3);
+    window.requestAnimationFrame(updateCircleBoxes);
+}
+
+function updateCircleBoxes(){
+    circleBoxRed.update();
+    circleBoxGreen.update();
+    circleBoxBlue.update();
+}
+
+
+function lerp(start, end, amt) {
+    return (1 - amt) * start + amt * end;
 }
