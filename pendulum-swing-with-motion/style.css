@@ -19,14 +19,6 @@ body {
     }
 }
 
-#device-orientation-button {
-    z-index: 10;
-    bottom: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .container {
     margin: 0 auto;
 }
