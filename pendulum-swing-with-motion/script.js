@@ -20,17 +20,17 @@ addEventListener("load", (event) => {
     circleBoxRed = new CircleBox(document.getElementById("circle-box-red"));
     circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
-    let modeSelectContainer = document.getElementById("mode-select-container");
-    modeSelectContainer.addEventListener("click", handleSwitchClick);
-    let touchModeIcon = document.getElementById("touch-mode-icon");
-    touchModeIcon.addEventListener("click", () => switchMode("touch"));
-    let orientationModeIcon = document.getElementById("orientation-mode-icon");
-    orientationModeIcon.addEventListener("click", () => switchMode("orientation"));
     if (isMobileDevice()) {
+        let modeSelectContainer = document.getElementById("mode-select-container");
+        modeSelectContainer.addEventListener("click", handleSwitchClick);
+        let touchModeIcon = document.getElementById("touch-mode-icon");
+        touchModeIcon.addEventListener("click", () => switchToTouchMode());
+        let orientationModeIcon = document.getElementById("orientation-mode-icon");
+        orientationModeIcon.addEventListener("click", () => switchToOrientationMode());
     }
     else {
-        // let modeSelectContainer = document.getElementById("mode-container");
-        // modeSelectContainer.classList.add("hidden");
+        let modeSelectContainer = document.getElementById("mode-container");
+        modeSelectContainer.classList.add("hidden");
         addEventListener("mousemove", handleMouseMove);
         updateInterval = setInterval(() => {
             updateCircleBoxes(previousRotateValue, 0.2);
@@ -46,7 +46,7 @@ function onDeviceOrientationButtonClick() {
                 if (state === 'granted') {
                     window.addEventListener('deviceorientation', handleOrientation);
                 } else {
-                    console.error('Request to access the orientation was rejected');
+                    switchToTouchMode();
                 }
             })
             .catch(console.error);
@@ -57,7 +57,6 @@ function onDeviceOrientationButtonClick() {
 }
 
 function handleOrientation(event) {
-    console.log(`alpha: ${event.alpha}, beta: ${event.beta}, gamma: ${event.gamma}`);
     window.requestAnimationFrame(() => {
         updateCircleBoxes(event.gamma);
     });
@@ -72,16 +71,24 @@ function handleTouch(event) {
 }
 
 function handleSwitchClick() {
-    if (currentMode === "touch") {
-        currentMode = "orientation";
-    }
-    else {
-        currentMode = "touch";
-    }
-    switchMode(currentMode);
+    let changeToMode = currentMode === "touch" ? "orientation" : "touch";
+    switchMode(changeToMode);
+}
+
+function switchToOrientationMode() {
+    switchMode("orientation");
+    window.removeEventListener("touchmove", handleTouch);
+    onDeviceOrientationButtonClick();
+}
+
+function switchToTouchMode() {
+    switchMode("touch");
+    window.removeEventListener('deviceorientation', handleOrientation);
+    window.addEventListener("touchmove", handleTouch);
 }
 
 function switchMode(mode) {
+    currentMode = mode;
     let modeSelectContainer = document.getElementById("mode-select-container");
     if (mode === "orientation") {
         modeSelectContainer.classList.add("orientation-active");
