@@ -20,29 +20,31 @@ addEventListener("load", (event) => {
     circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
     if (isMobileDevice()) {
+        console.log("Setting up for mobile device");
         let modeContainer = document.getElementById("mode-container");
         modeContainer.classList.remove("hidden");
         let modeSelectContainer = document.getElementById("mode-select-container");
         modeSelectContainer.addEventListener("click", handleSwitchClick);
         let touchModeIcon = document.getElementById("touch-mode-icon");
-        touchModeIcon.addEventListener("click", () => switchToTouchMode());
+        touchModeIcon.addEventListener("click", switchToTouchMode);
         let orientationModeIcon = document.getElementById("orientation-mode-icon");
-        orientationModeIcon.addEventListener("click", () => switchToOrientationMode());
+        orientationModeIcon.addEventListener("click", switchToOrientationMode);
         switchToTouchMode();
     }
     else {
+        console.log("Setting up for desktop");
         addEventListener("mousemove", handleMouseMove);
         addUpdateInterval();
     }
 });
 
-function addUpdateInterval(){
+function addUpdateInterval() {
     updateInterval = setInterval(() => {
         updateCircleBoxes(previousRotateValue, 0.2);
     }, 10);
 }
 
-function removeUpdateInterval(){
+function removeUpdateInterval() {
     clearInterval(updateInterval);
 }
 
@@ -65,6 +67,7 @@ function onDeviceOrientationModeClick() {
 }
 
 function handleOrientation(event) {
+    console.log("Handling orientation");
     window.requestAnimationFrame(() => {
         updateCircleBoxes(event.gamma);
     });
@@ -85,10 +88,12 @@ function handleSwitchClick() {
 
 function switchToOrientationMode() {
     switchMode("orientation");
+    console.log("Switching to orientation mode");
     removeUpdateInterval();
     window.removeEventListener("touchmove", handleTouch);
-    window.addEventListener("touchstart", handleTouch);
+    window.removeEventListener("touchstart", handleTouch);
     onDeviceOrientationModeClick();
+
 }
 
 function switchToTouchMode() {
@@ -100,7 +105,6 @@ function switchToTouchMode() {
 }
 
 function switchMode(mode) {
-    console.log("Switching to mode: " + mode);
     currentMode = mode;
     let modeSelectContainer = document.getElementById("mode-select-container");
     if (mode === "orientation") {
