@@ -15,6 +15,7 @@
       - [Accessing device sensors](#accessing-device-sensors)
         - [Documentation resources](#documentation-resources)
       - [Trying out blending circles](#trying-out-blending-circles)
+      - [Trying out pendulum with touch/mouse and orientation](#trying-out-pendulum-with-touchmouse-and-orientation)
 
 
 ## Wiki for module
@@ -190,4 +191,7 @@ TODO: Add docu about the following:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio
 - https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient
 - https://www.w3schools.com/css/css3_animations.asp
-- 
+
+#### Trying out pendulum with touch/mouse and orientation
+
+> See: [Pendulum swing with motion](pendulum-swing-with-motion/)
