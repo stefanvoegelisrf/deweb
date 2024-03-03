@@ -116,9 +116,10 @@ body {
 
 .mode-icon {
     width: 2rem;
+    cursor: pointer;
 }
 
-.mode-container {
+#mode-container {
     padding: .5rem;
     background-color: silver;
     width: max-content;
@@ -129,6 +130,7 @@ body {
     border-radius: 2rem;
     display: flex;
     gap: .5rem;
+    z-index: 100;
 }
 
 .mode-select-container {
@@ -137,6 +139,7 @@ body {
     background-color: white;
     border-radius: 1rem;
     position: relative;
+    cursor: pointer;
 }
 
 .mode-select-circle {
@@ -170,4 +173,8 @@ body {
 
 .orientation-active>.mode-select-circle {
     left: 2rem;
+}
+
+.hidden {
+    display: none !important;
 }

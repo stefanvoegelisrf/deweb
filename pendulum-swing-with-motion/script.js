@@ -1,5 +1,6 @@
 let circleBoxRed, circleBoxGreen, circleBoxBlue;
 let previousRotateValue = 0;
+let currentMode = "touch";
 
 class CircleBox {
     rotate = 0;
@@ -19,12 +20,17 @@ addEventListener("load", (event) => {
     circleBoxRed = new CircleBox(document.getElementById("circle-box-red"));
     circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
-    // check if is mobile device
+    let modeSelectContainer = document.getElementById("mode-select-container");
+    modeSelectContainer.addEventListener("click", handleSwitchClick);
+    let touchModeIcon = document.getElementById("touch-mode-icon");
+    touchModeIcon.addEventListener("click", () => switchMode("touch"));
+    let orientationModeIcon = document.getElementById("orientation-mode-icon");
+    orientationModeIcon.addEventListener("click", () => switchMode("orientation"));
     if (isMobileDevice()) {
-        let deviceOrientationButton = document.getElementById("device-orientation-button");
-        deviceOrientationButton.addEventListener("click", onDeviceOrientationButtonClick);
     }
     else {
+        // let modeSelectContainer = document.getElementById("mode-container");
+        // modeSelectContainer.classList.add("hidden");
         addEventListener("mousemove", handleMouseMove);
         updateInterval = setInterval(() => {
             updateCircleBoxes(previousRotateValue, 0.2);
@@ -63,6 +69,28 @@ function handleMouseMove(event) {
 
 function handleTouch(event) {
     handleXChange(event.touches[0].clientX);
+}
+
+function handleSwitchClick() {
+    if (currentMode === "touch") {
+        currentMode = "orientation";
+    }
+    else {
+        currentMode = "touch";
+    }
+    switchMode(currentMode);
+}
+
+function switchMode(mode) {
+    let modeSelectContainer = document.getElementById("mode-select-container");
+    if (mode === "orientation") {
+        modeSelectContainer.classList.add("orientation-active");
+        modeSelectContainer.classList.remove("touch-active");
+    }
+    else {
+        modeSelectContainer.classList.add("touch-active");
+        modeSelectContainer.classList.remove("orientation-active");
+    }
 }
 
 function handleXChange(x) {
