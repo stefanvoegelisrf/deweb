@@ -36,7 +36,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
-    mix-blend-mode: difference;
+    mix-blend-mode: multiply;
 }
 
 .circle-box {
@@ -136,4 +136,38 @@ body {
     width: 4rem;
     background-color: white;
     border-radius: 1rem;
+    position: relative;
+}
+
+.mode-select-circle {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    transition: left;
+    border-radius: 1rem;
+    mix-blend-mode: multiply;
+}
+
+.mode-select-circle-red {
+    background: radial-gradient(rgba(255, 0, 0, .7), rgba(0, 0, 0, .3));
+    transition-duration: .2s;
+}
+
+.mode-select-circle-green {
+    background: radial-gradient(rgba(0, 255, 0, .7), rgba(0, 0, 0, .3));
+    transition-duration: .4s;
+}
+
+.mode-select-circle-blue {
+    background: radial-gradient(rgba(0, 0, 255, .7), rgba(0, 0, 0, .3));
+    transition-duration: .6s;
+}
+
+.touch-active>.mode-select-circle {
+    left: 0;
+}
+
+.orientation-active>.mode-select-circle {
+    left: 2rem;
 }
