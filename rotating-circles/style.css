@@ -75,7 +75,7 @@ body {
 }
 
 main {
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -88,47 +88,6 @@ main {
     transition-property: height, width;
     transition-duration: 1.5s;
     animation-play-state: running;
-}
-
-.animation-iteration-count {
-    animation-iteration-count: 1;
-}
-
-.main-full-size {
-    height: 200vh;
-    width: 200vw;
-}
-
-.relax-border-radius {
-    animation-name: relax-border-radius;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-}
-
-@keyframes relax-border-radius {
-    0% {
-        border-radius: 45% 35% 45% 40%;
-    }
-
-    100% {
-        border-radius: 0%;
-    }
-}
-
-@keyframes change-frame {
-    0% {
-        border-radius: 40%;
-    }
-
-    50% {
-        border-radius: 50%;
-    }
-
-    100% {
-        border-radius: 40%;
-    }
 }
 
 @keyframes wobbly-frame-3 {
@@ -153,7 +112,7 @@ main {
     }
 }
 
-.container {
+.rotating-circles-container {
     position: relative;
     width: 100%;
     height: 100%;
@@ -235,30 +194,7 @@ main {
     animation-iteration-count: infinite;
 }
 
-.rotate-left-right {
-    animation-name: rotate-left-right;
-    animation-duration: 5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
 
-@keyframes rotate-left-right {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(-90deg);
-    }
-
-    75% {
-        transform: rotate(90deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
 
 .move-up-down {
     animation-name: move-up-down;
@@ -303,28 +239,6 @@ main {
 
     100% {
         transform: rotate(-360deg);
-    }
-}
-
-@keyframes move-clockwise {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(50%, 50%);
-    }
-
-    50% {
-        transform: translate(0%, 100%);
-    }
-
-    75% {
-        transform: translate(-50%, 50%);
-    }
-
-    100% {
-        transform: translate(0, 0%)
     }
 }
 
