@@ -1,4 +1,6 @@
-* {}
+:root{
+    --circle-radius: 4rem;
+}
 
 @media (orientation:portrait) {
     .container {
@@ -50,8 +52,8 @@
 }
 
 .circle-box {
-    width: 8rem;
-    height: 16rem;
+    width: calc(var(--circle-radius) * 2);
+    height: calc(var(--circle-radius) * 8);
     position: relative;
     /* animation-name: rotate-left-right; */
     animation-duration: 3s;
@@ -61,9 +63,20 @@
     transition-property: rotate;
 }
 
+.circle-box::before{
+    content: "";
+    display: inline-block;
+    height: calc(var(--circle-radius) * 2);
+    border: 1px black solid;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
 .circle {
-    width: 8rem;
-    height: 8rem;
+    width: calc(var(--circle-radius) * 2);
+    height: calc(var(--circle-radius) * 2);
     border-radius: 50%;
     position: absolute;
     bottom: 0;
