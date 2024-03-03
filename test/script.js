@@ -1,7 +1,25 @@
 addEventListener("load", (event) => {
-    console.log("Page loaded");
-    window.addEventListener('deviceorientation', handleOrientation);
+    let deviceOrientationButton = document.getElementById("device-orientation-button");
+    deviceOrientationButton.addEventListener("click", onDeviceOrientationButtonClick);
 });
+
+function onDeviceOrientationButtonClick() {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        // Handle iOS 13+ devices.
+        DeviceOrientationEvent.requestPermission()
+            .then((state) => {
+                if (state === 'granted') {
+                    window.addEventListener('deviceorientation', handleOrientation);
+                } else {
+                    console.error('Request to access the orientation was rejected');
+                }
+            })
+            .catch(console.error);
+    } else {
+        // Handle regular non iOS 13+ devices.
+        window.addEventListener('deviceorientation', handleOrientation);
+    }
+}
 
 function handleOrientation(event) {
     let circleBoxRed = document.getElementById("circle-box-red");
