@@ -7,5 +7,6 @@ function isMobileDevice() {
             isMobile = true;
         }
     });
+    alert("isMobile: " + isMobile);
     return isMobile;
 }
