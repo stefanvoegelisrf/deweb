@@ -9,7 +9,7 @@ class CircleBox {
         this.element = element;
     }
     update = function () {
-        this.element.style.rotate = `${this.rotate}deg`;
+        this.element.style.transform = `rotate(${this.rotate}deg)`;
     }
 }
 
@@ -88,7 +88,6 @@ function handleSwitchClick() {
 
 function switchToOrientationMode() {
     switchMode("orientation");
-    console.log("Switching to orientation mode");
     removeUpdateInterval();
     window.removeEventListener("touchmove", handleTouch);
     window.removeEventListener("touchstart", handleTouch);
@@ -105,6 +104,7 @@ function switchToTouchMode() {
 }
 
 function switchMode(mode) {
+    alert("Switching to " + mode);
     currentMode = mode;
     let modeSelectContainer = document.getElementById("mode-select-container");
     if (mode === "orientation") {
