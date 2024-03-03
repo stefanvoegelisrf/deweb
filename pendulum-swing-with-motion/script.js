@@ -21,6 +21,8 @@ addEventListener("load", (event) => {
     circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
     if (isMobileDevice()) {
+        let modeContainer = document.getElementById("mode-container");
+        modeContainer.classList.remove("hidden");
         let modeSelectContainer = document.getElementById("mode-select-container");
         modeSelectContainer.addEventListener("click", handleSwitchClick);
         let touchModeIcon = document.getElementById("touch-mode-icon");
@@ -29,8 +31,6 @@ addEventListener("load", (event) => {
         orientationModeIcon.addEventListener("click", () => switchToOrientationMode());
     }
     else {
-        let modeSelectContainer = document.getElementById("mode-container");
-        modeSelectContainer.classList.add("hidden");
         addEventListener("mousemove", handleMouseMove);
         updateInterval = setInterval(() => {
             updateCircleBoxes(previousRotateValue, 0.2);
