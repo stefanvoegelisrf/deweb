@@ -7,7 +7,6 @@ body {
     overflow: hidden;
 }
 
-
 @media (orientation:portrait) {
     html {
         font-size: 3vw;
