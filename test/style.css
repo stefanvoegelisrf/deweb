@@ -14,8 +14,12 @@
     }
 }
 
-#device-orientation-button{
+#device-orientation-button {
     z-index: 10;
+    bottom: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .container {
@@ -27,12 +31,11 @@
     /* background-color: black; */
     overflow: hidden;
     transition-property: width, height;
-    text-align: center;
 }
 
 .inner-container {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* transform: scale(5); */
