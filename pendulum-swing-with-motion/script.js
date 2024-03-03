@@ -124,7 +124,7 @@ function handleXChange(x) {
 }
 
 function updateCircleBoxes(newRotateValue, lerpFactor = 1) {
-    circleBoxRed.rotate = newRotateValue;
+    circleBoxRed.rotate = lerp(circleBoxRed.rotate, newRotateValue, 0.1 * lerpFactor);
     circleBoxGreen.rotate = lerp(circleBoxGreen.rotate, newRotateValue, 0.2 * lerpFactor);
     circleBoxBlue.rotate = lerp(circleBoxBlue.rotate, newRotateValue, 0.4 * lerpFactor);
     circleBoxRed.update();
