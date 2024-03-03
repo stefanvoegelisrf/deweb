@@ -26,8 +26,10 @@ function handleOrientation(event) {
     let circleBoxGreen = document.getElementById("circle-box-green");
     let circleBoxBlue = document.getElementById("circle-box-blue");
     let beta = event.beta - 90;
-    circleBoxRed.style.rotate = `${event.alpha}deg`;
-    circleBoxGreen.style.rotate = `${beta}deg`;
+    // circleBoxRed.style.rotate = `${event.alpha}deg`;
+    // circleBoxGreen.style.rotate = `${beta}deg`;
+    circleBoxRed.style.rotate = `${event.gamma}deg`;
+    circleBoxGreen.style.rotate = `${event.gamma}deg`;
     circleBoxBlue.style.rotate = `${event.gamma}deg`;
     console.log(`alpha: ${event.alpha}, beta: ${event.beta}, gamma: ${event.gamma}`);
 }
