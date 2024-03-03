@@ -2,6 +2,10 @@
     --circle-radius: 4rem;
 }
 
+body {
+    margin: 0;
+}
+
 
 @media (orientation:portrait) {
     html {
@@ -23,6 +27,10 @@
     transform: translateX(-50%);
 }
 
+.container {
+    margin: 0 auto;
+}
+
 .circle-container {
     position: absolute;
     top: 50%;
@@ -35,11 +43,9 @@
     width: calc(var(--circle-radius) * 2);
     height: calc(var(--circle-radius) * 8);
     position: relative;
-    /* animation-name: rotate-left-right; */
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    /* border: 1px black solid; */
     transition-property: transform;
     transition-duration: .1s;
 }
@@ -47,17 +53,15 @@
 .circle-box::before {
     content: "";
     display: inline-block;
-    height: calc(var(--circle-radius) * 2);
+    height: calc(var(--circle-radius) * 2.08);
     width: 1rem;
     left: 50%;
-    top: 50%;
-    border-radius: 25% 25% 0 0;
+    top: 49%;
+    border-radius: 1rem 1rem 0 0;
     transform: translateX(-50%);
     position: absolute;
-    background: linear-gradient(0.25turn, black, white, black);
+    background: linear-gradient(0.25turn, silver, white, silver);
     background-color: silver;
-    border: .1rem solid black;
-    mix-blend-mode: normal !important;
 }
 
 .circle {
@@ -66,7 +70,6 @@
     border-radius: 50%;
     position: absolute;
     bottom: 0;
-    /* border: 1px black solid; */
 }
 
 .delay-1s {
@@ -100,13 +103,37 @@
 }
 
 .bg-red {
-    background-color: red;
+    background: radial-gradient(rgba(255, 0, 0, .7), rgba(255, 255, 255, 0.1));
 }
 
 .bg-green {
-    background-color: green;
+    background: radial-gradient(rgba(0, 255, 0, .7), rgba(255, 255, 255, 0.1));
 }
 
 .bg-blue {
-    background-color: blue;
+    background: radial-gradient(rgba(0, 0, 255, .7), rgba(255, 255, 255, 0.1));
+}
+
+.mode-icon {
+    width: 2rem;
+}
+
+.mode-container {
+    padding: .5rem;
+    background-color: silver;
+    width: max-content;
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+    display: flex;
+    gap: .5rem;
+}
+
+.mode-select-container {
+    display: inline-block;
+    width: 4rem;
+    background-color: white;
+    border-radius: 1rem;
 }

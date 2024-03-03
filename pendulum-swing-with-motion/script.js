@@ -58,8 +58,14 @@ function handleOrientation(event) {
 }
 
 function handleMouseMove(event) {
-    // Map x position to degrees, left side of screen is between -90 and 0, right side is between 0 and 90
-    let x = event.clientX;
+    handleXChange(event.clientX);
+}
+
+function handleTouch(event) {
+    handleXChange(event.touches[0].clientX);
+}
+
+function handleXChange(x) {
     let width = window.innerWidth;
     let rotateValue = (x / width) * 180 - 90;
     previousRotateValue = rotateValue;
