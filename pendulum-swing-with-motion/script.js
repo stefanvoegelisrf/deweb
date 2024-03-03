@@ -16,9 +16,9 @@ class CircleBox {
 let updateInterval;
 
 addEventListener("load", (event) => {
-    circleBoxRed = new CircleBox(document.getElementById("circle-box-red"));
-    circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
-    circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
+    circleBoxRed = new CircleBox(document.getElementById("pendulum-circle-box-red"));
+    circleBoxGreen = new CircleBox(document.getElementById("pendulum-circle-box-green"));
+    circleBoxBlue = new CircleBox(document.getElementById("pendulum-circle-box-blue"));
     if (isMobileDevice()) {
         console.log("Setting up for mobile device");
         let modeContainer = document.getElementById("mode-container");
