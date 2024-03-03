@@ -104,7 +104,6 @@ function switchToTouchMode() {
 }
 
 function switchMode(mode) {
-    alert("Switching to " + mode);
     currentMode = mode;
     let modeSelectContainer = document.getElementById("mode-select-container");
     if (mode === "orientation") {
