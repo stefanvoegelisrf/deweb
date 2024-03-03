@@ -2,17 +2,16 @@
     --circle-radius: 4rem;
 }
 
+
 @media (orientation:portrait) {
-    .container {
-        width: 80vw;
-        height: 80vw;
+    html {
+        font-size: 3vw;
     }
 }
 
 @media (orientation:landscape) {
-    .container {
-        width: 80vh;
-        height: 80vh;
+    html {
+        font-size: 3vh;
     }
 }
 
@@ -22,24 +21,6 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.container {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    border: 1rem black solid;
-    /* background-color: black; */
-    overflow: hidden;
-    transition-property: width, height;
-}
-
-.inner-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .circle-container {
@@ -74,6 +55,7 @@
     transform: translateX(-50%);
     position: absolute;
     background-color: silver;
+    border: .1rem solid black;
 }
 
 .circle {
