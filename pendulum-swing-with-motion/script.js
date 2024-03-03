@@ -40,13 +40,16 @@ function onDeviceOrientationButtonClick() {
 
 function handleOrientation(event) {
     console.log(`alpha: ${event.alpha}, beta: ${event.beta}, gamma: ${event.gamma}`);
-    circleBoxRed.rotate = lerp(circleBoxRed.rotate, event.gamma, 0.1);
-    circleBoxGreen.rotate = lerp(circleBoxGreen.rotate, event.gamma, 0.2);
-    circleBoxBlue.rotate = lerp(circleBoxBlue.rotate, event.gamma, 0.3);
-    window.requestAnimationFrame(updateCircleBoxes);
+    window.requestAnimationFrame(() => {
+        updateCircleBoxes(event.gamma);
+    });
+
 }
 
-function updateCircleBoxes(){
+function updateCircleBoxes(newRotateValue) {
+    circleBoxRed.rotate = newRotateValue;
+    circleBoxGreen.rotate = lerp(circleBoxGreen.rotate, newRotateValue, 0.2);
+    circleBoxBlue.rotate = lerp(circleBoxBlue.rotate, newRotateValue, 0.4);
     circleBoxRed.update();
     circleBoxGreen.update();
     circleBoxBlue.update();

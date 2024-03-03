@@ -68,12 +68,12 @@
     display: inline-block;
     height: calc(var(--circle-radius) * 2);
     width: 1rem;
-    border: 1px black solid;
     left: 50%;
     top: 50%;
     border-radius: 25% 25% 0 0;
     transform: translateX(-50%);
     position: absolute;
+    background-color: silver;
 }
 
 .circle {
