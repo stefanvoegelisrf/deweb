@@ -59,7 +59,8 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     /* border: 1px black solid; */
-    transition-property: rotate;
+    transition-property: transform;
+    transition-duration: .1s;
 }
 
 .circle-box::before {

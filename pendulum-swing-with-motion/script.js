@@ -1,4 +1,5 @@
 let circleBoxRed, circleBoxGreen, circleBoxBlue;
+let previousRotateValue = 0;
 
 class CircleBox {
     rotate = 0;
@@ -8,7 +9,6 @@ class CircleBox {
     }
     update = function () {
         this.element.style.rotate = `${this.rotate}deg`;
-        console.log(this.rotate);
     }
 }
 
@@ -26,6 +26,9 @@ addEventListener("load", (event) => {
     }
     else {
         addEventListener("mousemove", handleMouseMove);
+        updateInterval = setInterval(() => {
+            updateCircleBoxes(previousRotateValue, 0.2);
+        }, 10);
     }
 });
 
@@ -59,7 +62,8 @@ function handleMouseMove(event) {
     let x = event.clientX;
     let width = window.innerWidth;
     let rotateValue = (x / width) * 180 - 90;
-    updateCircleBoxes(rotateValue, 0.5);
+    previousRotateValue = rotateValue;
+    updateCircleBoxes(rotateValue, 0.2);
 }
 
 function updateCircleBoxes(newRotateValue, lerpFactor = 1) {
