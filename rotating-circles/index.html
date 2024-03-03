@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotating circles</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="detect-mobile-browser.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,32 @@
             </div>
         </div>
     </main>
+    <section class="pendulum-container">
+        <div id="mode-container" class="hidden">
+            <img src="touch_app_FILL0_wght400_GRAD0_opsz24.svg" alt="Touch mode" class="mode-icon" id="touch-mode-icon">
+            <div id="mode-select-container" class="mode-select-container touch-active">
+                <span class="mode-select-circle mode-select-circle-red"></span>
+                <span class="mode-select-circle mode-select-circle-green"></span>
+                <span class="mode-select-circle mode-select-circle-blue"></span>
+            </div>
+            <img src="screen_rotation_FILL0_wght400_GRAD0_opsz24.svg" alt="Orientation mode" class="mode-icon" id="orientation-mode-icon">
+        </div>
+        <div class="pendulum-circle-container">
+            <div class="pendulum-circle-box delay-1s" id="pendulum-circle-box-red">
+                <div class="pendulum-circle bg-red"></div>
+            </div>
+        </div>
+        <div class="pendulum-circle-container">
+            <div class="pendulum-circle-box" id="pendulum-circle-box-green">
+                <div class="pendulum-circle bg-green"></div>
+            </div>
+        </div>
+        <div class="pendulum-circle-container">
+            <div class="pendulum-circle-box delay-2s" id="pendulum-circle-box-blue">
+                <div class="pendulum-circle bg-blue"></div>
+            </div>
+        </div>
+    </section>
     <footer class="color-picker">
         <div class="color-picker-inner">
             <div id="color-picker-circle-active" class="color-picker-circle-active color-combo-1"></div>
@@ -38,9 +65,9 @@
                 <span class="color-picker-mix-color yellow"></span>
             </div>
             <div class="color-picker-circle color-picker-rgb" onclick="changeToRGB()">
-                <span class="color-picker-mix-color red"></span>
-                <span class="color-picker-mix-color green"></span>
-                <span class="color-picker-mix-color blue"></span>
+                <span class="color-picker-mix-color bg-red"></span>
+                <span class="color-picker-mix-color bg-green"></span>
+                <span class="color-picker-mix-color bg-blue"></span>
             </div>
             <div class="color-picker-circle color-picker-ppy" onclick="changeToPPY()">
                 <span class="color-picker-mix-color bright-pink"></span>
