@@ -178,7 +178,7 @@ This page displays the acceleration and the orientation. Acceleration is not ava
 #### Trying out blending circles
 As an excercise to try out rotation circles and blending colors, I created another test page.
 
-> See: [Dancing circles](rotating-circles/)
+> See: [Dancing circles](color-dance/)
 
 While creating this page, I learned a lot about creating smooth animations and also creating transitions between elements.
 
