@@ -16,7 +16,6 @@ class CircleBox {
 let updateInterval;
 
 addEventListener("load", (event) => {
-
     circleBoxRed = new CircleBox(document.getElementById("circle-box-red"));
     circleBoxGreen = new CircleBox(document.getElementById("circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("circle-box-blue"));
@@ -29,14 +28,23 @@ addEventListener("load", (event) => {
         touchModeIcon.addEventListener("click", () => switchToTouchMode());
         let orientationModeIcon = document.getElementById("orientation-mode-icon");
         orientationModeIcon.addEventListener("click", () => switchToOrientationMode());
+        switchToTouchMode();
     }
     else {
         addEventListener("mousemove", handleMouseMove);
-        updateInterval = setInterval(() => {
-            updateCircleBoxes(previousRotateValue, 0.2);
-        }, 10);
+        addUpdateInterval();
     }
 });
+
+function addUpdateInterval(){
+    updateInterval = setInterval(() => {
+        updateCircleBoxes(previousRotateValue, 0.2);
+    }, 10);
+}
+
+function removeUpdateInterval(){
+    clearInterval(updateInterval);
+}
 
 function onDeviceOrientationButtonClick() {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -77,7 +85,9 @@ function handleSwitchClick() {
 
 function switchToOrientationMode() {
     switchMode("orientation");
+    removeUpdateInterval();
     window.removeEventListener("touchmove", handleTouch);
+    window.addEventListener("touchstart", handleTouch);
     onDeviceOrientationButtonClick();
 }
 
@@ -85,9 +95,12 @@ function switchToTouchMode() {
     switchMode("touch");
     window.removeEventListener('deviceorientation', handleOrientation);
     window.addEventListener("touchmove", handleTouch);
+    window.addEventListener("touchstart", handleTouch);
+    addUpdateInterval();
 }
 
 function switchMode(mode) {
+    console.log("Switching to mode: " + mode);
     currentMode = mode;
     let modeSelectContainer = document.getElementById("mode-select-container");
     if (mode === "orientation") {
