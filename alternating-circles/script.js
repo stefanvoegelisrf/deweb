@@ -6,8 +6,10 @@ window.onload = function () {
     setTimeout(function () {
         addCircleInterval = setInterval(addInitialCirclesInterval, 200);
     }, 500);
-    let alternatingCirclesContainer = document.getElementById("alternating-circles-container");
-    alternatingCirclesContainer.addEventListener("click", addCircleToContainer);
+    let addButton = document.getElementById("add-button");
+    addButton.addEventListener("click", addCircleToContainer);
+    let removeButton = document.getElementById("remove-button");
+    removeButton.addEventListener("click", removeCircleFromContainer);
 }
 
 function addCircleToContainer() {
@@ -16,6 +18,13 @@ function addCircleToContainer() {
     firstCircle.classList.add("alternating-circles-box", "rgb", currentBgColor);
     alternatingCirclesContainer.appendChild(firstCircle);
     nextBgColor();
+}
+
+function removeCircleFromContainer() {
+    let alternatingCirclesContainer = document.getElementById("alternating-circles-container");
+    if (alternatingCirclesContainer.childElementCount > 0) {
+        alternatingCirclesContainer.removeChild(alternatingCirclesContainer.lastChild);
+    }
 }
 
 function addInitialCirclesInterval() {

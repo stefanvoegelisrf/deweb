@@ -32,11 +32,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    mix-blend-mode:color-burn;
-}
-
-.alternating-circle-controls-button{
-    all: unset;
+    mix-blend-mode: hard-light;
 }
 
 .alternating-circles-box::before {
@@ -85,11 +81,49 @@
     background: radial-gradient(rgba(0, 0, 255, .7), rgba(255, 255, 255, 0.1));
 }
 
-.alternating-circles-controls{
+.alternating-circles-controls {
     margin: 0 auto;
+    width: max-content;
+    border-radius: 1.5rem;
+    padding: .1rem;
+}
+
+.alternating-circles-outer-container {
     width: max-content;
 }
 
-.alternating-circles-outer-container{
-    width: max-content;
+.alternating-circle-controls-button {
+    all: unset;
+    background-color: rgba(240, 240, 240, 1);
+    border-radius: 2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background-size: 2rem;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    padding: .5rem;
+}
+
+.alternating-circle-controls-button:hover {
+    background-color: rgba(230, 230, 230, 1);
+}
+
+.alternating-circle-controls-button:active {
+    background-color: rgba(220, 220, 220, 1);
+}
+
+.alternating-circles-controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#add-button {
+    background-image: url(./add_FILL0_wght400_GRAD0_opsz24.svg);
+}
+
+#remove-button {
+    background-image: url(./remove_FILL0_wght400_GRAD0_opsz24.svg);
 }
