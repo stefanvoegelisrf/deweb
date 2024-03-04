@@ -308,7 +308,7 @@ header {
     transform: translateX(-50%);
     font-size: 2rem;
     text-align: center;
-    color: gray;
+    color: black;
     transition: opacity .5s;
 }
 
@@ -485,4 +485,19 @@ header {
 
 .hidden {
     display: none !important;
+}
+
+/* Waves */
+
+.wave-path{
+    fill: silver;
+}
+
+.wave{
+    height: 8rem;
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%);
 }
