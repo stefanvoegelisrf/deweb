@@ -166,7 +166,7 @@ main {
 }
 
 .bg-magenta,
-.cmy.circle-bg-color-1.alternating-circles-box::before {
+.cmy.circle-bg-color-2.alternating-circles-box::before {
     background: radial-gradient(rgba(255, 0, 255, 1), rgba(255, 255, 255, .1));
 }
 
@@ -181,12 +181,12 @@ main {
 }
 
 .bg-maximum-red-purple,
-.ppy.circle-bg-color-1.alternating-circles-box::before {
+.ppy.circle-bg-color-2.alternating-circles-box::before {
     background: radial-gradient(rgba(170, 58, 116, 1), rgba(255, 255, 255, 0.1));
 }
 
 .bg-vivid-yellow,
-.ppy.circle-bg-color-1.alternating-circles-box::before {
+.ppy.circle-bg-color-3.alternating-circles-box::before {
     background: radial-gradient(rgba(255, 255, 3, 1), rgba(255, 255, 255, 0.1));
 }
 
