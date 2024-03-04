@@ -209,7 +209,7 @@ function lerp(start, end, amt) {
 
 let currentBgColor = "circle-bg-color-1";
 let circleCount = 0;
-let maxCircleCount = 18;
+let maxCircleCount = 3;
 let addCircleInterval;
 window.onload = function () {
 
