@@ -588,7 +588,7 @@ header {
 
 .alternating-circle-controls-button {
     all: unset;
-    background-color: rgba(240, 240, 240, 1);
+    background-color: silver;
     border-radius: 2rem;
     width: 2rem;
     height: 2rem;
