@@ -81,7 +81,6 @@ addEventListener("load", (event) => {
     circleBoxGreen = new CircleBox(document.getElementById("pendulum-circle-box-green"));
     circleBoxBlue = new CircleBox(document.getElementById("pendulum-circle-box-blue"));
     if (isMobileDevice()) {
-        console.log("Setting up for mobile device");
         let modeContainer = document.getElementById("mode-container");
         modeContainer.classList.remove("hidden");
         let modeSelectContainer = document.getElementById("mode-select-container");
@@ -93,7 +92,6 @@ addEventListener("load", (event) => {
         switchToTouchMode();
     }
     else {
-        console.log("Setting up for desktop");
         addEventListener("mousemove", handleMouseMove);
         addUpdateInterval();
     }
@@ -136,7 +134,6 @@ function onDeviceOrientationModeClick() {
 }
 
 function handleOrientation(event) {
-    console.log("Handling orientation");
     window.requestAnimationFrame(() => {
         updateCircleBoxes(event.gamma);
     });
