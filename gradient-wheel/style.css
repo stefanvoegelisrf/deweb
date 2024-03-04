@@ -1,0 +1,103 @@
+@media (orientation:portrait) {
+    html {
+        font-size: 3vw;
+    }
+}
+
+@media (orientation:landscape) {
+    html {
+        font-size: 3vh;
+    }
+}
+
+#gradient-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#gradient-wheel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.gradient-circle {
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 0 0;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+    background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 0, 0) 0%, rgb(255, 165, 0) 6%, rgb(255, 255, 0) 19%, rgb(0, 0, 255) 38%, rgb(0, 255, 0) 50%, rgb(128, 0, 255) 65%, rgb(75, 0, 130) 77%, rgb(255, 0, 0) 99%);
+    image-rendering: pixelated;
+    transition-property: transform;
+}
+
+.white-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+
+.size-1 {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 15rem;
+}
+
+.size-2 {
+    width: 26rem;
+    height: 26rem;
+    border-radius: 14rem;
+}
+
+.size-3 {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 12.5rem;
+}
+
+.size-4 {
+    width: 21rem;
+    height: 21rem;
+    border-radius: 10.5rem;
+}
+
+.size-5 {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 10rem;
+}
+
+.size-6 {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 8rem;
+}
+
+.size-7 {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 7.5rem;
+}
+
+.size-8 {
+    width: 11rem;
+    height: 11rem;
+    border-radius: 5.5rem;
+}
+
+.size-9 {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+}
