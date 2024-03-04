@@ -20,7 +20,7 @@ function onRotationChanged(event) {
 
 function updateGradientCircles() {
     for (let i = 0; i < gradientCircleCollection.length; i++) {
-        gradientCircleCollection[i].rotation = lerp(gradientCircleCollection[i].rotation, previousGradientRotationValue, (i + 1) * 0.005);
+        gradientCircleCollection[i].rotation = lerp(gradientCircleCollection[i].rotation, previousGradientRotationValue, (i + 1) * 0.01);
         gradientCircleCollection[i].update();
     }
 }
@@ -36,7 +36,6 @@ class GradientCircle {
         this.element = element;
     }
     update() {
-        console.log(this.rotation);
         this.element.style.rotate = `${this.rotation}deg`;
     }
 }
