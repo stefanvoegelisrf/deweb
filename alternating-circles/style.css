@@ -1,0 +1,68 @@
+@media (orientation:portrait) {
+    html {
+        font-size: 3vw;
+    }
+}
+
+@media (orientation:landscape) {
+    html {
+        font-size: 3vh;
+    }
+}
+
+#alternating-circles-container {
+    width: 30rem;
+    height: 10rem;
+    background-color: aquamarine;
+    position: relative;
+}
+
+.alternating-circles-box {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+    border:1px solid black;
+    position: relative;
+    animation-duration: 1s, 3s;
+    animation-name: rotate-circle-clockwise, alternate-left-right;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.alternating-circles-box::before {
+    content: "";
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: blue;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+
+@keyframes rotate-circle-clockwise {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+@keyframes alternate-left-right {
+    0% {
+        translate: 0% 0%;
+    }
+
+    50% {
+        translate: 200% 0%;
+    }
+
+    100% {
+        translate: 0% 0%;
+    }
+}
