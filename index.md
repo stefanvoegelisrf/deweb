@@ -16,6 +16,7 @@
         - [Documentation resources](#documentation-resources)
       - [Trying out blending circles](#trying-out-blending-circles)
       - [Trying out pendulum with touch/mouse and orientation](#trying-out-pendulum-with-touchmouse-and-orientation)
+      - [Trying out rotating circles, moving left and right](#trying-out-rotating-circles-moving-left-and-right)
 
 
 ## Wiki for module
@@ -195,3 +196,7 @@ TODO: Add docu about the following:
 #### Trying out pendulum with touch/mouse and orientation
 
 > See: [Pendulum swing with motion](pendulum-swing-with-motion/)
+
+#### Trying out rotating circles, moving left and right
+
+> See: [Alternating circles](alternating-circles/)
