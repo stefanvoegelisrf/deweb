@@ -90,6 +90,10 @@
 
 .alternating-circles-outer-container {
     width: max-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .alternating-circle-controls-button {
