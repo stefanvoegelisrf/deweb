@@ -1,3 +1,4 @@
+let activeColorCombo = "color-combo-1";
 function changeToCMY() {
     changeClassesOfCircles("bg-magenta", "bg-cyan", "bg-yellow");
     changeActiveColorCombo("color-combo-1");
@@ -14,9 +15,26 @@ function changeToPPY() {
 }
 
 function changeActiveColorCombo(combo) {
+    activeColorCombo = combo;
     let colorPickerCircleActive = document.getElementById("color-picker-circle-active");
     colorPickerCircleActive.classList.remove(colorPickerCircleActive.classList[1]);
     colorPickerCircleActive.classList.add(combo);
+
+    let alternatingCircleBoxes = document.getElementsByClassName("alternating-circles-box");
+    for (let circleBox of alternatingCircleBoxes) {
+        circleBox.classList.remove("rgb");
+        circleBox.classList.remove("cmy");
+        circleBox.classList.remove("ppy");
+        if (combo === "color-combo-1") {
+            circleBox.classList.add("cmy");
+        }
+        else if (combo === "color-combo-2") {
+            circleBox.classList.add("rgb");
+        }
+        else if (combo === "color-combo-3") {
+            circleBox.classList.add("ppy");
+        }
+    }
 }
 
 function changeClassesOfCircles(circle1Class, circle2Class, circle3Class) {
@@ -38,6 +56,7 @@ function changeClassesOfCircles(circle1Class, circle2Class, circle3Class) {
     circle2.classList.add(circle2Class);
     circle3.classList.remove(circle3.classList[1]);
     circle3.classList.add(circle3Class);
+
 }
 
 let circleBoxRed, circleBoxGreen, circleBoxBlue;
@@ -78,6 +97,14 @@ addEventListener("load", (event) => {
         addEventListener("mousemove", handleMouseMove);
         addUpdateInterval();
     }
+
+    setTimeout(function () {
+        addCircleInterval = setInterval(addInitialCirclesInterval, 200);
+    }, 500);
+    let addButton = document.getElementById("add-button");
+    addButton.addEventListener("click", addCircleToContainer);
+    let removeButton = document.getElementById("remove-button");
+    removeButton.addEventListener("click", removeCircleFromContainer);
 });
 
 function addUpdateInterval() {
@@ -181,4 +208,58 @@ function updateCircleBoxes(newRotateValue, lerpFactor = 1) {
 
 function lerp(start, end, amt) {
     return (1 - amt) * start + amt * end;
+}
+
+let currentBgColor = "circle-bg-color-1";
+let circleCount = 0;
+let maxCircleCount = 18;
+let addCircleInterval;
+window.onload = function () {
+
+}
+
+function addCircleToContainer() {
+    let alternatingCirclesContainer = document.getElementById("alternating-circles-container");
+    let firstCircle = document.createElement("div");
+    firstCircle.classList.add("alternating-circles-box", getColorModeFromActiveColorCombo(), currentBgColor);
+    alternatingCirclesContainer.appendChild(firstCircle);
+    nextBgColor();
+}
+
+function getColorModeFromActiveColorCombo() {
+    if (activeColorCombo === "color-combo-1") {
+        return "cmy";
+    }
+    else if (activeColorCombo === "color-combo-2") {
+        return "rgb";
+    }
+    else if (activeColorCombo === "color-combo-3") {
+        return "ppy";
+    }
+}
+
+function removeCircleFromContainer() {
+    let alternatingCirclesContainer = document.getElementById("alternating-circles-container");
+    if (alternatingCirclesContainer.childElementCount > 0) {
+        alternatingCirclesContainer.removeChild(alternatingCirclesContainer.lastChild);
+    }
+}
+
+function addInitialCirclesInterval() {
+    addCircleToContainer();
+    circleCount++;
+    if (circleCount >= maxCircleCount) {
+        clearInterval(addCircleInterval);
+    }
+}
+
+function nextBgColor() {
+    if (currentBgColor === "circle-bg-color-1") {
+        currentBgColor = "circle-bg-color-2";
+    } else if (currentBgColor === "circle-bg-color-2") {
+        currentBgColor = "circle-bg-color-3";
+    }
+    else if (currentBgColor === "circle-bg-color-3") {
+        currentBgColor = "circle-bg-color-1";
+    }
 }
