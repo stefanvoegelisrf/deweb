@@ -17,56 +17,72 @@
     <header>
         color dance
     </header>
-    <main>
-        <div class="rotating-circles-container">
-            <div class="circle-container circle-container-magenta rotate-clockwise">
-                <div id="circle1" class="circle bg-magenta"></div>
+    <div id="grid-container">
+        <main>
+            <div class="rotating-circles-container">
+                <div class="circle-container circle-container-magenta rotate-clockwise">
+                    <div id="circle1" class="circle bg-magenta"></div>
+                </div>
+                <div class="circle-container circle-container-cyan move-up-down">
+                    <div id="circle2" class="circle bg-cyan"></div>
+                </div>
+                <div class="circle-container circle-container-yellow rotate-counterclockwise">
+                    <div id="circle3" class="circle bg-yellow"></div>
+                </div>
             </div>
-            <div class="circle-container circle-container-cyan move-up-down">
-                <div id="circle2" class="circle bg-cyan"></div>
+        </main>
+        <section id="pendulum-container">
+            <div id="mode-container" class="hidden">
+                <img src="touch_app_FILL0_wght400_GRAD0_opsz24.svg" alt="Touch mode" class="mode-icon"
+                    id="touch-mode-icon">
+                <div id="mode-select-container" class="mode-select-container touch-active">
+                    <span class="mode-select-circle mode-select-circle-red"></span>
+                    <span class="mode-select-circle mode-select-circle-green"></span>
+                    <span class="mode-select-circle mode-select-circle-blue"></span>
+                </div>
+                <img src="screen_rotation_FILL0_wght400_GRAD0_opsz24.svg" alt="Orientation mode" class="mode-icon"
+                    id="orientation-mode-icon">
             </div>
-            <div class="circle-container circle-container-yellow rotate-counterclockwise">
-                <div id="circle3" class="circle bg-yellow"></div>
+            <div class="pendulum-circle-container">
+                <div class="pendulum-circle-box delay-1s" id="pendulum-circle-box-red">
+                    <div class="pendulum-circle bg-cyan"></div>
+                </div>
             </div>
-        </div>
-    </main>
-    <section class="pendulum-container">
-        <div id="mode-container" class="hidden">
-            <img src="touch_app_FILL0_wght400_GRAD0_opsz24.svg" alt="Touch mode" class="mode-icon" id="touch-mode-icon">
-            <div id="mode-select-container" class="mode-select-container touch-active">
-                <span class="mode-select-circle mode-select-circle-red"></span>
-                <span class="mode-select-circle mode-select-circle-green"></span>
-                <span class="mode-select-circle mode-select-circle-blue"></span>
+            <div class="pendulum-circle-container">
+                <div class="pendulum-circle-box" id="pendulum-circle-box-green">
+                    <div class="pendulum-circle bg-magenta"></div>
+                </div>
             </div>
-            <img src="screen_rotation_FILL0_wght400_GRAD0_opsz24.svg" alt="Orientation mode" class="mode-icon"
-                id="orientation-mode-icon">
-        </div>
-        <div class="pendulum-circle-container">
-            <div class="pendulum-circle-box delay-1s" id="pendulum-circle-box-red">
-                <div class="pendulum-circle bg-cyan"></div>
+            <div class="pendulum-circle-container">
+                <div class="pendulum-circle-box delay-2s" id="pendulum-circle-box-blue">
+                    <div class="pendulum-circle bg-yellow"></div>
+                </div>
             </div>
-        </div>
-        <div class="pendulum-circle-container">
-            <div class="pendulum-circle-box" id="pendulum-circle-box-green">
-                <div class="pendulum-circle bg-magenta"></div>
+        </section>
+        <section class="alternating-circles-outer-container">
+            <div id="alternating-circles-container">
             </div>
-        </div>
-        <div class="pendulum-circle-container">
-            <div class="pendulum-circle-box delay-2s" id="pendulum-circle-box-blue">
-                <div class="pendulum-circle bg-yellow"></div>
+            <div class="alternating-circles-controls">
+                <button type="button" class="alternating-circle-controls-button" id="add-button">
+                </button>
+                <button type="button" class="alternating-circle-controls-button" id="remove-button">
+                </button>
             </div>
-        </div>
-    </section>
-    <section class="alternating-circles-outer-container">
-        <div id="alternating-circles-container">
-        </div>
-        <div class="alternating-circles-controls">
-            <button type="button" class="alternating-circle-controls-button" id="add-button">
-            </button>
-            <button type="button" class="alternating-circle-controls-button" id="remove-button">
-            </button>
-        </div>
-    </section>
+        </section>
+        <section id="gradient-container">
+            <div id="radial-slider">
+                <div id="radial-slider-handle"></div>
+            </div>
+            <div id="gradient-wheel-container">
+                <div class="gradient-circle gradient-circle-cmy size-1"></div>
+                <div class="gradient-circle gradient-circle-cmy size-3"></div>
+                <div class="gradient-circle gradient-circle-cmy size-5"></div>
+                <div class="gradient-circle gradient-circle-cmy size-7"></div>
+                <div class="gradient-circle gradient-circle-cmy size-9"></div>
+                <div class="white-circle"></div>
+            </div>
+        </section>
+    </div>
     <footer class="color-picker">
         <div class="color-picker-inner">
             <div id="color-picker-circle-active" class="color-picker-circle-active color-combo-1"></div>

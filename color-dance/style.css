@@ -23,8 +23,17 @@
 
 body {
     margin: 0;
-    min-height: 300vh;
     overflow-x: hidden;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 30rem));
+    grid-template-rows: 20rem;
+    grid-auto-rows: 20rem;
+    gap: .5rem;
+    margin: 0 auto;
+    justify-content: space-around;
 }
 
 .circle {
@@ -34,14 +43,9 @@ body {
 }
 
 @media (orientation: landscape) {
-    main {
-        height: 70vh;
-        width: 70vh;
-    }
-
     @keyframes zoom-out {
         0% {
-            transform: scale(10);
+            transform: scale(6);
         }
 
         50% {
@@ -49,45 +53,41 @@ body {
         }
 
         100% {
-            transform: scale(10);
+            transform: scale(6);
         }
     }
 }
 
 @media (orientation: portrait) {
-    main {
-        height: 70vw;
-        width: 70vw;
-    }
-
     @keyframes zoom-out {
         0% {
-            transform: scale(5);
+            transform: scale(3);
         }
 
         50% {
-            transform: scale(2.5);
+            transform: scale(1.5);
         }
 
         100% {
-            transform: scale(5);
+            transform: scale(3);
         }
     }
 }
 
 main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    height: 19rem;
+    width: 19rem;
+    margin: .5rem auto;
     overflow: hidden;
     border-radius: .2rem;
     animation-name: wobbly-frame-3;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    transition-property: height, width;
-    transition-duration: 1.5s;
+    animation-play-state: paused;
+}
+
+main:hover {
     animation-play-state: running;
 }
 
@@ -121,6 +121,11 @@ main {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+.rotating-circles-container:hover {
+    animation-play-state: running;
 }
 
 .circle-container {
@@ -195,6 +200,7 @@ main {
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    animation-play-state: inherit;
 }
 
 .rotate-counterclockwise {
@@ -202,15 +208,15 @@ main {
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    animation-play-state: inherit;
 }
-
-
 
 .move-up-down {
     animation-name: move-up-down;
     animation-duration: 5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    animation-play-state: inherit;
 }
 
 @keyframes move-up-down {
@@ -260,6 +266,8 @@ main {
     display: flex;
     justify-content: space-evenly;
     transition: opacity .5s;
+    background-color: silver;
+    border-radius: 2rem;
 }
 
 .color-picker-inner {
@@ -275,6 +283,7 @@ main {
     overflow: hidden;
     height: calc(var(--color-picker-circle-radius) * 2);
     width: calc(var(--color-picker-circle-radius) * 2);
+    cursor: pointer;
 }
 
 .color-picker-mix-color {
@@ -311,10 +320,6 @@ main {
 }
 
 header {
-    position: absolute;
-    top: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 2rem;
     text-align: center;
     color: black;
@@ -323,7 +328,7 @@ header {
 
 #color-picker-circle-active {
     position: absolute;
-    background-color: silver;
+    background-color: white;
     margin: .5rem;
     height: calc(var(--color-picker-circle-radius) * 2);
     width: calc(var(--color-picker-circle-radius) * 2);
@@ -366,17 +371,21 @@ header {
     }
 }
 
+#pendulum-container {
+    position: relative;
+}
+
 .pendulum-circle-container {
     position: absolute;
-    top: 150%;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -50%);
     mix-blend-mode: multiply;
 }
 
 .pendulum-circle-box {
-    width: calc(var(--pendulum-circle-radius) * 2);
-    height: calc(var(--pendulum-circle-radius) * 8);
+    width: calc(var(--pendulum-circle-radius) * 1.5);
+    height: calc(var(--pendulum-circle-radius) * 6);
     position: relative;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
@@ -388,15 +397,13 @@ header {
 .pendulum-circle-box::before {
     content: "";
     display: inline-block;
-    height: calc(var(--pendulum-circle-radius) * 2.08);
+    height: calc(var(--pendulum-circle-radius) * 1.31);
     width: 1rem;
     left: 50%;
     top: 49%;
     border-radius: 1rem 1rem 0 0;
     transform: translateX(-50%);
     position: absolute;
-    /* background: linear-gradient(0.25turn, silver, white, silver); */
-    background-color: silver;
     background-color: silver;
 }
 
@@ -414,11 +421,11 @@ header {
 }
 
 .pendulum-circle {
-    width: calc(var(--pendulum-circle-radius) * 2);
-    height: calc(var(--pendulum-circle-radius) * 2);
+    width: calc(var(--pendulum-circle-radius) * 1.5);
+    height: calc(var(--pendulum-circle-radius) * 1.5);
     border-radius: 50%;
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
 }
 
 .delay-1s {
@@ -428,8 +435,6 @@ header {
 .delay-2s {
     animation-delay: 2s;
 }
-
-
 
 .mode-icon {
     width: 2rem;
@@ -442,7 +447,7 @@ header {
     width: max-content;
     position: absolute;
     left: 50%;
-    top: 110%;
+    top: 0;
     transform: translateX(-50%);
     border-radius: 2rem;
     display: flex;
@@ -513,6 +518,7 @@ header {
 
 
 #alternating-circles-container {
+    margin-top: 3rem;
     width: 30rem;
     height: 10rem;
     border: 1px solid black;
@@ -580,10 +586,6 @@ header {
 
 .alternating-circles-outer-container {
     width: max-content;
-    position: absolute;
-    left: 50%;
-    top: 250%;
-    transform: translate(-50%, -50%);
 }
 
 .alternating-circle-controls-button {
@@ -620,4 +622,123 @@ header {
 
 #remove-button {
     background-image: url(./remove_FILL0_wght400_GRAD0_opsz24.svg);
+}
+
+#gradient-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#gradient-wheel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.gradient-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 0 0;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+    image-rendering: pixelated;
+    transition-property: transform;
+    overflow: hidden;
+    border: .25rem white solid;
+}
+
+.gradient-circle-cmy {
+    background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, yellow 66%, cyan 100%);
+}
+
+.gradient-circle-rgb {
+    background-image: conic-gradient(from 0deg at 50% 50%, red 0%, green 33%, blue 66%, red 100%);
+}
+
+.gradient-circle-ppy {
+    background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 2, 133) 0%, rgb(170, 58, 116) 33%, rgb(255, 255, 3) 66%, rgb(255, 2, 133) 100%);
+}
+
+:root {
+    --gradient-circle-radius: 2rem;
+}
+
+.size-1 {
+    width: calc(var(--gradient-circle-radius) * 9);
+    height: calc(var(--gradient-circle-radius) * 9);
+    border-radius: calc(var(--gradient-circle-radius) * 4.5);
+}
+
+.size-3 {
+    width: calc(var(--gradient-circle-radius) * 8);
+    height: calc(var(--gradient-circle-radius) * 8);
+    border-radius: calc(var(--gradient-circle-radius) * 4);
+}
+
+.size-5 {
+    width: calc(var(--gradient-circle-radius) * 7);
+    height: calc(var(--gradient-circle-radius) * 7);
+    border-radius: calc(var(--gradient-circle-radius) * 3.5);
+}
+
+.size-7 {
+    width: calc(var(--gradient-circle-radius) * 6);
+    height: calc(var(--gradient-circle-radius) * 6);
+    border-radius: calc(var(--gradient-circle-radius) * 3);
+}
+
+.size-9 {
+    width: calc(var(--gradient-circle-radius) * 5);
+    height: calc(var(--gradient-circle-radius) * 5);
+    border-radius: calc(var(--gradient-circle-radius) * 2.5);
+}
+
+.white-circle {
+    width: calc(var(--gradient-circle-radius) * 4);
+    height: calc(var(--gradient-circle-radius) * 4);
+    border-radius: calc(var(--gradient-circle-radius) * 2);
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Radial slider */
+
+#radial-slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    width: calc(var(--gradient-circle-radius) * 9);
+    height: calc(var(--gradient-circle-radius) * 9);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#radial-slider #radial-slider-handle {
+    position: absolute;
+    width: 5%;
+    height: 50%;
+    left: 47.5%;
+    top: 0;
+    transform: rotate(0deg);
+    transform-origin: center bottom;
+}
+
+#radial-slider #radial-slider-handle:before {
+    content: "";
+    position: absolute;
+    background-color: silver;
+    width: 200%;
+    transform: translate3d(-50%, -50%, 0);
+    height: 0;
+    padding-bottom: 200%;
+    border-radius: 50%;
+    cursor: pointer;
 }
