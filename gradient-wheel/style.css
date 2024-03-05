@@ -47,7 +47,10 @@ body {
 
 .gradient-circle-cmy{
     background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, yellow 66%, cyan 100%);
+}
 
+.gradient-circle-rgb{
+    background-image: conic-gradient(from 0deg at 50% 50%, red 0%, green 33%, blue 66%, red 100%);
 }
 
 .white-circle {
