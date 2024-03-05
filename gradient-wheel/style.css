@@ -38,9 +38,16 @@ body {
     transform-origin: 0 0;
     background-size: 100% 100%;
     background-position: 0px 0px;
-    background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 0, 0) 0%, rgb(255, 165, 0) 6%, rgb(255, 255, 0) 19%, rgb(0, 0, 255) 38%, rgb(0, 255, 0) 50%, rgb(128, 0, 255) 65%, rgb(75, 0, 130) 77%, rgb(255, 0, 0) 99%);
+    /* background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 0, 0) 0%, rgb(255, 165, 0) 6%, rgb(255, 255, 0) 19%, rgb(0, 0, 255) 38%, rgb(0, 255, 0) 50%, rgb(128, 0, 255) 65%, rgb(75, 0, 130) 77%, rgb(255, 0, 0) 99%); */
     image-rendering: pixelated;
+    filter: blur(0.1rem);
     transition-property: transform;
+    overflow: hidden;
+}
+
+.gradient-circle-cmy{
+    background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, yellow 66%, cyan 100%);
+
 }
 
 .white-circle {
