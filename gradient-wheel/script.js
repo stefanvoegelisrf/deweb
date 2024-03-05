@@ -1,4 +1,5 @@
-let previousGradientRotationValue = 0;
+let previousGradientRotation = 0;
+let previousGradientRotationTotal = 0;
 let gradientCircleCollection = [];
 let isDraggingRadialSlider = false;
 
@@ -56,12 +57,20 @@ function onDragSlider(event) {
 }
 
 function onRotationChanged(rotation) {
-    previousGradientRotationValue = rotation;
+    let differenceToPrevious = rotation - previousGradientRotation;
+    if (differenceToPrevious > 300) {
+        differenceToPrevious = 360 - differenceToPrevious;
+    }
+    else if (differenceToPrevious < -300) {
+        differenceToPrevious = 360 + differenceToPrevious;
+    }
+    previousGradientRotation = rotation;
+    previousGradientRotationTotal += differenceToPrevious;
 }
 
 function updateGradientCircles() {
     for (let i = 0; i < gradientCircleCollection.length; i++) {
-        gradientCircleCollection[i].rotation = lerp(gradientCircleCollection[i].rotation, previousGradientRotationValue, (i + 1) * 0.01);
+        gradientCircleCollection[i].rotation = lerp(gradientCircleCollection[i].rotation, previousGradientRotationTotal, (i + 1) * 0.01);
         gradientCircleCollection[i].update();
     }
 }
