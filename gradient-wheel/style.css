@@ -45,12 +45,16 @@ body {
     overflow: hidden;
 }
 
-.gradient-circle-cmy{
+.gradient-circle-cmy {
     background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, yellow 66%, cyan 100%);
 }
 
-.gradient-circle-rgb{
+.gradient-circle-rgb {
     background-image: conic-gradient(from 0deg at 50% 50%, red 0%, green 33%, blue 66%, red 100%);
+}
+
+.gradient-circle-ppy {
+    background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 2, 133) 0%, rgb(170, 58, 116) 33%, rgb(255, 255, 3) 66%, rgb(255, 2, 133) 100%);
 }
 
 .white-circle {
