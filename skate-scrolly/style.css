@@ -40,7 +40,7 @@ section {
     border-radius: 16rem 8rem 16rem 8rem;
 }
 
-#timesaver{
+#timesaver {
     background-color: cyan;
     border-radius: 8rem 16rem 8rem 16rem;
 }
@@ -295,4 +295,45 @@ section {
 
 .quirky-handle-right {
     right: calc(var(--quirky-skate-width) * 0.07);
+}
+
+.quirky-bolts {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.quirky-bolts-top {
+    top: 1rem;
+}
+.quirky-bolts-bottom {
+    bottom: 10rem;
+}
+
+.quirky-bolt {
+    width: 1rem;
+    height: 1rem;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.quirky-bolt-top-left {
+    left: -2rem;
+    top: 2rem;
+}
+
+.quirky-bolt-top-right {
+    left: 2rem;
+    top: 2rem;
+}
+
+.quirky-bolt-bottom-left {
+    left: -2rem;
+    top: 6rem;
+}
+
+.quirky-bolt-bottom-right {
+    left: 2rem;
+    top: 6rem;
 }
