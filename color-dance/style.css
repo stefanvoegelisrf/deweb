@@ -34,6 +34,7 @@ body {
     gap: .5rem;
     margin: 0 auto;
     justify-content: space-around;
+    margin-bottom: 4rem;
 }
 
 .circle {
@@ -45,15 +46,15 @@ body {
 @media (orientation: landscape) {
     @keyframes zoom-out {
         0% {
-            transform: scale(6);
+            transform: scale(4);
         }
 
         50% {
-            transform: scale(3);
+            transform: scale(2);
         }
 
         100% {
-            transform: scale(6);
+            transform: scale(4);
         }
     }
 }
@@ -295,7 +296,7 @@ main:hover {
     mix-blend-mode: multiply;
 }
 
-.color-picker-mix-color.bgcyan,
+.color-picker-mix-color.bg-cyan,
 .color-picker-mix-color.bg-red,
 .color-picker-mix-color.bg-maximum-red-purple {
     top: -50%;
@@ -320,7 +321,8 @@ main:hover {
 }
 
 header {
-    font-size: 2rem;
+    font-size: 3rem;
+    margin: .5rem auto;
     text-align: center;
     color: black;
     transition: opacity .5s;
@@ -377,7 +379,7 @@ header {
 
 .pendulum-circle-container {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     mix-blend-mode: multiply;
@@ -447,7 +449,7 @@ header {
     width: max-content;
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 5%;
     transform: translateX(-50%);
     border-radius: 2rem;
     display: flex;
@@ -702,6 +704,7 @@ header {
     height: calc(var(--gradient-circle-radius) * 4);
     border-radius: calc(var(--gradient-circle-radius) * 2);
     background-color: white;
+    border: .5rem silver solid;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -719,15 +722,15 @@ header {
     height: calc(var(--gradient-circle-radius) * 9);
     transform: translate(-50%, -50%);
     z-index: 10;
+    padding: 5rem;
 }
 
 #radial-slider #radial-slider-handle {
     position: absolute;
     width: 5%;
-    height: 50%;
+    height: 20%;
     left: 47.5%;
-    top: 0;
-    transform: rotate(0deg);
+    top: 30%;
     transform-origin: center bottom;
 }
 
@@ -736,7 +739,7 @@ header {
     position: absolute;
     background-color: silver;
     width: 200%;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(0, -50%, 0);
     height: 0;
     padding-bottom: 200%;
     border-radius: 50%;

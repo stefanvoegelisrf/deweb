@@ -139,8 +139,8 @@ addEventListener("load", (event) => {
     document.addEventListener('mouseup', function (event) {
         isDraggingRadialSlider = false;
     });
-    window.addEventListener('mousemove', onDragSlider);
-    window.addEventListener('touchmove', onDragSlider);
+    radialSlider.addEventListener('mousemove', onDragSlider);
+    radialSlider.addEventListener('touchmove', onDragSlider);
 });
 
 function addUpdateInterval() {
@@ -198,8 +198,9 @@ function handleSwitchClick() {
 function switchToOrientationMode() {
     switchMode("orientation");
     removeUpdateInterval();
-    window.removeEventListener("touchmove", handleTouch);
-    window.removeEventListener("touchstart", handleTouch);
+    let pendulumContainer = document.getElementById("pendulum-container");
+    pendulumContainer.removeEventListener("touchmove", handleTouch);
+    pendulumContainer.removeEventListener("touchstart", handleTouch);
     onDeviceOrientationModeClick();
 
 }
@@ -207,8 +208,9 @@ function switchToOrientationMode() {
 function switchToTouchMode() {
     switchMode("touch");
     window.removeEventListener('deviceorientation', handleOrientation);
-    window.addEventListener("touchmove", handleTouch);
-    window.addEventListener("touchstart", handleTouch);
+    let pendulumContainer = document.getElementById("pendulum-container");
+    pendulumContainer.addEventListener("touchmove", handleTouch);
+    pendulumContainer.addEventListener("touchstart", handleTouch);
     addUpdateInterval();
 }
 
@@ -327,10 +329,10 @@ function onDragSlider(event) {
             touch = event.touches[0];
         }
         boundingRect = radialSlider.getBoundingClientRect();
-        centerX = (boundingRect.width * 0.5) + boundingRect.left;
-        centerY = (boundingRect.height * 0.5) + boundingRect.top;
-        positionX = (event.pageX || touch.pageX);
-        positionY = (event.pageY || touch.pageY);
+        centerX = (boundingRect.width * 0.5);
+        centerY = (boundingRect.height * 0.5);
+        positionX = (event.offsetX || touch.offsetX);
+        positionY = (event.offsetY || touch.offsetY);
         console.log(`position: ${positionX}, ${positionY}, center: ${centerX}, ${centerY}`)
         deltaY = centerY - positionY;
         deltaX = centerX - positionX;
