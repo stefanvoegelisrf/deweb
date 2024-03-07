@@ -30,9 +30,6 @@ body {
 section {
     height: 100vh;
     max-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
     border: 1px solid #000;
 }
 
@@ -41,24 +38,27 @@ section {
 }
 
 #quirky-slogan {
-    grid-column: 1 / 13;
-    grid-row: 1 / 13;
-    font-size: 16rem;
-    line-height: 16.5rem;
+    font-size: 12rem;
+    line-height: 14rem;
+    width: 60rem;
     text-align: center;
     color: cyan;
     mix-blend-mode: difference;
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #container-quirky {
-    position: relative;
+    position: absolute;
     width: var(--quirky-skate-width);
     height: var(--quirky-skate-height);
     margin: 1rem;
     /* transform: rotate(-45deg); */
-    grid-column: 4 / 10;
-    grid-row: 4 / 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     mix-blend-mode: difference;
 }
 
