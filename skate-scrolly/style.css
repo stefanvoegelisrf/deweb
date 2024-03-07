@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     font-family: "Unbounded", sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 @media (orientation:portrait) {
@@ -15,10 +17,271 @@
     }
 }
 
+:root {
+    --quirky-skate-width: calc(16rem * 2);
+    --quirky-skate-height: calc(22rem * 2);
+    --quirky-wheel-size: calc(var(--quirky-skate-width) * 0.25);
+}
+
 body {
     margin: 0;
 }
 
 section {
     height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    border: 1px solid #000;
+}
+
+#section-drive {
+    background-color: magenta;
+}
+
+#quirky-slogan {
+    grid-column: 1 / 13;
+    grid-row: 1 / 13;
+    font-size: 16rem;
+    line-height: 16.5rem;
+    text-align: center;
+    color: cyan;
+    mix-blend-mode: difference;
+
+}
+
+#container-quirky {
+    position: relative;
+    width: var(--quirky-skate-width);
+    height: var(--quirky-skate-height);
+    margin: 1rem;
+    /* transform: rotate(-45deg); */
+    grid-column: 4 / 10;
+    grid-row: 4 / 10;
+    mix-blend-mode: difference;
+}
+
+.quirky-wheel {
+    width: var(--quirky-wheel-size);
+    height: var(--quirky-wheel-size);
+    background-color: cyan;
+    border-radius: calc(var(--quirky-wheel-size) *0.25);
+    position: absolute;
+}
+
+.quirky-wheel::before,
+.quirky-wheel::after {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    animation-name: quirky-wheels;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.quirky-wheel::before {
+    background-color: magenta;
+}
+
+.quirky-wheel::after {
+    background-color: yellow;
+    animation-direction: reverse;
+}
+
+@keyframes quirky-wheels {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(0, 0.5rem);
+    }
+
+    75% {
+        transform: translate(0, -0.5rem);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.quirky-wheel-top-left {
+    top: 1rem;
+    left: 0;
+}
+
+.quirky-wheel-top-right {
+    top: 1rem;
+    right: 0;
+}
+
+.quirky-wheel-bottom-left {
+    bottom: 1rem;
+    left: 0;
+}
+
+.quirky-wheel-bottom-right {
+    bottom: 1rem;
+    right: 0;
+}
+
+.quirky-board {
+    background-color: cyan;
+    width: var(--quirky-skate-width);
+    height: var(--quirky-skate-height);
+    border-radius: 100% 100% 80% 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: quirky-board;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.quirky-board::before,
+.quirky-board::after {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    position: absolute;
+    top: inherit;
+    left: inherit;
+    mix-blend-mode: darken;
+    animation-name: quirky-board-shift;
+    animation-timing-function: linear;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+
+.quirky-board::before {
+    background-color: magenta;
+}
+
+.quirky-board::after {
+    background-color: yellow;
+    animation-direction: reverse;
+}
+
+@keyframes quirky-board-shift {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(.2rem);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(-.2rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes quirky-board {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    25% {
+        transform: rotate(1deg) translateY(0.2rem);
+    }
+
+    50% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    75% {
+        transform: rotate(-1deg) translateY(0.2rem);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+}
+
+.quirky-handle {
+    /* border: 1px solid #000; */
+    background-color: cyan;
+    width: calc(var(--quirky-skate-width) * 0.1);
+    height: calc(var(--quirky-skate-height) * 0.25);
+    border-radius: calc(var(--quirky-skate-width) * 0.1);
+    z-index: 10;
+    position: absolute;
+    top: 42%;
+}
+
+.quirky-handle::before,
+.quirky-handle::after {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: lighten;
+    animation-name: quirky-handle;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.quirky-handle::before {
+    background-color: magenta;
+}
+
+.quirky-handle::after {
+    background-color: yellow;
+    animation-direction: reverse;
+}
+
+@keyframes quirky-handle {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-.2rem);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(.2rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+.quirky-handle-left {
+    left: calc(var(--quirky-skate-width) * 0.07);
+}
+
+.quirky-handle-right {
+    right: calc(var(--quirky-skate-width) * 0.07);
 }
