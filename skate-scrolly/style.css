@@ -37,7 +37,7 @@ section {
 }
 
 #quirky {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
@@ -79,14 +79,55 @@ section {
 }
 
 #container-quirky {
-    position: absolute;
+    position: fixed;
+    top: 5%;
     width: var(--quirky-skate-width);
     height: var(--quirky-skate-height);
-    /* transform: rotate(-45deg); */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     mix-blend-mode: difference;
+    animation-timeline: scroll();
+    animation-name: rotate-quirky-skate;
+    animation-range: entry 0% contain 100%;
+    transform-origin: center;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+@keyframes rotate-quirky-skate {
+    0% {
+        transform: rotate(0deg) translateX(-50%) scale(1);
+        left: 50%;
+        top: 5%;
+    }
+
+    20% {
+        transform: rotate(180deg) translateX(-50%) scale(1);
+        left: 60%;
+        top: 6%;
+    }
+
+    40% {
+        transform: rotate(180deg) translateX(-50%) scale(1);
+        left: 55%;
+        top:7%;
+    }
+
+    60% {
+        transform: rotate(180deg) translateX(-50%) scale(1);
+        left: 60%;
+        top: 8%;
+    }
+
+    70% {
+        transform: rotate(180deg) translateX(-50%) scale(1);
+        left: 55%;
+        top: 9%;
+    }
+
+    100% {
+        transform: rotate(180deg) translateX(-50%) scale(1);
+        left: 60%;
+        top: 10%;
+    }
 }
 
 .quirky-wheel {
@@ -152,12 +193,12 @@ section {
 }
 
 .quirky-wheel-bottom-left {
-    bottom: 1rem;
+    top: 35em;
     left: 0;
 }
 
 .quirky-wheel-bottom-right {
-    bottom: 1rem;
+    top: 35rem;
     right: 0;
 }
 
