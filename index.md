@@ -28,6 +28,10 @@
       - [Using CSS scroll to control animation](#using-css-scroll-to-control-animation)
         - [Animation timeline](#animation-timeline)
       - [Checking if CSS features are supported](#checking-if-css-features-are-supported)
+      - [requestAnimationFrame](#requestanimationframe)
+      - [Linear interpolation](#linear-interpolation)
+      - [Creating CSS gradients](#creating-css-gradients)
+      - [getBoundingClientRect](#getboundingclientrect)
 
 
 ## Wiki for module
@@ -186,6 +190,7 @@ This page displays the acceleration and the orientation. Acceleration is not ava
 ##### Documentation resources
 - Documentation for device motion: [developer.mozilla.org - devicemotion event](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event)
 - Documentation for device orientation: [developer.mozilla.org - deviceorientation events](https://developer.mozilla.org/en-US/docs/Web/API/Window/deviceorientation_event)
+- Detection of mobile browsers for various languages and frameworks: [detectmobilebrowsers.org](http://detectmobilebrowsers.com/)
 
 #### Trying out blending circles
 As an excercise to try out rotation circles and blending colors, I created another test page.
@@ -363,3 +368,37 @@ The property [mozilla.org - animation-timeline](https://developer.mozilla.org/en
 
 #### Checking if CSS features are supported
 As some features are experimental, it is quite handy to check if certain CSS features are available for use. To do so, we can use [mozilla.org - CSS.supports](https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports_static).
+
+#### requestAnimationFrame
+[mozilla.org - requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) can be used to call a callback before painting the next frame.
+
+#### Linear interpolation
+[wikipedia.org - Linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) can be used to find the value of a point that lies somewhere between two points. 
+
+1. You have two known points on a line.
+2. You want to find a point between these two known points.
+3. Linear interpolation assumes that the change from the first point to the second point is constant.
+4. It calculates the value of the unknown point by taking into account the proportion of distance it lies between the two known points.
+
+A javascript implementation looks like this:
+```javascript
+function linearInterpolation(start, end, amount) {
+    // This function calculates linear interpolation between two values.
+
+    // Formula for linear interpolation: 
+    // (1 - amount) * start + amount * end
+
+    // Calculate the interpolated value using the formula
+    var interpolatedValue = (1 - amount) * start + amount * end;
+    
+    // Return the interpolated value
+    return interpolatedValue;
+}
+
+```
+
+#### Creating CSS gradients
+A helpful to create CSS gradients is [cssgradient.io](https://cssgradient.io/) or [colorgradient.dev](https://colorgradient.dev/gradient-generator/)
+
+#### getBoundingClientRect
+[mozilla.org - getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) can be used to get information about the size of an element and its position relative to the viewport.
