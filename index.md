@@ -15,8 +15,16 @@
       - [Accessing device sensors](#accessing-device-sensors)
         - [Documentation resources](#documentation-resources)
       - [Trying out blending circles](#trying-out-blending-circles)
+      - [Resources](#resources)
       - [Trying out pendulum with touch/mouse and orientation](#trying-out-pendulum-with-touchmouse-and-orientation)
       - [Trying out rotating circles, moving left and right](#trying-out-rotating-circles-moving-left-and-right)
+    - [05.03.2024](#05032024)
+      - [conic gradient](#conic-gradient)
+      - [Combining all the color effects on a single page](#combining-all-the-color-effects-on-a-single-page)
+    - [12.03.2024](#12032024)
+      - [Applying the color effects to a story](#applying-the-color-effects-to-a-story)
+        - [Skateboard color blending to show motion](#skateboard-color-blending-to-show-motion)
+        - [Telling the story](#telling-the-story)
 
 
 ## Wiki for module
@@ -183,20 +191,90 @@ As an excercise to try out rotation circles and blending colors, I created anoth
 
 While creating this page, I learned a lot about creating smooth animations and also creating transitions between elements.
 
-TODO: Add docu about the following:
-- https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
-- https://css-tricks.com/controlling-css-animations-transitions-javascript/
-- https://www.w3schools.com/css/css3_transitions.asp
-- https://cubic-bezier.com/#.21,.6,.45,.81
-- https://www.color-name.com/hex/ffe103
-- https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio
-- https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient
-- https://www.w3schools.com/css/css3_animations.asp
+- [mozilla.org - Animation composition](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition) can be used to control how animations behave when they control the same css property.
+  - `replace` overrides the underlying value of the property.
+  - `add` builds on the underlying value of the property.
+  - `accumulate` combines the values.
+- [css-tricks.com - Controlling CSS animations and transitions with Javascript](https://css-tricks.com/controlling-css-animations-transitions-javascript/)
+- [weschools.com - CSS transitions](https://www.w3schools.com/css/css3_transitions.asp) to control how to transition between values if a property changes
+- [mozilla.org - aspect ratio media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio) to define CSS for specific aspect ratios
+- [mozilla.org - radial gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient) to create radial gradient backgrounds
+- [w3schools.com - CSS animation](https://www.w3schools.com/css/css3_animations.asp) for general knowledge on animations
+
+#### Resources
+- [cubic-bezier.com - Visualize and create bezier values for CSS](https://cubic-bezier.com/#.21,.6,.45,.81)
+- [color-name.com - Get the name of a hex color](https://www.color-name.com/hex/ffe103)
 
 #### Trying out pendulum with touch/mouse and orientation
+I wanted to achieve a color combination page, which uses 3 pendulums. To do so, I have created a page, where you can control the rotation of the pendulum with the orientation of the device(smartphone) or with the mouse/touch position x.
 
 > See: [Pendulum swing with motion](pendulum-swing-with-motion/)
 
 #### Trying out rotating circles, moving left and right
+I created this page to achieve a color combination effect with circles that alternate from left to right, and the circles also rotate around the center of the box they are in.
 
 > See: [Alternating circles](alternating-circles/)
+
+### 05.03.2024
+
+#### conic gradient
+As I achieved my previous pages, I have created another page, which was inspired by the artist Felipe Pantone.
+
+![Conic Gradient wheel](conic%20gradient%20wheel.png)
+
+To do this page, I have created various circles which use a conic gradient. A conic gradient is defined like this:
+
+```css
+background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, yellow 66%, cyan 100%);
+```
+
+Once these circles were correctly placed, I made it interactive, by creating a radial slider so I can rotate them according to the slider. To get the effect, that each circle rotate in its own speed, I used linear interpolation.
+
+> See: [Gradient wheel](gradient-wheel/)
+
+#### Combining all the color effects on a single page
+Once I finished all of these pages, I wanted to combine them on a single page. I did so by using a grid layout.
+
+```css
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 30rem));
+    grid-template-rows: 20rem;
+    grid-auto-rows: 20rem;
+    gap: .5rem;
+    margin: 0 auto;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+}
+```
+
+This grid layout places the color effects on a 2 by 2 grid, when the screen is big enough, but reduces it to a 1 by 4 grid, when the screen is smaller.
+
+> See: [Color dance](color-dance)
+
+### 12.03.2024
+
+#### Applying the color effects to a story
+After discussing my previous learnings and results with my teacher, we came to the conclusion, that it would be cool to apply it to a story. I was already quite satisfied with my previous results, as they were designed carefully and showed off a cool playground for color blending, motion and interactivity.
+
+To proceed, I thought of creating a page that tells the story of my relationship to my skateboard. It is a quirky skateboard, that is very handy, and also quite an eyecatcher.
+
+##### Skateboard color blending to show motion
+First, I created the skateboard with different html elements and styled it. I applied various animations to the different elements of the skateboard. To get the skateboard to look like it is moving, I blended the wheels and also moved the skate deck slightly.
+
+##### Telling the story
+To get a story, I thought about the various reasons I like skateboarding and also what benefits I get from it. As a funny ending, I also want to integrate an accident that has happened. I don't want it to be text heavy, so I want to use short and easy sentences. So I came up with the following:
+- drive a quirky skate
+  - Serves as a title and also describes a main attribute of the skateboard
+  - Show off how the skateboard looks
+- it's a huuge timesaver
+  - I travel a lot around cities. Distances in cities are often times not that long, but require you to wait for a connection or get multiple connections. For these distances I mostly use my skateboard and sometimes can catch a later train and still arrive on time.
+- you get the looks
+  - I don't really drive the skateboard to show off, however I still enjoy the attention it gets. It is a way to turn heads for many people, even though skateboards are nothing new.
+- people connect
+  - My skateboard is a conversation starter and I get asked a lot of questions about it. This is an easy and fun way to get to know new people.
+- don't get it wet
+  - Sometimes people want to try out my skateboard, but can't really handle it. That's also why it has also gone diving once. Luckily it survived, but I don't want it to happen again.
+
+To get an impression of the project:
+> See: [Skate](skate-scrolly/)
