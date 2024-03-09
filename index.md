@@ -25,6 +25,9 @@
       - [Applying the color effects to a story](#applying-the-color-effects-to-a-story)
         - [Skateboard color blending to show motion](#skateboard-color-blending-to-show-motion)
         - [Telling the story](#telling-the-story)
+      - [Using CSS scroll to control animation](#using-css-scroll-to-control-animation)
+        - [Animation timeline](#animation-timeline)
+      - [Checking if CSS features are supported](#checking-if-css-features-are-supported)
 
 
 ## Wiki for module
@@ -278,3 +281,85 @@ To get a story, I thought about the various reasons I like skateboarding and als
 
 To get an impression of the project:
 > See: [Skate](skate-scrolly/)
+
+#### Using CSS scroll to control animation
+To create scrollytelling I wanted to use [mozilla.org - animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline) and [mozilla.org - animation-range](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range). These features are currently experimental and sadly not supported by all browsers, so it is currently necessary to also create a fallback for browser who don't support it.
+
+I have used it for the page, so that the skateboard in the first section rotates and the drives along the page.
+
+To do so I have used the following style:
+```css
+animation-timeline: scroll();
+animation-name: rotate-quirky-skate;
+animation-range: entry 0% contain 100%;
+
+@keyframes rotate-quirky-skate {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%) scale(1);
+        left: 50%;
+        top: 50%;
+    }
+
+    20% {
+        transform: rotate(180deg) translate(-50%, 50%) scale(1);
+        left: 60%;
+        top: 50%;
+    }
+
+    40% {
+        transform: rotate(180deg) translate(-50%, 49%) scale(1);
+        left: 55%;
+        top: 50%;
+    }
+
+    60% {
+        transform: rotate(180deg) translate(-50%, 48%) scale(1);
+        left: 60%;
+        top: 50%;
+    }
+
+    70% {
+        transform: rotate(180deg) translate(-50%, 47%) scale(1);
+        left: 55%;
+        top: 50%;
+    }
+
+    80% {
+        transform: rotate(180deg) translate(-50%, 46%) scale(1);
+        left: 50%;
+        top: 50%;
+    }
+
+    90% {
+        transform: rotate(180deg) translate(-50%, 45%) scale(1);
+        left: 55%;
+        top: 50%;
+    }
+
+    93% {
+        transform: rotate(180deg) translate(50%, 44%) scale(0.7);
+        left: 50%;
+        top: 50%;
+    }
+
+    98% {
+        transform: rotate(180deg) translate(50%, 43%) scale(0.5);
+        left: 50%;
+        top: 80%;
+    }
+
+    100% {
+        transform: rotate(180deg) translate(50%, 42%) scale(0.5);
+        left: 50%;
+        top: 120%;
+    }
+}
+```
+
+Another helpful resource for CSS scroll animation is [scroll-driven-animations.style](https://scroll-driven-animations.style/)
+
+##### Animation timeline
+The property [mozilla.org - animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline) is used to define the timeline which controls the animation. I have used `scroll()` which then refers to how much the user has scrolled in the parent container. In my case this is the document, so it refers to the whole page. Other values are `view()` which refers to the visibility of an element. This can be tested out here [scroll-driven-animations.style](https://scroll-driven-animations.style/tools/view-timeline/ranges/) which uses it in combination [mozilla.org - animation-range](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range). The `view()` function supports various different values, see [mozilla.org - view](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view)
+
+#### Checking if CSS features are supported
+As some features are experimental, it is quite handy to check if certain CSS features are available for use. To do so, we can use [mozilla.org - CSS.supports](https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports_static).
