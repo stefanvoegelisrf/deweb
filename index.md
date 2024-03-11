@@ -409,7 +409,7 @@ TODO: prefers-reduced-motion
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 
 #### Using @property
-To transition or animate gradients fluently, we can use "@property". First we define the property:
+To transition or animate gradients fluently, we can use [mozilla.org - @property](https://developer.mozilla.org/en-US/docs/Web/CSS/@property). First we define the property:
 ```css
 @property --gradient-color-1 {
     syntax: "<color>";
