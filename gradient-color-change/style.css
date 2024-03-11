@@ -24,7 +24,6 @@ body {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(var(--gradient-angle), var(--gradient-color-1), var(--gradient-color-2));
-    transition: var(--gradient-angle) 2s, var(--gradient-color-1) 2s, var(--gradient-color-2) 2s;
     animation-name: colorChange;
     animation-duration: 10s;
     animation-iteration-count: infinite;

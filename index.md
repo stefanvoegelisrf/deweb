@@ -32,6 +32,7 @@
       - [Linear interpolation](#linear-interpolation)
       - [Creating CSS gradients](#creating-css-gradients)
       - [getBoundingClientRect](#getboundingclientrect)
+      - [Using @property](#using-property)
 
 
 ## Wiki for module
@@ -404,6 +405,34 @@ A helpful to create CSS gradients is [cssgradient.io](https://cssgradient.io/) o
 [mozilla.org - getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) can be used to get information about the size of an element and its position relative to the viewport.
 
 TODO: prefers-reduced-motion
-TODO: @property, transitioning properties --> https://www.youtube.com/watch?v=y8-F5-2EIcg&ab_channel=KevinPowell
 
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
+#### Using @property
+To transition or animate gradients fluently, we can use "@property". First we define the property:
+```css
+@property --gradient-color-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #FF007B;
+}
+```
+
+Then we animate the properties:
+```css
+@keyframes colorChange {
+    50% {
+        --gradient-color-1: #FFE300;
+        --gradient-color-2: #AA396F;
+    }
+    100%{
+        --gradient-color-1: #FF007B;
+        --gradient-color-2: #00DDFF;
+        --gradient-angle: 360deg;
+    }
+}
+```
+
+Like that, the colors transition seamlessly.
+
+> See: [Gradient color change](gradient-color-change)
