@@ -402,3 +402,8 @@ A helpful to create CSS gradients is [cssgradient.io](https://cssgradient.io/) o
 
 #### getBoundingClientRect
 [mozilla.org - getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) can be used to get information about the size of an element and its position relative to the viewport.
+
+TODO: prefers-reduced-motion
+TODO: @property, transitioning properties --> https://www.youtube.com/watch?v=y8-F5-2EIcg&ab_channel=KevinPowell
+
+TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
