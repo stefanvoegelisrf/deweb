@@ -14,25 +14,32 @@
     initial-value: #00DDFF;
 }
 
+@property --gradient-angle{
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+
+}
+
 body {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
-    transition: var(--gradient-color-1) 1s, var(--gradient-color-2) 1s;
-    animation: colorChange 5s infinite;
+    background: linear-gradient(var(--gradient-angle), var(--gradient-color-1), var(--gradient-color-2));
+    transition: var(--gradient-angle) 2s, var(--gradient-color-1) 2s, var(--gradient-color-2) 2s;
+    animation-name: colorChange;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
 }
 
 @keyframes colorChange {
-    25% {
-        --gradient-color-1: #00DDFF;
-        --gradient-color-2: #FF007B;
-    }
     50% {
-        --gradient-color-1: #00FF00;
-        --gradient-color-2: #FF00FF;
+        --gradient-color-1: #FFE300;
+        --gradient-color-2: #AA396F;
     }
-    75% {
-        --gradient-color-1: #FF00FF;
-        --gradient-color-2: #00FF00;
+    100%{
+        --gradient-color-1: #FF007B;
+        --gradient-color-2: #00DDFF;
+        --gradient-angle: 360deg;
     }
 }
