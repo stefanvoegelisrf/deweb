@@ -79,12 +79,29 @@ class ProcessMenu extends HTMLElement {
             transition: all 0.5s;
         }
 
-        .row{
-            width: 100%;
+        .reduced-menu {
+            width: 1.5em !important;
+            height: 1.5em !important;
+        }
+
+        .icon-container{
+            position: relative;
+        }
+
+        .icon{
+            transition: all 1s;
+        }
+
+        .icon-hidden{
+            visibility: hidden;
+            opacity: 0;
         }
 
         #menu-open, #menu-close{
             cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         @keyframes menu-color-change {
@@ -103,11 +120,18 @@ class ProcessMenu extends HTMLElement {
             text-align: center;
             list-style: none;
             padding: 0;
-            margin: 1em 0 1em 0;
+            margin: 2em 0 1em 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            transition: height 0.1s, width 0.5s;
+        }
+
+        .links-hidden{
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         li{
@@ -138,9 +162,10 @@ class ProcessMenu extends HTMLElement {
         }
         let menuDiv = document.createElement('div');
         menuDiv.id = 'menu';
+        menuDiv.classList.add('reduced-menu');
 
         let menuControlsDiv = document.createElement('div');
-        menuControlsDiv.classList.add('row');
+        menuControlsDiv.classList.add('icon-container');
 
         let menuIconSpan = document.createElement('span');
         menuIconSpan.classList.add('material-icons-outlined');
@@ -153,7 +178,7 @@ class ProcessMenu extends HTMLElement {
 
         let menuCloseIconSpan = document.createElement('span');
         menuCloseIconSpan.classList.add('material-icons-outlined');
-        menuCloseIconSpan.classList.add('hidden');
+        menuCloseIconSpan.classList.add('icon-hidden');
         menuCloseIconSpan.innerHTML = "close";
         menuCloseIconSpan.id = "menu-close";
         menuCloseIconSpan.addEventListener('click', () => {
@@ -165,7 +190,7 @@ class ProcessMenu extends HTMLElement {
 
         let linkList = document.createElement('ul');
         linkList.id = "link-list";
-        linkList.classList.add('row');
+        linkList.classList.add('links-hidden');
 
         let listElementBrockmann = document.createElement('li');
         let linkBrockmann = document.createElement('a');
@@ -237,17 +262,21 @@ class ProcessMenu extends HTMLElement {
         let menuIconSpan = shadowRoot.querySelector("#menu-open");
         let menuCloseIconSpan = shadowRoot.querySelector("#menu-close");
         let linkList = shadowRoot.querySelector("#link-list");
-        linkList.classList.remove('hidden');
-        menuIconSpan.classList.add('hidden');
-        menuCloseIconSpan.classList.remove('hidden');
+        let menuDiv = shadowRoot.querySelector("#menu");
+        menuDiv.classList.remove('reduced-menu');
+        linkList.classList.remove('links-hidden');
+        menuIconSpan.classList.add('icon-hidden');
+        menuCloseIconSpan.classList.remove('icon-hidden');
     }
     onHideMenu(shadowRoot) {
         let menuIconSpan = shadowRoot.querySelector("#menu-open");
         let menuCloseIconSpan = shadowRoot.querySelector("#menu-close");
         let linkList = shadowRoot.querySelector("#link-list");
-        linkList.classList.add('hidden');
-        menuIconSpan.classList.remove('hidden');
-        menuCloseIconSpan.classList.add('hidden');
+        let menuDiv = shadowRoot.querySelector("#menu");
+        menuDiv.classList.add('reduced-menu');
+        linkList.classList.add('links-hidden');
+        menuIconSpan.classList.remove('icon-hidden');
+        menuCloseIconSpan.classList.add('icon-hidden');
     }
 }
 
