@@ -37,8 +37,8 @@ class ProcessMenu extends HTMLElement {
         const styleSheet = new CSSStyleSheet();
         styleSheet.replaceSync(`
         * {
-        font-family: 'Unbounded', sans-serif;
-        font-size: 16px;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 16px;
         }
 
         .material-icons-outlined {
@@ -77,6 +77,7 @@ class ProcessMenu extends HTMLElement {
             animation-timing-function:linear;
             line-height: 1em;
             transition: all 0.5s;
+            overflow: hidden;
         }
 
         .reduced-menu {
@@ -125,13 +126,10 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            transition: height 0.1s, width 0.5s;
         }
 
         .links-hidden{
             opacity: 0;
-            width: 0;
-            height: 0;
         }
 
         li{
