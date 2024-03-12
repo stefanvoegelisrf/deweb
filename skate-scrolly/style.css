@@ -445,13 +445,15 @@ section {
     --indicator-width: calc(var(--clock-width) * 0.1);
     --hand-width: calc(var(--clock-width) * 0.05);
     --clock-width: 40rem;
-    --clock-height: 40rem;
+    --duration-hour: 6s;
+    --duration-minute: 1s;
     width: var(--clock-width);
-    height: var(--clock-height);
+    height: var(--clock-width);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 50;
 }
 
 #timesaver-slogan {
@@ -469,29 +471,84 @@ section {
     height: 100%;
 }
 
+.clock-container-inner {
+    position: relative;
+    height: 100%;
+}
+
+#small-clock-1 {
+    left: 17%;
+    top: 15%;
+    --duration-hour: 3s;
+    --duration-minute: .5s;
+}
+
+.container-small-clock {
+    --clock-width: 10rem;
+    --indicator-width: calc(var(--clock-width) * 0.1);
+    --hand-width: calc(var(--clock-width) * 0.05);
+    width: var(--clock-width);
+    height: var(--clock-width);
+    position: absolute;
+
+}
+
+#middle-clock-1 {
+    left: 10%;
+    bottom: 10%;
+    --duration-hour: 1.5s;
+    --duration-minute: .25s;
+}
+
+.container-middle-clock {
+    --clock-width: 15rem;
+    --indicator-width: calc(var(--clock-width) * 0.1);
+    --hand-width: calc(var(--clock-width) * 0.05);
+    width: var(--clock-width);
+    height: var(--clock-width);
+    position: absolute;
+}
+
+#tiny-clock-1 {
+    left: 5%;
+    top: 5%;
+    --duration-hour: 12s;
+    --duration-minute: 2s;
+}
+
+.container-tiny-clock {
+    --clock-width: 7.5rem;
+    --indicator-width: calc(var(--clock-width) * 0.1);
+    --hand-width: calc(var(--clock-width) * 0.05);
+    width: var(--clock-width);
+    height: var(--clock-width);
+    position: absolute;
+}
+
 .clockface {
     position: absolute;
     top: 0;
     left: 0;
     width: var(--clock-width);
-    height: var(--clock-height);
+    height: var(--clock-width);
     background-color: red;
     background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 2, 133) 0%, rgb(170, 58, 116) 33%, rgb(255, 255, 3) 66%, rgb(255, 2, 133) 100%);
     border-radius: calc(var(--clock-width) * 0.5);
+    z-index: 1;
 }
 
 .hour-hand {
     width: var(--hand-width);
-    height: calc(var(--clock-height) * 0.3);
+    height: calc(var(--clock-width) * 0.3);
     border-radius: calc(var(--hand-width) * 0.5);
     background-color: cyan;
     position: absolute;
-    top: calc(var(--clock-height) * 0.2);
+    top: calc(var(--clock-width) * 0.2);
     left: 50%;
     z-index: 10;
     mix-blend-mode: exclusion;
     animation-name: rotate-hand;
-    animation-duration: 6s;
+    animation-duration: var(--duration-hour);
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     transform-origin: bottom;
@@ -499,16 +556,16 @@ section {
 
 .minute-hand {
     width: var(--hand-width);
-    height: calc(var(--clock-height) * 0.45);
+    height: calc(var(--clock-width) * 0.45);
     border-radius: calc(var(--hand-width) * 0.5);
     background-color: green;
     position: absolute;
-    top: calc(var(--clock-height) * 0.05);
+    top: calc(var(--clock-width) * 0.05);
     left: 50%;
     z-index: 5;
     mix-blend-mode: color-dodge;
     animation-name: rotate-hand;
-    animation-duration: 1s;
+    animation-duration: var(--duration-minute);
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     transform-origin: bottom;
@@ -521,28 +578,29 @@ section {
     border-radius: calc(var(--indicator-width) * 0.5);
     position: absolute;
     mix-blend-mode: color-dodge;
+    z-index: 9;
 }
 
 .indicator-12-oclock {
-    top: 1rem;
+    top: calc(var(--clock-width) / 30);
     left: 50%;
     transform: translateX(-50%);
 }
 
 .indicator-3-oclock {
     top: 50%;
-    right: 1rem;
+    right: calc(var(--clock-width) / 30);
     transform: translateY(-50%);
 }
 
 .indicator-9-oclock {
     top: 50%;
-    left: 1rem;
+    left: calc(var(--clock-width) / 30);
     transform: translateY(-50%);
 }
 
 .indicator-6-oclock {
-    bottom: 1rem;
+    bottom: calc(var(--clock-width) / 30);
     left: 50%;
     transform: translateX(-50%);
 }
@@ -557,6 +615,7 @@ section {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 @keyframes rotate-hand {
@@ -597,6 +656,12 @@ section {
     animation-timeline: scroll();
     animation-range: contain 20%;
 }
+
+.looks-eye {}
+
+#looks-eye-left {}
+
+#looks-eye-right {}
 
 @keyframes scale-mouth {
     100% {
