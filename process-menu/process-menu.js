@@ -9,11 +9,6 @@ class ProcessMenu extends HTMLElement {
         font.rel = "stylesheet"
         document.head.appendChild(font);
 
-        const iconFont = document.createElement("link");
-        iconFont.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        iconFont.rel = "stylesheet"
-        document.head.appendChild(iconFont);
-
         window.CSS.registerProperty({
             name: '--menu-gradient-color-1',
             syntax: '<color>',
@@ -41,24 +36,6 @@ class ProcessMenu extends HTMLElement {
             font-size: 16px;
         }
 
-        .material-icons-outlined {
-            font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 1.5em;
-            line-height: 1;
-            letter-spacing: normal;
-            text-transform: none;
-            display: inline-block;
-            white-space: nowrap;
-            word-wrap: normal;
-            direction: ltr;
-            -webkit-font-feature-settings: 'liga';
-            -webkit-font-smoothing: antialiased;
-            color: white;
-        }
-
         #menu{
             display: flex;
             flex-direction: column;
@@ -75,9 +52,46 @@ class ProcessMenu extends HTMLElement {
             animation-duration: 10s;
             animation-iteration-count: infinite;
             animation-timing-function:linear;
-            line-height: 1em;
+            // line-height: 1em;
             transition: all 0.5s;
             overflow: hidden;
+            box-shadow: 0 0  1em rgba(0,0,0,0.5);
+        }
+
+        .burger-line{
+            width: 1em;
+            height: .1em;
+            background: white;
+            display: inline-block;
+            position: absolute;
+            transition: all 0.5s;
+        }
+
+        .burger-top {
+            top: 2px;
+            transform-origin: top left;
+        }
+
+        .burger-middle {
+            top: 7px;
+            transform-origin: center center;
+        }
+
+        .burger-bottom {
+            top: 12px;
+            transform-origin: bottom left;
+        }
+
+        .close-active > .burger-top {
+            transform: rotate(42deg);
+        }
+
+        .close-active > .burger-middle {
+            scale: 0;
+        }
+
+        .close-active > .burger-bottom {
+            transform: rotate(-42deg);
         }
 
         .reduced-menu {
@@ -87,6 +101,11 @@ class ProcessMenu extends HTMLElement {
 
         .icon-container{
             position: relative;
+            height: 1em;
+            min-height: 1em;
+            width: 1em;
+            margin: .25em;
+            cursor: pointer;
         }
 
         .icon{
@@ -121,7 +140,7 @@ class ProcessMenu extends HTMLElement {
             text-align: center;
             list-style: none;
             padding: 0;
-            margin: 2em 0 1em 0;
+            margin: 1em 0 1em 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -130,6 +149,8 @@ class ProcessMenu extends HTMLElement {
 
         .links-hidden{
             opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         li{
@@ -163,26 +184,26 @@ class ProcessMenu extends HTMLElement {
         menuDiv.classList.add('reduced-menu');
 
         let menuControlsDiv = document.createElement('div');
+        menuControlsDiv.id = 'menu-controls';
+        menuControlsDiv.addEventListener('click', () => {
+            this.toggleMenu(this.shadowRoot);
+        });
         menuControlsDiv.classList.add('icon-container');
 
-        let menuIconSpan = document.createElement('span');
-        menuIconSpan.classList.add('material-icons-outlined');
-        menuIconSpan.innerHTML = "menu";
-        menuIconSpan.id = "menu-open";
-        menuIconSpan.addEventListener('click', () => {
-            this.onShowMenu(this.shadowRoot);
-        });
-        menuControlsDiv.appendChild(menuIconSpan);
+        let burgerTop = document.createElement('span');
+        burgerTop.classList.add('burger-line');
+        burgerTop.classList.add('burger-top');
+        menuControlsDiv.appendChild(burgerTop);
 
-        let menuCloseIconSpan = document.createElement('span');
-        menuCloseIconSpan.classList.add('material-icons-outlined');
-        menuCloseIconSpan.classList.add('icon-hidden');
-        menuCloseIconSpan.innerHTML = "close";
-        menuCloseIconSpan.id = "menu-close";
-        menuCloseIconSpan.addEventListener('click', () => {
-            this.onHideMenu(this.shadowRoot);
-        });
-        menuControlsDiv.appendChild(menuCloseIconSpan);
+        let burgerMiddle = document.createElement('span');
+        burgerMiddle.classList.add('burger-line');
+        burgerMiddle.classList.add('burger-middle');
+        menuControlsDiv.appendChild(burgerMiddle);
+
+        let burgerBottom = document.createElement('span');
+        burgerBottom.classList.add('burger-line');
+        burgerBottom.classList.add('burger-bottom');
+        menuControlsDiv.appendChild(burgerBottom);
 
         menuDiv.appendChild(menuControlsDiv);
 
@@ -257,24 +278,28 @@ class ProcessMenu extends HTMLElement {
         this.shadowRoot.appendChild(menuDiv);
     }
     onShowMenu(shadowRoot) {
-        let menuIconSpan = shadowRoot.querySelector("#menu-open");
-        let menuCloseIconSpan = shadowRoot.querySelector("#menu-close");
         let linkList = shadowRoot.querySelector("#link-list");
         let menuDiv = shadowRoot.querySelector("#menu");
+        let menuControlsDiv = shadowRoot.querySelector("#menu-controls");
+        menuControlsDiv.classList.add('close-active');
         menuDiv.classList.remove('reduced-menu');
         linkList.classList.remove('links-hidden');
-        menuIconSpan.classList.add('icon-hidden');
-        menuCloseIconSpan.classList.remove('icon-hidden');
     }
     onHideMenu(shadowRoot) {
-        let menuIconSpan = shadowRoot.querySelector("#menu-open");
-        let menuCloseIconSpan = shadowRoot.querySelector("#menu-close");
         let linkList = shadowRoot.querySelector("#link-list");
         let menuDiv = shadowRoot.querySelector("#menu");
+        let menuControlsDiv = shadowRoot.querySelector("#menu-controls");
+        menuControlsDiv.classList.remove('close-active');
         menuDiv.classList.add('reduced-menu');
         linkList.classList.add('links-hidden');
-        menuIconSpan.classList.remove('icon-hidden');
-        menuCloseIconSpan.classList.add('icon-hidden');
+    }
+    toggleMenu(shadowRoot) {
+        let menuDiv = shadowRoot.querySelector("#menu");
+        if (menuDiv.classList.contains('reduced-menu')) {
+            this.onShowMenu(shadowRoot);
+        } else {
+            this.onHideMenu(shadowRoot);
+        }
     }
 }
 
