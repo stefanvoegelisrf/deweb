@@ -478,6 +478,13 @@ section {
     --duration-minute: .5s;
 }
 
+#small-clock-2 {
+    right: 10%;
+    top: 60%;
+    --duration-hour: 18s;
+    --duration-minute: 3s;
+}
+
 .container-small-clock {
     --clock-width: 10rem;
     --indicator-width: calc(var(--clock-width) * 0.1);
@@ -495,6 +502,13 @@ section {
     --duration-minute: .25s;
 }
 
+#middle-clock-2 {
+    right: 10%;
+    top: 5%;
+    --duration-hour: 9s;
+    --duration-minute: 1.5s;
+}
+
 .container-middle-clock {
     --clock-width: 15rem;
     --indicator-width: calc(var(--clock-width) * 0.1);
@@ -509,6 +523,12 @@ section {
     top: 5%;
     --duration-hour: 12s;
     --duration-minute: 2s;
+}
+#tiny-clock-2 {
+    left: 65%;
+    bottom: 2%;
+    --duration-hour: 24s;
+    --duration-minute: 4s;
 }
 
 .container-tiny-clock {
