@@ -61,7 +61,7 @@ section {
 }
 
 #looks-slogan-big {
-    font-size: 10rem;
+    font-size: 12rem;
     text-align: center;
 }
 
@@ -100,8 +100,6 @@ section {
     margin: 0 auto;
     z-index: 10;
 }
-
-.scroll-quirky-skateboard {}
 
 @keyframes rotate-quirky-skate {
     0% {
@@ -466,7 +464,7 @@ section {
     transform: translate(-50%, -50%);
 }
 
-#timesaver-slogan-container{
+#timesaver-slogan-container {
     position: relative;
     height: 100%;
 }
@@ -580,6 +578,31 @@ section {
     width: 100%;
 }
 
+#container-looks-mouth {
+    position: relative;
+    width: 100%;
+}
+
+#looks-mouth {
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-150%) scale(0.5);
+    background-color: red;
+    transition: all .5s;
+    animation-name: scale-mouth;
+    animation-duration: 1s;
+    animation-timeline: scroll();
+    animation-range: contain 20%;
+}
+
+@keyframes scale-mouth {
+    100% {
+        transform: translateX(-200%) scale(2.5);
+    }
+}
 
 /* Wet */
 #wave {
