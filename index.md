@@ -408,6 +408,14 @@ TODO: prefers-reduced-motion
 
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 
+TODO: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+
+TODO: https://codepen.io/zFunx/pen/WjVzWo
+
+TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6ZeBYoJ4uh&ab_channel=TheCodingTrain
+
+TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
+
 #### Using @property
 To transition or animate gradients fluently, we can use [mozilla.org - @property](https://developer.mozilla.org/en-US/docs/Web/CSS/@property). First we define the property:
 ```css
