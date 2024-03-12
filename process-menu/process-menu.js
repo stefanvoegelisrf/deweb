@@ -52,7 +52,6 @@ class ProcessMenu extends HTMLElement {
             animation-duration: 10s;
             animation-iteration-count: infinite;
             animation-timing-function:linear;
-            // line-height: 1em;
             transition: all 0.5s;
             overflow: hidden;
             box-shadow: 0 0  .5em rgba(0,0,0,0.5);
@@ -164,9 +163,10 @@ class ProcessMenu extends HTMLElement {
         a:link {
             text-decoration: none;
         }
-
-        a:visited {
+        a:hover{
+            text-decoration: underline;
         }
+        
         `)
         this.shadowRoot.adoptedStyleSheets = [styleSheet];
     }
