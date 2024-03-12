@@ -1,5 +1,6 @@
 class ProcessMenu extends HTMLElement {
     shadowRoot;
+
     constructor() {
         super();
         this.shadowRoot = this.attachShadow({ mode: "closed" });
@@ -13,18 +14,39 @@ class ProcessMenu extends HTMLElement {
         iconFont.rel = "stylesheet"
         document.head.appendChild(iconFont);
 
+        window.CSS.registerProperty({
+            name: '--menu-gradient-color-1',
+            syntax: '<color>',
+            inherits: false,
+            initialValue: '#EB61CC'
+        });
+        window.CSS.registerProperty({
+            name: '--menu-gradient-color-2',
+            syntax: '<color>',
+            inherits: false,
+            initialValue: '#EB607A'
+        });
+
+        window.CSS.registerProperty({
+            name: '--menu-gradient-angle',
+            syntax: '<angle>',
+            inherits: false,
+            initialValue: '0deg'
+        });
+
         const styleSheet = new CSSStyleSheet();
         styleSheet.replaceSync(`
-        *{
-            font-family: 'Unbounded', sans-serif;
-            font-size: 16px;
+        * {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 16px;
         }
+
         .material-icons-outlined {
             font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
             font-family: 'Material Symbols Outlined';
             font-weight: normal;
             font-style: normal;
-            font-size: 24px;
+            font-size: 1.5em;
             line-height: 1;
             letter-spacing: normal;
             text-transform: none;
@@ -34,20 +56,73 @@ class ProcessMenu extends HTMLElement {
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
+            color: white;
         }
-        .menu{
+
+        #menu{
+            display: flex;
+            flex-direction: column;
             position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-            background-color: red;
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
+            width: 16em;
+            height: 16em;
+            top: .5em;
+            left: .5em;
+            padding: .5em;
+            border-radius: 1em;
+            z-index: 1000;
+            background: linear-gradient(var(--menu-gradient-angle), var(--menu-gradient-color-1), var(--menu-gradient-color-2));
+            animation-name: menu-color-change;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear;
+            line-height: 1em;
+            transition: all 0.5s;
         }
-        ul{
+
+        .row{
+            width: 100%;
+        }
+
+        #menu-open, #menu-close{
+            cursor: pointer;
+        }
+
+        @keyframes menu-color-change {
+            50% {
+                --menu-gradient-color-1: #A060EB;
+                --menu-gradient-color-2: #EB7160;
+            }
+            100%{
+                --menu-gradient-color-1: #EB61CC;
+                --menu-gradient-color-2: #EB607A;
+                --menu-gradient-angle: 360deg;
+            }
+        }
+
+        ul {
+            text-align: center;
             list-style: none;
             padding: 0;
+            margin: 1em 0 1em 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        li{
+        }
+
+        a {
+            mix-blend-mode: plus-lighter;
+            color: rgb(100,100,100);
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
         }
         `)
         this.shadowRoot.adoptedStyleSheets = [styleSheet];
@@ -62,14 +137,35 @@ class ProcessMenu extends HTMLElement {
             baseUrl = "/kiweb";
         }
         let menuDiv = document.createElement('div');
-        menuDiv.classList.add('menu');
+        menuDiv.id = 'menu';
+
+        let menuControlsDiv = document.createElement('div');
+        menuControlsDiv.classList.add('row');
 
         let menuIconSpan = document.createElement('span');
         menuIconSpan.classList.add('material-icons-outlined');
         menuIconSpan.innerHTML = "menu";
-        menuDiv.appendChild(menuIconSpan);
+        menuIconSpan.id = "menu-open";
+        menuIconSpan.addEventListener('click', () => {
+            this.onShowMenu(this.shadowRoot);
+        });
+        menuControlsDiv.appendChild(menuIconSpan);
+
+        let menuCloseIconSpan = document.createElement('span');
+        menuCloseIconSpan.classList.add('material-icons-outlined');
+        menuCloseIconSpan.classList.add('hidden');
+        menuCloseIconSpan.innerHTML = "close";
+        menuCloseIconSpan.id = "menu-close";
+        menuCloseIconSpan.addEventListener('click', () => {
+            this.onHideMenu(this.shadowRoot);
+        });
+        menuControlsDiv.appendChild(menuCloseIconSpan);
+
+        menuDiv.appendChild(menuControlsDiv);
 
         let linkList = document.createElement('ul');
+        linkList.id = "link-list";
+        linkList.classList.add('row');
 
         let listElementBrockmann = document.createElement('li');
         let linkBrockmann = document.createElement('a');
@@ -136,6 +232,22 @@ class ProcessMenu extends HTMLElement {
 
         menuDiv.appendChild(linkList);
         this.shadowRoot.appendChild(menuDiv);
+    }
+    onShowMenu(shadowRoot) {
+        let menuIconSpan = shadowRoot.querySelector("#menu-open");
+        let menuCloseIconSpan = shadowRoot.querySelector("#menu-close");
+        let linkList = shadowRoot.querySelector("#link-list");
+        linkList.classList.remove('hidden');
+        menuIconSpan.classList.add('hidden');
+        menuCloseIconSpan.classList.remove('hidden');
+    }
+    onHideMenu(shadowRoot) {
+        let menuIconSpan = shadowRoot.querySelector("#menu-open");
+        let menuCloseIconSpan = shadowRoot.querySelector("#menu-close");
+        let linkList = shadowRoot.querySelector("#link-list");
+        linkList.classList.add('hidden');
+        menuIconSpan.classList.remove('hidden');
+        menuCloseIconSpan.classList.add('hidden');
     }
 }
 
