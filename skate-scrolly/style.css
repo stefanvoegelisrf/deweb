@@ -47,6 +47,10 @@ section {
     background-color: magenta;
 }
 
+#lake {
+    overflow: hidden;
+}
+
 #timesaver,
 #lake {
     background-color: cyan;
@@ -54,6 +58,11 @@ section {
 
 #looks {
     background-color: yellow;
+}
+
+#looks-slogan-big {
+    font-size: 10rem;
+    text-align: center;
 }
 
 .slogan {
@@ -72,7 +81,6 @@ section {
     line-height: 6rem;
     text-align: center;
     padding: 2rem;
-    margin-top: 2rem;
 }
 
 #quirky-slogan {
@@ -93,69 +101,77 @@ section {
     z-index: 10;
 }
 
-.scroll-quirky-skateboard{
-
-}
+.scroll-quirky-skateboard {}
 
 @keyframes rotate-quirky-skate {
     0% {
         transform: rotate(0deg) translate(-50%, -50%) scale(1);
         left: 50%;
         top: 50%;
+        opacity: 1;
     }
 
     20% {
         transform: rotate(180deg) translate(-50%, 50%) scale(1);
         left: 60%;
         top: 50%;
+        opacity: 1;
     }
 
     40% {
         transform: rotate(180deg) translate(-50%, 49%) scale(1);
         left: 55%;
         top: 50%;
+        opacity: 1;
     }
 
     60% {
         transform: rotate(180deg) translate(-50%, 48%) scale(1);
         left: 60%;
         top: 50%;
+        opacity: 1;
     }
 
     70% {
         transform: rotate(180deg) translate(-50%, 47%) scale(1);
         left: 55%;
         top: 50%;
+        opacity: 1;
     }
 
     80% {
         transform: rotate(180deg) translate(-50%, 46%) scale(1);
         left: 50%;
         top: 50%;
+        opacity: 1;
     }
 
     90% {
         transform: rotate(180deg) translate(-50%, 45%) scale(1);
         left: 55%;
         top: 50%;
+        opacity: 1;
     }
 
     93% {
         transform: rotate(180deg) translate(50%, 44%) scale(0.7);
         left: 50%;
         top: 50%;
+        opacity: 1;
     }
 
     98% {
         transform: rotate(180deg) translate(50%, 43%) scale(0.5);
         left: 50%;
         top: 80%;
+        opacity: 1;
     }
 
     100% {
         transform: rotate(180deg) translate(50%, 42%) scale(0.5);
         left: 50%;
         top: 120%;
+        opacity: 0;
     }
 }
 
@@ -177,7 +193,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    mix-blend-mode: difference;
+    mix-blend-mode: hue;
     animation-name: quirky-wheels;
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
@@ -430,17 +446,35 @@ section {
 #container-timesaver {
     --indicator-width: calc(var(--clock-width) * 0.1);
     --hand-width: calc(var(--clock-width) * 0.05);
-    --clock-width: 30rem;
-    --clock-height: 30rem;
+    --clock-width: 40rem;
+    --clock-height: 40rem;
     width: var(--clock-width);
     height: var(--clock-height);
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+}
+
+#timesaver-slogan {
+    z-index: 20;
+    mix-blend-mode: exclusion;
+    color: cyan;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#timesaver-slogan-container{
+    position: relative;
+    height: 100%;
 }
 
 .clockface {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: var(--clock-width);
     height: var(--clock-height);
     background-color: red;
@@ -539,85 +573,72 @@ section {
 
 /* Looks */
 #container-looks {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
 }
 
-.face {
-    background-color: red;
-    position: absolute;
+
+/* Wet */
+#wave {
+    position: relative;
+    opacity: 0;
+    top: 90%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    width: .2rem;
+    height: .1rem;
+    border: #FFF .5rem solid;
+    border-radius: 15rem / 7.5rem;
+    animation-name: ripple;
+    animation-range: entry 0% contain 20%;
+    animation-timeline: view(block);
 }
 
-.face-top {
-    width: 18rem;
-    height: 10rem;
-    top: 4rem;
-    border-radius: 7rem 7rem 0 0;
-}
-
-.face-bottom {
-    width: 22rem;
-    height: 15rem;
-    top: 12rem;
-    border-radius: 7rem 7rem 10rem 10rem;
-}
-
-.eye {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 2.5rem;
-    background-color: yellow;
+#wave:after {
+    content: "";
     position: absolute;
-    top: 7rem;
+    opacity: 0;
+    top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    width: .1rem;
+    height: .1rem;
+    border: #FFF .2rem solid;
+    border-radius: 5rem / 2.5rem;
+    animation-name: ripple-2;
+    animation-range: entry 0% contain 20%;
+    animation-timeline: view(y);
 }
 
-.eye-left {
-    transform: translateX(10%);
+@keyframes ripple {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        width: 30rem;
+        height: 15rem;
+        border-width: 1rem;
+        opacity: 0;
+    }
 }
 
-.eye-right {
-    transform: translateX(-110%);
-}
+@keyframes ripple-2 {
+    0% {
+        opacity: 1;
+    }
 
-.nostril {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 2rem 2rem 1rem 1rem;
-    background-color: yellow;
-    position: absolute;
-    left: 50%;
-    top: 15rem;
-}
+    50% {
+        opacity: 0;
+    }
 
-.nostril-left {
-    transform: translateX(-90%);
-}
-
-.nostril-right {
-    transform: translateX(-10%);
-}
-
-.nasal-bridge {
-    width: 2.5rem;
-    height: 6rem;
-    border-radius: 1.5rem;
-    background-color: yellow;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 13rem;
-}
-
-.mouth {
-    width: 10rem;
-    height: 4rem;
-    border-radius: 100%;
-    background-color: yellow;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 20rem;
+    100% {
+        width: 10rem;
+        height: 5rem;
+        border-width: 1rem;
+        left: 50%;
+    }
 }
