@@ -40,6 +40,11 @@
 ## Project
 > See: [Project](project)
 
+- [Brockmann poster](brockmann/musica-viva-1/)
+- [Mike Joyce poster](mike-joyce/)
+- [Color dance](color-dance/)
+- [Skate](skate-scrolly/)
+
 ## Journal
 
 ### 20.02.2024
