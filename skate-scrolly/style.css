@@ -84,8 +84,8 @@ section {
 }
 
 #quirky-slogan {
-    color: cyan;
-    mix-blend-mode: difference;
+    color: yellow;
+    mix-blend-mode: plus-lighter;
 }
 
 #container-quirky {
@@ -186,7 +186,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    mix-blend-mode: hue;
+    mix-blend-mode: color;
     animation-name: quirky-wheels;
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
@@ -345,7 +345,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    mix-blend-mode: lighten;
+    mix-blend-mode: darken;
     animation-name: quirky-handle;
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
@@ -553,6 +553,10 @@ section {
     z-index: 1;
 }
 
+.clockface.clockface-background {
+    mix-blend-mode: color;
+}
+
 .hour-hand {
     width: var(--hand-width);
     height: calc(var(--clock-width) * 0.3);
@@ -651,6 +655,7 @@ section {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    color: cyan;
 }
 
 #container-looks-mouth {
@@ -665,7 +670,7 @@ section {
     position: absolute;
     left: 50%;
     transform: translateX(-300%) scale(0.5);
-    background-color: black;
+    background-color: cyan;
     transition: all .5s;
     animation-name: scale-mouth;
     animation-duration: 1s;
@@ -673,7 +678,7 @@ section {
     animation-range: contain 30%;
 }
 
-#looks-mouth-tongue{
+#looks-mouth-tongue {
     width: 30%;
     height: 30%;
     position: absolute;
@@ -741,7 +746,7 @@ section {
     }
 
     100% {
-        transform: scale(2, 2) rotate(-60deg) skew(10deg, 45deg);
+        transform: scale(2, 2) rotate(-20deg) skew(10deg, 45deg);
     }
 }
 
@@ -763,8 +768,11 @@ section {
     border: #FFF .5rem solid;
     border-radius: 15rem / 7.5rem;
     animation-name: ripple;
-    animation-range: entry 0% contain 20%;
-    animation-timeline: view(block);
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* animation-range: contain 50%;
+    animation-timeline: scroll(); */
 }
 
 #wave:after {
@@ -779,8 +787,11 @@ section {
     border: #FFF .2rem solid;
     border-radius: 5rem / 2.5rem;
     animation-name: ripple-2;
-    animation-range: entry 0% contain 20%;
-    animation-timeline: view(y);
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* animation-range: contain 20%;
+    animation-timeline: scroll(); */
 }
 
 @keyframes ripple {
@@ -792,7 +803,7 @@ section {
         width: 30rem;
         height: 15rem;
         border-width: 1rem;
-        opacity: 0;
+        /* opacity: 0; */
     }
 }
 
@@ -811,4 +822,28 @@ section {
         border-width: 1rem;
         left: 50%;
     }
+}
+
+/* Connect */
+#connect-slogan {
+    color: yellow;
+    z-index: 10;
+}
+
+.heart-s{
+    width: 10rem;
+    height: 10rem;
+}
+
+.heart-m {
+    width: 15rem;
+    height: 15rem;
+}
+
+#heart-1 {
+    fill: cyan;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
