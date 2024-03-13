@@ -2,7 +2,6 @@
 - [Kickstart Web Development](#kickstart-web-development)
   - [Wiki for module](#wiki-for-module)
   - [Project](#project)
-  - [Game Project](#game-project)
   - [Journal](#journal)
     - [20.02.2024](#20022024)
       - [Brockmann poster](#brockmann-poster)
@@ -40,9 +39,6 @@
 
 ## Project
 > See: [Project](project)
-
-## Game Project
-> See: [Game](gameproject)
 
 ## Journal
 
