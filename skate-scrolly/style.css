@@ -147,14 +147,14 @@ section {
     }
 
     93% {
-        transform: rotate(180deg) translate(50%, 44%) scale(0.7);
+        transform: rotate(190deg) translate(50%, 44%) scale(0.7);
         left: 50%;
         top: 50%;
         opacity: 1;
     }
 
     98% {
-        transform: rotate(180deg) translate(50%, 43%) scale(0.5);
+        transform: rotate(170deg) translate(50%, 43%) scale(0.5);
         left: 50%;
         top: 80%;
         opacity: 1;
