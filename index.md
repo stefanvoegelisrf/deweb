@@ -32,6 +32,7 @@
       - [Creating CSS gradients](#creating-css-gradients)
       - [getBoundingClientRect](#getboundingclientrect)
       - [Using @property](#using-property)
+  - [19.03.2024](#19032024)
 
 
 ## Wiki for module
@@ -405,18 +406,6 @@ A helpful to create CSS gradients is [cssgradient.io](https://cssgradient.io/) o
 #### getBoundingClientRect
 [mozilla.org - getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) can be used to get information about the size of an element and its position relative to the viewport.
 
-TODO: prefers-reduced-motion
-
-TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-
-TODO: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
-
-TODO: https://codepen.io/zFunx/pen/WjVzWo
-
-TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6ZeBYoJ4uh&ab_channel=TheCodingTrain
-
-TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
-
 #### Using @property
 To transition or animate gradients fluently, we can use [mozilla.org - @property](https://developer.mozilla.org/en-US/docs/Web/CSS/@property). First we define the property:
 ```css
@@ -445,3 +434,19 @@ Then we animate the properties:
 Like that, the colors transition seamlessly.
 
 > See: [Gradient color change](gradient-color-change)
+
+## 19.03.2024
+
+TODO: https://www.webcomponents.org/introduction
+
+TODO: prefers-reduced-motion
+
+TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
+TODO: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+
+TODO: https://codepen.io/zFunx/pen/WjVzWo
+
+TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6ZeBYoJ4uh&ab_channel=TheCodingTrain
+
+TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
