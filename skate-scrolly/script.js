@@ -12,3 +12,14 @@ function onScroll() {
 
 // Add scroll event
 window.addEventListener('scroll', onScroll);
+
+function showAttributions() {
+    const attributions = document.getElementById('attributions');
+    attributions.classList.contains('show-attributions') ? attributions.classList.remove('show-attributions') : attributions.classList.toggle('show-attributions');
+    const attributionsIcon = document.getElementById('attributions-icon');
+    attributionsIcon.classList.contains('rotate-attributions-icon') ? attributionsIcon.classList.remove('rotate-attributions-icon') : attributionsIcon.classList.toggle('rotate-attributions-icon');
+}
+
+window.onload = function () {
+    document.getElementById('attributions-title').addEventListener('click', showAttributions);
+}
