@@ -1,12 +1,16 @@
 # Javascript input
 - [Javascript input](#javascript-input)
+  - [Access the DOM and style](#access-the-dom-and-style)
   - [Adding elements](#adding-elements)
   - [Manipulating elements](#manipulating-elements)
     - [Selecting elements](#selecting-elements)
     - [Adding and removing classes](#adding-and-removing-classes)
+      - [Adding class when an element appears on the screen](#adding-class-when-an-element-appears-on-the-screen)
     - [Adding event handlers](#adding-event-handlers)
       - [Useful event handlers](#useful-event-handlers)
 
+
+## Access the DOM and style
 
 ## Adding elements
 
@@ -42,6 +46,9 @@ let circle1 = document.getElementById("circle1");
 circle1.classList.remove(circle1.classList[1]);
 circle1.classList.add("border-solid");
 ```
+
+#### Adding class when an element appears on the screen
+TODO: getBoundingClientRect or intersection observe
 
 ### Adding event handlers
 Event handlers are important to make a site react to user input. There are a lot of event handlers available, which serve different purposes. A list can be found here. [mozilla.org - Events](https://developer.mozilla.org/en-US/docs/Web/API/Event)
