@@ -66,7 +66,7 @@ main {
 }
 
 .head-name:hover>.head-image {
-    transform: scale(1) translateY(-5%);
+    transform: scale(1) translateY(-7%);
     width: 14rem;
     height: 14rem;
 }
@@ -77,7 +77,7 @@ main {
 
 .head-image {
     filter: invert();
-    transform: scale(0) translateY(-5%);
+    transform: scale(0) translateY(-7%);
     transition: all .5s;
     height: 7rem;
     width: 0rem;
