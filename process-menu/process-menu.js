@@ -274,6 +274,13 @@ class ProcessMenu extends HTMLElement {
         listElementGradientColorChange.appendChild(linkGradientColorChange);
         linkList.appendChild(listElementGradientColorChange);
 
+        let listElementHeads = document.createElement('li');
+        let linkHeads = document.createElement('a');
+        linkHeads.href = `${baseUrl}/heads/`;
+        linkHeads.innerHTML = "Heads";
+        listElementHeads.appendChild(linkHeads);
+        linkList.appendChild(listElementHeads);
+
         menuDiv.appendChild(linkList);
         this.shadowRoot.appendChild(menuDiv);
     }
