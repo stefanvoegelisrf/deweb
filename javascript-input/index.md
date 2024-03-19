@@ -10,9 +10,16 @@
       - [Useful event handlers](#useful-event-handlers)
 
 
+https://codepen.io/el_stefe/pen/dyLNmwQ
+
 ## Access the DOM and style
 
+
 ## Adding elements
+Elements can be added to the DOM by creating them in Javascript. To create an element, we use [createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
+```javascript
+let newDiv = document.createElement("div");
+```
 
 ## Manipulating elements
 Javascript allows access to the DOM(document object model) of our html page.

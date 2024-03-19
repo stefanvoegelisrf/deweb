@@ -2,6 +2,7 @@
 - [Kickstart Web Development](#kickstart-web-development)
   - [Wiki for module](#wiki-for-module)
   - [Project](#project)
+  - [Javascript input](#javascript-input)
   - [Journal](#journal)
     - [20.02.2024](#20022024)
       - [Brockmann poster](#brockmann-poster)
@@ -45,6 +46,10 @@
 - [Mike Joyce poster](mike-joyce/)
 - [Color dance](color-dance/)
 - [Skate](skate-scrolly/)
+
+## Javascript input
+I have created a resource for my javascript input. You can find it below.
+> See: [Javascript input](javascript-input/)
 
 ## Journal
 
@@ -240,6 +245,8 @@ background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, yel
 ```
 
 Once these circles were correctly placed, I made it interactive, by creating a radial slider so I can rotate them according to the slider. To get the effect, that each circle rotate in its own speed, I used linear interpolation.
+
+TODO: https://codepen.io/MyXoToD/pen/xGRrgQ
 
 > See: [Gradient wheel](gradient-wheel/)
 
@@ -452,3 +459,7 @@ TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
 
 TODO: https://web.dev/learn/css/blend-modes
+
+TODO: drip drop animation https://codepen.io/abehjat/pen/oXMENv
+
+TODO: how to create a new blend layer for mix-blend-mode by using position: relative and z-index
