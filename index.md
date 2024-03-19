@@ -450,3 +450,5 @@ TODO: https://codepen.io/zFunx/pen/WjVzWo
 TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6ZeBYoJ4uh&ab_channel=TheCodingTrain
 
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
+
+TODO: https://web.dev/learn/css/blend-modes
