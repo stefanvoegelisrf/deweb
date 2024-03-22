@@ -52,8 +52,8 @@
             <p>Enjoy and get addicted! Share if you enjoy!</p>
         </div>
         <p>© Stefan Vögeli <img src="../images/crow.svg" alt="crow icon" class="crow-icon"></p>
-        <button type="button">Attributions</button>
-        <dialog id="attributions-dialog">
+        <button type="button" id="open-attributions">Attributions</button>
+        <dialog id="attributions-dialog" class="dialog">
             <h1 id="attributions-title">Attributions</h1>
             <ul id="attributions-list">
                 <li>
@@ -202,10 +202,10 @@
                         href="https://opensource.org/license/mit">MIT</a>
                 </li>
             </ul>
-            <button autofocus>Close</button>
+            <button type="button" id="close-attributions">Close</button>
         </div>
     </footer>
-    <dialog class="win-dialog">
+    <dialog id="win-dialog" class="dialog">
         <h1>You win <span class="head-name"></span>!</h1>
         <img class="win-image">
         <p class="win-text">
@@ -214,7 +214,7 @@
         </p>
         <button>OK</button>
     </dialog>
-    <dialog class="lose-dialog">
+    <dialog id="lose-dialog" class="dialog">
         <h1>You lose!</h1>
         <p class="lose-text">
             You lost this time, but don't worry! You can try again and win a magnificient head!

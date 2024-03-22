@@ -192,6 +192,7 @@ main {
     color: black;
     transition: all .2s;
     padding: .5rem;
+    height: 4.5rem;
 }
 
 #spin-button:active {
@@ -199,10 +200,32 @@ main {
     color: white;
 }
 
-#attributions-list{
+#attributions-list {
     list-style: none;
+    font-size: .7rem;
+    margin-top: 1rem;
 }
 
-#attributions-title{
+#attributions-title {
     font-size: 1rem;
+}
+
+#close-attributions {
+    margin-top: 1rem;
+}
+
+.dialog {
+    border: var(--outer-border-width) solid black;
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
 }

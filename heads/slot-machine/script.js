@@ -9,22 +9,30 @@ window.onload = function () {
     slot1.appendChild(slotTemplate.content.cloneNode(true));
     slot2.appendChild(slotTemplate.content.cloneNode(true));
     slot3.appendChild(slotTemplate.content.cloneNode(true));
+    document.getElementById("open-attributions").addEventListener("click", () => {
+        const dialog = document.getElementById("attributions-dialog");
+        dialog.showModal();
+    });
+    document.getElementById("close-attributions").addEventListener("click", () => {
+        const dialog = document.getElementById("attributions-dialog");
+        dialog.close();
+    });
 }
 
 const slots = document.querySelectorAll('.slot');
 
 function startSpin(slotIndex) {
-  if (!spinning[slotIndex]) {
-    slots[slotIndex].classList.add('spin');
-    spinning[slotIndex] = true;
-  }
+    if (!spinning[slotIndex]) {
+        slots[slotIndex].classList.add('spin');
+        spinning[slotIndex] = true;
+    }
 }
 
 function stopSpin(slotIndex) {
-  if (spinning[slotIndex]) {
-    slots[slotIndex].addEventListener('animationiteration', () => {
-      slots[slotIndex].classList.remove('spin');
-      spinning[slotIndex] = false;
-    }, { once: true });
-  }
+    if (spinning[slotIndex]) {
+        slots[slotIndex].addEventListener('animationiteration', () => {
+            slots[slotIndex].classList.remove('spin');
+            spinning[slotIndex] = false;
+        }, { once: true });
+    }
 }
