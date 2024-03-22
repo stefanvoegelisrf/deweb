@@ -29,6 +29,7 @@
 :root {
     --head-image-height: 20rem;
     --number-of-heads: 10;
+    --outer-border-width: .5rem;
 }
 
 h1 {
@@ -36,32 +37,82 @@ h1 {
 }
 
 body {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
 }
 
 header {
     padding: 1rem;
     text-align: center;
-    border: 1px solid black;
+    border: var(--outer-border-width) solid black;
+    border-radius: 1rem 1rem 0 0;
+    margin-top: 1rem;
+    background: linear-gradient();
 }
 
-main {
+footer {
+    padding: 1rem;
+    text-align: center;
+    border: var(--outer-border-width) solid black;
+    border-radius: 0 0 1rem 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.slot-container {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 6fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-        "slot-1 slot-2 slot-3 handle";
-        border: 1px solid black;
-    }
+        "slot-1 slot-2 slot-3 spin-button";
+    border-bottom: var(--outer-border-width) solid black;
+}
+
+main {
+    border-color: black;
+    border-left: var(--outer-border-width) solid;
+    border-right: var(--outer-border-width) solid;
+}
 
 .slot {
     position: relative;
     overflow: hidden;
     height: var(--head-image-height);
-    border: 1px solid black;
+}
+
+.crow-icon {
+    height: 1rem;
+}
+
+.money-with-wings {
+    height: 2rem;
+    padding: 0 .5rem 0 .5rem;
+}
+
+.image-flipped {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.win-win-win {
+    font-size: 2rem;
+    align-self: center;
+    padding: 0 1rem 0 1rem;
+}
+
+.advertisement {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+
 }
 
 @keyframes spin {
@@ -74,13 +125,16 @@ main {
     }
 }
 
-
 .head-image {
-    animation: spin 30s infinite linear;
+    animation: spin 10s infinite linear;
     width: 100%;
-    border: 1px solid black;
     display: block;
     height: var(--head-image-height);
+    /* scale: .8; */
+}
+
+.slot {
+    border-right: .1rem solid black;
 }
 
 #slot-1 {
@@ -95,12 +149,51 @@ main {
     grid-area: slot-3;
 }
 
-#handle {
-    grid-area: handle;
+#spin-button {
+    grid-area: spin-button;
     cursor: pointer;
+    font-size: 1rem;
 }
 
-.handle-knob{
-    width: 5rem;
-    height: 5rem;
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.counter {
+    display: flex;
+    padding: .5rem;
+    border: .1rem solid black;
+    border-radius: .5rem;
+    gap: .5rem;
+    background-color: black;
+    align-items: center;
+}
+
+.counter-label {
+    color: white;
+}
+
+.counter-number {
+    background-color: white;
+    padding: .1rem .2rem .1rem .2rem;
+    border-radius: .2rem;
+}
+
+
+#spin-button {
+    margin: auto;
+    border-width: .5rem;
+    border-color: black;
+    border-style: solid;
+    background: white;
+    border-radius: 1rem;
+    color: black;
+    transition: all .2s;
+    padding: .5rem;
+}
+
+#spin-button:active {
+    background-color: gray;
 }

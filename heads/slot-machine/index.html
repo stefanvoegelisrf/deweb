@@ -11,21 +11,49 @@
 
 <body>
     <header>
-        <h1>Brainhead</h1>
+        <h1>BRAINHEAD</h1>
         <div class="advertisement">
-            <p>Spin and get your dopamine dose!</p>
-            <p>WIN WIN WIN</p>
+            <img class="money-with-wings image-flipped" src="../images/money-with-wings.svg">
+            <img class="money-with-wings image-flipped" src="../images/money-with-wings.svg">
+            <img class="money-with-wings image-flipped" src="../images/money-with-wings.svg">
+            <span class="win-win-win">FEEL THE RUSH</span>
+            <img class="money-with-wings" src="../images/money-with-wings.svg">
+            <img class="money-with-wings" src="../images/money-with-wings.svg">
+            <img class="money-with-wings" src="../images/money-with-wings.svg">
         </div>
     </header>
     <main>
-        <div id="slot-1" class="slot"></div>
-        <div id="slot-2" class="slot"></div>
-        <div id="slot-3" class="slot"></div>
-        <div class="handle">
-            <div class="handle-bar"></div>
-            <div class="handle-knob"></div>
+        <div class="slot-container">
+            <div id="slot-1" class="slot"></div>
+            <div id="slot-2" class="slot"></div>
+            <div id="slot-3" class="slot"></div>
+            <button type="button" id="spin-button">SPIN</button>
+        </div>
+        <div class="stats">
+            <div class="spin-counter counter">
+                <label class="counter-label">Spins</label>
+                <span class="counter-number">0</span>
+            </div>
+            <div class="win-counter counter">
+                <label class="counter-label">Wins</label>
+                <span class="counter-number">0</span>
+            </div>
+            <div class="lose-counter counter">
+                <label class="counter-label">Losses</label>
+                <span class="counter-number">0</span>
+            </div>
         </div>
     </main>
+    <footer>
+        <div id="project-text">
+            <p>Dive into the spontaneous world of creativity where each head is a unique burst from my imagination.</p>
+            <p>It’s a gamble—like the spin of a slot machine, they can be a triumph or a near miss.</p>
+            <p>Win one, and let the rush of success wash over you, just as it does for me!</p>
+            <p>Enjoy and get addicted! Share if you enjoy!</p>
+        </div>
+        <p>© Stefan Vögeli <img src="../images/crow.svg" alt="crow icon" class="crow-icon"></p>
+        <div id="attributions"></div>
+    </footer>
     <dialog class="win-dialog">
         <h1>You win <span class="head-name"></span>!</h1>
         <img class="win-image">
