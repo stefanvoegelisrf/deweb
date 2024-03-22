@@ -195,5 +195,14 @@ main {
 }
 
 #spin-button:active {
-    background-color: gray;
+    background-color: black;
+    color: white;
+}
+
+#attributions-list{
+    list-style: none;
+}
+
+#attributions-title{
+    font-size: 1rem;
 }
