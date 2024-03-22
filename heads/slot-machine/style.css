@@ -232,6 +232,7 @@ main {
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
+    width: 90%;
 }
 
 ::backdrop {
@@ -243,4 +244,10 @@ main {
 #project-text {
     width: 40rem;
     margin: 0 auto;
+}
+
+.win-icon,
+.lose-icon {
+    height: 4rem;
+    vertical-align: middle;
 }

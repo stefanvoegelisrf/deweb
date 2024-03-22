@@ -13,13 +13,13 @@
     <header>
         <h1>BRAINHEAD</h1>
         <div class="advertisement">
-            <img class="money-with-wings image-flipped" src="../images/money-with-wings.svg">
-            <img class="money-with-wings image-flipped" src="../images/money-with-wings.svg">
-            <img class="money-with-wings image-flipped" src="../images/money-with-wings.svg">
+            <img class="money-with-wings image-flipped" src="../images/icons/money-with-wings.svg">
+            <img class="money-with-wings image-flipped" src="../images/icons/money-with-wings.svg">
+            <img class="money-with-wings image-flipped" src="../images/icons/money-with-wings.svg">
             <span class="win-win-win">FEEL THE RUSH</span>
-            <img class="money-with-wings" src="../images/money-with-wings.svg">
-            <img class="money-with-wings" src="../images/money-with-wings.svg">
-            <img class="money-with-wings" src="../images/money-with-wings.svg">
+            <img class="money-with-wings" src="../images/icons/money-with-wings.svg">
+            <img class="money-with-wings" src="../images/icons/money-with-wings.svg">
+            <img class="money-with-wings" src="../images/icons/money-with-wings.svg">
         </div>
     </header>
     <main>
@@ -51,7 +51,7 @@
             <p>Win one, and let the rush of success wash over you, just as it does for me!</p>
             <p>Enjoy and get addicted! Share if you enjoy!</p>
         </div>
-        <p>© Stefan Vögeli <img src="../images/crow.svg" alt="crow icon" class="crow-icon"></p>
+        <p>© Stefan Vögeli <img src="../images/icons/crow.svg" alt="crow icon" class="crow-icon"></p>
         <button type="button" id="open-attributions">Attributions</button>
         <dialog id="attributions-dialog" class="dialog">
             <h1 id="attributions-title">Attributions</h1>
@@ -202,24 +202,24 @@
                         href="https://opensource.org/license/mit">MIT</a>
                 </li>
             </ul>
-            <button type="button" id="close-attributions">Close</button>
+            <button type="button" id="close-attributions" autofocus>Close</button>
             </div>
     </footer>
     <dialog id="win-dialog" class="dialog">
-        <h1>You win <span class="head-name"></span>!</h1>
-        <img class="win-image">
+        <h1><img class="win-icon"> You win <span class="head-name"></span>! <img class="win-icon"></h1>
+        <img class="win-image-head">
         <p class="win-text">
             You won this magnificient head! Share your prize with your friends, use it as your phone background or
             hang it above your bed!
         </p>
-        <button>OK</button>
+        <button type="button" id="close-win-dialog" autofocus>OK</button>
     </dialog>
     <dialog id="lose-dialog" class="dialog">
-        <h1>You lose!</h1>
+        <h1><img class="lose-icon"> You lose! <img class="lose-icon"></h1>
         <p class="lose-text">
             You lost this time, but don't worry! You can try again and win a magnificient head!
         </p>
-        <button>OK</button>
+        <button type="button" id="close-lose-dialog" autofocus>OK</button>
     </dialog>
     <template id="slot-template">
         <img class="head-image" src="../images/Capleb.svg">
