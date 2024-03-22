@@ -1,5 +1,8 @@
 let spinning = [false, false, false]; // Spinning state for each slot
 let isSlotMachineRunning = false;
+let spins = 0;
+let wins = 0;
+let losses = 0;
 
 window.onload = function () {
     const slotTemplate = document.getElementById('slot-template');
@@ -10,29 +13,34 @@ window.onload = function () {
     slot2.appendChild(slotTemplate.content.cloneNode(true));
     slot3.appendChild(slotTemplate.content.cloneNode(true));
     document.getElementById("open-attributions").addEventListener("click", () => {
-        const dialog = document.getElementById("attributions-dialog");
-        dialog.showModal();
+        showDialog("attributions-dialog");
     });
     document.getElementById("close-attributions").addEventListener("click", () => {
-        const dialog = document.getElementById("attributions-dialog");
-        dialog.close();
+        closeDialog("attributions-dialog");
     });
+    document.getElementById("start-spin").addEventListener("click", startSlotMachine);
 }
 
-const slots = document.querySelectorAll('.slot');
-
-function startSpin(slotIndex) {
-    if (!spinning[slotIndex]) {
-        slots[slotIndex].classList.add('spin');
-        spinning[slotIndex] = true;
-    }
+function showDialog(name) {
+    const dialog = document.getElementById(name);
+    dialog.showModal();
 }
 
-function stopSpin(slotIndex) {
-    if (spinning[slotIndex]) {
-        slots[slotIndex].addEventListener('animationiteration', () => {
-            slots[slotIndex].classList.remove('spin');
-            spinning[slotIndex] = false;
-        }, { once: true });
-    }
+function closeDialog(name) {
+    const dialog = document.getElementById(name);
+    dialog.close();
+}
+
+function startSlotMachine() {
+    if (isSlotMachineRunning) return;
+    if (spins >= 999) spins = 0;
+    spins++;
+    updateCount("spin-counter", spins);
+}
+
+function updateCount(name, value) {
+    const counter = document.getElementById(name);
+    // Pad the value with zeros
+    const paddedValue = value.toString().padStart(3, "0");
+    counter.querySelector(".counter-number").innerHTML = paddedValue;
 }
