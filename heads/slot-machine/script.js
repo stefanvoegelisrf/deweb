@@ -14,6 +14,7 @@ let heads = {
     "Pocron": "Pocron.svg",
     "Uthave": "Uthave.svg",
     "Wawear": "Wawear.svg",
+    "Capleb": "Capleb.svg",
 }
 let slotSpinPixels = [null, null, null];
 let slotCurrentPixels = [null, null, null];
@@ -30,11 +31,6 @@ window.onload = function () {
         headElement.classList.add("head-image");
         slotTemplate.content.appendChild(headElement);
     }
-    // Append the first head to the end of the slotTemplate again
-    let headElement = document.createElement('img');
-    headElement.src = `../images/${heads[Object.keys(heads)[0]]}`;
-    headElement.classList.add("head-image");
-    slotTemplate.content.appendChild(headElement);
 
     const slot1 = document.getElementById('slot-1');
     const slot2 = document.getElementById('slot-2');
@@ -189,6 +185,8 @@ function displayResult() {
     else {
         displayLostDialog();
     }
+    const startSpin = document.getElementById("start-spin");
+    startSpin.disabled = false;
 }
 
 function setWonHead() {
@@ -200,6 +198,8 @@ function setWonHead() {
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
+    const startSpin = document.getElementById("start-spin");
+    startSpin.disabled = true;
     let slot1CurrentPosition = slotPositions[0];
     const headImageHeight = document.querySelector(".head-image").clientHeight;
     slotSpinPixels[0] = headImageHeight * slot1TargetPosition + headImageHeight * Object.keys(heads).length * 2;
@@ -243,13 +243,15 @@ function updateSpin() {
         slotCurrentPixels[2] += speedSlot3;
     }
 
-    if (slotCurrentPixels[0] >= headImageHeight * Object.keys(heads).length) {
+    let totalHeads = Object.keys(heads).length - 1;
+
+    if (slotCurrentPixels[0] >= headImageHeight * totalHeads) {
         slotCurrentPixels[0] = 0;
     }
-    if (slotCurrentPixels[1] >= headImageHeight * Object.keys(heads).length) {
+    if (slotCurrentPixels[1] >= headImageHeight * totalHeads) {
         slotCurrentPixels[1] = 0;
     }
-    if (slotCurrentPixels[2] >= headImageHeight * Object.keys(heads).length) {
+    if (slotCurrentPixels[2] >= headImageHeight * totalHeads) {
         slotCurrentPixels[2] = 0;
     }
 

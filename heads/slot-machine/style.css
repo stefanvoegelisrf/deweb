@@ -160,8 +160,11 @@ main {
 
 #start-spin {
     grid-area: start-spin;
-    cursor: pointer;
     font-size: 1rem;
+}
+
+#start-spin:disabled {
+    cursor: not-allowed;
 }
 
 .stats {
