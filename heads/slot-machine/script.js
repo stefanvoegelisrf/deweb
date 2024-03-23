@@ -213,9 +213,10 @@ function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3Tar
 
 function updateSpin() {
     const headImageHeight = document.querySelector(".head-image").clientHeight;
-    let speedSlot1 = 100;
-    let speedSlot2 = 95;
-    let speedSlot3 = 90;
+    let baseSpeed = 50;
+    let speedSlot1 = baseSpeed;
+    let speedSlot2 = baseSpeed - 5;
+    let speedSlot3 = baseSpeed - 10;
     slotSpinPixels[0] -= speedSlot1;
     slotSpinPixels[1] -= speedSlot2;
     slotSpinPixels[2] -= speedSlot3;
@@ -261,7 +262,7 @@ function updateSpin() {
     }
     else {
         isSlotMachineRunning = false;
-        setTimeout(displayResult, 300);
+        setTimeout(displayResult, 150);
     }
 }
 
