@@ -15,6 +15,10 @@ let heads = {
     "Uthave": "Uthave.svg",
     "Wawear": "Wawear.svg",
 }
+let slotSpinPixels = [null, null, null];
+let slotCurrentPixels = [null, null, null];
+let slotTargetPositions = [null, null, null];
+let won = false;
 
 window.addEventListener("resize", setSlotPositions);
 
@@ -60,18 +64,17 @@ function setRandomSlotStartingPosition() {
 }
 
 function setSlotPositions() {
-    setSlotPosition("slot-1", slotPositions[0]);
-    setSlotPosition("slot-2", slotPositions[1]);
-    setSlotPosition("slot-3", slotPositions[2]);
+    const headImageHeight = document.querySelector(".head-image").clientHeight;
+    setSlotPosition("slot-1", slotPositions[0]*headImageHeight);
+    setSlotPosition("slot-2", slotPositions[1]* headImageHeight);
+    setSlotPosition("slot-3", slotPositions[2]* headImageHeight);
 }
 
-
-function setSlotPosition(slotId, slotPosition) {
-    const headImageHeight = document.querySelector(".head-image").clientHeight;
+function setSlotPosition(slotId, slotPositionPixelTranslate) {
     const slot = document.getElementById(slotId);
     const headImagesSlot = slot.querySelectorAll(".head-image");
     for (let headImage of headImagesSlot) {
-        headImage.style.transform = `translateY(-${headImageHeight * slotPosition}px)`;
+        headImage.style.transform = `translateY(-${slotPositionPixelTranslate}px)`;
     }
 }
 
@@ -86,7 +89,6 @@ function getRandomSlotPositions() {
     while (position3 == position1 || position3 == position2 || position3 == null) {
         position3 = getRandomSlotPosition(numberOfHeads);
     }
-    console.log(`Slot positions: ${position1}, ${position2}, ${position3}`);
     return [position1, position2, position3];
 }
 
@@ -157,10 +159,6 @@ function closeDialog(name) {
     dialog.close();
 }
 
-let slotSpinPixels = [null, null, null];
-let slotCurrentPixels = [null, null, null];
-let slotTargetPositions = [null, null, null];
-let won = false;
 
 function startSlotMachine() {
     if (isSlotMachineRunning) return;
@@ -170,7 +168,7 @@ function startSlotMachine() {
     won = false;
     let randomSlotPositions = getRandomSlotPositions();
     let winningSlot = null;
-    if (probability(0.25) && spins > 5) {
+    if (probability(0.25)) {
         winningSlot = getRandomSlotPosition(Object.keys(heads).length);
     }
     if (winningSlot != null) {
@@ -185,11 +183,19 @@ function startSlotMachine() {
 
 function displayResult() {
     if (won) {
+        setWonHead();
         displayWonDialog();
     }
     else {
         displayLostDialog();
     }
+}
+
+function setWonHead() {
+    const winImageHead = document.getElementById("win-image-head");
+    winImageHead.src = `../images/${heads[Object.keys(heads)[slotTargetPositions[0]]]}`;
+    const winHeadName = document.getElementById("win-head-name");
+    winHeadName.innerHTML = Object.keys(heads)[slotTargetPositions[0]];
 }
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
@@ -207,19 +213,33 @@ function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3Tar
 
 function updateSpin() {
     const headImageHeight = document.querySelector(".head-image").clientHeight;
-    const slot1 = document.getElementById("slot-1");
-    const slot2 = document.getElementById("slot-2");
-    const slot3 = document.getElementById("slot-3");
-    const headImagesSlot1 = slot1.querySelectorAll(".head-image");
-    const headImagesSlot2 = slot2.querySelectorAll(".head-image");
-    const headImagesSlot3 = slot3.querySelectorAll(".head-image");
     let speed = 100;
     slotSpinPixels[0] -= speed;
     slotSpinPixels[1] -= speed;
     slotSpinPixels[2] -= speed;
-    slotCurrentPixels[0] += speed;
-    slotCurrentPixels[1] += speed;
-    slotCurrentPixels[2] += speed;
+
+    if (slotSpinPixels[0] <= 0) {
+        slotPositions[0] = slotTargetPositions[0];
+        slotCurrentPixels[0] = headImageHeight * slotPositions[0];
+    }
+    else {
+        slotCurrentPixels[0] += speed;
+    }
+    if (slotSpinPixels[1] <= 0) {
+        slotPositions[1] = slotTargetPositions[1];
+        slotCurrentPixels[1] = headImageHeight * slotPositions[1];
+    }
+    else {
+        slotCurrentPixels[1] += speed;
+    }
+    if (slotSpinPixels[2] <= 0) {
+        slotPositions[2] = slotTargetPositions[2];
+        slotCurrentPixels[2] = headImageHeight * slotPositions[2];
+    }
+    else {
+        slotCurrentPixels[2] += speed;
+    }
+
     if (slotCurrentPixels[0] >= headImageHeight * Object.keys(heads).length) {
         slotCurrentPixels[0] = 0;
     }
@@ -230,29 +250,9 @@ function updateSpin() {
         slotCurrentPixels[2] = 0;
     }
 
-    for (let headImage of headImagesSlot1) {
-        headImage.style.transform = `translateY(-${slotCurrentPixels[0]}px)`;
-    }
-    for (let headImage of headImagesSlot2) {
-        headImage.style.transform = `translateY(-${slotCurrentPixels[1]}px)`;
-    }
-
-    for (let headImage of headImagesSlot3) {
-        headImage.style.transform = `translateY(-${slotCurrentPixels[2]}px)`;
-    }
-
-    if (slotSpinPixels[0] <= 0) {
-        slotPositions[0] = slotTargetPositions[0];
-        setSlotPosition("slot-1", slotPositions[0]);
-    }
-    if (slotSpinPixels[1] <= 0) {
-        slotPositions[1] = slotTargetPositions[1];
-        setSlotPosition("slot-2", slotPositions[1]);
-    }
-    if (slotSpinPixels[2] <= 0) {
-        slotPositions[2] = slotTargetPositions[2];
-        setSlotPosition("slot-3", slotPositions[2]);
-    }
+    setSlotPosition("slot-1", slotCurrentPixels[0]);
+    setSlotPosition("slot-2", slotCurrentPixels[1]);
+    setSlotPosition("slot-3", slotCurrentPixels[2]);
 
     if (slotSpinPixels[0] > 0 || slotSpinPixels[1] > 0 || slotSpinPixels[2] > 0) {
         requestAnimationFrame(updateSpin);

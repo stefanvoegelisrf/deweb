@@ -262,3 +262,7 @@ main {
     justify-content: space-around;
     align-items: center;
 }
+
+#win-image-head {
+    height: 25rem;
+}
