@@ -1,6 +1,6 @@
 # Javascript input
 - [Javascript input](#javascript-input)
-  - [Access the DOM and style](#access-the-dom-and-style)
+  - [Access the DOM](#access-the-dom)
   - [Adding elements](#adding-elements)
   - [Manipulating elements](#manipulating-elements)
     - [Selecting elements](#selecting-elements)
@@ -12,7 +12,9 @@
 
 https://codepen.io/el_stefe/pen/dyLNmwQ
 
-## Access the DOM and style
+## Access the DOM
+The Document Object Model(DOM) is an interface to interact with a web page. You can access the structure, style and content of a page and change it.
+The DOM is accessed by using the `document` variable.
 
 
 ## Adding elements

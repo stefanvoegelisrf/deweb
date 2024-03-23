@@ -30,9 +30,7 @@ window.onload = function () {
 
 function setRandomSlotStartingPosition() {
     const headImageHeight = document.querySelector(".head-image").clientHeight;
-    console.log(headImageHeight);
-    slotPositions = getRandomSlotPositions();
-    console.log(`${slotPositions[0]}, ${slotPositions[1]}, ${slotPositions[2]}`);
+    slotPositions = getRandomSlotPositions(true);
     const slot1 = document.getElementById("slot-1");
     const slot2 = document.getElementById("slot-2");
     const slot3 = document.getElementById("slot-3");
@@ -50,7 +48,7 @@ function setRandomSlotStartingPosition() {
     }
 }
 
-function getRandomSlotPositions() {
+function getRandomSlotPositions(isInitial = false) {
     const numberOfHeads = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--number-of-heads"));
     let position1, position2, position3;
     position1 = getRandomSlotPosition(numberOfHeads);
@@ -61,8 +59,19 @@ function getRandomSlotPositions() {
     while (position3 == position1 || position3 == position2 || position3 == null) {
         position3 = getRandomSlotPosition(numberOfHeads);
     }
+    // By chance the same position is selected for all slots    
+    if (probability(0.25) && !isInitial) {
+        let winningSlot = getRandomSlotPosition(numberOfHeads);
+        console.log(`Winning slot: ${winningSlot}`);
+        return [winningSlot, winningSlot, winningSlot];
+    }
+    console.log(`Slot positions: ${position1}, ${position2}, ${position3}`);
     return [position1, position2, position3];
 }
+
+function probability(n) {
+    return !!n && Math.random() <= n;
+};
 
 function getRandomSlotPosition(numberOfHeads) {
     return Math.max(1, Math.floor(Math.random() * (numberOfHeads + 1)));
@@ -133,9 +142,10 @@ function startSlotMachine() {
     spins++;
     updateCount("spin-counter", spins);
     let won = false;
-    // Spin at least 5 seconds
-    // Second slot spins 6 seconds
-    // Third slot spins 7 seconds
+    let randomSlotPositions = getRandomSlotPositions();
+    if (randomSlotPositions[0] == randomSlotPositions[1] && randomSlotPositions[1] == randomSlotPositions[2]) {
+        won = true;
+    }
     if (won) {
         displayWonDialog();
     }
