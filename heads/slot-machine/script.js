@@ -1,8 +1,8 @@
-let spinning = [false, false, false]; // Spinning state for each slot
 let isSlotMachineRunning = false;
 let spins = 0;
 let wins = 0;
 let losses = 0;
+let slotPositions = [null, null, null];
 
 window.onload = function () {
     const slotTemplate = document.getElementById('slot-template');
@@ -25,8 +25,48 @@ window.onload = function () {
         closeDialog("lose-dialog");
     });
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
+    setRandomSlotStartingPosition();
 }
 
+function setRandomSlotStartingPosition() {
+    const headImageHeight = document.querySelector(".head-image").clientHeight;
+    console.log(headImageHeight);
+    slotPositions = getRandomSlotPositions();
+    console.log(`${slotPositions[0]}, ${slotPositions[1]}, ${slotPositions[2]}`);
+    const slot1 = document.getElementById("slot-1");
+    const slot2 = document.getElementById("slot-2");
+    const slot3 = document.getElementById("slot-3");
+    const headImagesSlot1 = slot1.querySelectorAll(".head-image");
+    for (let headImage of headImagesSlot1) {
+        headImage.style.transform = `translateY(-${headImageHeight * slotPositions[0]}px)`;
+    }
+    const headImagesSlot2 = slot2.querySelectorAll(".head-image");
+    for (let headImage of headImagesSlot2) {
+        headImage.style.transform = `translateY(-${headImageHeight * slotPositions[1]}px)`;
+    }
+    const headImagesSlot3 = slot3.querySelectorAll(".head-image");
+    for (let headImage of headImagesSlot3) {
+        headImage.style.transform = `translateY(-${headImageHeight * slotPositions[2]}px)`;
+    }
+}
+
+function getRandomSlotPositions() {
+    const numberOfHeads = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--number-of-heads"));
+    let position1, position2, position3;
+    position1 = getRandomSlotPosition(numberOfHeads);
+
+    while (position1 == position2 || position2 == null) {
+        position2 = getRandomSlotPosition(numberOfHeads);
+    }
+    while (position3 == position1 || position3 == position2 || position3 == null) {
+        position3 = getRandomSlotPosition(numberOfHeads);
+    }
+    return [position1, position2, position3];
+}
+
+function getRandomSlotPosition(numberOfHeads) {
+    return Math.max(1, Math.floor(Math.random() * (numberOfHeads + 1)));
+}
 const loseImages = [
     "crying-face.svg",
     "disappointed-face.svg",
@@ -93,6 +133,9 @@ function startSlotMachine() {
     spins++;
     updateCount("spin-counter", spins);
     let won = false;
+    // Spin at least 5 seconds
+    // Second slot spins 6 seconds
+    // Third slot spins 7 seconds
     if (won) {
         displayWonDialog();
     }

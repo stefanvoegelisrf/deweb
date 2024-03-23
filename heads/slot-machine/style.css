@@ -121,7 +121,6 @@ main {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-
 }
 
 @keyframes spin {
@@ -135,7 +134,7 @@ main {
 }
 
 .head-image {
-    animation: spin 10s infinite linear;
+    /* animation: spin 10s infinite linear; */
     width: 100%;
     display: block;
     height: var(--head-image-height);
@@ -233,6 +232,7 @@ main {
     transform: translate(-50%, -50%);
     padding: 1rem;
     width: 90%;
+    text-align: center;
 }
 
 ::backdrop {
@@ -250,4 +250,14 @@ main {
 .lose-icon {
     height: 4rem;
     vertical-align: middle;
+}
+
+.lose-text {
+    margin-top: 1rem;
+}
+
+.dialog-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
