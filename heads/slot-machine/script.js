@@ -198,6 +198,9 @@ function setWonHead() {
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
+    removeEndTransition("slot-1");
+    removeEndTransition("slot-2");
+    removeEndTransition("slot-3");
     const startSpin = document.getElementById("start-spin");
     startSpin.disabled = true;
     let slot1CurrentPosition = slotPositions[0];
@@ -224,6 +227,7 @@ function updateSpin() {
     if (slotSpinPixels[0] <= 0) {
         slotPositions[0] = slotTargetPositions[0];
         slotCurrentPixels[0] = headImageHeight * slotPositions[0];
+        setEndTransition("slot-1");
     }
     else {
         slotCurrentPixels[0] += speedSlot1;
@@ -231,6 +235,7 @@ function updateSpin() {
     if (slotSpinPixels[1] <= 0) {
         slotPositions[1] = slotTargetPositions[1];
         slotCurrentPixels[1] = headImageHeight * slotPositions[1];
+        setEndTransition("slot-2");
     }
     else {
         slotCurrentPixels[1] += speedSlot2;
@@ -238,6 +243,7 @@ function updateSpin() {
     if (slotSpinPixels[2] <= 0) {
         slotPositions[2] = slotTargetPositions[2];
         slotCurrentPixels[2] = headImageHeight * slotPositions[2];
+        setEndTransition("slot-3");
     }
     else {
         slotCurrentPixels[2] += speedSlot3;
@@ -264,7 +270,23 @@ function updateSpin() {
     }
     else {
         isSlotMachineRunning = false;
-        setTimeout(displayResult, 150);
+        setTimeout(displayResult, 500);
+    }
+}
+
+function setEndTransition(slotName) {
+    const slot = document.getElementById(slotName);
+    const headImagesSlot = slot.querySelectorAll(".head-image");
+    for (let headImage of headImagesSlot) {
+        headImage.classList.add("end-transition");
+    }
+}
+
+function removeEndTransition(slotName) {
+    const slot = document.getElementById(slotName);
+    const headImagesSlot = slot.querySelectorAll(".head-image");
+    for (let headImage of headImagesSlot) {
+        headImage.classList.remove("end-transition");
     }
 }
 

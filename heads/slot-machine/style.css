@@ -139,7 +139,10 @@ main {
     display: block;
     height: var(--head-image-height);
     /* scale: .8; */
-    transition: all .001s;
+}
+
+.end-transition {
+    transition: all 1s;
 }
 
 .slot {
@@ -262,7 +265,7 @@ main {
 
 .dialog-title {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
