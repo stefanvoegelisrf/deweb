@@ -65,9 +65,9 @@ function setRandomSlotStartingPosition() {
 
 function setSlotPositions() {
     const headImageHeight = document.querySelector(".head-image").clientHeight;
-    setSlotPosition("slot-1", slotPositions[0]*headImageHeight);
-    setSlotPosition("slot-2", slotPositions[1]* headImageHeight);
-    setSlotPosition("slot-3", slotPositions[2]* headImageHeight);
+    setSlotPosition("slot-1", slotPositions[0] * headImageHeight);
+    setSlotPosition("slot-2", slotPositions[1] * headImageHeight);
+    setSlotPosition("slot-3", slotPositions[2] * headImageHeight);
 }
 
 function setSlotPosition(slotId, slotPositionPixelTranslate) {
@@ -213,31 +213,33 @@ function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3Tar
 
 function updateSpin() {
     const headImageHeight = document.querySelector(".head-image").clientHeight;
-    let speed = 100;
-    slotSpinPixels[0] -= speed;
-    slotSpinPixels[1] -= speed;
-    slotSpinPixels[2] -= speed;
+    let speedSlot1 = 100;
+    let speedSlot2 = 95;
+    let speedSlot3 = 90;
+    slotSpinPixels[0] -= speedSlot1;
+    slotSpinPixels[1] -= speedSlot2;
+    slotSpinPixels[2] -= speedSlot3;
 
     if (slotSpinPixels[0] <= 0) {
         slotPositions[0] = slotTargetPositions[0];
         slotCurrentPixels[0] = headImageHeight * slotPositions[0];
     }
     else {
-        slotCurrentPixels[0] += speed;
+        slotCurrentPixels[0] += speedSlot1;
     }
     if (slotSpinPixels[1] <= 0) {
         slotPositions[1] = slotTargetPositions[1];
         slotCurrentPixels[1] = headImageHeight * slotPositions[1];
     }
     else {
-        slotCurrentPixels[1] += speed;
+        slotCurrentPixels[1] += speedSlot2;
     }
     if (slotSpinPixels[2] <= 0) {
         slotPositions[2] = slotTargetPositions[2];
         slotCurrentPixels[2] = headImageHeight * slotPositions[2];
     }
     else {
-        slotCurrentPixels[2] += speed;
+        slotCurrentPixels[2] += speedSlot3;
     }
 
     if (slotCurrentPixels[0] >= headImageHeight * Object.keys(heads).length) {
@@ -259,7 +261,7 @@ function updateSpin() {
     }
     else {
         isSlotMachineRunning = false;
-        displayResult();
+        setTimeout(displayResult, 300);
     }
 }
 
