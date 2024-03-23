@@ -139,6 +139,7 @@ main {
     display: block;
     height: var(--head-image-height);
     /* scale: .8; */
+    transition: all .001s;
 }
 
 .slot {
