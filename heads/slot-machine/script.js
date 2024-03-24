@@ -3,6 +3,7 @@ let spins = 0;
 let wins = 0;
 let losses = 0;
 let slotPositions = [null, null, null];
+let slotTargetPositions = [null, null, null];
 let heads = {
     "Capleb": "Capleb.svg",
     "Drihok": "Drihok.svg",
@@ -16,25 +17,22 @@ let heads = {
     "Wawear": "Wawear.svg",
     "Capleb": "Capleb.svg",
 }
-let slotSpinPixels = [null, null, null];
-let slotCurrentPixels = [null, null, null];
-let slotTargetPositions = [null, null, null];
 let won = false;
 
-let current = 0;
 let radius = 0;
 let theta = 0;
 
 window.onload = function () {
-
     let container = document.createElement("div");
     container.classList.add("slot-container");
     let wheel = document.createElement("div");
     wheel.classList.add("wheel");
+    wheel.classList.add("no-transition");
     container.appendChild(wheel);
     for (let head in heads) {
         let card = document.createElement("div");
         card.classList.add("card");
+        card.classList.add("no-transition");
         const img = document.createElement("img");
         img.src = `../images/${heads[head]}`;
         img.id = head;
@@ -42,12 +40,12 @@ window.onload = function () {
         wheel.appendChild(card);
     }
 
-    let slot1=container.cloneNode(true);
-    slot1.id="slot-1";
-    let slot2=container.cloneNode(true);
-    slot2.id="slot-2";
-    let slot3=container.cloneNode(true);
-    slot3.id="slot-3";
+    let slot1 = container.cloneNode(true);
+    slot1.id = "slot-1";
+    let slot2 = container.cloneNode(true);
+    slot2.id = "slot-2";
+    let slot3 = container.cloneNode(true);
+    slot3.id = "slot-3";
 
     const slotsContainer = document.getElementById("slots-container");
     slotsContainer.appendChild(slot1);
@@ -68,19 +66,22 @@ window.onload = function () {
         closeDialog("lose-dialog");
     });
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
-
+    slotPositions = getRandomSlotPositions();
     changeAndRotateSlots();
+    setTimeout(() => {
+        removeNoTransition();
+    }, 1000);
 }
 
-window.onresize=changeAndRotateSlots;
+window.onresize = changeAndRotateSlots;
 
-function changeAndRotateSlots(){
+function changeAndRotateSlots() {
     change("slot-1");
     change("slot-2");
     change("slot-3");
-    rotate("slot-1");
-    rotate("slot-2");
-    rotate("slot-3");
+    rotate("slot-1", slotPositions[0]);
+    rotate("slot-2", slotPositions[1]);
+    rotate("slot-3", slotPositions[2]);
 }
 
 function getRandomSlotPositions() {
@@ -207,7 +208,9 @@ function setWonHead() {
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
-
+    slotPositions=[slot1TargetPosition, slot2TargetPosition, slot3TargetPosition];
+    changeAndRotateSlots();
+    isSlotMachineRunning = false;
 }
 
 function displayWonDialog() {
@@ -234,10 +237,10 @@ function updateCount(name, value) {
     counter.querySelector(".counter-number").innerHTML = paddedValue;
 }
 
-function rotate(slotName) {
+function rotate(slotName, slotPosition) {
     const slot = document.getElementById(slotName);
     const wheel = slot.querySelector(".wheel");
-    wheel.style.transform = `translateZ(${-radius}px) rotateX(${-theta * current}deg)`;
+    wheel.style.transform = `translateZ(${-radius}px) rotateX(${-theta * slotPosition}deg)`;
 
     const cards = slot.querySelectorAll(".card");
     cards.forEach(card => card.classList.remove("current"));
@@ -249,10 +252,14 @@ function change(slotName) {
     let numberOfHeads = Object.keys(heads).length;
     theta = 360 / numberOfHeads;
     radius = Math.round(wheel.offsetHeight / 8) * numberOfHeads;
-    console.log(radius)
 
     const wheelCard = slot.querySelectorAll(".wheel .card");
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
     });
+}
+
+function removeNoTransition() {
+    const allElementsWithNoTransition = document.querySelectorAll(".no-transition");
+    allElementsWithNoTransition.forEach(element => element.classList.remove("no-transition"));
 }
