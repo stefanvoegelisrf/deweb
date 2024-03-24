@@ -40,7 +40,7 @@ function change() {
     wheelCard.forEach((card, key, parent) => {
         if (key < showing) {
             card.style.opacity= 1;
-            card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px)`;
+            card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) translateX(-50%)`;
         }
         else {
             card.style.opacity = 0;
