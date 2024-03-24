@@ -21,23 +21,40 @@ let slotCurrentPixels = [null, null, null];
 let slotTargetPositions = [null, null, null];
 let won = false;
 
-window.addEventListener("resize", setSlotPositions);
+let current = 0;
+let radius = 0;
+let theta = 0;
 
 window.onload = function () {
-    const slotTemplate = document.createElement('template');
+
+    let container = document.createElement("div");
+    container.classList.add("slot-container");
+    let wheel = document.createElement("div");
+    wheel.classList.add("wheel");
+    container.appendChild(wheel);
     for (let head in heads) {
-        let headElement = document.createElement('img');
-        headElement.src = `../images/${heads[head]}`;
-        headElement.classList.add("head-image");
-        slotTemplate.content.appendChild(headElement);
+        let card = document.createElement("div");
+        card.classList.add("card");
+        const img = document.createElement("img");
+        img.src = `../images/${heads[head]}`;
+        img.id = head;
+        card.appendChild(img);
+        wheel.appendChild(card);
     }
 
-    const slot1 = document.getElementById('slot-1');
-    const slot2 = document.getElementById('slot-2');
-    const slot3 = document.getElementById('slot-3');
-    slot1.appendChild(slotTemplate.content.cloneNode(true));
-    slot2.appendChild(slotTemplate.content.cloneNode(true));
-    slot3.appendChild(slotTemplate.content.cloneNode(true));
+    let slot1=container.cloneNode(true);
+    slot1.id="slot-1";
+    let slot2=container.cloneNode(true);
+    slot2.id="slot-2";
+    let slot3=container.cloneNode(true);
+    slot3.id="slot-3";
+
+    const slotsContainer = document.getElementById("slots-container");
+    slotsContainer.appendChild(slot1);
+    slotsContainer.appendChild(slot2);
+    slotsContainer.appendChild(slot3);
+
+
     document.getElementById("open-attributions").addEventListener("click", () => {
         showDialog("attributions-dialog");
     });
@@ -51,27 +68,19 @@ window.onload = function () {
         closeDialog("lose-dialog");
     });
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
-    setRandomSlotStartingPosition();
+
+    changeAndRotateSlots();
 }
 
-function setRandomSlotStartingPosition() {
-    slotPositions = getRandomSlotPositions();
-    setSlotPositions();
-}
+window.onresize=changeAndRotateSlots;
 
-function setSlotPositions() {
-    const headImageHeight = document.querySelector(".head-image").clientHeight;
-    setSlotPosition("slot-1", slotPositions[0] * headImageHeight);
-    setSlotPosition("slot-2", slotPositions[1] * headImageHeight);
-    setSlotPosition("slot-3", slotPositions[2] * headImageHeight);
-}
-
-function setSlotPosition(slotId, slotPositionPixelTranslate) {
-    const slot = document.getElementById(slotId);
-    const headImagesSlot = slot.querySelectorAll(".head-image");
-    for (let headImage of headImagesSlot) {
-        headImage.style.transform = `translateY(-${slotPositionPixelTranslate}px)`;
-    }
+function changeAndRotateSlots(){
+    change("slot-1");
+    change("slot-2");
+    change("slot-3");
+    rotate("slot-1");
+    rotate("slot-2");
+    rotate("slot-3");
 }
 
 function getRandomSlotPositions() {
@@ -198,96 +207,7 @@ function setWonHead() {
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
-    removeEndTransition("slot-1");
-    removeEndTransition("slot-2");
-    removeEndTransition("slot-3");
-    const startSpin = document.getElementById("start-spin");
-    startSpin.disabled = true;
-    let slot1CurrentPosition = slotPositions[0];
-    const headImageHeight = document.querySelector(".head-image").clientHeight;
-    slotSpinPixels[0] = headImageHeight * slot1TargetPosition + headImageHeight * Object.keys(heads).length * 2;
-    slotCurrentPixels[0] = headImageHeight * slot1CurrentPosition;
-    slotSpinPixels[1] = headImageHeight * slot2TargetPosition + headImageHeight * Object.keys(heads).length * 3;
-    slotCurrentPixels[1] = headImageHeight * slotPositions[1];
-    slotSpinPixels[2] = headImageHeight * slot3TargetPosition + headImageHeight * Object.keys(heads).length * 4;
-    slotCurrentPixels[2] = headImageHeight * slotPositions[2];
-    requestAnimationFrame(updateSpin);
-}
 
-function updateSpin() {
-    const headImageHeight = document.querySelector(".head-image").clientHeight;
-    let baseSpeed = 50;
-    let speedSlot1 = baseSpeed;
-    let speedSlot2 = baseSpeed - 5;
-    let speedSlot3 = baseSpeed - 10;
-    slotSpinPixels[0] -= speedSlot1;
-    slotSpinPixels[1] -= speedSlot2;
-    slotSpinPixels[2] -= speedSlot3;
-
-    if (slotSpinPixels[0] <= 0) {
-        slotPositions[0] = slotTargetPositions[0];
-        slotCurrentPixels[0] = headImageHeight * slotPositions[0];
-        setEndTransition("slot-1");
-    }
-    else {
-        slotCurrentPixels[0] += speedSlot1;
-    }
-    if (slotSpinPixels[1] <= 0) {
-        slotPositions[1] = slotTargetPositions[1];
-        slotCurrentPixels[1] = headImageHeight * slotPositions[1];
-        setEndTransition("slot-2");
-    }
-    else {
-        slotCurrentPixels[1] += speedSlot2;
-    }
-    if (slotSpinPixels[2] <= 0) {
-        slotPositions[2] = slotTargetPositions[2];
-        slotCurrentPixels[2] = headImageHeight * slotPositions[2];
-        setEndTransition("slot-3");
-    }
-    else {
-        slotCurrentPixels[2] += speedSlot3;
-    }
-
-    let totalHeads = Object.keys(heads).length - 1;
-
-    if (slotCurrentPixels[0] >= headImageHeight * totalHeads) {
-        slotCurrentPixels[0] = 0;
-    }
-    if (slotCurrentPixels[1] >= headImageHeight * totalHeads) {
-        slotCurrentPixels[1] = 0;
-    }
-    if (slotCurrentPixels[2] >= headImageHeight * totalHeads) {
-        slotCurrentPixels[2] = 0;
-    }
-
-    setSlotPosition("slot-1", slotCurrentPixels[0]);
-    setSlotPosition("slot-2", slotCurrentPixels[1]);
-    setSlotPosition("slot-3", slotCurrentPixels[2]);
-
-    if (slotSpinPixels[0] > 0 || slotSpinPixels[1] > 0 || slotSpinPixels[2] > 0) {
-        requestAnimationFrame(updateSpin);
-    }
-    else {
-        isSlotMachineRunning = false;
-        setTimeout(displayResult, 500);
-    }
-}
-
-function setEndTransition(slotName) {
-    const slot = document.getElementById(slotName);
-    const headImagesSlot = slot.querySelectorAll(".head-image");
-    for (let headImage of headImagesSlot) {
-        headImage.classList.add("end-transition");
-    }
-}
-
-function removeEndTransition(slotName) {
-    const slot = document.getElementById(slotName);
-    const headImagesSlot = slot.querySelectorAll(".head-image");
-    for (let headImage of headImagesSlot) {
-        headImage.classList.remove("end-transition");
-    }
 }
 
 function displayWonDialog() {
@@ -312,4 +232,27 @@ function updateCount(name, value) {
     // Pad the value with zeros
     const paddedValue = value.toString().padStart(3, "0");
     counter.querySelector(".counter-number").innerHTML = paddedValue;
+}
+
+function rotate(slotName) {
+    const slot = document.getElementById(slotName);
+    const wheel = slot.querySelector(".wheel");
+    wheel.style.transform = `translateZ(${-radius}px) rotateX(${-theta * current}deg)`;
+
+    const cards = slot.querySelectorAll(".card");
+    cards.forEach(card => card.classList.remove("current"));
+}
+
+function change(slotName) {
+    const slot = document.getElementById(slotName);
+    const wheel = slot.querySelector(".wheel");
+    let numberOfHeads = Object.keys(heads).length;
+    theta = 360 / numberOfHeads;
+    radius = Math.round(wheel.offsetHeight / 8) * numberOfHeads;
+    console.log(radius)
+
+    const wheelCard = slot.querySelectorAll(".wheel .card");
+    wheelCard.forEach((card, key) => {
+        card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
+    });
 }
