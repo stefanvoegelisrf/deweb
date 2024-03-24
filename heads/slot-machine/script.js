@@ -9,7 +9,6 @@ let heads = {
     "Pocron": "Pocron.svg",
     "Uthave": "Uthave.svg",
     "Wawear": "Wawear.svg",
-    "Capleb": "Capleb.svg",
 }
 
 const winImages = [
@@ -116,7 +115,7 @@ function probability(n) {
 };
 
 function getRandomSlotPosition(numberOfHeads) {
-    return Math.max(1, Math.floor(Math.random() * (numberOfHeads + 1)));
+    return Math.floor(Math.random() * (numberOfHeads));
 }
 
 function replaceLoseIcon() {
@@ -154,7 +153,7 @@ function startSlotMachine() {
     won = false;
     let randomSlotPositions = getRandomSlotPositions();
     let winningSlot = null;
-    if (probability(0.25)) {
+    if (probability(.25)) {
         winningSlot = getRandomSlotPosition(Object.keys(heads).length);
     }
     if (winningSlot != null) {
@@ -181,6 +180,8 @@ function displayResult() {
 
 function setWonHead() {
     const winImageHead = document.getElementById("win-image-head");
+    console.log(slotTargetPositions[0]);
+    console.log(Object.keys(heads)[slotTargetPositions[0]]);
     winImageHead.src = `../images/${heads[Object.keys(heads)[slotTargetPositions[0]]]}`;
     const winHeadName = document.getElementById("win-head-name");
     winHeadName.innerHTML = Object.keys(heads)[slotTargetPositions[0]];
