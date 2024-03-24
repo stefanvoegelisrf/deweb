@@ -41,20 +41,13 @@ let theta = 360 / numberOfHeads;
 
 window.onload = function () {
     let container = createSlotWheel();
-
-    let slot1 = container.cloneNode(true);
-    slot1.id = "slot-1";
-    let slot2 = container.cloneNode(true);
-    slot2.id = "slot-2";
-    let slot3 = container.cloneNode(true);
-    slot3.id = "slot-3";
-
     const slotsContainer = document.getElementById("slots-container");
-    slotsContainer.appendChild(slot1);
-    slotsContainer.appendChild(slot2);
-    slotsContainer.appendChild(slot3);
-
-
+    for (let i = 1; i <= 3; i++) {
+        let slot = container.cloneNode(true);
+        slot.id = `slot-${i}`;
+        slotsContainer.appendChild(slot);
+    }
+ 
     document.getElementById("open-attributions").addEventListener("click", () => {
         showDialog("attributions-dialog");
     });
@@ -70,9 +63,6 @@ window.onload = function () {
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
     slotPositions = getRandomSlotPositions();
     changeAndRotateSlots();
-    setTimeout(() => {
-        removeNoTransition();
-    }, 1000);
 }
 
 function createSlotWheel() {
@@ -80,12 +70,10 @@ function createSlotWheel() {
     container.classList.add("slot-container");
     let wheel = document.createElement("div");
     wheel.classList.add("wheel");
-    wheel.classList.add("no-transition");
     container.appendChild(wheel);
     for (let head in heads) {
         let card = document.createElement("div");
         card.classList.add("card");
-        card.classList.add("no-transition");
         const img = document.createElement("img");
         img.src = `../images/${heads[head]}`;
         img.id = head;
@@ -288,9 +276,4 @@ function change(slotName) {
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
     });
-}
-
-function removeNoTransition() {
-    const allElementsWithNoTransition = document.querySelectorAll(".no-transition");
-    allElementsWithNoTransition.forEach(element => element.classList.remove("no-transition"));
 }
