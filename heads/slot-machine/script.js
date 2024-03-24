@@ -1,9 +1,3 @@
-let isSlotMachineRunning = false;
-let spins = 0;
-let wins = 0;
-let losses = 0;
-let slotPositions = [null, null, null];
-let slotTargetPositions = [null, null, null];
 let heads = {
     "Capleb": "Capleb.svg",
     "Drihok": "Drihok.svg",
@@ -17,28 +11,36 @@ let heads = {
     "Wawear": "Wawear.svg",
     "Capleb": "Capleb.svg",
 }
-let won = false;
 
+const winImages = [
+    "bottle-with-popping-cork.svg",
+    "fireworks.svg",
+    "hugging-face.svg",
+    "hundred-points.svg",
+    "sparkles.svg",
+];
+
+const loseImages = [
+    "crying-face.svg",
+    "downcast-face-with-sweat.svg",
+    "face-with-steam-from-nose.svg",
+    "loudly-crying-face.svg",
+];
+
+let isSlotMachineRunning = false;
+let spins = 0;
+let wins = 0;
+let losses = 0;
+let slotPositions = [null, null, null];
+let slotTargetPositions = [null, null, null];
+let slotPreviousPositions = [0, 0, 0];
+let won = false;
+let numberOfHeads = Object.keys(heads).length;
 let radius = 0;
-let theta = 0;
+let theta = 360 / numberOfHeads;
 
 window.onload = function () {
-    let container = document.createElement("div");
-    container.classList.add("slot-container");
-    let wheel = document.createElement("div");
-    wheel.classList.add("wheel");
-    wheel.classList.add("no-transition");
-    container.appendChild(wheel);
-    for (let head in heads) {
-        let card = document.createElement("div");
-        card.classList.add("card");
-        card.classList.add("no-transition");
-        const img = document.createElement("img");
-        img.src = `../images/${heads[head]}`;
-        img.id = head;
-        card.appendChild(img);
-        wheel.appendChild(card);
-    }
+    let container = createSlotWheel();
 
     let slot1 = container.cloneNode(true);
     slot1.id = "slot-1";
@@ -73,15 +75,38 @@ window.onload = function () {
     }, 1000);
 }
 
+function createSlotWheel() {
+    let container = document.createElement("div");
+    container.classList.add("slot-container");
+    let wheel = document.createElement("div");
+    wheel.classList.add("wheel");
+    wheel.classList.add("no-transition");
+    container.appendChild(wheel);
+    for (let head in heads) {
+        let card = document.createElement("div");
+        card.classList.add("card");
+        card.classList.add("no-transition");
+        const img = document.createElement("img");
+        img.src = `../images/${heads[head]}`;
+        img.id = head;
+        card.appendChild(img);
+        wheel.appendChild(card);
+    }
+    return container;
+}
+
 window.onresize = changeAndRotateSlots;
 
 function changeAndRotateSlots() {
     change("slot-1");
     change("slot-2");
     change("slot-3");
-    rotate("slot-1", slotPositions[0]);
-    rotate("slot-2", slotPositions[1]);
-    rotate("slot-3", slotPositions[2]);
+    let slot1RotationX = -theta * slotPositions[0];
+    let slot2RotationX = - theta * slotPositions[1];
+    let slot3RotationX = -theta * slotPositions[2];
+    rotate("slot-1", slot1RotationX);
+    rotate("slot-2", slot2RotationX);
+    rotate("slot-3", slot3RotationX);
 }
 
 function getRandomSlotPositions() {
@@ -105,26 +130,8 @@ function probability(n) {
 function getRandomSlotPosition(numberOfHeads) {
     return Math.max(1, Math.floor(Math.random() * (numberOfHeads + 1)));
 }
-const loseImages = [
-    "crying-face.svg",
-    "disappointed-face.svg",
-    "downcast-face-with-sweat.svg",
-    "expressionless-face.svg",
-    "face-with-rolling-eyes.svg",
-    "face-with-steam-from-nose.svg",
-    "frowning-face-with-open-mouth.svg",
-    "loudly-crying-face.svg",
-    "pensive-face.svg",
-    "persevering-face.svg",
-    "pile-of-poo.svg",
-    "pouting-face.svg",
-    "sad-but-relieved-face.svg",
-    "see-no-evil-monkey.svg",
-    "weary-face.svg",
-    "worried-face.svg",
-];
 
-function replaceLoseImage() {
+function replaceLoseIcon() {
     const image = document.querySelectorAll(".lose-icon");
     const randomIndex = Math.floor(Math.random() * loseImages.length);
     image.forEach((img) => {
@@ -132,22 +139,7 @@ function replaceLoseImage() {
     });
 }
 
-const winImages = [
-    "bottle-with-popping-cork.svg",
-    "call-me-hand.svg",
-    "confetti-ball.svg",
-    "fireworks.svg",
-    "folded-hands.svg",
-    "four-leaf-clover.svg",
-    "grinning-face-with-smiling-eyes.svg",
-    "hugging-face.svg",
-    "hundred-points.svg",
-    "money-bag.svg",
-    "money-mouth-face.svg",
-    "sparkles.svg",
-];
-
-function replaceWinImage() {
+function replaceWinIcon() {
     const image = document.querySelectorAll(".win-icon");
     const randomIndex = Math.floor(Math.random() * winImages.length);
     image.forEach((img) => {
@@ -213,12 +205,12 @@ function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3Tar
     setTimeout(() => {
         displayResult();
         isSlotMachineRunning = false;
-    }, 4000);
+    }, 5000);
 }
 
 function displayWonDialog() {
     showDialog("win-dialog");
-    replaceWinImage();
+    replaceWinIcon();
     if (wins >= 999) wins = 0;
     wins++;
     updateCount("win-counter", wins);
@@ -226,24 +218,62 @@ function displayWonDialog() {
 
 function displayLostDialog() {
     showDialog("lose-dialog");
-    replaceLoseImage();
+    replaceLoseIcon();
     if (losses >= 999) losses = 0;
     losses++;
     updateCount("lose-counter", losses);
-
 }
 
 function updateCount(name, value) {
     const counter = document.getElementById(name);
-    // Pad the value with zeros
     const paddedValue = value.toString().padStart(3, "0");
-    counter.querySelector(".counter-number").innerHTML = paddedValue;
+    const counterNumber = counter.querySelector(".counter-number")
+
+    const counterNumberLeft = counterNumber.querySelector(".counter-number-left");
+    const counterNumberMiddle = counterNumber.querySelector(".counter-number-middle");
+    const counterNumberRight = counterNumber.querySelector(".counter-number-right");
+
+    const counterNumberLeftValue = parseInt(counterNumberLeft.textContent);
+    const counterNumberMiddleValue = parseInt(counterNumberMiddle.textContent);
+    const counterNumberRightValue = parseInt(counterNumberRight.textContent);
+
+    const newCounterNumberLeftValue = parseInt(paddedValue[0]);
+    const newCounterNumberMiddleValue = parseInt(paddedValue[1]);
+    const newCounterNumberRightValue = parseInt(paddedValue[2]);
+
+    if (counterNumberRightValue != newCounterNumberRightValue) {
+        increaseValue(counterNumberRight, newCounterNumberRightValue);
+    }
+
+    if (counterNumberMiddleValue != newCounterNumberMiddleValue) {
+        setTimeout(() => {
+            increaseValue(counterNumberMiddle, newCounterNumberMiddleValue);
+        }, 500);
+    }
+
+    if (counterNumberLeftValue != newCounterNumberLeftValue) {
+        setTimeout(() => {
+            increaseValue(counterNumberLeft, newCounterNumberLeftValue);
+        }, 1000);
+    }
 }
 
-function rotate(slotName, slotPosition) {
+function increaseValue(element, newValue) {
+    const increaseValue = document.createElement("span");
+    increaseValue.classList.add("increase-value");
+    increaseValue.innerHTML = newValue;
+    element.appendChild(increaseValue);
+    element.classList.add("move-number-up-from-current-position");
+    setTimeout(() => {
+        element.classList.remove("move-number-up-from-current-position");
+        element.innerHTML = newValue;
+        increaseValue.remove();
+    }, 500);
+}
+
+function rotate(slotName, rotationX) {
     const slot = document.getElementById(slotName);
     const wheel = slot.querySelector(".wheel");
-    const rotationX = -theta * slotPosition;
     wheel.style.transform = `translateZ(${-radius}px) rotateX(${rotationX}deg)`;
 
     const cards = slot.querySelectorAll(".card");
@@ -253,8 +283,6 @@ function rotate(slotName, slotPosition) {
 function change(slotName) {
     const slot = document.getElementById(slotName);
     const wheel = slot.querySelector(".wheel");
-    let numberOfHeads = Object.keys(heads).length;
-    theta = 360 / numberOfHeads;
     radius = Math.round(wheel.offsetHeight / 8) * numberOfHeads;
     const wheelCard = slot.querySelectorAll(".wheel .card");
     wheelCard.forEach((card, key) => {
