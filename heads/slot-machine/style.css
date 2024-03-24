@@ -91,12 +91,6 @@ main {
     border-right: var(--outer-border-width) solid;
 }
 
-.slot {
-    position: relative;
-    overflow: hidden;
-    height: var(--head-image-height);
-}
-
 .crow-icon {
     height: 1rem;
 }
@@ -121,32 +115,6 @@ main {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-}
-
-@keyframes spin {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(calc(-1 * var(--head-image-height) * var(--number-of-heads)));
-    }
-}
-
-.head-image {
-    /* animation: spin 10s infinite linear; */
-    width: 100%;
-    display: block;
-    height: var(--head-image-height);
-    /* scale: .8; */
-}
-
-.end-transition {
-    transition: all 1s;
-}
-
-.slot {
-    border-right: .1rem solid black;
 }
 
 #slot-1 {
@@ -283,6 +251,7 @@ main {
     perspective: 20rem;
     background-color: rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    border-right: .1rem solid black;
 }
 
 .wheel {
