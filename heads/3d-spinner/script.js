@@ -1,11 +1,23 @@
-let angle = 10; // degrees
-let showing = 6; // cards
+let numberOfHeads = 0;
 let speed = 1; // seconds
 
 let current = 0;
 let radius = 0;
 let theta = 0;
-let timer = null;
+
+let heads = {
+    "Capleb": "Capleb.svg",
+    "Drihok": "Drihok.svg",
+    "Eflubo": "Eflubo.svg",
+    "Fytum": "Fytum.svg",
+    "Gabuf": "Gabuf.svg",
+    "Medeox": "Medeox.svg",
+    "Ocraci": "Ocraci.svg",
+    "Pocron": "Pocron.svg",
+    "Uthave": "Uthave.svg",
+    "Wawear": "Wawear.svg",
+    "Capleb": "Capleb.svg",
+}
 
 
 function rotate() {
@@ -14,19 +26,16 @@ function rotate() {
 
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => card.classList.remove("current"));
-
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-        document.getElementById(`card_${id(current)}`).classList.add("current");
-    }, 0.9 * (speed * 1000)); // a tad before the animation ends
 }
 
 function setup() {
-    for (let i = 0; i < showing; i++) {
-        let name = id(i, showing);
+    numberOfHeads = Object.keys(heads).length;
+    for (let head in heads) {
         let card = document.getElementById("template").cloneNode(true);
-        card.id = `card_${name}`;
-        card.innerText = name;
+        const img = document.createElement("img");
+        img.src = `../images/${heads[head]}`;
+        img.id = head;
+        card.appendChild(img);
         document.querySelector(".wheel").appendChild(card);
     }
 
@@ -42,18 +51,18 @@ function setup() {
 
     const wheel = document.querySelector(".wheel");
     width = wheel.offsetWidth;
-    theta = 360 / showing;
-    radius = Math.max(100, Math.round(width / 2)); // 100 is an arbitary minimum width
+    theta = 360 / numberOfHeads;
+    radius = Math.round(width / 6) * numberOfHeads; // 100 is an arbitary minimum width
 
     const wheelCard = document.querySelectorAll(".wheel .card");
     wheelCard.forEach((card, key) => {
-        card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) translateX(-50%) scale(0.5)`;
+        card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) translateX(-50%)`;
     });
 
     rotate();
 }
 
-function id(idx, count = showing) {
+function id(idx, count) {
     idx %= count;
     return (idx < 0 ? idx + count : idx).toString().padStart(2, "0");
 }
