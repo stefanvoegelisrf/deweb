@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Spinner</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div id="template" class="card"></div>
+    <div id="container">
+        <div class="wheel"></div>
+    </div>
+    <div id="control">
+        <span>angle</span>
+        <input id="angle" type="range" min="-90" max="+90" value="0" step="1" />
+        <button id="del">-</button>
+        <button id="prev">&laquo;</button>
+        <input id="curr" type="text" size="3" />
+        <button id="next">&raquo;</button>
+        <button id="add">+</button>
+        <input id="speed" type="range" min="0.5" max="3.0" value="0" step="0.25" />
+        <span>speed</span>
+    </div>
+    <table id="info">
+        <tr>
+            <th>angle</th>
+            <td id="_angle"></td>
+        </tr>
+        <tr>
+            <th>showing</th>
+            <td id="_showing"></td>
+        </tr>
+        <tr>
+            <th>current</th>
+            <td id="_current"></td>
+        </tr>
+        <tr>
+            <th>speed</th>
+            <td id="_speed"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
