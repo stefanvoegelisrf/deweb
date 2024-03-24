@@ -15,7 +15,7 @@ body {
     }
 }
 
-#container {
+.slot-container {
     left: 50%;
     position: fixed;
     top: 50%;

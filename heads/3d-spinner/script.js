@@ -30,14 +30,21 @@ function rotate() {
 
 function setup() {
     numberOfHeads = Object.keys(heads).length;
+    let container = document.createElement("div");
+    container.classList.add("slot-container");
+    let wheel = document.createElement("div");
+    wheel.classList.add("wheel");
+    container.appendChild(wheel);
     for (let head in heads) {
         let card = document.getElementById("template").cloneNode(true);
         const img = document.createElement("img");
         img.src = `../images/${heads[head]}`;
         img.id = head;
         card.appendChild(img);
-        document.querySelector(".wheel").appendChild(card);
+        wheel.appendChild(card);
     }
+
+    document.body.appendChild(container);
 
     document.getElementById("prev").addEventListener("click", function () {
         current--;
@@ -72,7 +79,7 @@ function id(idx, count) {
 
 window.onload = setup;
 
-window.onresize = ()=>{
+window.onresize = () => {
     change();
     rotate();
 };
