@@ -52,11 +52,11 @@ function setup() {
     const wheel = document.querySelector(".wheel");
     width = wheel.offsetWidth;
     theta = 360 / numberOfHeads;
-    radius = Math.round(width / 6) * numberOfHeads; // 100 is an arbitary minimum width
+    radius = Math.round(width / 8) * numberOfHeads; // 100 is an arbitary minimum width
 
     const wheelCard = document.querySelectorAll(".wheel .card");
     wheelCard.forEach((card, key) => {
-        card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) translateX(-50%)`;
+        card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
     });
 
     rotate();
