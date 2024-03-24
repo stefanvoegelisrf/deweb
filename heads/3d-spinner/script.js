@@ -1,6 +1,3 @@
-let numberOfHeads = 0;
-let speed = 1; // seconds
-
 let current = 0;
 let radius = 0;
 let theta = 0;
@@ -29,7 +26,6 @@ function rotate() {
 }
 
 function setup() {
-    numberOfHeads = Object.keys(heads).length;
     let container = document.createElement("div");
     container.classList.add("slot-container");
     let wheel = document.createElement("div");
@@ -63,6 +59,7 @@ function setup() {
 function change() {
     const wheel = document.querySelector(".wheel");
     width = wheel.offsetWidth;
+    let numberOfHeads = Object.keys(heads).length;
     theta = 360 / numberOfHeads;
     radius = Math.round(width / 8) * numberOfHeads; // 100 is an arbitary minimum width
 
