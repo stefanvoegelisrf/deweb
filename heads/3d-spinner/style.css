@@ -5,11 +5,13 @@ body {
 
 #container {
     left: 50%;
-    perspective: 1000px;
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
+    height: 500px;
+    perspective: 500px;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #template {
@@ -17,11 +19,12 @@ body {
 }
 
 .wheel {
+    width: 100%;
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
     transition: transform 1s;
-    width: 100%;
+    background-color: rgba(255, 0, 0, 0.2);
 }
 
 .wheel .card {
@@ -30,13 +33,13 @@ body {
     border: 1px solid grey;
     color: #666;
     font-size: 3rem;
-    height: 200px;
+    height: 100%;
     line-height: 6rem;
     position: absolute;
     left: 50%;
     text-align: center;
     transition: transform 1s, opacity 1s;
-    width: 300px;
+    width: 100%;
 }
 
 .wheel .card.current {
