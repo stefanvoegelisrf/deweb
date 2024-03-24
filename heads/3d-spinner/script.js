@@ -48,7 +48,12 @@ function setup() {
         current++;
         rotate();
     });
+    change();
 
+    rotate();
+}
+
+function change() {
     const wheel = document.querySelector(".wheel");
     width = wheel.offsetWidth;
     theta = 360 / numberOfHeads;
@@ -58,8 +63,6 @@ function setup() {
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
     });
-
-    rotate();
 }
 
 function id(idx, count) {
@@ -68,3 +71,8 @@ function id(idx, count) {
 }
 
 window.onload = setup;
+
+window.onresize = ()=>{
+    change();
+    rotate();
+};
