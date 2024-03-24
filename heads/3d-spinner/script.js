@@ -12,14 +12,10 @@ var radius = 0;
 var theta = 0;
 var timer = null;
 
-// --- generates the card id
-
 function id(idx, count = showing) {
     idx %= count;
     return (idx < 0 ? idx + count : idx).toString().padStart(2, "0");
 }
-
-// --- rotate the card wheel
 
 function rotate() {
     const wheel = document.querySelector(".wheel");
@@ -37,18 +33,12 @@ function rotate() {
     info();
 }
 
-
-
-// --- show the info
-
 function info() {
     document.getElementById("_angle").innerHTML = `${angle} deg`;
     document.getElementById("_showing").innerHTML = `${showing} of ${max}`;
     document.getElementById("_current").innerHTML = `card ${id(current)}`;
     document.getElementById("_speed").innerHTML = `${speed} secs`;
 }
-
-// --- process a change
 
 function change() {
     const wheel= document.querySelector(".wheel");
@@ -91,8 +81,6 @@ function change() {
     rotate();
 }
 
-// --- initial setup
-
 function setup() {
     for (let i = 0; i < max; i++) {
         let name = id(i, max);
@@ -105,8 +93,6 @@ function setup() {
 
     document.getElementById("angle").value = angle;
     document.getElementById("speed").value = speed;
-
-    // --- handlers
 
     document.getElementById("prev").addEventListener("click", function () {
         current--;
