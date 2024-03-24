@@ -51,47 +51,8 @@ body {
     margin: 25px;
     position: fixed;
     transform: translateX(-50%);
-    width: 700px;
 }
 
 #control button {
     font-size: 1.4rem;
-}
-
-#control button.disabled {
-    color: lightgrey;
-}
-
-#control span {
-    font-size: 0.8rem;
-}
-
-#control input[type="text"] {
-    border: 1px solid grey;
-    font-size: 1.2rem;
-    padding: 2px;
-    text-align: center;
-}
-
-#control input[type="range"] {
-    vertical-align: middle;
-}
-
-table#info {
-    border-collapse: collapse;
-    margin: 15px;
-    position: fixed;
-    right: 0;
-    top: 0;
-}
-
-table#info tr td,
-table#info tr th {
-    border: 1px solid grey;
-    padding: 8px;
-}
-
-table#info tr th {
-    background: lightgrey;
-    font-weight: normal;
 }
