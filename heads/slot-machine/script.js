@@ -208,9 +208,12 @@ function setWonHead() {
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
-    slotPositions=[slot1TargetPosition, slot2TargetPosition, slot3TargetPosition];
+    slotPositions = [slot1TargetPosition, slot2TargetPosition, slot3TargetPosition];
     changeAndRotateSlots();
-    isSlotMachineRunning = false;
+    setTimeout(() => {
+        displayResult();
+        isSlotMachineRunning = false;
+    }, 4000);
 }
 
 function displayWonDialog() {
@@ -240,7 +243,8 @@ function updateCount(name, value) {
 function rotate(slotName, slotPosition) {
     const slot = document.getElementById(slotName);
     const wheel = slot.querySelector(".wheel");
-    wheel.style.transform = `translateZ(${-radius}px) rotateX(${-theta * slotPosition}deg)`;
+    const rotationX = -theta * slotPosition;
+    wheel.style.transform = `translateZ(${-radius}px) rotateX(${rotationX}deg)`;
 
     const cards = slot.querySelectorAll(".card");
     cards.forEach(card => card.classList.remove("current"));
@@ -252,7 +256,6 @@ function change(slotName) {
     let numberOfHeads = Object.keys(heads).length;
     theta = 360 / numberOfHeads;
     radius = Math.round(wheel.offsetHeight / 8) * numberOfHeads;
-
     const wheelCard = slot.querySelectorAll(".wheel .card");
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
