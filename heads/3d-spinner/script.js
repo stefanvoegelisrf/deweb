@@ -69,11 +69,6 @@ function change() {
     });
 }
 
-function id(idx, count) {
-    idx %= count;
-    return (idx < 0 ? idx + count : idx).toString().padStart(2, "0");
-}
-
 window.onload = setup;
 
 window.onresize = () => {
