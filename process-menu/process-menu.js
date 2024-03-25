@@ -324,5 +324,5 @@ class ProcessMenu extends HTMLElement {
     }
 }
 
-// Register the CurrentDate component using the tag name <current-date>.
+// Register the component using the tag name <process-menu>.
 window.customElements.define('process-menu', ProcessMenu);
