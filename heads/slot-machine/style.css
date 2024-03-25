@@ -199,8 +199,6 @@ dialog {
     background-color: var(--eerie-black);
     height: 100%;
     position: absolute;
-    transition-property: rotate;
-    transition-duration: inherit;
     width: 100%;
     border-radius: 5%;
     border: .1rem solid var(--phlox);
