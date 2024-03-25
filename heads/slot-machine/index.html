@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+    <div class="slot-machine-container">
         <div id="slot-machine-title">
             <div class="advertisement">
                 <?xml version="1.0" encoding="utf-8"?>
@@ -29,8 +29,8 @@
                     </path>
                 </svg>
             </div>
-            <div>
-                <h1 id="slot-machine-name">BRAINHEAD</h1>
+            <div id="slot-machine-name">
+                <h1>BRAINHEAD</h1>
                 <p class="copyright">© Stefan Vögeli <img src="../images/icons/crow.svg" alt="crow icon"
                         class="crow-icon"></p>
             </div>
@@ -50,21 +50,9 @@
                 </svg>
             </div>
         </div>
-        </div>
-    </header>
-    <main>
         <div id="slots-container">
             <button type="button" id="start-spin" autofocus>SPIN</button>
         </div>
-
-    </main>
-    <footer>
-        <!-- <div id="project-text">
-            <p>Unique bursts from my imagination.</p>
-            <p>It’s a gamble, triumph or near miss.</p>
-            <p>Let the rush of success wash over you!</p>
-            <p>Enjoy and get addicted! Share if you enjoy!</p>
-        </div> -->
         <div class="stats">
             <div id="spin-counter" class="counter">
                 <label class="counter-label">Spins</label>
@@ -92,71 +80,71 @@
             </div>
         </div>
         <button type="button" id="open-attributions">Attributions</button>
-        <dialog id="attributions-dialog" class="dialog">
-            <h1 id="attributions-title">Attributions</h1>
-            <ul id="attributions-list">
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403036/bottle-with-popping-cork">Bottle With Popping Cork
-                        SVG</a> from <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed
-                    under
-                    <a href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403160/crying-face">Crying Face SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403210/downcast-face-with-sweat">Downcast Face With Sweat
-                        SVG</a> from <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed
-                    under
-                    <a href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403258/face-with-steam-from-nose">Face With Steam From Nose
-                        SVG</a> from <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed
-                    under
-                    <a href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403293/fireworks">Fireworks SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403676/hundred-points">Hundred Points SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403673/hugging-face">Hugging Face SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403805/loudly-crying-face">Loudly Crying Face SVG</a> from
-                    <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/404156/sparkles">Sparkles SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403842/money-mouth-face">Money Mouth Face SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-                <li>
-                    <a href="https://www.svgrepo.com/svg/403844/money-with-wings">Money With Wings SVG</a> from <a
-                        href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
-                        href="https://opensource.org/license/mit">MIT</a>
-                </li>
-            </ul>
-            <button type="button" id="close-attributions" autofocus>Close</button>
-        </dialog>
-    </footer>
+    </div>
+    <dialog id="attributions-dialog" class="dialog">
+        <h1 id="attributions-title">Attributions</h1>
+        <ul id="attributions-list">
+            <li>
+                <a href="https://www.svgrepo.com/svg/403036/bottle-with-popping-cork">Bottle With Popping Cork
+                    SVG</a> from <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed
+                under
+                <a href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403160/crying-face">Crying Face SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403210/downcast-face-with-sweat">Downcast Face With Sweat
+                    SVG</a> from <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed
+                under
+                <a href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403258/face-with-steam-from-nose">Face With Steam From Nose
+                    SVG</a> from <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed
+                under
+                <a href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403293/fireworks">Fireworks SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403676/hundred-points">Hundred Points SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403673/hugging-face">Hugging Face SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403805/loudly-crying-face">Loudly Crying Face SVG</a> from
+                <a href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/404156/sparkles">Sparkles SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403842/money-mouth-face">Money Mouth Face SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/403844/money-with-wings">Money With Wings SVG</a> from <a
+                    href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
+                    href="https://opensource.org/license/mit">MIT</a>
+            </li>
+        </ul>
+        <button type="button" id="close-attributions" autofocus>Close</button>
+    </dialog>
     <dialog id="win-dialog" class="dialog">
         <h1 class="dialog-title"><img class="win-icon"> You win! <img class="win-icon"></h1>
         <img id="win-image-head">
@@ -169,9 +157,10 @@
     </dialog>
     <dialog id="lose-dialog" class="dialog">
         <h1 class="dialog-title"><img class="lose-icon"> You lose! <img class="lose-icon"></h1>
-        <p class="lose-text">
-            You lost this time, but don't worry! You can try again and win a magnificient head!
-        </p>
+        <div class="lose-text">
+            <p>You lost this time, but don't worry!</p>
+            <p>You can try again and win a magnificient head!</p>
+        </div>
         <button type="button" id="close-lose-dialog" autofocus>OK</button>
     </dialog>
     <process-menu></process-menu>
