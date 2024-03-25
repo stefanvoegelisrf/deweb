@@ -1,6 +1,10 @@
 # Javascript input
 - [Javascript input](#javascript-input)
+- [Excercise](#excercise)
+  - [Solution](#solution)
+- [Knowledge](#knowledge)
   - [Access the DOM](#access-the-dom)
+    - [Access the DOM after it has been loaded](#access-the-dom-after-it-has-been-loaded)
   - [Adding elements](#adding-elements)
   - [Manipulating elements](#manipulating-elements)
     - [Selecting elements](#selecting-elements)
@@ -10,12 +14,36 @@
       - [Useful event handlers](#useful-event-handlers)
 
 
-https://codepen.io/el_stefe/pen/dyLNmwQ
+# Excercise
+In this excercise, we have a simple document that goes over some important parts of the HTML and javascript interaction:
+- Accessing the DOM
+- Adding and manipulating elements
+- Detecting if an element is visible in the viewport
+- Event listeners
+
+All the topics covered in this excercise are also listed under [knowledge](#knowledge) and the solution to this excercise can be found under [solution](#solution).
+
+
+
+## Solution
+> See: [Excercise solution](excercise-solution)
+
+# Knowledge
 
 ## Access the DOM
 The Document Object Model(DOM) is an interface to interact with a web page. You can access the structure, style and content of a page and change it.
 The DOM is accessed by using the `document` variable.
 
+### Access the DOM after it has been loaded
+It is a good practice to only access the DOM after the page has been fully loaded. Otherwise, you can run into errors.
+
+One way of doing this is to add a function to the `window.onload` event. Example:
+```javascript
+window.onload = function(){
+  // DOM has loaded, do stuff
+  const myButton = document.querySelector("button")
+}
+```
 
 ## Adding elements
 Elements can be added to the DOM by creating them in Javascript. To create an element, we use [createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
@@ -57,7 +85,16 @@ circle1.classList.add("border-solid");
 ```
 
 #### Adding class when an element appears on the screen
-TODO: getBoundingClientRect or intersection observe
+We can detect when an element is visible on the screen. E.g. when the user scrolls and elements that have not been visible enter the viewport. To do so, we use can create a function that checks if the element is visible in the viewport. Example:
+```javascript
+function elementIsVisibleInViewport(element) {
+    const { top, left, bottom, right } = element.getBoundingClientRect();
+    const { innerHeight, innerWidth } = window;
+    return top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+};
+```
+
+Another options is the [mozilla.org - Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) which can check if element is intersecting with a parent element.
 
 ### Adding event handlers
 Event handlers are important to make a site react to user input. There are a lot of event handlers available, which serve different purposes. A list can be found here. [mozilla.org - Events](https://developer.mozilla.org/en-US/docs/Web/API/Event)
