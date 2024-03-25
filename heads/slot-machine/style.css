@@ -35,6 +35,12 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@property --start-spin-gradient-color-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(0, 0, 0, 0);
+}
+
 :root {
     --eerie-black: #151426;
     --robin-egg-blue: #04D9C4;
@@ -134,7 +140,6 @@ dialog {
     width: 100%;
     border: .1rem solid var(--phlox);
     background-color: var(--eerie-black);
-    /* background: radial-gradient(var(--phlox), transparent); */
 }
 
 #spinner {
@@ -220,10 +225,15 @@ dialog {
     height: 50%;
     align-self: center;
     width: 100%;
-    transition: color,background-color .2s;
-    background: radial-gradient(var(--phlox), transparent);
+    transition: --start-spin-gradient-color-2 .5s;
+    background: radial-gradient(var(--phlox), var(--start-spin-gradient-color-2));
     color: white;
     border-width: .25rem;
+}
+
+#start-spin:active,
+#start-spin:hover {
+    --start-spin-gradient-color-2: var(--phlox);
 }
 
 #start-spin:disabled {
