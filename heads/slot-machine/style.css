@@ -77,6 +77,12 @@ button {
     border-radius: 1rem;
 }
 
+.button-small {
+    padding: .5rem;
+    font-size: .75rem;
+    border-radius: .5rem;
+}
+
 dialog {
     background-color: var(--eerie-black);
     color: var(--phlox);
@@ -346,7 +352,7 @@ dialog {
 }
 
 #win-image-head {
-    height: 25rem;
+    height: 20rem;
     filter: invert();
     margin: 1rem 0;
 }
@@ -371,7 +377,11 @@ dialog {
 
 .fireworks,
 .face-with-steam-from-nose {
-    fill: var(--phlox);
+    border: 0.1rem solid var(--robin-egg-blue);
+    border-radius: 3rem;
+    padding: 0.5rem;
+    background: radial-gradient(var(--robin-egg-blue), transparent);
+    fill: var(--eerie-black);
     height: 5rem;
 }
 
