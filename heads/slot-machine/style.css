@@ -408,7 +408,11 @@ dialog {
     list-style: none;
 }
 
-#close-attributions {
+#attributions-title{
+    margin-top: 1rem;
+}
+
+#close-about {
     margin-top: 1rem;
 }
 
@@ -459,7 +463,7 @@ dialog {
     color: white;
 }
 
-#open-attributions {
+#open-about {
     margin-top: 1rem;
     cursor: pointer;
 }

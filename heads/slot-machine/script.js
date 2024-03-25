@@ -29,11 +29,11 @@ window.onload = function () {
         slotsContainer.appendChild(slot);
     }
 
-    document.getElementById("open-attributions").addEventListener("click", () => {
-        showDialog("attributions-dialog");
+    document.getElementById("open-about").addEventListener("click", () => {
+        showDialog("about-dialog");
     });
-    document.getElementById("close-attributions").addEventListener("click", () => {
-        closeDialog("attributions-dialog");
+    document.getElementById("close-about").addEventListener("click", () => {
+        closeDialog("about-dialog");
     });
     document.getElementById("close-win-dialog").addEventListener("click", () => {
         closeDialog("win-dialog");
