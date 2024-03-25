@@ -56,7 +56,7 @@ const main = document.querySelector("main");
 ```
 By calling `document`, we access the HTML page. With using the `querySelector` function, we can search for the `main` element inside the HTML page.
 
-Now we have assigned the `main` element of the page to out variable `main` and we can manipulate it.
+Now we have assigned the `main` element of the page to our variable `main` and we can manipulate it.
 
 ### Adding elements dynamically
 If we want to add an element dynamically, we can create an element in javascript. We can do this like so:
@@ -136,7 +136,7 @@ In this function, we add a class to the element if it is fully visible, and we r
 #### Adding scroll event listener
 Now we add an event listener for the scroll element. Like that, our function `checkIfSecondElementIsVisible` will be called, when the user is scrolling on the page.
 ```javascript
-    document.addEventListener("scroll", checkIfSecondElementIsVisible);
+document.addEventListener("scroll", checkIfSecondElementIsVisible);
 ```
 Add this part inside the function that we have defined for `window.onload`.
 
