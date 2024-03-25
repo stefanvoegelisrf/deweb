@@ -260,7 +260,7 @@ dialog {
 .counter-number-right {
     font-family: inherit;
     position: absolute;
-    top: .1rem
+    top: .2rem
 }
 
 .counter-number-left {
