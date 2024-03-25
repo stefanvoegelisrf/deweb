@@ -85,7 +85,7 @@ button {
 
 dialog {
     background-color: var(--eerie-black);
-    color: var(--phlox);
+    color: white;
     border-radius: 1rem;
     position: absolute;
     left: 50%;
@@ -348,7 +348,6 @@ dialog {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: white;
 }
 
 #win-image-head {
