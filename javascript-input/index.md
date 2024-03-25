@@ -34,7 +34,7 @@ All the topics covered in this excercise are also listed under [knowledge](#know
 ## Basic setup
 We assume that the basic HTML page is already set up as `index.html` and there is already a CSS document `style.css` referenced.
 
-To get started, use the prepared [excercise template](excercise-template/)
+To get started, use the prepared [excercise template](excercise-template/). Download it to a local folder.
 
 ### Adding a javascript file
 In the same folder as the `index.html`, create a file called `script.js`. In the `index.html` file, we need to reference this file. To do so, we add the following line in the `head` section of the HTML document.
