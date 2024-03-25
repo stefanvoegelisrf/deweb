@@ -65,7 +65,7 @@ body {
     overflow: hidden;
     max-width: 70rem;
     margin: 0 auto;
-    background-color: var(--eerie-black);
+    background-color: black;
 }
 
 button {
@@ -99,6 +99,7 @@ dialog {
 
 #slot-machine-container {
     border: .1rem solid var(--phlox);
+    background-color: var(--eerie-black);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,7 +110,6 @@ dialog {
 
 #slot-machine-name {
     color: white;
-    margin: 1rem 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,10 +122,12 @@ dialog {
 #slot-machine-title {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border-radius: 1rem;
-    padding: .5rem;
+    padding: 1rem;
     width: 100%;
     border: .1rem solid var(--phlox);
+    background-color: var(--eerie-black);
 }
 
 #slots-container {
@@ -326,7 +328,7 @@ dialog {
 
 .dialog-title {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -350,4 +352,9 @@ dialog {
 .lose-icon {
     height: 4rem;
     vertical-align: middle;
+}
+
+.fireworks,.face-with-steam-from-nose{
+    fill: var(--phlox);
+    height: 5rem;
 }

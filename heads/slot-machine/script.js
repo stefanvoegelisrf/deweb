@@ -11,14 +11,6 @@ let heads = {
     "Wawear": "Wawear.svg",
 }
 
-const winImages = [
-    "bottle-with-popping-cork.svg",
-    "fireworks.svg",
-    "hugging-face.svg",
-    "hundred-points.svg",
-    "sparkles.svg",
-];
-
 const loseImages = [
     "crying-face.svg",
     "downcast-face-with-sweat.svg",
@@ -126,14 +118,6 @@ function replaceLoseIcon() {
     });
 }
 
-function replaceWinIcon() {
-    const image = document.querySelectorAll(".win-icon");
-    const randomIndex = Math.floor(Math.random() * winImages.length);
-    image.forEach((img) => {
-        img.src = `../images/icons/${winImages[randomIndex]}`;
-    });
-}
-
 function showDialog(name) {
     const dialog = document.getElementById(name);
     dialog.showModal();
@@ -199,7 +183,6 @@ function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3Tar
 
 function displayWonDialog() {
     showDialog("win-dialog");
-    replaceWinIcon();
     if (wins >= 999) wins = 0;
     wins++;
     updateCount("win-counter", wins);
