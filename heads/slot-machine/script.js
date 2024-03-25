@@ -16,7 +16,6 @@ let spins = 0;
 let wins = 0;
 let losses = 0;
 let slotPositions = [null, null, null];
-let slotTargetPositions = [null, null, null];
 let slotPreviousPositions = [0, 0, 0];
 let won = false;
 let numberOfHeads = Object.keys(heads).length;
@@ -117,7 +116,6 @@ function closeDialog(name) {
     dialog.close();
 }
 
-
 function startSlotMachine() {
     if (isSlotMachineRunning) return;
     if (spins >= 999) spins = 0;
@@ -129,6 +127,7 @@ function startSlotMachine() {
     if (probability(.25)) {
         winningSlot = getRandomSlotPosition(Object.keys(heads).length);
     }
+    let slotTargetPositions = [];
     if (winningSlot != null) {
         won = true;
         slotTargetPositions = [winningSlot, winningSlot, winningSlot];
@@ -153,11 +152,9 @@ function displayResult() {
 
 function setWonHead() {
     const winImageHead = document.getElementById("win-image-head");
-    console.log(slotTargetPositions[0]);
-    console.log(Object.keys(heads)[slotTargetPositions[0]]);
-    winImageHead.src = `../images/${heads[Object.keys(heads)[slotTargetPositions[0]]]}`;
+    winImageHead.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
     const winHeadName = document.getElementById("win-head-name");
-    winHeadName.innerHTML = Object.keys(heads)[slotTargetPositions[0]];
+    winHeadName.innerHTML = Object.keys(heads)[slotPositions[0]];
 }
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
