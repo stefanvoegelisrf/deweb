@@ -45,7 +45,20 @@
     --eerie-black: #151426;
     --robin-egg-blue: #04D9C4;
     --phlox: #EE05F2;
-    --slot-height: 20rem;
+}
+
+@media (orientation:landscape) {
+    :root {
+        --slot-height: 20rem;
+        --slot-translate-z: -25rem;
+    }
+}
+
+@media (orientation:portrait) {
+    :root {
+        --slot-height: 30rem;
+        --slot-translate-z: -35rem;
+    }
 }
 
 a:link {
@@ -63,15 +76,20 @@ h1 {
 body {
     width: 100%;
     height: 100vh;
-    padding-left: 2rem;
-    padding-right: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    max-width: 70rem;
-    margin: 0 auto;
     background-color: black;
+}
+
+@media (orientation:landscape) {
+    body {
+        justify-content: center;
+        max-width: 70rem;
+        margin: 0 auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        overflow: hidden;
+    }
 }
 
 button {
@@ -111,14 +129,26 @@ dialog {
 }
 
 #slot-machine-container {
-    border: .1rem solid var(--phlox);
     background-color: var(--eerie-black);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 1rem;
     padding: 1rem;
     margin-top: 1rem;
+}
+
+@media (orientation:portrait) {
+    #slot-machine-container {
+        border-top: .1rem solid var(--phlox);
+        border-bottom: .1rem solid var(--phlox);
+    }
+}
+
+@media (orientation:landscape) {
+    #slot-machine-container {
+        border: .1rem solid var(--phlox);
+        border-radius: 1rem;
+    }
 }
 
 #slot-machine-name {
@@ -126,6 +156,12 @@ dialog {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (orientation:portrait) {
+    #slot-machine-name>h1 {
+        font-size: 3rem !important;
+    }
 }
 
 #slot-machine-name h1 {
@@ -136,11 +172,23 @@ dialog {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 1rem;
     padding: 1rem;
     width: 100%;
-    border: .1rem solid var(--phlox);
     background-color: var(--eerie-black);
+}
+
+@media (orientation:portrait) {
+    #slot-machine-title {
+        border-top: .1rem solid var(--phlox);
+        border-bottom: .1rem solid var(--phlox);
+    }
+}
+
+@media (orientation:landscape) {
+    #slot-machine-title {
+        border: .1rem solid var(--phlox);
+        border-radius: 1rem;
+    }
 }
 
 #spinner {
@@ -198,7 +246,7 @@ dialog {
     transform-style: preserve-3d;
     transition-property: rotate;
     transition-duration: inherit;
-    translate: 0% 0% -25rem;
+    translate: 0% 0% var(--slot-translate-z);
 }
 
 .wheel .card {
@@ -263,12 +311,18 @@ dialog {
 
 .stats {
     display: flex;
-    justify-content: space-around;
     padding: 1rem 0 1rem 0;
+    justify-content: space-between;
     width: 100%;
     margin-top: 1rem;
-    border: .1rem solid var(--phlox);
-    border-radius: 1rem;
+}
+
+@media (orientation:landscape) {
+    .stats {
+        justify-content: space-around;
+        border: .1rem solid var(--phlox);
+        border-radius: 1rem;
+    }
 }
 
 .counter {
@@ -280,6 +334,12 @@ dialog {
     color: white;
     border: .1rem solid var(--robin-egg-blue);
     font-family: "Share Tech Mono", monospace;
+}
+
+@media (orientation:portrait) {
+    .counter {
+        padding: 1rem;
+    }
 }
 
 .counter-number {
@@ -412,11 +472,22 @@ dialog {
 
 #project-texts {
     display: flex;
-    flex-direction: row;
     width: 100%;
     gap: .5rem;
     margin-top: 1rem;
     color: white;
+}
+
+@media (orientation:landscape) {
+    #project-texts {
+        flex-direction: row;
+    }
+}
+
+@media (orientation:portrait) {
+    #project-texts {
+        flex-direction: column;
+    }
 }
 
 .project-text {
@@ -442,9 +513,30 @@ dialog {
     margin-right: .5rem;
 }
 
+@media (orientation:portrait) {
+    .project-text {
+        font-size: 1.5rem;
+        padding: 2rem;
+    }
+
+    .project-text-image {
+        width: 10rem !important;
+        height: 100% !important;
+        margin-right: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
 .information-icon {
     height: 1rem;
     width: 1rem;
     fill: var(--phlox);
     border-radius: 2rem;
+}
+
+@media (orientation:portrait) {
+    .hidden-on-mobile {
+        display: none;
+    }
 }

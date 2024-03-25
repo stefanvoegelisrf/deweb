@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: cyan;
+    background-color: tan;
     padding: 1rem;
     position: relative;
 }
@@ -25,7 +25,7 @@ header::before {
 main {
     height: 300vh;
     width: 100%;
-    background-color: magenta;
+    background-color: pink;
     position: relative;
 }
 
@@ -41,7 +41,6 @@ main::before {
 
 .dynamic-element {
     width: 50%;
-    mix-blend-mode: difference;
     color: black;
     font-size: 2rem;
     transition: all 1s;
@@ -49,12 +48,12 @@ main::before {
 }
 
 .first {
-    background-color: red;
+    background-color: antiquewhite;
     height: 100vh;
 }
 
 .second {
-    background-color: blue;
+    background-color: blueviolet;
     height: 50vh;
 }
 
