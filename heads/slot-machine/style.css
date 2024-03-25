@@ -189,18 +189,18 @@ dialog {
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
-    transition-property: transform;
+    transition-property: rotate;
     transition-duration: inherit;
+    translate: 0% 0% -25rem;
 }
 
 .wheel .card {
     background-color: var(--eerie-black);
     height: 100%;
     position: absolute;
-    transition-property: transform;
+    transition-property: rotate;
     transition-duration: inherit;
     width: 100%;
-    border: .1rem solid white;
     border-radius: 5%;
     border: .1rem solid var(--phlox);
 }
@@ -223,7 +223,6 @@ dialog {
     width: 100%;
     transition: all .2s;
     background: radial-gradient(var(--phlox), transparent);
-    /* color: var(--eerie-black); */
     color: white;
     border-width: .25rem;
 }

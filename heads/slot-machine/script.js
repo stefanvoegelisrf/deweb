@@ -11,13 +11,6 @@ let heads = {
     "Wawear": "Wawear.svg",
 }
 
-const loseImages = [
-    "crying-face.svg",
-    "downcast-face-with-sweat.svg",
-    "face-with-steam-from-nose.svg",
-    "loudly-crying-face.svg",
-];
-
 let isSlotMachineRunning = false;
 let spins = 0;
 let wins = 0;
@@ -38,7 +31,7 @@ window.onload = function () {
         slot.id = `slot-${i}`;
         slotsContainer.appendChild(slot);
     }
- 
+
     document.getElementById("open-attributions").addEventListener("click", () => {
         showDialog("attributions-dialog");
     });
@@ -53,7 +46,8 @@ window.onload = function () {
     });
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
     slotPositions = getRandomSlotPositions();
-    changeAndRotateSlots();
+    changeSlots();
+    rotateSlots();
 }
 
 function createSlotWheel() {
@@ -74,12 +68,15 @@ function createSlotWheel() {
     return container;
 }
 
-window.onresize = changeAndRotateSlots;
+window.onresize = changeSlots;
 
-function changeAndRotateSlots() {
+function changeSlots() {
     change("slot-1");
     change("slot-2");
     change("slot-3");
+}
+
+function rotateSlots() {
     let slot1RotationX = -theta * slotPositions[0];
     let slot2RotationX = - theta * slotPositions[1];
     let slot3RotationX = -theta * slotPositions[2];
@@ -108,14 +105,6 @@ function probability(n) {
 
 function getRandomSlotPosition(numberOfHeads) {
     return Math.floor(Math.random() * (numberOfHeads));
-}
-
-function replaceLoseIcon() {
-    const image = document.querySelectorAll(".lose-icon");
-    const randomIndex = Math.floor(Math.random() * loseImages.length);
-    image.forEach((img) => {
-        img.src = `../images/icons/${loseImages[randomIndex]}`;
-    });
 }
 
 function showDialog(name) {
@@ -174,7 +163,8 @@ function setWonHead() {
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
     slotPositions = [slot1TargetPosition, slot2TargetPosition, slot3TargetPosition];
-    changeAndRotateSlots();
+    changeSlots();
+    rotateSlots();
     setTimeout(() => {
         displayResult();
         isSlotMachineRunning = false;
@@ -190,7 +180,6 @@ function displayWonDialog() {
 
 function displayLostDialog() {
     showDialog("lose-dialog");
-    replaceLoseIcon();
     if (losses >= 999) losses = 0;
     losses++;
     updateCount("lose-counter", losses);
@@ -246,8 +235,7 @@ function increaseValue(element, newValue) {
 function rotate(slotName, rotationX) {
     const slot = document.getElementById(slotName);
     const wheel = slot.querySelector(".wheel");
-    wheel.style.transform = `translateZ(${-radius}px) rotateX(${rotationX}deg)`;
-
+    wheel.style.rotate = `x ${rotationX}deg`
     const cards = slot.querySelectorAll(".card");
     cards.forEach(card => card.classList.remove("current"));
 }
