@@ -16,10 +16,8 @@ let spins = 0;
 let wins = 0;
 let losses = 0;
 let slotPositions = [null, null, null];
-let slotPreviousPositions = [0, 0, 0];
 let won = false;
 let numberOfHeads = Object.keys(heads).length;
-let radius = 0;
 let theta = 360 / numberOfHeads;
 
 window.onload = function () {
@@ -46,7 +44,12 @@ window.onload = function () {
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
     slotPositions = getRandomSlotPositions();
     changeSlots();
-    rotateSlots();
+    let slot1RotationX = -theta * slotPositions[0];
+    let slot2RotationX = -theta * slotPositions[1];
+    let slot3RotationX = -theta * slotPositions[2];
+    rotate("slot-1", slot1RotationX);
+    rotate("slot-2", slot2RotationX);
+    rotate("slot-3", slot3RotationX);
 }
 
 function createSlotWheel() {
@@ -77,7 +80,7 @@ function changeSlots() {
 
 function rotateSlots() {
     let slot1RotationX = -theta * slotPositions[0];
-    let slot2RotationX = - theta * slotPositions[1];
+    let slot2RotationX = -theta * slotPositions[1];
     let slot3RotationX = -theta * slotPositions[2];
     rotate("slot-1", slot1RotationX);
     rotate("slot-2", slot2RotationX);
@@ -159,9 +162,14 @@ function setWonHead() {
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
     isSlotMachineRunning = true;
-    slotPositions = [slot1TargetPosition, slot2TargetPosition, slot3TargetPosition];
     changeSlots();
-    rotateSlots();
+    slotPositions = [slot1TargetPosition, slot2TargetPosition, slot3TargetPosition];
+    let targetSlot1RotationX = -theta * slotPositions[0] - spins * 360;
+    let targetSlot2RotationX = -theta * slotPositions[1] - spins * 720;
+    let targetSlot3RotationX = -theta * slotPositions[2] - spins * 1080;
+    rotate("slot-1", targetSlot1RotationX);
+    rotate("slot-2", targetSlot2RotationX);
+    rotate("slot-3", targetSlot3RotationX);
     setTimeout(() => {
         displayResult();
         isSlotMachineRunning = false;

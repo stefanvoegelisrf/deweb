@@ -220,7 +220,7 @@ dialog {
     height: 50%;
     align-self: center;
     width: 100%;
-    transition: all .2s;
+    transition: color,background-color .2s;
     background: radial-gradient(var(--phlox), transparent);
     color: white;
     border-width: .25rem;
@@ -228,11 +228,6 @@ dialog {
 
 #start-spin:disabled {
     cursor: not-allowed;
-}
-
-#start-spin:active {
-    background-color: black;
-    color: white;
 }
 
 .image-flipped {
