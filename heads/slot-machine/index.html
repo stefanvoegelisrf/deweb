@@ -82,9 +82,12 @@
         </div>
     </div>
     <div id="slot-machine-container">
-        <div id="slots-container">
+        <div id="spinner">
+            <div id="slots-container">
+            </div>
             <button type="button" id="start-spin" autofocus>SPIN</button>
         </div>
+
         <div class="stats">
             <div id="spin-counter" class="counter">
                 <label class="counter-label">Spins</label>
@@ -262,7 +265,7 @@
                 <circle cx="58.841" cy="43.728" r="1.841"></circle>
                 <circle cx="58.841" cy="20.912" r="1.84"></circle>
             </svg>
-            <span> You win! </span>
+            <span>You win</span>
             <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 aria-hidden="true" role="img" class="fireworks" preserveAspectRatio="xMidYMid meet">
                 <path
@@ -349,10 +352,11 @@
         </h1>
         <img id="win-image-head">
         <h1 id="win-head-name"></h1>
-        <p class="win-text">
-            You won this magnificient head! Share your prize with your friends, use it as your phone background or
-            hang it above your bed!
-        </p>
+        <div class="dialog-text">
+            <p>Share your prize with your friends!</p>
+            <p>Use it as your phone background!</p>
+            <p>Hang it above your bed!</p>
+        </div>
         <button type="button" id="close-win-dialog" autofocus>OK</button>
     </dialog>
     <dialog id="lose-dialog">
@@ -395,7 +399,7 @@
                 </path>
             </svg>
         </h1>
-        <div class="lose-text">
+        <div class="dialog-text">
             <p>You lost this time, but don't worry!</p>
             <p>You can try again and win a magnificient head!</p>
         </div>

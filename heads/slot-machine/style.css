@@ -42,11 +42,11 @@
     --phlox: #EE05F2;
 }
 
-a:link{
+a:link {
     color: var(--robin-egg-blue);
 }
 
-a:visited{
+a:visited {
     color: var(--phlox);
 }
 
@@ -72,7 +72,7 @@ button {
     cursor: pointer;
     background-color: var(--eerie-black);
     color: var(--phlox);
-    border: none;
+    border: .1rem solid var(--phlox);
     padding: 1rem;
     border-radius: 1rem;
 }
@@ -128,20 +128,30 @@ dialog {
     width: 100%;
     border: .1rem solid var(--phlox);
     background-color: var(--eerie-black);
+    /* background: radial-gradient(var(--phlox), transparent); */
+}
+
+#spinner {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    grid-template-rows: 6fr;
+    gap: .2rem .2rem;
+    grid-auto-flow: row;
+    grid-template-areas: "slots-container start-spin";
+    width: 100%;
+    margin-top: 1rem;
 }
 
 #slots-container {
+    grid-area: slots-container;
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 6fr;
     gap: .2rem .2rem;
     grid-auto-flow: row;
     grid-template-areas:
-        "slot-1 slot-2 slot-3 start-spin";
+        "slot-1 slot-2 slot-3";
     width: 100%;
-    border: .1rem solid var(--phlox);
-    border-radius: 1rem;
-    margin-top: 1rem;
 }
 
 #slot-1 {
@@ -201,10 +211,15 @@ dialog {
 
 #start-spin {
     grid-area: start-spin;
-    font-size: 1rem;
-    height: 100%;
+    font-size: 1.2rem;
+    height: 50%;
+    align-self: center;
     width: 100%;
     transition: all .2s;
+    background: radial-gradient(var(--phlox), transparent);
+    /* color: var(--eerie-black); */
+    color: white;
+    border-width: .25rem;
 }
 
 #start-spin:disabled {
@@ -231,8 +246,9 @@ dialog {
     width: 5rem;
     align-self: center;
     padding: .5rem;
-    border: .1rem solid var(--phlox);
+    border: .1rem solid var(--robin-egg-blue);
     margin: 0 1rem;
+    background: radial-gradient(var(--robin-egg-blue), transparent);
 }
 
 .stats {
@@ -314,15 +330,11 @@ dialog {
 }
 
 #attributions-list {
-    list-style: none;
-    margin-top: 1rem;
+    margin: 1rem 0 0 1rem;
+    text-align: left;
 }
 
 #close-attributions {
-    margin-top: 1rem;
-}
-
-.lose-text {
     margin-top: 1rem;
 }
 
@@ -330,15 +342,18 @@ dialog {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: white;
 }
 
 #win-image-head {
     height: 25rem;
+    filter: invert();
+    margin: 1rem 0;
 }
 
 .money-with-wings {
     width: 3rem;
-    fill: var(--phlox);
+    fill: var(--eerie-black);
 }
 
 .crow-icon {
@@ -354,7 +369,24 @@ dialog {
     vertical-align: middle;
 }
 
-.fireworks,.face-with-steam-from-nose{
+.fireworks,
+.face-with-steam-from-nose {
     fill: var(--phlox);
     height: 5rem;
+}
+
+.dialog-text {
+    margin: 1rem auto 0 auto;
+    max-width: 70%;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#open-attributions {
+    margin-top: 1rem;
+}
+
+#close-lose-dialog,
+#close-win-dialog {
+    margin-top: 1rem;
 }
