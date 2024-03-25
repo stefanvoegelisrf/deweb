@@ -50,7 +50,7 @@ window.onload = function () {
 }
 ```
 
-Now we want to access the DOM and get the `main` element inside the DOM. We can do this by adding the following line:
+Now we want to access the DOM and get the `main` element inside the DOM. We can do this by adding the following line inside the `onload` function:
 ```javascript
 const main = document.querySelector("main");
 ```
