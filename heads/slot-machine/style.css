@@ -373,14 +373,14 @@ dialog {
     vertical-align: middle;
 }
 
-.fireworks,
-.face-with-steam-from-nose {
-    border: 0.1rem solid var(--robin-egg-blue);
-    border-radius: 3rem;
-    padding: 0.5rem;
-    background: radial-gradient(var(--robin-egg-blue), transparent);
-    fill: var(--eerie-black);
+.fireworks {
+    fill: white;
     height: 5rem;
+}
+
+.face-with-steam-from-nose{
+    fill: white;
+    height: 10rem;
 }
 
 .dialog-text {

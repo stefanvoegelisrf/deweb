@@ -242,10 +242,8 @@ function rotate(slotName, rotationX) {
 
 function change(slotName) {
     const slot = document.getElementById(slotName);
-    const wheel = slot.querySelector(".wheel");
-    radius = Math.round(wheel.offsetHeight / 8) * numberOfHeads;
     const wheelCard = slot.querySelectorAll(".wheel .card");
     wheelCard.forEach((card, key) => {
-        card.style.transform = `rotateX(${theta * key}deg) translateZ(${radius}px) scale(0.8)`;
+        card.style.transform = `rotateX(${theta * key}deg) translateZ(25rem) scale(0.8)`;
     });
 }
