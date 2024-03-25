@@ -64,7 +64,7 @@ If we want to add an element dynamically, we can create an element in javascript
 const firstDynamicElement = document.createElement("div");
 ```
 
-Now we have only created the element, but we need to add it to our main part of the HTML. We can do this with `appendChild`. Add the following line in our javascript.
+Now we have only created the element, but we need to add it to our main part of the HTML. We can do this with `appendChild`. Add the following line in our javascript:
 ```javascript
 main.appendChild(firstDynamicElement);
 ```
@@ -103,7 +103,7 @@ function elementIsVisibleInViewport(element) {
     const { innerHeight, innerWidth } = window;
     // Check if top, left, bottom, right are all within the viewport
     return top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
-};
+}
 ```
 > This is a very basic implementation, to get a more complete implementation, have a look at [30secondsofcode.org - Element is visible in Viewport](https://www.30secondsofcode.org/js/s/element-is-visible-in-viewport/)
 
