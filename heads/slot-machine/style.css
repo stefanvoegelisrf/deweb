@@ -179,7 +179,6 @@ dialog {
 
 @media (orientation:portrait) {
     #slot-machine-title {
-        border-top: .1rem solid var(--phlox);
         border-bottom: .1rem solid var(--phlox);
     }
 }
