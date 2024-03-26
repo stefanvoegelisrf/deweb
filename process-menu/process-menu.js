@@ -41,7 +41,7 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             position: fixed;
             width: 16em;
-            height: 19em;
+            height: 20em;
             top: .5em;
             left: .5em;
             padding: .5em;
