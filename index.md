@@ -515,12 +515,14 @@ connectedCallback() {
 ```
 
 ### Using prefers-reduced-motion
+An important part of the web is to take accessibility into account. One such feature is the css media feature [mozilla.org - prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion). With this media feature, we can remove, reduce or replace non-essential motion.
+
+Such animations can trigger discomfort for those with [a11yproject.com - vestibular motion disorders](https://www.a11yproject.com/posts/understanding-vestibular-disorders/). Animations such as scaling or panning large objects can be vestibular motion triggers.
+
+> **The recommendation on the referenced site is:** Don't make animations, sliders, videos, or rapid movement start automatically. Give an indicator of what movement will happen on the site when someone takes action. Allow the option to turn off any animation and movement at any point in the process.
 
 ### Intersection observer
 
-TODO: https://www.webcomponents.org/introduction
-
-TODO: prefers-reduced-motion
 
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 
@@ -533,6 +535,8 @@ TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6
 TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
 
 TODO: https://web.dev/learn/css/blend-modes
+
+TODO: Blend only with certain parts
 
 TODO: drip drop animation https://codepen.io/abehjat/pen/oXMENv
 
