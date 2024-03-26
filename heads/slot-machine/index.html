@@ -85,7 +85,7 @@
         <div id="spinner">
             <div id="slots-container">
             </div>
-            <button type="button" id="start-spin" autofocus>SPIN</button>
+            <button type="button" id="start-spin" class="primary-button" autofocus>SPIN</button>
         </div>
         <div class="stats">
             <div id="spin-counter" class="counter">
@@ -180,7 +180,17 @@
         <h2 id="attributions-title">Attributions</h2>
         <ul id="attributions-list">
             <li>
+                <a href="https://www.svgrepo.com/svg/533640/arrow-up-right-from-square">Arrow Up Right From Square
+                    SVG</a> by <a href="https://www.svgrepo.com/author/Dazzle%20UI/">Dazzle UI</a> is licensed under <a
+                    href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </li>
+            <li>
                 <a href="https://www.svgrepo.com/svg/532632/crow">Crow SVG</a> by <a
+                    href="https://www.svgrepo.com/author/Dazzle%20UI/">Dazzle UI</a> is licensed under <a
+                    href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/533682/download">Download SVG</a> by <a
                     href="https://www.svgrepo.com/author/Dazzle%20UI/">Dazzle UI</a> is licensed under <a
                     href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
             </li>
@@ -219,12 +229,30 @@
                     href="https://opensource.org/license/mit">MIT</a>
             </li>
             <li>
+                <a href="https://www.svgrepo.com/svg/533709/rotate">Rotate SVG</a> by <a
+                    href="https://www.svgrepo.com/author/Dazzle%20UI/">Dazzle UI</a> is licensed under <a
+                    href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </li>
+            <li>
                 <a href="https://www.svgrepo.com/svg/404156/sparkles">Sparkles SVG</a> from <a
                     href="https://www.svgrepo.com/author/joypixels/">joypixels</a> is licensed under <a
                     href="https://opensource.org/license/mit">MIT</a>
             </li>
+            <li>
+                <a href="https://www.svgrepo.com/svg/533030/xmark">XMark SVG</a> by <a
+                    href="https://www.svgrepo.com/author/Dazzle%20UI/">Dazzle UI</a> is licensed under <a
+                    href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </li>
         </ul>
-        <button type="button" id="close-about" autofocus>Close</button>
+        <div class="dialog-actions">
+            <button type="button" id="close-about" autofocus>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="button-icon">
+                    <path d="M6 6L18 18M18 6L6 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Close</span>
+            </button>
+        </div>
     </dialog>
     <dialog id="win-dialog">
         <h1 class="dialog-title">
@@ -403,7 +431,32 @@
             <p>Use it as your phone background!</p>
             <p>Hang it above your bed!</p>
         </div>
-        <button type="button" id="close-win-dialog" autofocus>OK</button>
+        <div class="dialog-actions">
+            <button type="button" id="close-win-dialog" autofocus>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon">
+                    <path d="M6 6L18 18M18 6L6 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Close</span>
+            </button>
+            <button type="button" id="download-win-image" class="secondary-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon">
+                    <path
+                        d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Download</span>
+            </button>
+            <button type="button" id="share-win-image" class="primary-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon">
+                    <path
+                        d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>
+                    Share
+                </span>
+            </button>
+        </div>
     </dialog>
     <dialog id="lose-dialog">
         <h1 class="dialog-title">
@@ -429,9 +482,25 @@
                 </path>
             </svg>
             <p>You lost this time, but don't worry!</p>
-            <p>You can try again and win a magnificient head!</p>
+            <p>You can spin again and win a magnificient head!</p>
         </div>
-        <button type="button" id="close-lose-dialog" autofocus>OK</button>
+        <div class="dialog-actions">
+            <button type="button" id="close-lose-dialog" autofocus>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="button-icon">
+                    <path d="M6 6L18 18M18 6L6 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Close</span>
+            </button>
+            <button type="button" id="spin-again" class="primary-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon">
+                    <path
+                        d="M4.06189 13C4.02104 12.6724 4 12.3387 4 12C4 7.58172 7.58172 4 12 4C14.5006 4 16.7332 5.14727 18.2002 6.94416M19.9381 11C19.979 11.3276 20 11.6613 20 12C20 16.4183 16.4183 20 12 20C9.61061 20 7.46589 18.9525 6 17.2916M9 17H6V17.2916M18.2002 4V6.94416M18.2002 6.94416V6.99993L15.2002 7M6 20V17.2916"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Spin again</span>
+            </button>
+        </div>
     </dialog>
     <process-menu></process-menu>
 </body>

@@ -56,6 +56,10 @@ window.onload = function () {
         closeDialog("lose-dialog");
     });
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
+    document.getElementById("spin-again").addEventListener("click", () => {
+        closeDialog("lose-dialog");
+        startSlotMachine();
+    });
     slotPositions = getRandomSlotPositions();
     changeSlots();
     let slot1RotationX = -theta * slotPositions[0];
@@ -262,9 +266,17 @@ function rotate(slotName, rotationX) {
 function change(slotName) {
     const slot = document.getElementById(slotName);
     const wheelCard = slot.querySelectorAll(".wheel .card");
-    // If is portrait, translatez 37rem, else translatez 43rem
+    // If is portrait, translatez 91rem, else translatez 61rem
     let translateZ = window.innerWidth < window.innerHeight ? "91rem" : "61rem";
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${translateZ}) scale(0.8)`;
     });
+}
+
+function share(){
+
+}
+
+function download(){
+    
 }

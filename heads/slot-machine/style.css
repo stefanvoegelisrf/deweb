@@ -35,7 +35,13 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@property --start-spin-gradient-color-2 {
+@property --primary-button-gradient-color-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(0, 0, 0, 0);
+}
+
+@property --secondary-button-gradient-color-2 {
     syntax: "<color>";
     inherits: false;
     initial-value: rgba(0, 0, 0, 0);
@@ -99,12 +105,49 @@ button {
     border: .1rem solid var(--phlox);
     padding: 1rem;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.button-small {
-    padding: .5rem;
-    font-size: .75rem;
-    border-radius: .5rem;
+button>svg {
+    stroke: var(--phlox);
+}
+
+.button-icon {
+    height: 1.5rem;
+    margin-right: .5rem;
+}
+
+.primary-button {
+    background: radial-gradient(var(--phlox), var(--primary-button-gradient-color-2));
+    color: white;
+    transition: --primary-button-gradient-color-2 .5s;
+}
+
+.primary-button>svg {
+    stroke: white;
+}
+
+.primary-button:active,
+.primary-button:hover {
+    --primary-button-gradient-color-2: var(--phlox);
+}
+
+.secondary-button {
+    background: radial-gradient(var(--robin-egg-blue), var(--secondary-button-gradient-color-2));
+    color: var(--eerie-black);
+    transition: --secondary-button-gradient-color-2 .5s;
+    border-color: var(--robin-egg-blue);
+}
+
+.secondary-button>svg {
+    stroke: var(--eerie-black);
+}
+
+.secondary-button:active,
+.secondary-button:hover {
+    --secondary-button-gradient-color-2: var(--robin-egg-blue);
 }
 
 dialog {
@@ -120,6 +163,25 @@ dialog {
     height: fit-content;
     text-align: center;
     border: .1rem solid var(--phlox);
+}
+
+.dialog-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dialog-text {
+    margin: 1rem auto 0 auto;
+    max-width: 70%;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.dialog-actions{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
 }
 
 ::backdrop {
@@ -273,15 +335,7 @@ dialog {
     height: 50%;
     align-self: center;
     width: 100%;
-    transition: --start-spin-gradient-color-2 .5s;
-    background: radial-gradient(var(--phlox), var(--start-spin-gradient-color-2));
-    color: white;
     border-width: .25rem;
-}
-
-#start-spin:active,
-#start-spin:hover {
-    --start-spin-gradient-color-2: var(--phlox);
 }
 
 #start-spin:disabled {
@@ -407,18 +461,8 @@ dialog {
     list-style: none;
 }
 
-#attributions-title{
+#attributions-title {
     margin-top: 1rem;
-}
-
-#close-about {
-    margin-top: 1rem;
-}
-
-.dialog-title {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 #win-image-head {
@@ -455,21 +499,9 @@ dialog {
     height: 10rem;
 }
 
-.dialog-text {
-    margin: 1rem auto 0 auto;
-    max-width: 70%;
-    font-size: 1.5rem;
-    color: white;
-}
-
 #open-about {
     margin-top: 1rem;
     cursor: pointer;
-}
-
-#close-lose-dialog,
-#close-win-dialog {
-    margin-top: 1rem;
 }
 
 #project-texts {
