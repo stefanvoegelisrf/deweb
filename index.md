@@ -44,6 +44,7 @@
       - [Finished menu component](#finished-menu-component)
     - [Using prefers-reduced-motion](#using-prefers-reduced-motion)
     - [Intersection observer](#intersection-observer)
+    - [Blend modes](#blend-modes)
   - [26.03.2024](#26032024)
 
 
@@ -542,13 +543,17 @@ TODO: https://codepen.io/zFunx/pen/WjVzWo
 
 TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6ZeBYoJ4uh&ab_channel=TheCodingTrain
 
-TODO: https://web.dev/learn/css/blend-modes
 
 TODO: drip drop animation https://codepen.io/abehjat/pen/oXMENv
 
 TODO: how to create a new blend layer for mix-blend-mode by using position: relative and z-index
 
+### Blend modes
+TODO: https://web.dev/learn/css/blend-modes
+
+
 ## 26.03.2024
+TODO: documentation of perspective, implementing slot wheel
 
 Feedback:
 Think about user guidance, what is the perspective of the user
