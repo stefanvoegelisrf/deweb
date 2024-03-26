@@ -34,6 +34,15 @@
       - [getBoundingClientRect](#getboundingclientrect)
       - [Using @property](#using-property)
   - [19.03.2024](#19032024)
+    - [Creating a menu as a custom element](#creating-a-menu-as-a-custom-element)
+      - [Creating the custom element class](#creating-the-custom-element-class)
+      - [Registering the custom element](#registering-the-custom-element)
+      - [Integrating it onto a page](#integrating-it-onto-a-page)
+      - [Using a shadow root](#using-a-shadow-root)
+      - [Specifying a stylesheet in javascript](#specifying-a-stylesheet-in-javascript)
+      - [Constructing the element once the element has been created](#constructing-the-element-once-the-element-has-been-created)
+    - [Using prefers-reduced-motion](#using-prefers-reduced-motion)
+    - [Intersection observer](#intersection-observer)
 
 
 ## Wiki for module
@@ -443,6 +452,71 @@ Like that, the colors transition seamlessly.
 > See: [Gradient color change](gradient-color-change)
 
 ## 19.03.2024
+
+### Creating a menu as a custom element
+To navigate all the projects that I have created througout this module, I wanted to create a menu that is accessible on each page. In order to have a reusable menu, that I can easily integrate into each page, I have created a custom element or so called web component.
+
+Documentation on web components is available on [webcomponents.org](https://www.webcomponents.org/introduction)
+
+#### Creating the custom element class
+The component is implemented as a class that extends the `HTMLElement`:
+```javascript
+class ProcessMenu extends HTMLElement {
+}
+```
+
+#### Registering the custom element
+In order to register the element and make it available, we have to define it:
+```javascript
+window.customElements.define('process-menu', ProcessMenu);
+```
+
+#### Integrating it onto a page
+In order to integrate it on a page, the javascript file has to be included and the element has to be used.
+```html
+<script type="text/javascript" src="../process-menu/process-menu.js"></script>
+```
+
+Include the element inside the HTML body:
+```html
+<process-menu></process-menu>
+```
+
+#### Using a shadow root
+To have completely independent styling from the document we are integrating the custom element, we can create a shadow root. A shadow root is rendered separately from the main DOM. See: [mozilla.org - ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot)
+I have created a constructor in the custom element class which creates the shadow root by calling [mozilla.org - attachShadow](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow):
+```javascript
+constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: "closed" });
+}
+```
+
+The option `mode` specifies if the page, on which the component is integrated, can access the shadow root via javascript. Specifying `open` makes it accessible, and specifying `closed` makes it inaccessible.
+
+#### Specifying a stylesheet in javascript
+In order to style the custom element, I have created a stylesheet inside of javascript and added it to the shadow root.
+```javascript
+const styleSheet = new CSSStyleSheet();
+styleSheet.replaceSync(`
+* {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+}`);
+this.shadowRoot.adoptedStyleSheets = [styleSheet];
+```
+
+#### Constructing the element once the element has been created
+In order to create the HTML inside of my element, we can use the `connectedCallback` which is called when the element is added to the DOM:
+```javascript
+connectedCallback() {
+  // Create elements
+}
+```
+
+### Using prefers-reduced-motion
+
+### Intersection observer
 
 TODO: https://www.webcomponents.org/introduction
 
