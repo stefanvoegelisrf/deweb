@@ -32,7 +32,3 @@
     transform: rotate(270deg) translateY(50%) translateX(-50%);
     width: fit-content;
 }
-
-.hint-text-details{
-    font-size: .7rem;
-}
