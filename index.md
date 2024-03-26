@@ -46,6 +46,7 @@
     - [Intersection observer](#intersection-observer)
     - [Blend modes](#blend-modes)
   - [26.03.2024](#26032024)
+    - [Creating firework effect](#creating-firework-effect)
 
 
 ## Wiki for module
@@ -562,4 +563,56 @@ Think about loud/silent
 Think about driving through the sections
 Maybe posters driving by
 
-https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css
+
+
+### Creating firework effect
+> Based on [alvaromontoro.com - Creating a firework effect with css](https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css)
+
+A simple firework effect can be created using purely css and html.
+To do so, we create an element that is absolutely positioned and has different radial gradient set as its background:
+```css
+.firework {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+        /* random backgrounds */
+        radial-gradient(circle, #00f 0.2vmin, #0000 0) 50% 00%,
+        radial-gradient(circle, #00f 0.3vmin, #0000 0) 00% 50%,
+        radial-gradient(circle, #00f 0.5vmin, #0000 0) 50% 99%,
+        radial-gradient(circle, #00f 0.2vmin, #0000 0) 99% 50%,
+        radial-gradient(circle, #00f 0.3vmin, #0000 0) 80% 90%,
+        radial-gradient(circle, #00f 0.5vmin, #0000 0) 95% 90%,
+        radial-gradient(circle, #00f 0.5vmin, #0000 0) 10% 60%,
+        radial-gradient(circle, #00f 0.2vmin, #0000 0) 31% 80%,
+        radial-gradient(circle, #00f 0.3vmin, #0000 0) 80% 10%,
+        radial-gradient(circle, #00f 0.2vmin, #0000 0) 90% 23%,
+        radial-gradient(circle, #00f 0.3vmin, #0000 0) 45% 20%,
+        radial-gradient(circle, #00f 0.5vmin, #0000 0) 13% 24%;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 1s infinite;
+}
+```
+
+The initial width of the container of the firework is set to be tiny(`width: 0.5vmin`) so that the spread parts of the firework are not visible initially.
+
+To create the animation, we can increase the size of the container and then we see the spread of the different gradients.
+```css
+@keyframes firework {
+    0% {
+        width: 0.5vmin;
+        opacity: 1;
+    }
+
+    100% {
+        width: 45vmin;
+        opacity: 0;
+    }
+}
+```
+
+> See: [Firework](fireworks/)
