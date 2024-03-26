@@ -47,6 +47,18 @@
     initial-value: rgba(0, 0, 0, 0);
 }
 
+@property --advertisement-gradient-color-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #04D9C4;
+}
+
+@property --advertisement-gradient-color-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(0, 0, 0, 0);
+}
+
 :root {
     --eerie-black: #151426;
     --robin-egg-blue: #04D9C4;
@@ -179,7 +191,7 @@ dialog {
     color: white;
 }
 
-.dialog-actions{
+.dialog-actions {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -361,7 +373,40 @@ dialog {
     padding: .5rem;
     border: .1rem solid var(--robin-egg-blue);
     margin: 0 1rem;
-    background: radial-gradient(var(--robin-egg-blue), transparent);
+    background: radial-gradient(var(--advertisement-gradient-color-1), var(--advertisement-gradient-color-2));
+}
+
+.blink-advertisement {
+    animation-name: blink-advertisement;
+    animation-timing-function: linear;
+    animation-duration: .2s;
+    animation-iteration-count: 10;
+}
+
+.ad-1 {
+    animation-delay: .05s;
+}
+
+.ad-2 {
+    animation-delay: .1s;
+}
+
+.ad-3 {
+    animation-delay: .15s;
+}
+
+.ad-4 {
+    animation-delay: .15;
+}
+
+@keyframes blink-advertisement {
+    0% {
+        box-shadow: 0 0 1rem 1rem var(--robin-egg-blue);
+    }
+
+    50% {
+        --advertisement-gradient-color-2: var(--robin-egg-blue);
+    }
 }
 
 .stats {

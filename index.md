@@ -549,3 +549,9 @@ TODO: how to create a new blend layer for mix-blend-mode by using position: rela
 
 ## 26.03.2024
 
+Feedback:
+Think about user guidance, what is the perspective of the user
+Think about a longer section
+Think about loud/silent
+Think about driving through the sections
+Maybe posters driving by

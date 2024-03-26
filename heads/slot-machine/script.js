@@ -162,13 +162,28 @@ function startSlotMachine() {
 function displayResult() {
     if (won) {
         setWonHead();
-        displayWonDialog();
+        setBlinkingAdvertisement();
+        setTimeout(() => {
+            displayWonDialog();
+        }, 2000);
     }
     else {
         displayLostDialog();
     }
     const startSpin = document.getElementById("start-spin");
     startSpin.disabled = false;
+}
+
+function setBlinkingAdvertisement() {
+    const ads = document.getElementsByClassName("advertisement");
+    for (let ad of ads) {
+        ad.classList.add("blink-advertisement");
+    }
+    setTimeout(() => {
+        for (let ad of ads) {
+            ad.classList.remove("blink-advertisement");
+        }
+    }, 2000);
 }
 
 function setWonHead() {
@@ -273,10 +288,10 @@ function change(slotName) {
     });
 }
 
-function share(){
+function share() {
 
 }
 
-function download(){
-    
+function download() {
+
 }
