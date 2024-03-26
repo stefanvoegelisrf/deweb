@@ -41,7 +41,7 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             position: fixed;
             width: 16em;
-            height: 18em;
+            height: 19em;
             top: .5em;
             left: .5em;
             padding: .5em;
@@ -294,6 +294,13 @@ class ProcessMenu extends HTMLElement {
         linkSlotMachine.innerHTML = "Slot Machine";
         listElementSlotMachine.appendChild(linkSlotMachine);
         linkList.appendChild(listElementSlotMachine);
+
+        let listElementProcessMenu = document.createElement('li');
+        let linkProcessMenu = document.createElement('a');
+        linkProcessMenu.href = `${baseUrl}/process-menu/`;
+        linkProcessMenu.innerHTML = "Process Menu";
+        listElementProcessMenu.appendChild(linkProcessMenu);
+        linkList.appendChild(listElementProcessMenu);
 
         menuDiv.appendChild(linkList);
         this.shadowRoot.appendChild(menuDiv);
