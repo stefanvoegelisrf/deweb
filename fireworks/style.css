@@ -21,17 +21,11 @@
         radial-gradient(circle, #00f 0.5vmin, #0000 0) 13% 24%;
     background-size: 0.5vmin 0.5vmin;
     background-repeat: no-repeat;
-    animation: firework 2s infinite;
+    animation: firework 1s infinite;
 }
 
 @keyframes firework {
     0% {
-        transform: translate(-50%, 60vh);
-        width: 0.5vmin;
-        opacity: 1;
-    }
-
-    50% {
         width: 0.5vmin;
         opacity: 1;
     }
