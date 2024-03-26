@@ -1,14 +1,21 @@
 let heads = {
+    "Akaul": "Akaul.svg",
+    "Bepec": "Bepec.svg",
     "Capleb": "Capleb.svg",
     "Drihok": "Drihok.svg",
     "Eflubo": "Eflubo.svg",
     "Fytum": "Fytum.svg",
     "Gabuf": "Gabuf.svg",
+    "Krebar": "Krebar.svg",
     "Medeox": "Medeox.svg",
     "Ocraci": "Ocraci.svg",
     "Pocron": "Pocron.svg",
+    "Skidid": "Skidid.svg",
+    "Tithiun": "Tithiun.svg",
     "Uthave": "Uthave.svg",
+    "Vahax": "Vahax.svg",
     "Wawear": "Wawear.svg",
+    "Yeumoot": "Yeumoot.svg"
 }
 
 let isSlotMachineRunning = false;
@@ -248,8 +255,8 @@ function rotate(slotName, rotationX) {
 function change(slotName) {
     const slot = document.getElementById(slotName);
     const wheelCard = slot.querySelectorAll(".wheel .card");
-    // If is portrait, translatez 37rem, else translatez 25rem
-    let translateZ = window.innerWidth < window.innerHeight ? "37rem" : "25rem";
+    // If is portrait, translatez 37rem, else translatez 43rem
+    let translateZ = window.innerWidth < window.innerHeight ? "65rem" : "43rem";
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${translateZ}) scale(0.8)`;
     });
