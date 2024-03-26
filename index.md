@@ -41,8 +41,10 @@
       - [Using a shadow root](#using-a-shadow-root)
       - [Specifying a stylesheet in javascript](#specifying-a-stylesheet-in-javascript)
       - [Constructing the element once the element has been created](#constructing-the-element-once-the-element-has-been-created)
+      - [Finished menu component](#finished-menu-component)
     - [Using prefers-reduced-motion](#using-prefers-reduced-motion)
     - [Intersection observer](#intersection-observer)
+  - [26.03.2024](#26032024)
 
 
 ## Wiki for module
@@ -514,6 +516,9 @@ connectedCallback() {
 }
 ```
 
+#### Finished menu component
+> See: [Process menu](process-menu/)
+
 ### Using prefers-reduced-motion
 An important part of the web is to take accessibility into account. One such feature is the css media feature [mozilla.org - prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion). With this media feature, we can remove, reduce or replace non-essential motion.
 
@@ -541,3 +546,6 @@ TODO: Blend only with certain parts
 TODO: drip drop animation https://codepen.io/abehjat/pen/oXMENv
 
 TODO: how to create a new blend layer for mix-blend-mode by using position: relative and z-index
+
+## 26.03.2024
+
