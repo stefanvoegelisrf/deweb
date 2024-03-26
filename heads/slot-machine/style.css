@@ -108,6 +108,7 @@ button {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 button>svg {
@@ -180,7 +181,8 @@ dialog {
 
 .dialog-actions{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 1rem;
 }
 
