@@ -1,19 +1,26 @@
 let heads = {
     "Akaul": "Akaul.svg",
+    "Anumu": "Anumu.svg",
     "Bepec": "Bepec.svg",
+    "Bopit": "Bopit.svg",
     "Capleb": "Capleb.svg",
     "Drihok": "Drihok.svg",
     "Eflubo": "Eflubo.svg",
     "Fytum": "Fytum.svg",
     "Gabuf": "Gabuf.svg",
+    "Goiwiz": "Goiwiz.svg",
     "Krebar": "Krebar.svg",
     "Medeox": "Medeox.svg",
+    "Mijous": "Mijous.svg",
+    "Nedut": "Nedut.svg",
     "Ocraci": "Ocraci.svg",
     "Pocron": "Pocron.svg",
+    "Rifrul": "Rifrul.svg",
     "Skidid": "Skidid.svg",
     "Tithiun": "Tithiun.svg",
     "Uthave": "Uthave.svg",
     "Vahax": "Vahax.svg",
+    "Veehiad": "Veehiad.svg",
     "Wawear": "Wawear.svg",
     "Yeumoot": "Yeumoot.svg"
 }
@@ -256,7 +263,7 @@ function change(slotName) {
     const slot = document.getElementById(slotName);
     const wheelCard = slot.querySelectorAll(".wheel .card");
     // If is portrait, translatez 37rem, else translatez 43rem
-    let translateZ = window.innerWidth < window.innerHeight ? "65rem" : "43rem";
+    let translateZ = window.innerWidth < window.innerHeight ? "91rem" : "61rem";
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${translateZ}) scale(0.8)`;
     });
