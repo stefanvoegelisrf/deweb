@@ -206,6 +206,11 @@ This page displays the acceleration and the orientation. Acceleration is not ava
 > Once opened, the value for alpha, beta and gamma can be adjusted with a little preview.
 > ![Simulate Orientation](simulate-orientation.png)
 
+To detect the device orientation, the deviceorientation event can be used:
+```javascript
+window.addEventListener("deviceorientation", handleOrientation, true);
+```
+
 ##### Documentation resources
 - Documentation for device motion: [developer.mozilla.org - devicemotion event](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event)
 - Documentation for device orientation: [developer.mozilla.org - deviceorientation events](https://developer.mozilla.org/en-US/docs/Web/API/Window/deviceorientation_event)
@@ -537,11 +542,7 @@ TODO: https://codepen.io/zFunx/pen/WjVzWo
 
 TODO: https://www.youtube.com/watch?v=szztTszPp-8&list=PLRqwX-V7Uu6akvoNKE4GAxf6ZeBYoJ4uh&ab_channel=TheCodingTrain
 
-TODO: https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation
-
 TODO: https://web.dev/learn/css/blend-modes
-
-TODO: Blend only with certain parts
 
 TODO: drip drop animation https://codepen.io/abehjat/pen/oXMENv
 
@@ -555,3 +556,5 @@ Think about a longer section
 Think about loud/silent
 Think about driving through the sections
 Maybe posters driving by
+
+https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css
