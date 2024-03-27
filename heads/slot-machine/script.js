@@ -58,10 +58,14 @@ window.onload = function () {
     document.getElementById("download-win-image").addEventListener("click", download);
     document.getElementById("share-win-image").addEventListener("click", share);
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
-    document.getElementById("spin-again").addEventListener("click", () => {
-        closeDialog("lose-dialog");
-        startSlotMachine();
-    });
+    const spinAgainButtons = document.getElementsByClassName("spin-again");
+    for (let button of spinAgainButtons) {
+        button.addEventListener("click", () => {
+            closeDialog("win-dialog");
+            closeDialog("lose-dialog");
+            startSlotMachine();
+        });
+    }
     slotPositions = getRandomSlotPositions();
     changeSlots();
     let slot1RotationX = -theta * slotPositions[0];
@@ -161,8 +165,16 @@ function startSlotMachine() {
     spinToTargetPosition(slotTargetPositions[0], slotTargetPositions[1], slotTargetPositions[2])
 }
 
+function setShareDisabledIfCannotShare() {
+    const shareButton = document.getElementById("share-win-image");
+    if (!navigator.canShare) {
+        shareButton.style.display = "none";
+    }
+}
+
 function displayResult() {
     if (won) {
+        setShareDisabledIfCannotShare();
         setWonHead();
         setBlinkingAdvertisement();
         setTimeout(() => {
