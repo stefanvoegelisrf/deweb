@@ -145,7 +145,7 @@ function startSlotMachine() {
     won = false;
     let randomSlotPositions = getRandomSlotPositions();
     let winningSlot = null;
-    if (probability(.25)) {
+    if (probability(1)) {
         winningSlot = getRandomSlotPosition(Object.keys(heads).length);
     }
     let slotTargetPositions = [];
@@ -187,10 +187,41 @@ function setBlinkingAdvertisement() {
 }
 
 function setWonHead() {
-    const winImageHead = document.getElementById("win-image-head");
-    winImageHead.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
-    const winHeadName = document.getElementById("win-head-name");
-    winHeadName.innerHTML = Object.keys(heads)[slotPositions[0]];
+    // const winImageHead = document.getElementById("win-image-head");
+    // winImageHead.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
+    // const winHeadName = document.getElementById("win-head-name");
+    let winHeadName = Object.keys(heads)[slotPositions[0]];
+
+    let canvas = document.getElementById("head-canvas");
+    let context = canvas.getContext("2d");
+
+    let height = parseInt(canvas.getAttribute("height"));
+    let width = parseInt(canvas.getAttribute("width"));
+
+    context.fillStyle = "#FFFFFF";
+    context.fillRect(0, 0, width, height);
+    let spacing = 64;
+    let headImageHeight = 900;
+    let headImageY = spacing * 2;
+    const mainImage = new Image();
+    mainImage.onload = function () {
+        context.drawImage(mainImage, 90, headImageY, 900, headImageHeight);
+    };
+
+    context.fillStyle = "#000000";
+    context.font = `${fontHeight}px Unbounded`;
+    context.textAlign = "center";
+    let fontHeight = 128;
+    let centerOfCanvas = width / 2;
+    let titleY = headImageY + headImageHeight + spacing + fontHeight;
+    context.fillText(winHeadName, centerOfCanvas, titleY);
+
+    var watermark = new Image();
+    watermark.onload = function () {
+        context.drawImage(watermark, 240, titleY + spacing, 600, 400);
+    };
+    watermark.src = "../images/Watermark_1200x800.svg";
+    mainImage.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
 }
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {

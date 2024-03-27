@@ -621,3 +621,8 @@ dialog {
         display: none;
     }
 }
+
+#head-canvas {
+    height: 32rem;
+    width: 18rem;
+}
