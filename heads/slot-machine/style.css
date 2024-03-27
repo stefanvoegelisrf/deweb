@@ -176,6 +176,7 @@ dialog {
     height: fit-content;
     text-align: center;
     border: .1rem solid var(--phlox);
+    overflow: hidden;
 }
 
 .dialog-title {
@@ -620,12 +621,20 @@ dialog {
     .hidden-on-mobile {
         display: none;
     }
+
+    #head-canvas {
+        height: 32rem;
+        width: 18rem;
+    }
 }
 
-#head-canvas {
-    height: 32rem;
-    width: 18rem;
+@media (orientation:landscape) {
+    #head-canvas {
+        height: 18rem;
+        width: 32rem;
+    }
 }
+
 
 #firework {
     display: none;
@@ -641,13 +650,27 @@ dialog {
         radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 00% 50%,
         radial-gradient(circle, var(--robin-egg-blue) 0.5vmin, #0000 0) 50% 99%,
         radial-gradient(circle, var(--robin-egg-blue) 0.2vmin, #0000 0) 99% 50%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.2vmin, #0000 0) 55% 10%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.2vmin, #0000 0) 88% 10%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.2vmin, #0000 0) 10% 90%,
         radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 80% 90%,
         radial-gradient(circle, var(--robin-egg-blue) 0.5vmin, #0000 0) 95% 90%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 90% 85%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 100% 80%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 45% 90%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 25% 95%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 25% 30%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 83% 30%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.4vmin, #0000 0) 94% 66%,
         radial-gradient(circle, var(--robin-egg-blue) 0.5vmin, #0000 0) 10% 60%,
         radial-gradient(circle, var(--robin-egg-blue) 0.2vmin, #0000 0) 31% 80%,
         radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 80% 10%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 15% 75%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 10% 10%,
         radial-gradient(circle, var(--robin-egg-blue) 0.2vmin, #0000 0) 90% 23%,
         radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 45% 20%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.3vmin, #0000 0) 33% 17%,
+        radial-gradient(circle, var(--robin-egg-blue) 0.5vmin, #0000 0) 66% 77%,
         radial-gradient(circle, var(--robin-egg-blue) 0.5vmin, #0000 0) 13% 24%;
     background-size: 0.5vmin 0.5vmin;
     background-repeat: no-repeat;
@@ -656,10 +679,9 @@ dialog {
 
 .animate-firework {
     animation-name: firework;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    animation-delay: .5s;
     display: block !important;
 }
 
@@ -670,7 +692,7 @@ dialog {
     }
 
     100% {
-        width: 90vmin;
+        width: 200vmin;
         opacity: 0;
     }
 }

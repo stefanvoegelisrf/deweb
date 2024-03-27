@@ -167,7 +167,7 @@ function displayResult() {
         setBlinkingAdvertisement();
         setTimeout(() => {
             displayWonDialog();
-        }, 1000);
+        }, 700);
     }
     else {
         displayLostDialog();
@@ -188,13 +188,23 @@ function setBlinkingAdvertisement() {
         for (let ad of ads) {
             ad.classList.remove("blink-advertisement");
         }
-    }, 1000);
+    }, 2000);
 }
 
-function setWonHead() {
+function createPortraitHeadCanvas() {
+    createHeadCanvas(900, 114, 1080, 1920, 390);
+}
+
+function createLandscapeHeadCanvas() {
+    createHeadCanvas(600, 76, 1920, 1080, 1600, 860);
+}
+
+function createHeadCanvas(headImageHeight, spacing, canvasWidth, canvasHeight, watermarkX, watermarkY = null) {
     let winHeadName = Object.keys(heads)[slotPositions[0]];
 
     let canvas = document.getElementById("head-canvas");
+    canvas.setAttribute("width", canvasWidth);
+    canvas.setAttribute("height", canvasHeight);
     let context = canvas.getContext("2d");
 
     let height = parseInt(canvas.getAttribute("height"));
@@ -202,17 +212,14 @@ function setWonHead() {
 
     context.fillStyle = "#FFFFFF";
     context.fillRect(0, 0, width, height);
-    let spacing = 114;
-    let headImageHeight = 900;
     let headImageY = spacing * 2;
     const mainImage = new Image();
     mainImage.onload = function () {
-        console.log(mainImage.width, mainImage.height);
         // Height of image is fixed to 900
         // Width of image is calculated by aspect ratio of image
         let aspectRatio = mainImage.width / mainImage.height;
         let headImageWidth = headImageHeight * aspectRatio;
-        let headImageX = (900 - headImageWidth) * 0.5 + 90;
+        let headImageX = (width - headImageWidth) * 0.5;
         context.drawImage(mainImage, headImageX, headImageY, headImageWidth, headImageHeight);
     };
     mainImage.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
@@ -227,9 +234,23 @@ function setWonHead() {
 
     var watermark = new Image();
     watermark.onload = function () {
-        context.drawImage(watermark, 390, titleY + spacing, 300, 200);
+        watermarkY = watermarkY || titleY + spacing;
+        context.drawImage(watermark, watermarkX, watermarkY, 300, 200);
     };
     watermark.src = "../images/Watermark_1200x800.svg";
+}
+
+
+function setWonHead() {
+    // Check if portrait or landscape
+    let { innerWidth, innerHeight } = window;
+    let isPortrait = innerHeight > innerWidth;
+    if (isPortrait) {
+        createPortraitHeadCanvas();
+    }
+    else {
+        createLandscapeHeadCanvas();
+    }
 }
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
