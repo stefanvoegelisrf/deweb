@@ -351,11 +351,12 @@ function change(slotName) {
 const share = async () => {
     try {
         let canvasImage = document.getElementById("head-canvas").toDataURL("image/png");
+        let canvasBlob = await (await fetch(canvasImage)).blob();
         let headName = Object.keys(heads)[slotPositions[0]];
         let shareData = {
             title: "I just this head!",
             text: "Check out the Slot Machine by Stefan Vögeli",
-            files: [new File([canvasImage], headName + ".png", { type: "image/png" })],
+            files: [new File([canvasBlob], headName + ".png", { type: "image/png" })],
         }
         console.log(shareData);
         if (!navigator.canShare || !(navigator.canShare(shareData))) {
