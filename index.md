@@ -47,6 +47,7 @@
     - [Blend modes](#blend-modes)
   - [26.03.2024](#26032024)
     - [Creating firework effect](#creating-firework-effect)
+    - [IIFE](#iife)
 
 
 ## Wiki for module
@@ -616,3 +617,8 @@ To create the animation, we can increase the size of the container and then we s
 ```
 
 > See: [Firework](fireworks/)
+
+TODO: https://userinyerface.com/game.html
+
+### IIFE
+TODO: Immediately invoked function expressions
