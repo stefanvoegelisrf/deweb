@@ -56,6 +56,7 @@ window.onload = function () {
         closeDialog("lose-dialog");
     });
     document.getElementById("download-win-image").addEventListener("click", download);
+    document.getElementById("share-win-image").addEventListener("click", share);
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
     document.getElementById("spin-again").addEventListener("click", () => {
         closeDialog("lose-dialog");
@@ -166,7 +167,7 @@ function displayResult() {
         setBlinkingAdvertisement();
         setTimeout(() => {
             displayWonDialog();
-        }, 2000);
+        }, 1000);
     }
     else {
         displayLostDialog();
@@ -184,7 +185,7 @@ function setBlinkingAdvertisement() {
         for (let ad of ads) {
             ad.classList.remove("blink-advertisement");
         }
-    }, 2000);
+    }, 1000);
 }
 
 function setWonHead() {
@@ -320,8 +321,24 @@ function change(slotName) {
     });
 }
 
-function share() {
-
+const share = async () => {
+    try {
+        let canvasImage = document.getElementById("head-canvas").toDataURL("image/png");
+        let headName = Object.keys(heads)[slotPositions[0]];
+        let shareData = {
+            title: "I just this head!",
+            text: "Check out the Slot Machine by Stefan Vögeli",
+            files: [new File([canvasImage], headName + ".png", { type: "image/png" })],
+        }
+        console.log(shareData);
+        if (!navigator.canShare || !(navigator.canShare(shareData))) {
+            throw new Error("Cannot share image");
+        }
+        await navigator.share(shareData);
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 function download() {
