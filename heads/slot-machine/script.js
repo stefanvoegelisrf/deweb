@@ -55,6 +55,7 @@ window.onload = function () {
     document.getElementById("close-lose-dialog").addEventListener("click", () => {
         closeDialog("lose-dialog");
     });
+    document.getElementById("download-win-image").addEventListener("click", download);
     document.getElementById("start-spin").addEventListener("click", startSlotMachine);
     document.getElementById("spin-again").addEventListener("click", () => {
         closeDialog("lose-dialog");
@@ -208,10 +209,10 @@ function setWonHead() {
         context.drawImage(mainImage, 90, headImageY, 900, headImageHeight);
     };
 
+    let fontHeight = 128;
     context.fillStyle = "#000000";
     context.font = `${fontHeight}px Unbounded`;
     context.textAlign = "center";
-    let fontHeight = 128;
     let centerOfCanvas = width / 2;
     let titleY = headImageY + headImageHeight + spacing + fontHeight;
     context.fillText(winHeadName, centerOfCanvas, titleY);
@@ -324,5 +325,13 @@ function share() {
 }
 
 function download() {
-
+    let canvas = document.getElementById("head-canvas");
+    let canvasUrl = canvas.toDataURL("image/png");
+    console.log(canvasUrl);
+    const createEl = document.createElement('a');
+    createEl.href = canvasUrl;
+    const headName = Object.keys(heads)[slotPositions[0]];
+    createEl.download = headName + ".png";
+    createEl.click();
+    createEl.remove();
 }
