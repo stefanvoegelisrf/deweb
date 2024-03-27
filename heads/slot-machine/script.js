@@ -202,7 +202,7 @@ function setWonHead() {
 
     context.fillStyle = "#FFFFFF";
     context.fillRect(0, 0, width, height);
-    let spacing = 108;
+    let spacing = 114;
     let headImageHeight = 900;
     let headImageY = spacing * 2;
     const mainImage = new Image();
