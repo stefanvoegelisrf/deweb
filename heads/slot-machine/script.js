@@ -181,7 +181,10 @@ function setBlinkingAdvertisement() {
     for (let ad of ads) {
         ad.classList.add("blink-advertisement");
     }
+    const firework = document.getElementById("firework");
+    firework.classList.add("animate-firework");
     setTimeout(() => {
+        firework.classList.remove("animate-firework");
         for (let ad of ads) {
             ad.classList.remove("blink-advertisement");
         }
@@ -189,9 +192,6 @@ function setBlinkingAdvertisement() {
 }
 
 function setWonHead() {
-    // const winImageHead = document.getElementById("win-image-head");
-    // winImageHead.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
-    // const winHeadName = document.getElementById("win-head-name");
     let winHeadName = Object.keys(heads)[slotPositions[0]];
 
     let canvas = document.getElementById("head-canvas");
@@ -344,7 +344,6 @@ const share = async () => {
 function download() {
     let canvas = document.getElementById("head-canvas");
     let canvasUrl = canvas.toDataURL("image/png");
-    console.log(canvasUrl);
     const createEl = document.createElement('a');
     createEl.href = canvasUrl;
     const headName = Object.keys(heads)[slotPositions[0]];
