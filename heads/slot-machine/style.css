@@ -655,7 +655,11 @@ dialog {
 }
 
 .animate-firework {
-    animation: firework 1s 1;
+    animation-name: firework;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: .5s;
     display: block !important;
 }
 
