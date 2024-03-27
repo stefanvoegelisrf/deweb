@@ -202,13 +202,20 @@ function setWonHead() {
 
     context.fillStyle = "#FFFFFF";
     context.fillRect(0, 0, width, height);
-    let spacing = 64;
+    let spacing = 108;
     let headImageHeight = 900;
     let headImageY = spacing * 2;
     const mainImage = new Image();
     mainImage.onload = function () {
-        context.drawImage(mainImage, 90, headImageY, 900, headImageHeight);
+        console.log(mainImage.width, mainImage.height);
+        // Height of image is fixed to 900
+        // Width of image is calculated by aspect ratio of image
+        let aspectRatio = mainImage.width / mainImage.height;
+        let headImageWidth = headImageHeight * aspectRatio;
+        let headImageX = (900 - headImageWidth) * 0.5 + 90;
+        context.drawImage(mainImage, headImageX, headImageY, headImageWidth, headImageHeight);
     };
+    mainImage.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
 
     let fontHeight = 128;
     context.fillStyle = "#000000";
@@ -220,10 +227,9 @@ function setWonHead() {
 
     var watermark = new Image();
     watermark.onload = function () {
-        context.drawImage(watermark, 240, titleY + spacing, 600, 400);
+        context.drawImage(watermark, 390, titleY + spacing, 300, 200);
     };
     watermark.src = "../images/Watermark_1200x800.svg";
-    mainImage.src = `../images/${heads[Object.keys(heads)[slotPositions[0]]]}`;
 }
 
 function spinToTargetPosition(slot1TargetPosition, slot2TargetPosition, slot3TargetPosition) {
