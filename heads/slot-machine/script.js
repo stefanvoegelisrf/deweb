@@ -147,7 +147,7 @@ function startSlotMachine() {
     won = false;
     let randomSlotPositions = getRandomSlotPositions();
     let winningSlot = null;
-    if (probability(1)) {
+    if (probability(.25)) {
         winningSlot = getRandomSlotPosition(Object.keys(heads).length);
     }
     let slotTargetPositions = [];
@@ -358,7 +358,6 @@ const share = async () => {
             text: "Check out the Slot Machine by Stefan Vögeli",
             files: [new File([canvasBlob], headName + ".png", { type: "image/png" })],
         }
-        console.log(shareData);
         if (!navigator.canShare || !(navigator.canShare(shareData))) {
             throw new Error("Cannot share image");
         }
