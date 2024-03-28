@@ -622,3 +622,6 @@ TODO: https://userinyerface.com/game.html
 
 ### IIFE
 TODO: Immediately invoked function expressions
+
+
+TODO: https://codesweetly.com/javascript-function-object
