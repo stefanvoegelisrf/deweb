@@ -39,6 +39,22 @@ body {
     margin: 0;
 }
 
+.section-half-width {
+    width: 50%;
+}
+
+.section-right{
+    margin-left: 50%;
+}
+
+.section-m {
+    height: 150vh;
+}
+
+.section-l {
+    height: 200vh;
+}
+
 section {
     height: 98vh;
     position: relative;
@@ -114,63 +130,70 @@ section {
 
 @keyframes rotate-quirky-skate {
     20% {
-        transform: rotate(180deg) translate(-50%, 50%) scale(1);
-        left: 60%;
+        transform: rotate(-180deg) translate(50%, 50%) scale(1);
+        left: 0%;
+        top: 50%;
+        opacity: 1;
+    }
+
+    30% {
+        transform: rotate(-190deg) translate(30%, 49%) scale(1);
+        left: 5%;
         top: 50%;
         opacity: 1;
     }
 
     40% {
-        transform: rotate(180deg) translate(-50%, 49%) scale(1);
+        transform: rotate(-180deg) translate(-50%, 49%) scale(1);
         left: 55%;
         top: 50%;
         opacity: 1;
     }
 
     60% {
-        transform: rotate(180deg) translate(-50%, 48%) scale(1);
+        transform: rotate(-170deg) translate(-50%, 48%) scale(1);
         left: 60%;
         top: 50%;
         opacity: 1;
     }
 
     70% {
-        transform: rotate(180deg) translate(-50%, 47%) scale(1);
-        left: 55%;
+        transform: rotate(-160deg) translate(50%, 47%) scale(1);
+        left: 0%;
         top: 50%;
         opacity: 1;
     }
 
     80% {
-        transform: rotate(180deg) translate(-50%, 46%) scale(1);
-        left: 50%;
+        transform: rotate(-180deg) translate(50%, 46%) scale(1);
+        left: 0%;
         top: 50%;
         opacity: 1;
     }
 
     90% {
-        transform: rotate(180deg) translate(-50%, 45%) scale(1);
-        left: 55%;
+        transform: rotate(-180deg) translate(50%, 45%) scale(1);
+        left: 5%;
         top: 50%;
         opacity: 1;
     }
 
     93% {
-        transform: rotate(190deg) translate(50%, 44%) scale(0.7);
+        transform: rotate(-190deg) translate(50%, 44%) scale(0.7);
         left: 50%;
         top: 50%;
         opacity: 1;
     }
 
     98% {
-        transform: rotate(170deg) translate(50%, 43%) scale(0.5);
+        transform: rotate(-170deg) translate(50%, 43%) scale(0.5);
         left: 50%;
         top: 80%;
         opacity: 1;
     }
 
     100% {
-        transform: rotate(180deg) translate(50%, 42%) scale(0.5);
+        transform: rotate(-180deg) translate(50%, 42%) scale(0.5);
         left: 50%;
         top: 120%;
         opacity: 0;
