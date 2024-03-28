@@ -401,11 +401,14 @@ dialog {
 }
 
 @keyframes blink-advertisement {
-    0% {
-        box-shadow: 0 0 1rem 1rem var(--robin-egg-blue);
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 var(--robin-egg-blue);
     }
 
     50% {
+        box-shadow: 0 0 1rem 1rem var(--robin-egg-blue);
         --advertisement-gradient-color-2: var(--robin-egg-blue);
     }
 }

@@ -200,7 +200,7 @@ function setBlinkingAdvertisement() {
         for (let ad of ads) {
             ad.classList.remove("blink-advertisement");
         }
-    }, 2000);
+    }, 2500);
 }
 
 function createPortraitHeadCanvas() {
