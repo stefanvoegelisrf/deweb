@@ -25,10 +25,8 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.flashing-light {
+.light {
     background: radial-gradient(white 0%, rgba(0, 0, 0, 0) 50%);
-    animation-name: flashing-light;
-    animation-duration: 1s;
     animation-timing-function: linear;
     width: .1%;
     height: .1%;
@@ -37,13 +35,13 @@ body {
 }
 
 @keyframes flashing-light {
-    10% {
+    50% {
         opacity: 1;
         width: 100%;
         height: 100%;
     }
 
-    20% {
+    100% {
         opacity: 0;
         width: 200%;
         height: 200%;
