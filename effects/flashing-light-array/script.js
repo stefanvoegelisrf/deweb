@@ -1,7 +1,7 @@
 class LightSettings {
     id;
     element;
-    constructor(animationName = "flashing-light", delay = 0, iterationCount = 0, state = "paused", duration = 1) {
+        constructor(animationName = "flashing-light", delay = 0, iterationCount = 0, state = "paused", duration = 1) {
         this.delay = delay;
         this.iterationCount = iterationCount;
         this.state = state;
@@ -52,10 +52,11 @@ window.onload = function () {
         lightRowIndex++;
     }
     setTimeout(() => {
-        topLeftToBottomRight();
-        setTimeout(() => {
-            topLeftToBottomRight();
-        }, 2000);
+        alternating(1, .1);
+        // topLeftToBottomRight();
+        // setTimeout(() => {
+        //     topLeftToBottomRight();
+        // }, 2000);
     }, 2000);
 }
 function resetAnimation(event, element) {
@@ -79,7 +80,6 @@ function topLeftToBottomRight() {
 }
 
 function applyLightState() {
-    console.log("Applying light state");
     for (let lightRow of lightState) {
         for (let lightColumn of lightRow) {
             lightColumn.apply();
@@ -88,7 +88,7 @@ function applyLightState() {
 }
 
 
-function selectRows(even, iterationCount, duration, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1) {
+function selectRows(even, iterationCount, duration, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1, animationName = "flashing-light") {
     for (let lightRowIndex = 0; lightRowIndex < lightState.length; lightRowIndex++) {
         for (let lightColumnIndex = 0; lightColumnIndex < lightState[lightRowIndex].length; lightColumnIndex++) {
             if ((even && lightRowIndex % 2 == 0) || !even && lightRowIndex % 2 == 1) {
@@ -109,28 +109,22 @@ function selectRows(even, iterationCount, duration, delay = 0, delayBasedOnIndex
     applyLightState();
 }
 
-function alternating(iterationCount, duration, delay = 0, delayBasedOnIndex = false) {
+function alternating(iterationCount, duration, delay = 0, delayBasedOnIndex = false, animationName = "flashing-light") {
     for (let lightRowIndex = 0; lightRowIndex < lightState.length; lightRowIndex++) {
         for (let lightColumnIndex = 0; lightColumnIndex < lightState[lightRowIndex].length; lightColumnIndex++) {
             lightState[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
             lightState[lightRowIndex][lightColumnIndex].duration = duration;
-            if (lightRowIndex % 2 == 0) {
-                if (lightColumnIndex % 2 == 0) {
-                    lightState[lightRowIndex][lightColumnIndex].state = "running";
-                }
-                else {
-                    lightState[lightRowIndex][lightColumnIndex].state = "paused";
-                    lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
+            lightState[lightRowIndex][lightColumnIndex].animationName = animationName;
+            lightState[lightRowIndex][lightColumnIndex].state = "running";
 
+            if (lightRowIndex % 2 == 0) {
+                if (lightColumnIndex % 2 == 1) {
+                    lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
                 }
             }
             else {
                 if (lightColumnIndex % 2 == 0) {
-                    lightState[lightRowIndex][lightColumnIndex].state = "paused";
                     lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
-                }
-                else {
-                    lightState[lightRowIndex][lightColumnIndex].state = "running";
                 }
 
             }
