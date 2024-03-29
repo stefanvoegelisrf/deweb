@@ -42,6 +42,10 @@ window.onload = function () {
     setTimeout(() => {
         evenRows("infinite", .2);
     }, 2000);
+
+    setTimeout(() => {
+        alternating("infinite", .2);
+    }, 4000);
 }
 
 function applyLightState() {
@@ -52,8 +56,8 @@ function applyLightState() {
             const flashingLight = flashingLightContainer.querySelector(".flashing-light");
             flashingLight.style.animationIterationCount = `${lightColumn.iterationCount}`;
             flashingLight.style.animationDelay = `${lightColumn.delay}s`
-            flashingLight.style.animationPlayState = lightColumn.state;
             flashingLight.style.animationDuration = `${lightColumn.duration}s`;
+            flashingLight.style.animationPlayState = lightColumn.state;
         }
     }
 }
@@ -65,6 +69,36 @@ function evenRows(iterationCount, duration) {
                 lightState[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
                 lightState[lightRowIndex][lightColumnIndex].duration = duration;
                 lightState[lightRowIndex][lightColumnIndex].state = "running";
+            }
+        }
+    }
+    applyLightState();
+}
+
+function alternating(iterationCount, duration) {
+    for (let lightRowIndex = 0; lightRowIndex < lightState.length; lightRowIndex++) {
+        for (let lightColumnIndex = 0; lightColumnIndex < lightState[lightRowIndex].length; lightColumnIndex++) {
+            lightState[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
+            lightState[lightRowIndex][lightColumnIndex].duration = duration;
+            if (lightRowIndex % 2 == 0) {
+                if (lightColumnIndex % 2 == 0) {
+                    lightState[lightRowIndex][lightColumnIndex].state = "running";
+                }
+                else {
+                    lightState[lightRowIndex][lightColumnIndex].state = "paused";
+                    lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
+
+                }
+            }
+            else {
+                if (lightColumnIndex % 2 == 0) {
+                    lightState[lightRowIndex][lightColumnIndex].state = "paused";
+                    lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
+                }
+                else {
+                    lightState[lightRowIndex][lightColumnIndex].state = "running";
+                }
+
             }
         }
     }
