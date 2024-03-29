@@ -1,7 +1,7 @@
 class LightSettings {
     id;
     element;
-        constructor(animationName = "flashing-light", delay = 0, iterationCount = 0, state = "paused", duration = 1) {
+    constructor(animationName = "flashing-light", delay = 0, iterationCount = 0, state = "paused", duration = 1) {
         this.delay = delay;
         this.iterationCount = iterationCount;
         this.state = state;
@@ -16,23 +16,34 @@ class LightSettings {
         this.element.style.animationName = this.animationName;
     }
 }
-let lightState = [
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
-    [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()]
-];
+
+class LightArray {
+    state = [
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
+        [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()]
+    ];
+    applyLightState() {
+        for (let lightRow of this.state) {
+            for (let lightColumn of lightRow) {
+                lightColumn.apply();
+            }
+        }
+    }
+}
+let lightArray = new LightArray();
 
 window.onload = function () {
     const lightContainer = document.getElementById("light-container");
     let lightRowIndex = 0;
-    for (let lightRow of lightState) {
+    for (let lightRow of lightArray.state) {
         let lightColumnIndex = 0;
         for (let lightColumn of lightRow) {
             const flashingLightContainer = document.createElement("div");
@@ -51,13 +62,16 @@ window.onload = function () {
         }
         lightRowIndex++;
     }
+
     setTimeout(() => {
-        alternating(1, .1);
-        // topLeftToBottomRight();
-        // setTimeout(() => {
-        //     topLeftToBottomRight();
-        // }, 2000);
-    }, 2000);
+        alternating(5, .1);
+        setTimeout(() => {
+            topLeftToBottomRight();
+            setTimeout(() => {
+                topLeftToBottomRight();
+            }, 2000);
+        }, 2000);
+    }, 1000);
 }
 function resetAnimation(event, element) {
     if (!element.style.animationDelay || !element.style.animationDuration)
@@ -79,56 +93,55 @@ function topLeftToBottomRight() {
     selectRows(false, "1", .1, .1, true, .05);
 }
 
-function applyLightState() {
-    for (let lightRow of lightState) {
-        for (let lightColumn of lightRow) {
-            lightColumn.apply();
-        }
-    }
-}
-
-
 function selectRows(even, iterationCount, duration, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1, animationName = "flashing-light") {
-    for (let lightRowIndex = 0; lightRowIndex < lightState.length; lightRowIndex++) {
-        for (let lightColumnIndex = 0; lightColumnIndex < lightState[lightRowIndex].length; lightColumnIndex++) {
+    for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
+        for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
             if ((even && lightRowIndex % 2 == 0) || !even && lightRowIndex % 2 == 1) {
-                lightState[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
-                lightState[lightRowIndex][lightColumnIndex].duration = duration;
-                lightState[lightRowIndex][lightColumnIndex].state = "running";
+                lightArray.state[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
+                lightArray.state[lightRowIndex][lightColumnIndex].duration = duration;
+                lightArray.state[lightRowIndex][lightColumnIndex].state = "running";
                 if (delay > 0) {
                     if (delayBasedOnIndex) {
-                        lightState[lightRowIndex][lightColumnIndex].delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                        lightArray.state[lightRowIndex][lightColumnIndex].delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
                     }
                     else {
-                        lightState[lightRowIndex][lightColumnIndex].delay = delay;
+                        lightArray.state[lightRowIndex][lightColumnIndex].delay = delay;
                     }
                 }
             }
         }
     }
-    applyLightState();
+    lightArray.applyLightState();
 }
 
 function alternating(iterationCount, duration, delay = 0, delayBasedOnIndex = false, animationName = "flashing-light") {
-    for (let lightRowIndex = 0; lightRowIndex < lightState.length; lightRowIndex++) {
-        for (let lightColumnIndex = 0; lightColumnIndex < lightState[lightRowIndex].length; lightColumnIndex++) {
-            lightState[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
-            lightState[lightRowIndex][lightColumnIndex].duration = duration;
-            lightState[lightRowIndex][lightColumnIndex].animationName = animationName;
-            lightState[lightRowIndex][lightColumnIndex].state = "running";
+    for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
+        for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
+            lightArray.state[lightRowIndex][lightColumnIndex].iterationCount = iterationCount;
+            lightArray.state[lightRowIndex][lightColumnIndex].duration = duration;
+            lightArray.state[lightRowIndex][lightColumnIndex].animationName = animationName;
+            lightArray.state[lightRowIndex][lightColumnIndex].state = "running";
+            if (delay > 0) {
+                if (delayBasedOnIndex) {
+                    lightArray.state[lightRowIndex][lightColumnIndex].delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                }
+                else {
+                    lightArray.state[lightRowIndex][lightColumnIndex].delay = delay;
+                }
+            }
 
             if (lightRowIndex % 2 == 0) {
                 if (lightColumnIndex % 2 == 1) {
-                    lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
+                    lightArray.state[lightRowIndex][lightColumnIndex].iterationCount = 0;
                 }
             }
             else {
                 if (lightColumnIndex % 2 == 0) {
-                    lightState[lightRowIndex][lightColumnIndex].iterationCount = 0;
+                    lightArray.state[lightRowIndex][lightColumnIndex].iterationCount = 0;
                 }
 
             }
         }
     }
-    applyLightState();
+    lightArray.applyLightState();
 }
