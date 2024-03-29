@@ -30,7 +30,6 @@ body {
     animation-name: flashing-light;
     animation-duration: 1s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
     width: .1%;
     height: .1%;
     border-radius: 50%;
