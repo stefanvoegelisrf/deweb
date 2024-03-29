@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.absolute-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flashing-light {
+    background: radial-gradient(white 0%, rgba(0,0,0,0) 50%);
+    animation-name: flashing-light;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    width: .1vmin;
+    height: .1vmin;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+@keyframes flashing-light {
+    10% {
+        opacity: 1;
+        width: 100vmin;
+        height: 100vmin;
+    }
+
+    20% {
+        opacity: 0;
+        width: 200vmin;
+        height: 200vmin;
+    }
+}
