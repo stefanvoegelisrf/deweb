@@ -48,7 +48,7 @@ window.onload = function () {
     console.log(lightArray);
 
     setTimeout(() => {
-        alternating(5, .1, "flashing-light-red");
+        alternating(5, .1, "flashing-light-cyan");
         setTimeout(() => {
             topLeftToBottomRight();
             setTimeout(() => {
@@ -59,8 +59,8 @@ window.onload = function () {
 }
 
 function topLeftToBottomRight() {
-    selectRowsFromBeginning(true, "1", .1, "flashing-light-white", .1, true, .05,);
-    selectRowsFromBeginning(false, "1", .1, "flashing-light-white", .1, true, .05);
+    selectRowsFromBeginning(true, "1", .1, "flashing-light-magenta", .1, true, .05,);
+    selectRowsFromBeginning(false, "1", .1, "flashing-light-cyan", .1, true, .05);
 }
 
 function selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
