@@ -118,15 +118,17 @@ window.onload = function () {
     setInterval(() => {
         lightArray.alternating(false, "5", .1, "flashing-light,light-cyan");
         lightArray.alternating(true, "5", .1, "flashing-light,light-magenta");
-        topLeftToBottomRight();
         setTimeout(() => {
-            bottomRightToTopLeft();
+            topLeftToBottomRight();
             setTimeout(() => {
-                lightArray.selectFromTop("3", .1, "flashing-light,light-cyan", .1, true, .05);
-                lightArray.selectFromBottom("F", .1, "flashing-light,light-magenta", .1, true, .05);
-            }, 1000)
-        }, 1000);
-    }, 2000);
+                bottomRightToTopLeft();
+                setTimeout(() => {
+                    lightArray.selectFromTop("3", .1, "flashing-light,light-cyan", .1, true, .05);
+                    lightArray.selectFromBottom("F", .1, "flashing-light,light-magenta", .1, true, .05);
+                }, 1000)
+            }, 1000);
+        }, 1000)
+    }, 5000);
     setTimeout(() => {
         lightArray.selectFromTop("3", .1, "flashing-light,light-cyan", .1, true, .05);
         lightArray.selectFromBottom("3", .1, "flashing-light,light-magenta", .1, true, .05);
