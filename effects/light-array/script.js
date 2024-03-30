@@ -40,31 +40,51 @@ class LightArray {
             }
         }
     }
-    selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
+    selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1) {
         let rest = even ? 0 : 1;
         for (let lightRowIndex = 0; lightRowIndex < this.state.length; lightRowIndex++) {
             for (let lightColumnIndex = 0; lightColumnIndex < this.state[lightRowIndex].length; lightColumnIndex++) {
                 if ((lightRowIndex + 1) % 2 == rest) {
                     if (delayBasedOnIndex) {
-                        delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                        delay = (delay + lightRowIndex + 1 + lightColumnIndex + 1) * delayMultiplier;
                     }
                     this.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
                 }
             }
         }
     }
+    selectRowFromEnd(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1) {
+        let rest = even ? 0 : 1;
+        for (let lightRowIndex = this.state.length - 1; lightRowIndex >= 0; lightRowIndex--) {
+            for (let lightColumnIndex = this.state[lightRowIndex].length - 1; lightColumnIndex >= 0; lightColumnIndex--) {
+                if ((lightRowIndex + 1) % 2 == rest) {
+                    if (delayBasedOnIndex) {
+                        let mappedRowIndex = this.map(1, this.state.length, this.state.length, 1, lightRowIndex + 1);
+                        let mappedColumnIndex = this.map(1, this.state[lightRowIndex].length, this.state[lightRowIndex].length, 1, lightColumnIndex + 1);
+                        delay = (delay + mappedRowIndex + mappedColumnIndex) * delayMultiplier;
+                    }
+                    this.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
+                }
+            }
+        }
+    }
+
     alternating(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false) {
         let rest = even ? 0 : 1;
         for (let lightRowIndex = 0; lightRowIndex < this.state.length; lightRowIndex++) {
             for (let lightColumnIndex = 0; lightColumnIndex < this.state[lightRowIndex].length; lightColumnIndex++) {
                 if (delayBasedOnIndex) {
-                    delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                    delay = (delay + lightRowIndex + 1 + lightColumnIndex + 1) * delayMultiplier;
                 }
                 if ((lightColumnIndex + 1) % 2 == rest) {
                     this.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
                 }
             }
         }
+    }
+
+    map(previousStart, previousEnd, newStart, newEnd, value) {
+        return newStart + (value - previousStart) * (newEnd - newStart) / (previousEnd - previousStart);
     }
 }
 let lightArray;
@@ -79,7 +99,7 @@ window.onload = function () {
         setTimeout(() => {
             topLeftToBottomRight();
             setTimeout(() => {
-                topLeftToBottomRight();
+                bottomRightToTopLeft();
             }, 1000);
         }, 1000);
     }, 5000);
@@ -88,4 +108,9 @@ window.onload = function () {
 function topLeftToBottomRight() {
     lightArray.selectRowsFromBeginning(true, "1", .1, "flashing-light-magenta", .1, true, .05,);
     lightArray.selectRowsFromBeginning(false, "1", .1, "flashing-light-cyan", .1, true, .05);
+}
+
+function bottomRightToTopLeft() {
+    lightArray.selectRowFromEnd(true, "1", .1, "flashing-light-magenta", .1, true, .05);
+    lightArray.selectRowFromEnd(false, "1", .1, "flashing-light-cyan", .1, true, .05);
 }
