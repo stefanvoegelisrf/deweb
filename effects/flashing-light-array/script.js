@@ -15,6 +15,16 @@ class LightSettings {
         this.element.style.animationPlayState = this.state;
         this.element.style.animationName = this.animationName;
     }
+    reset() {
+        const durationItShouldHaveTakenInSeconds = this.delay + this.duration;
+        setTimeout(() => {
+            this.element.style.removeProperty("animation-iteration-count");
+            this.element.style.removeProperty("animation-delay");
+            this.element.style.removeProperty("animation-duration");
+            this.element.style.removeProperty("animation-play-state");
+            this.element.style.removeProperty("animation-name");
+        }, durationItShouldHaveTakenInSeconds * 1000);
+    }
 }
 
 class LightArray {
@@ -53,7 +63,7 @@ window.onload = function () {
             const flashingLight = document.createElement("div");
             flashingLight.classList.add("light", "absolute-center");
             flashingLight.addEventListener("animationend", function (event) {
-                resetAnimation(event, flashingLight);
+                lightColumn.reset();
             });
             flashingLightContainer.appendChild(flashingLight);
             lightContainer.appendChild(flashingLightContainer);
@@ -72,20 +82,6 @@ window.onload = function () {
             }, 2000);
         }, 2000);
     }, 1000);
-}
-function resetAnimation(event, element) {
-    if (!element.style.animationDelay || !element.style.animationDuration)
-        return;
-    const animationDelay = parseFloat(element.style.animationDelay.slice(0, element.style.animationDelay.length - 1));
-    const animationDuration = parseFloat(element.style.animationDuration.slice(0, element.style.animationDuration.length - 1));
-    const durationItShouldHaveTakenInSeconds = animationDelay + animationDuration;
-    setTimeout(() => {
-        element.style.removeProperty("animation-iteration-count");
-        element.style.removeProperty("animation-delay");
-        element.style.removeProperty("animation-duration");
-        element.style.removeProperty("animation-play-state");
-        element.style.removeProperty("animation-name");
-    }, durationItShouldHaveTakenInSeconds * 1000);
 }
 
 function topLeftToBottomRight() {
