@@ -47,7 +47,7 @@ window.onload = function () {
     lightArray = new LightArray("container", 10, 10);
     console.log(lightArray);
 
-    setTimeout(() => {
+    setInterval(() => {
         alternating(false, 5, .1, "flashing-light-cyan");
         alternating(true, 5, .1, "flashing-light-magenta");
         setTimeout(() => {
@@ -56,7 +56,7 @@ window.onload = function () {
                 topLeftToBottomRight();
             }, 1000);
         }, 1000);
-    }, 1000);
+    }, 5000);
 }
 
 function topLeftToBottomRight() {
