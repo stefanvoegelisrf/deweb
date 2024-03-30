@@ -41,7 +41,7 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             position: fixed;
             width: 16em;
-            height: 20em;
+            height: 21em;
             top: .5em;
             left: .5em;
             padding: .5em;
@@ -301,6 +301,13 @@ class ProcessMenu extends HTMLElement {
         linkProcessMenu.innerHTML = "Process Menu";
         listElementProcessMenu.appendChild(linkProcessMenu);
         linkList.appendChild(listElementProcessMenu);
+
+        let listElementLightArray = document.createElement('li');
+        let linkLightArray = document.createElement('a');
+        linkLightArray.href = `${baseUrl}/effects/light-array/`;
+        linkLightArray.innerHTML = "Light Array";
+        listElementLightArray.appendChild(linkLightArray);
+        linkList.appendChild(listElementLightArray);
 
         menuDiv.appendChild(linkList);
         this.shadowRoot.appendChild(menuDiv);
