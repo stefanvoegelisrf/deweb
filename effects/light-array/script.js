@@ -40,6 +40,34 @@ class LightArray {
             }
         }
     }
+    selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
+        let rest = even ? 0 : 1;
+        for (let lightRowIndex = 0; lightRowIndex < this.state.length; lightRowIndex++) {
+            for (let lightColumnIndex = 0; lightColumnIndex < this.state[lightRowIndex].length; lightColumnIndex++) {
+                if ((lightRowIndex + 1) % 2 == rest) {
+                    if (delayBasedOnIndex) {
+                        delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                    }
+                    this.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
+                }
+            }
+        }
+    }
+    alternating(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false) {
+        let rest = even ? 0 : 1;
+        const selectedColumns = [];
+        for (let lightRowIndex = 0; lightRowIndex < this.state.length; lightRowIndex++) {
+            for (let lightColumnIndex = 0; lightColumnIndex < this.state[lightRowIndex].length; lightColumnIndex++) {
+                if (delayBasedOnIndex) {
+                    delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                }
+                if ((lightColumnIndex + 1) % 2 == rest) {
+                    this.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
+                    selectedColumns.push(`${lightRowIndex}-${lightColumnIndex}`);
+                }
+            }
+        }
+    }
 }
 let lightArray;
 
@@ -48,8 +76,8 @@ window.onload = function () {
     console.log(lightArray);
 
     setInterval(() => {
-        alternating(false, 5, .1, "flashing-light-cyan");
-        alternating(true, 5, .1, "flashing-light-magenta");
+        lightArray.alternating(false, 5, .1, "flashing-light-cyan");
+        lightArray.alternating(true, 5, .1, "flashing-light-magenta");
         setTimeout(() => {
             topLeftToBottomRight();
             setTimeout(() => {
@@ -60,39 +88,6 @@ window.onload = function () {
 }
 
 function topLeftToBottomRight() {
-    selectRowsFromBeginning(true, "1", .1, "flashing-light-magenta", .1, true, .05,);
-    selectRowsFromBeginning(false, "1", .1, "flashing-light-cyan", .1, true, .05);
-}
-
-function selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
-    let rest = even ? 0 : 1;
-    for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
-        for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
-            if ((lightRowIndex + 1) % 2 == rest) {
-                if (delayBasedOnIndex) {
-                    delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
-                }
-                lightArray.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
-            }
-        }
-    }
-}
-
-function alternating(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false) {
-    let rest = even ? 0 : 1;
-    let alternateRest = even ? 1 : 0;
-    const selectedColumns = [];
-    for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
-        for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
-            if (delayBasedOnIndex) {
-                delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
-            }
-            if ((lightColumnIndex + 1) % 2 == rest) {
-                lightArray.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
-                selectedColumns.push(`${lightRowIndex}-${lightColumnIndex}`);
-            }
-        }
-    }
-    console.log(selectedColumns)
-    console.log(rest, alternateRest)
+    lightArray.selectRowsFromBeginning(true, "1", .1, "flashing-light-magenta", .1, true, .05,);
+    lightArray.selectRowsFromBeginning(false, "1", .1, "flashing-light-cyan", .1, true, .05);
 }
