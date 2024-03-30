@@ -24,68 +24,47 @@ body {
 
 .light {
     animation-timing-function: linear;
+    animation-composition: accumulate;
     width: .1%;
     height: .1%;
     border-radius: 50%;
     opacity: 0;
 }
 
-@keyframes flashing-light-white {
+@keyframes light-white{
     50% {
         background: radial-gradient(white 0%, rgba(0, 0, 0, 0) 50%);
-        opacity: 1;
-        width: 100%;
-        height: 100%;
-    }
-
-    100% {
-        opacity: 0;
-        width: 200%;
-        height: 200%;
     }
 }
 
-@keyframes flashing-light-red {
-    50% {
-        background: radial-gradient(red 0%, rgba(0, 0, 0, 0) 50%);
-        opacity: 1;
-        width: 100%;
-        height: 100%;
-    }
-
-    100% {
-        opacity: 0;
-        width: 200%;
-        height: 200%;
-    }
-}
-
-@keyframes flashing-light-cyan {
-    50% {
-        background: radial-gradient(cyan 0%, rgba(0, 0, 0, 0) 50%);
-        opacity: 1;
-        width: 100%;
-        height: 100%;
-    }
-
-    100% {
-        opacity: 0;
-        width: 200%;
-        height: 200%;
-    }
-}
-
-@keyframes flashing-light-magenta {
+@keyframes light-magenta{
     50% {
         background: radial-gradient(magenta 0%, rgba(0, 0, 0, 0) 50%);
+    }
+}
+
+@keyframes light-red{
+    50% {
+        background: radial-gradient(red 0%, rgba(0, 0, 0, 0) 50%);
+    }
+}
+
+@keyframes light-cyan{
+    50% {
+        background: radial-gradient(cyan 0%, rgba(0, 0, 0, 0) 50%);
+    }
+}
+
+@keyframes flashing-light {
+    50% {
         opacity: 1;
         width: 100%;
         height: 100%;
     }
 
     100% {
-        opacity: 0;
-        width: 200%;
-        height: 200%;
+        opacity: 1;
+        width: 300%;
+        height: 300%;
     }
 }
