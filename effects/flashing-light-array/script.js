@@ -48,7 +48,8 @@ window.onload = function () {
     console.log(lightArray);
 
     setTimeout(() => {
-        alternating(5, .1, "flashing-light-cyan");
+        alternating(false, 5, .1, "flashing-light-cyan");
+        alternating(true, 5, .1, "flashing-light-magenta");
         setTimeout(() => {
             topLeftToBottomRight();
             setTimeout(() => {
@@ -64,9 +65,10 @@ function topLeftToBottomRight() {
 }
 
 function selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
+    let rest = even ? 0 : 1;
     for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
         for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
-            if ((even && lightRowIndex % 2 == 0) || (!even && lightRowIndex % 2 == 1)) {
+            if ((lightRowIndex + 1) % 2 == rest) {
                 if (delayBasedOnIndex) {
                     delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
                 }
@@ -76,22 +78,21 @@ function selectRowsFromBeginning(even, iterationCount, duration, animationName, 
     }
 }
 
-function alternating(iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false) {
+function alternating(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false) {
+    let rest = even ? 0 : 1;
+    let alternateRest = even ? 1 : 0;
+    const selectedColumns = [];
     for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
         for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
             if (delayBasedOnIndex) {
-                lightArray.state[lightRowIndex][lightColumnIndex].delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
+                delay = (delay + lightRowIndex + lightColumnIndex + 1) * delayMultiplier;
             }
-            if (lightRowIndex % 2 == 0) {
-                if (lightColumnIndex % 2 == 0) {
-                    lightArray.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
-                }
-            }
-            else {
-                if (lightColumnIndex % 2 == 1) {
-                    lightArray.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
-                }
+            if ((lightColumnIndex + 1) % 2 == rest) {
+                lightArray.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
+                selectedColumns.push(`${lightRowIndex}-${lightColumnIndex}`);
             }
         }
     }
+    console.log(selectedColumns)
+    console.log(rest, alternateRest)
 }

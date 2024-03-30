@@ -75,7 +75,7 @@ body {
     }
 }
 
-@keyframes flashing-light-magenta  {
+@keyframes flashing-light-magenta {
     50% {
         background: radial-gradient(magenta 0%, rgba(0, 0, 0, 0) 50%);
         opacity: 1;
