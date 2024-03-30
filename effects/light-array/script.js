@@ -55,7 +55,6 @@ class LightArray {
     }
     alternating(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false) {
         let rest = even ? 0 : 1;
-        const selectedColumns = [];
         for (let lightRowIndex = 0; lightRowIndex < this.state.length; lightRowIndex++) {
             for (let lightColumnIndex = 0; lightColumnIndex < this.state[lightRowIndex].length; lightColumnIndex++) {
                 if (delayBasedOnIndex) {
@@ -63,7 +62,6 @@ class LightArray {
                 }
                 if ((lightColumnIndex + 1) % 2 == rest) {
                     this.state[lightRowIndex][lightColumnIndex].trigger(iterationCount, duration, delay, animationName);
-                    selectedColumns.push(`${lightRowIndex}-${lightColumnIndex}`);
                 }
             }
         }
