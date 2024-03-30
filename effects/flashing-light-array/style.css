@@ -23,7 +23,6 @@ body {
 }
 
 .light {
-    background: radial-gradient(white 0%, rgba(0, 0, 0, 0) 50%);
     animation-timing-function: linear;
     width: .1%;
     height: .1%;
@@ -31,8 +30,24 @@ body {
     opacity: 0;
 }
 
-@keyframes flashing-light {
+@keyframes flashing-light-white {
     50% {
+        background: radial-gradient(white 0%, rgba(0, 0, 0, 0) 50%);
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}
+
+@keyframes flashing-light-red {
+    50% {
+        background: radial-gradient(red 0%, rgba(0, 0, 0, 0) 50%);
         opacity: 1;
         width: 100%;
         height: 100%;
