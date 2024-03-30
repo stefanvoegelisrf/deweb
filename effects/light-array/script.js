@@ -122,12 +122,12 @@ window.onload = function () {
             topLeftToBottomRight();
             setTimeout(() => {
                 bottomRightToTopLeft();
-                setTimeout(()=>{
+                setTimeout(() => {
                     lightArray.selectFromTop(5, .1, "flashing-light,light-cyan", .1, true, .05);
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         lightArray.selectFromBottom(5, .1, "flashing-light,light-magenta", .1, true, .05);
-                    });
-                },1000)
+                    }, 1000);
+                }, 1000)
             }, 1000);
         }, 1000);
     }, 6000);
