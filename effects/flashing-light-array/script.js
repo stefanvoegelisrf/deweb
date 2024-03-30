@@ -40,6 +40,29 @@ class LightArray {
         [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()],
         [new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings(), new LightSettings()]
     ];
+    constructor(containerId = "light-container"){
+        const lightContainer = document.getElementById(containerId);
+        let lightRowIndex = 0;
+        for (let lightRow of this.state) {
+            let lightColumnIndex = 0;
+            for (let lightColumn of lightRow) {
+                const flashingLightContainer = document.createElement("div");
+                lightColumn.id = `flashing-light-${lightRowIndex}-${lightColumnIndex}`;
+                flashingLightContainer.id = lightColumn.id;
+                flashingLightContainer.classList.add("flashing-light-container");
+                const flashingLight = document.createElement("div");
+                flashingLight.classList.add("light", "absolute-center");
+                flashingLight.addEventListener("animationend", function (event) {
+                    lightColumn.reset();
+                });
+                flashingLightContainer.appendChild(flashingLight);
+                lightContainer.appendChild(flashingLightContainer);
+                lightColumn.element = flashingLight;
+                lightColumnIndex++;
+            }
+            lightRowIndex++;
+        }
+    }
     applyLightState() {
         for (let lightRow of this.state) {
             for (let lightColumn of lightRow) {
@@ -48,30 +71,10 @@ class LightArray {
         }
     }
 }
-let lightArray = new LightArray();
+let lightArray;
 
 window.onload = function () {
-    const lightContainer = document.getElementById("light-container");
-    let lightRowIndex = 0;
-    for (let lightRow of lightArray.state) {
-        let lightColumnIndex = 0;
-        for (let lightColumn of lightRow) {
-            const flashingLightContainer = document.createElement("div");
-            lightColumn.id = `flashing-light-${lightRowIndex}-${lightColumnIndex}`;
-            flashingLightContainer.id = lightColumn.id;
-            flashingLightContainer.classList.add("flashing-light-container");
-            const flashingLight = document.createElement("div");
-            flashingLight.classList.add("light", "absolute-center");
-            flashingLight.addEventListener("animationend", function (event) {
-                lightColumn.reset();
-            });
-            flashingLightContainer.appendChild(flashingLight);
-            lightContainer.appendChild(flashingLightContainer);
-            lightColumn.element = flashingLight;
-            lightColumnIndex++;
-        }
-        lightRowIndex++;
-    }
+    lightArray = new LightArray();
 
     setTimeout(() => {
         alternating(5, .1);
