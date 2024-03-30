@@ -21,22 +21,22 @@ class LightSettings {
 class LightArray {
     constructor(containerId, arrayRows = 10, arrayColumns = 10) {
         this.state = [];
-        const lightContainer = document.getElementById(containerId);
-        lightContainer.style.display = "grid";
-        lightContainer.style.gridTemplateColumns = `repeat(${arrayColumns}, 1fr)`;
-        lightContainer.style.gridTemplateRows = `repeat(${arrayRows}, 1fr)`;
+        const container = document.getElementById(containerId);
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = `repeat(${arrayColumns}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${arrayRows}, 1fr)`;
         for (let lightRowIndex = 0; lightRowIndex < arrayRows; lightRowIndex++) {
             this.state[lightRowIndex] = [];
             for (let lightColumnIndex = 0; lightColumnIndex < arrayColumns; lightColumnIndex++) {
-                const flashingLightContainer = document.createElement("div");
-                flashingLightContainer.id = `flashing-light-${lightRowIndex}-${lightColumnIndex}`;
-                flashingLightContainer.classList.add("flashing-light-container");
-                const flashingLight = document.createElement("div");
-                flashingLight.classList.add("light", "absolute-center");
-                flashingLightContainer.appendChild(flashingLight);
-                lightContainer.appendChild(flashingLightContainer);
-                this.state[lightRowIndex].push(new LightSettings(flashingLight));
-                flashingLight.addEventListener("animationend", this.state[lightRowIndex][lightColumnIndex].reset.bind(this.state[lightRowIndex][lightColumnIndex]));
+                const lightContainer = document.createElement("div");
+                lightContainer.id = `light-${lightRowIndex}-${lightColumnIndex}`;
+                lightContainer.classList.add("light-container");
+                const light = document.createElement("div");
+                light.classList.add("light", "absolute-center");
+                lightContainer.appendChild(light);
+                container.appendChild(lightContainer);
+                this.state[lightRowIndex].push(new LightSettings(light));
+                light.addEventListener("animationend", this.state[lightRowIndex][lightColumnIndex].reset.bind(this.state[lightRowIndex][lightColumnIndex]));
             }
         }
     }
@@ -44,7 +44,7 @@ class LightArray {
 let lightArray;
 
 window.onload = function () {
-    lightArray = new LightArray("light-container", 10, 10);
+    lightArray = new LightArray("container", 10, 10);
     console.log(lightArray);
 
     setTimeout(() => {
@@ -59,11 +59,11 @@ window.onload = function () {
 }
 
 function topLeftToBottomRight() {
-    selectRows(true, "1", .1, "flashing-light", .1, true, .05,);
-    selectRows(false, "1", .1, "flashing-light", .1, true, .05);
+    selectRowsFromBeginning(true, "1", .1, "flashing-light", .1, true, .05,);
+    selectRowsFromBeginning(false, "1", .1, "flashing-light", .1, true, .05);
 }
 
-function selectRows(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
+function selectRowsFromBeginning(even, iterationCount, duration, animationName, delay = 0, delayBasedOnIndex = false, delayMultiplier = 1,) {
     for (let lightRowIndex = 0; lightRowIndex < lightArray.state.length; lightRowIndex++) {
         for (let lightColumnIndex = 0; lightColumnIndex < lightArray.state[lightRowIndex].length; lightColumnIndex++) {
             if ((even && lightRowIndex % 2 == 0) || (!even && lightRowIndex % 2 == 1)) {
