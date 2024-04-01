@@ -5,16 +5,8 @@
     margin: 0;
 }
 
-@media (orientation:portrait) {
-    html {
-        font-size: 2vw;
-    }
-}
-
-@media (orientation:landscape) {
-    html {
-        font-size: 2vh;
-    }
+html {
+    font-size: 2vmin;
 }
 
 @font-face {
