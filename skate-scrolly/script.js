@@ -1,13 +1,37 @@
+const lenis = new Lenis();
+
+lenis.on('scroll', (e) => {
+    // console.log(e)
+    // console.log(e.animatedScroll);
+
+    document.documentElement.style.setProperty('--scroll-pixels', e.animatedScroll);
+
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (e.animatedScroll / height) * 100;
+    // Set the percentage of scroll as a css variable to the html element
+    document.documentElement.style.setProperty('--scroll-percent', scrolled);
+    const rotation = map(Math.min(window.innerHeight * 0.5, e.animatedScroll), 0, window.innerHeight * 0.5, 0, 180);
+    document.documentElement.style.setProperty("--skate-rotation", `-${rotation}deg`);
+});
+
+// Map function
+function map(value, start1, stop1, start2, stop2) {
+    return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+}
+
+function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf);
+
 function onScroll() {
     // Get the scroll position
     const scroll = window.scrollY;
     // Set the scroll position as a css variable to the html element
-    document.documentElement.style.setProperty('--scroll-pixels', scroll);
     // Calculate the percentage of scroll
-    const height = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (scroll / height) * 100;
-    // Set the percentage of scroll as a css variable to the html element
-    document.documentElement.style.setProperty('--scroll-percent', scrolled);
+
 }
 
 // Add scroll event

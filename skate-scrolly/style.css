@@ -14,16 +14,8 @@
     margin: 0;
 }
 
-@media (orientation:portrait) {
-    html {
-        font-size: 2vw;
-    }
-}
-
-@media (orientation:landscape) {
-    html {
-        font-size: 2vh;
-    }
+html {
+    font-size: 2vmin;
 }
 
 :root {
@@ -32,18 +24,44 @@
     --quirky-wheel-size: calc(var(--quirky-skate-width) * 0.25);
     --scroll-pixels: 0;
     --scroll-percent: 0;
-    scroll-behavior: smooth;
+    --skate-rotation: 0;
+    --skate-left: 50%;
 }
 
 body {
     margin: 0;
 }
 
+/* -------- Lenis -------- */
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* -------- Lenis -------- */
+
 .section-half-width {
     width: 50%;
 }
 
-.section-right{
+.section-right {
     margin-left: 50%;
 }
 
@@ -115,20 +133,17 @@ section {
 
 #container-quirky {
     position: fixed;
-    transform: rotate(0deg) translate(-50%, -50%) scale(1);
-    left: 50%;
-    top: 50%;
+    transform: rotate(var(--skate-rotation)) scale(1);
+    left: calc(50% - var(--quirky-skate-width) / 2);
+    top: calc(50% - var(--quirky-skate-height) / 2);
     width: var(--quirky-skate-width);
     height: var(--quirky-skate-height);
     mix-blend-mode: difference;
-    animation-timeline: scroll();
-    animation-name: rotate-quirky-skate;
-    animation-range: entry 0% contain 100%;
     margin: 0 auto;
     z-index: 10;
 }
 
-@keyframes rotate-quirky-skate {
+/* @keyframes rotate-quirky-skate {
     20% {
         transform: rotate(-180deg) translate(50%, 50%) scale(1);
         left: 0%;
@@ -198,7 +213,7 @@ section {
         top: 120%;
         opacity: 0;
     }
-}
+} */
 
 .quirky-wheel {
     width: var(--quirky-wheel-size);
