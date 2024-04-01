@@ -29,6 +29,6 @@
 
 #arrow-icon {
     font-size: 10rem;
-    transform: rotate(270deg) translateY(50%) translateX(-50%);
     width: fit-content;
+    width: 100%;
 }
