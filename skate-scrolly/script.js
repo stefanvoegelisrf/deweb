@@ -10,7 +10,10 @@ lenis.on('scroll', (e) => {
     const scrolled = (e.animatedScroll / height) * 100;
     // Set the percentage of scroll as a css variable to the html element
     document.documentElement.style.setProperty('--scroll-percent', scrolled);
-    const rotation = map(Math.min(window.innerHeight * 0.5, e.animatedScroll), 0, window.innerHeight * 0.5, 0, 180);
+    let rotation = 0;
+    if (e.direction === 1) {
+        rotation = map(Math.min(window.innerHeight * 0.5, e.animatedScroll), 0, window.innerHeight * 0.5, 0, 180);
+    }
     document.documentElement.style.setProperty("--skate-rotation", `-${rotation}deg`);
 });
 
