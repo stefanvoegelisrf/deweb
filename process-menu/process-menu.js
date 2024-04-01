@@ -144,13 +144,20 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            transition: font-size 0.5s;
         }
 
         .links-hidden{
             opacity: 0;
             width: 0;
             height: 0;
+            font-size: 1px;
         }
+
+        li, a{
+            font-size: inherit;
+        }
+
 
         li{
         }
@@ -281,7 +288,7 @@ class ProcessMenu extends HTMLElement {
         listElementHeads.appendChild(linkHeads);
         linkList.appendChild(listElementHeads);
 
-        let listElement3dSpinner= document.createElement('li');
+        let listElement3dSpinner = document.createElement('li');
         let link3dSpinner = document.createElement('a');
         link3dSpinner.href = `${baseUrl}/heads/3d-spinner/`;
         link3dSpinner.innerHTML = "3D Spinner";
