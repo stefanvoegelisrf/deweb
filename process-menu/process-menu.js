@@ -41,7 +41,7 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             position: fixed;
             width: 16em;
-            height: 21em;
+            height: 23em;
             top: .5em;
             left: .5em;
             padding: .5em;
@@ -315,6 +315,13 @@ class ProcessMenu extends HTMLElement {
         linkLightArray.innerHTML = "Light Array";
         listElementLightArray.appendChild(linkLightArray);
         linkList.appendChild(listElementLightArray);
+
+        let listElementSweatyPassion = document.createElement('li');
+        let linkSweatyPassion = document.createElement('a');
+        linkSweatyPassion.href = `${baseUrl}/sweaty-passion/`;
+        linkSweatyPassion.innerHTML = "Sweaty Passion";
+        listElementSweatyPassion.appendChild(linkSweatyPassion);
+        linkList.appendChild(listElementSweatyPassion);
 
         menuDiv.appendChild(linkList);
         this.shadowRoot.appendChild(menuDiv);
