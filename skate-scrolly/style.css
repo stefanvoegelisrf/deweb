@@ -73,6 +73,10 @@ html.lenis body {
     height: 200vh;
 }
 
+.section-xl {
+    height: 400vh;
+}
+
 section {
     height: 98vh;
     position: relative;
