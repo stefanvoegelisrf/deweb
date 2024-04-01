@@ -73,8 +73,8 @@ body {
 
     90% {
         opacity: 0;
-        width: 300%;
-        height: 300%;
+        width: 1000%;
+        height: 1000%;
     }
 
     100% {
@@ -130,8 +130,21 @@ h1 {
     width: 100%;
 }
 
+#image-container::after {
+    content: "";
+    box-shadow: inset 0px 0px 5rem 5rem rgba(0, 0, 0, .7);
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    transform: inherit;
+    top: inherit;
+    left: inherit;
+}
+
 #image-container {
+    box-shadow: 0px 0px 5rem 5rem rgba(0, 0, 0, .7);
     width: 100vmin;
+    height: 100%;
     opacity: 0.7;
 }
 

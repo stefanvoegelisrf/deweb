@@ -4,11 +4,14 @@ const images = [
 let lightArray;
 
 window.onload = function () {
-    lightArray = new LightArray("container", 5, 5);
+    lightArray = new LightArray("container", 2, 2);
     changeImage();
     setInterval(function () {
         changeImage();
         topLeftToBottomRight();
+        setTimeout(function () {
+            bottomRightToTopLeft();
+        }, 500);
     }, 1000);
 }
 
