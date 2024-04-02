@@ -84,4 +84,14 @@ window.onload = function () {
             section.appendChild(stone);
         }
     }
+
+    const contentSections = document.querySelectorAll('.content-section');
+    for (let section of contentSections) {
+        const sectionBoundingRect = section.getBoundingClientRect();
+        const amountOfStones = Math.floor(Math.random() * 50);
+        const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
+        for (let stone of randomStones) {
+            section.appendChild(stone);
+        }
+    }
 }
