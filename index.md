@@ -627,3 +627,5 @@ TODO: Immediately invoked function expressions
 TODO: https://codesweetly.com/javascript-function-object
 
 TODO: use vmin instead of media queries for sizing
+
+TODO: css isolation
