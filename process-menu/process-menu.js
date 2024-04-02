@@ -40,7 +40,7 @@ class ProcessMenu extends HTMLElement {
             display: flex;
             flex-direction: column;
             position: fixed;
-            width: 16em;
+            width: 13em;
             height: 28em;
             top: .5em;
             left: .5em;
