@@ -1,47 +1,7 @@
 :root {
     margin: 0;
     font-family: "Roboto", sans-serif;
-}
-
-@media screen and (min-width: 1200px) {
-    :root {
-        font-size: 12px;
-    }
-
-    body {
-        max-width: 60vw;
-    }
-}
-
-@media screen and (min-width: 900px) and (max-width: 1199px) {
-    :root {
-        font-size: 11px;
-    }
-
-    body {
-        max-width: 70vw;
-    }
-}
-
-@media screen and (min-width: 600px) and (max-width: 899px) {
-    :root {
-        font-size: 10px;
-    }
-
-    body {
-        max-width: 80vw;
-    }
-}
-
-@media screen and (max-width: 599px) {
-    :root {
-        font-size: 9px;
-    }
-
-    body {
-        max-width: 90vw;
-    }
-
+    font-size: 2vmin;
 }
 
 body {
@@ -57,7 +17,7 @@ body {
 
 .grid-container {
     display: grid;
-    height: 70vh;
+    height: 100vh;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -233,21 +193,16 @@ body {
 
 .title {
     font-size: 10rem;
-    white-space: nowrap;
-    margin: 1rem;
-}
-
-.row {
-    display: flex;
-}
-
-.col-4 {
-    max-width: 33.333333%;
-    min-width: 33.333333%;
-    padding-left: 1rem;
 }
 
 .details {
     width: 100%;
     font-size: small;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    mix-blend-mode: difference;
+    margin: 2rem;
 }
