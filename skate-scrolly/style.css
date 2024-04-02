@@ -554,7 +554,7 @@ section {
 }
 
 .clockface.clockface-background {
-    mix-blend-mode: color;
+    mix-blend-mode: luminosity;
 }
 
 .hour-hand {
