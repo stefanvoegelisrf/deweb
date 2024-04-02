@@ -83,18 +83,12 @@ html.lenis body {
 }
 
 section {
-    /* height: 98vh; */
     position: relative;
 }
 
 #quirky {
-    /* position: sticky; */
     top: 0;
     height: 100vh;
-}
-
-#quirky {
-    /* background-color: magenta; */
 }
 
 #connect {
@@ -104,16 +98,6 @@ section {
 
 #lake {
     overflow: hidden;
-}
-
-
-#lake {
-    /* background-color: cyan; */
-}
-
-#looks {
-    /* background-color: yellow; */
-    min-height: 100vmin;
 }
 
 #looks-slogan-big {
@@ -163,10 +147,8 @@ section {
     top: calc(50% - var(--quirky-skate-height) / 2);
     width: var(--quirky-skate-width);
     height: var(--quirky-skate-height);
-    /* mix-blend-mode: difference; */
     margin: 0 auto;
     z-index: 10;
-    /* transition: transform .5s; */
 }
 
 .quirky-wheel {
