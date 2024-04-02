@@ -25,11 +25,15 @@ html {
     --scroll-pixels: 0;
     --scroll-percent: 0;
     --skate-rotation: 0;
+    --skate-transform-x: 0;
     --skate-left: 50%;
+    --background-color: rgb(255, 0, 255);
 }
 
 body {
     margin: 0;
+    background-color: var(--background-color);
+    overflow-x: hidden;
 }
 
 /* -------- Lenis -------- */
@@ -75,7 +79,6 @@ html.lenis body {
 
 .section-xl {
     height: 400vh;
-    background-color: #FF99FF;
 }
 
 section {
@@ -89,26 +92,26 @@ section {
     height: 100vh;
 }
 
-#quirky,
-#connect {
-    background-color: magenta;
+#quirky {
+    /* background-color: magenta; */
 }
 
-#connect{
+#connect {
     min-height: 100vmin;
+    isolation: isolate;
 }
 
 #lake {
     overflow: hidden;
 }
 
-#timesaver,
+
 #lake {
-    background-color: cyan;
+    /* background-color: cyan; */
 }
 
 #looks {
-    background-color: yellow;
+    /* background-color: yellow; */
     min-height: 100vmin;
 }
 
@@ -149,92 +152,21 @@ section {
 #quirky-slogan {
     color: yellow;
     mix-blend-mode: plus-lighter;
+    z-index: 11;
 }
 
 #container-quirky {
     position: fixed;
-    transform: rotate(var(--skate-rotation)) scale(1);
+    transform: rotate(var(--skate-rotation)) scale(1) translateX(var(--skate-transform-x));
     left: calc(50% - var(--quirky-skate-width) / 2);
     top: calc(50% - var(--quirky-skate-height) / 2);
     width: var(--quirky-skate-width);
     height: var(--quirky-skate-height);
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     margin: 0 auto;
     z-index: 10;
-    transition: transform .5s;
+    /* transition: transform .5s; */
 }
-
-/* @keyframes rotate-quirky-skate {
-    20% {
-        transform: rotate(-180deg) translate(50%, 50%) scale(1);
-        left: 0%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    30% {
-        transform: rotate(-190deg) translate(30%, 49%) scale(1);
-        left: 5%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    40% {
-        transform: rotate(-180deg) translate(-50%, 49%) scale(1);
-        left: 55%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    60% {
-        transform: rotate(-170deg) translate(-50%, 48%) scale(1);
-        left: 60%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    70% {
-        transform: rotate(-160deg) translate(50%, 47%) scale(1);
-        left: 0%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    80% {
-        transform: rotate(-180deg) translate(50%, 46%) scale(1);
-        left: 0%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    90% {
-        transform: rotate(-180deg) translate(50%, 45%) scale(1);
-        left: 5%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    93% {
-        transform: rotate(-190deg) translate(50%, 44%) scale(0.7);
-        left: 50%;
-        top: 50%;
-        opacity: 1;
-    }
-
-    98% {
-        transform: rotate(-170deg) translate(50%, 43%) scale(0.5);
-        left: 50%;
-        top: 80%;
-        opacity: 1;
-    }
-
-    100% {
-        transform: rotate(-180deg) translate(50%, 42%) scale(0.5);
-        left: 50%;
-        top: 120%;
-        opacity: 0;
-    }
-} */
 
 .quirky-wheel {
     width: var(--quirky-wheel-size);
@@ -633,7 +565,7 @@ section {
     position: absolute;
     top: calc(var(--clock-width) * 0.2);
     left: 50%;
-    z-index: 10;
+    z-index: 9;
     mix-blend-mode: exclusion;
     animation-name: rotate-hand;
     animation-duration: var(--duration-hour);
