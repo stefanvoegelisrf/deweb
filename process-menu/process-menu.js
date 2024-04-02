@@ -298,7 +298,7 @@ class ProcessMenu extends HTMLElement {
         let listElementGradientColorChange = document.createElement('li');
         let linkGradientColorChange = document.createElement('a');
         linkGradientColorChange.href = `${baseUrl}/gradient-color-change/`;
-        linkGradientColorChange.innerHTML = "Shimmering Shift";
+        linkGradientColorChange.innerHTML = "Shimmer Shift";
         listElementGradientColorChange.appendChild(linkGradientColorChange);
         linkList.appendChild(listElementGradientColorChange);
 
