@@ -40,7 +40,7 @@ class ProcessMenu extends HTMLElement {
             display: flex;
             flex-direction: column;
             position: fixed;
-            width: 16em;
+            width: 13.5em;
             height: 27em;
             top: .5em;
             left: .5em;
@@ -136,10 +136,9 @@ class ProcessMenu extends HTMLElement {
         }
 
         ul {
-            text-align: center;
             list-style: none;
             padding: 0;
-            margin: 1em 0 1em 0;
+            margin: 1em 0 1em 1.5em;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
