@@ -207,7 +207,7 @@ body {
 }
 
 .details {
-    width: fit-content;
+    width: max-content;
     font-size: small;
     position: absolute;
     top: 50%;
