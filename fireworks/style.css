@@ -13,13 +13,11 @@
 
 body {
     background-color: black;
+    overflow: hidden;
 }
 
 .firework {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 0.5vmin;
     aspect-ratio: 1;
     background:
@@ -55,6 +53,35 @@ body {
     animation: firework 1s infinite;
 }
 
+.firework-1 {
+    top: 15%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+}
+
+.firework-2 {
+    top: 33%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+}
+
+.firework-3 {
+    top: 45%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.firework-4 {
+    top: 66%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+.firework-5 {
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @keyframes firework {
     0% {
         width: 0.5vmin;
@@ -67,7 +94,7 @@ body {
     }
 }
 
-#title{
+#title {
     color: magenta;
     width: 100%;
     text-align: center;
