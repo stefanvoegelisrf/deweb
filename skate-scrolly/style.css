@@ -28,6 +28,7 @@ html {
     --skate-transform-x: 0;
     --skate-left: 50%;
     --background-color: rgb(255, 0, 255);
+    --skate-scale: 1;
 }
 
 body {
@@ -157,7 +158,7 @@ section {
 
 #container-quirky {
     position: fixed;
-    transform: rotate(var(--skate-rotation)) scale(1) translateX(var(--skate-transform-x));
+    transform: rotate(var(--skate-rotation)) scale(var(--skate-scale)) translateX(var(--skate-transform-x));
     left: calc(50% - var(--quirky-skate-width) / 2);
     top: calc(50% - var(--quirky-skate-height) / 2);
     width: var(--quirky-skate-width);
@@ -653,8 +654,8 @@ section {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    transform: translate(-75%, -50%) scale(.5);
+    z-index: 11;
     color: cyan;
 }
 

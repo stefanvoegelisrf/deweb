@@ -26,13 +26,13 @@ lenis.on('scroll', (e) => {
 
     // Set transform to 50% if scrolled is between 50 and 60
     // Map scrolled from 0 to -70
-    let transformX = 0;
-
+    let transformX = map(Math.min(50, Math.max(40, scrolled)), 40, 50, 0, -70);
     if (e.direction === -1) {
         transformX *= -1;
     }
     document.documentElement.style.setProperty('--skate-transform-x', `${transformX}%`);
-
+    const skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, e.animatedScroll)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
+    document.documentElement.style.setProperty('--skate-scale', skateScale);
 });
 
 const colors = ["cyan", "magenta", "yellow"]
