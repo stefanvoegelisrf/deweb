@@ -326,7 +326,7 @@ class ProcessMenu extends HTMLElement {
         let listElementFireworks = document.createElement('li');
         let linkFireworks = document.createElement('a');
         linkFireworks.href = `${baseUrl}/fireworks/`;
-        linkFireworks.innerHTML = "Boom Boom Bonanza";
+        linkFireworks.innerHTML = "Boom Bonanza";
         listElementFireworks.appendChild(linkFireworks);
         linkList.appendChild(listElementFireworks);
 
