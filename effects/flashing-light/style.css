@@ -26,8 +26,8 @@ body {
 
 .flashing-light {
     background: radial-gradient(white 0%, rgba(0, 0, 0, 0) 50%);
-    animation-name: flashing-light;
-    animation-duration: 1s;
+    animation-name: flashing-light, flashing-light;
+    animation-duration: 1s, .1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     width: .1vmin;
@@ -55,6 +55,8 @@ body {
     color: white;
     text-align: center;
     opacity: 0;
+    margin: 0;
+    font-size: 3rem;
 }
 
 @keyframes opacity-alternate {
