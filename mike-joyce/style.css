@@ -216,7 +216,7 @@ body {
     color: yellow;
     mix-blend-mode: multiply;
     animation-name: change-font-weight, change-font-weight, change-font-weight, change-font-weight;
-    animation-duration: 5s, 1s, 10s, 3s;
+    animation-duration: 8s, 2s, 16s, 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     font-weight: 400;
@@ -252,7 +252,7 @@ p {
 .shift-left-right::before {
     color: cyan;
     animation-name: shift-left, shift-left, shift-left, shift-left;
-    animation-duration: 5s, 1s, 10s, 3s;
+    animation-duration: 8s, 2s, 16s, 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
@@ -260,7 +260,7 @@ p {
 .shift-left-right::after {
     color: magenta;
     animation-name: shift-right, shift-right, shift-right, shift-right;
-    animation-duration: 5s, 1s, 10s, 3s;
+    animation-duration: 8s, 2s, 16s, 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
