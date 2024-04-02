@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url(../fonts/Unbounded/Unbounded-VariableFont_wght.ttf) format("truetype");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    font-family: "Unbounded", sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw
+}
+
+#project-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100vmin;
+    height: 80vmin;
+    align-items: center;
+}
+
+.project {
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+}
+
+#name {
+    font-size: 3rem;
+}
+
+#cursor {
+    width: 7.5vmin;
+    height: 7.5vmin;
+    border-radius: 3.75vmin;
+    background-color: black;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.1s;
+    mix-blend-mode:color;
+}
+
+.circle {
+    position: absolute;
+    width: 7.5vmin;
+    height: 7.5vmin;
+    border-radius: 3.75vmin;
+    top: calc(50% - 3.75vmin);
+    left: calc(50% - 3.75vmin);
+    z-index: -1;
+    mix-blend-mode: multiply;
+}
+
+.circle-cyan {
+    background-color: cyan;
+    transform: translateY(-30%);
+}
+
+.circle-magenta {
+    background-color: magenta;
+    transform: translate(-30%, 30%);
+}
+
+.circle-yellow {
+    background-color: yellow;
+    transform: translate(30%, 30%);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    width: 12.5vmin;
+    height: 12.5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a:visited {
+    color: white;
+}
