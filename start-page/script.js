@@ -14,6 +14,8 @@ window.onload = function () {
         }
     });
 
+    setInterval(highlighProjects, 5000)
+
     document.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -24,4 +26,19 @@ window.onload = function () {
             }, 750);
         });
     });
+    highlighProjects();
+}
+
+function highlighProjects() {
+    const projects = document.querySelectorAll(".project");
+    for (let i = 0; i < projects.length; i++) {
+        setTimeout(() => {
+            if (projects[i].matches(":hover"))
+                return;
+            projects[i].classList.add("highlight-project");
+            setTimeout(() => {
+                projects[i].classList.remove("highlight-project");
+            }, 1000);
+        }, 100 * i);
+    }
 }

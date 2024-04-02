@@ -103,6 +103,27 @@ main {
     transform: translate(10%, 10%);
 }
 
+.highlight-project .circle-cyan {
+    animation-name: shift-circle-cyan;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.highlight-project .circle-magenta {
+    animation-name: shift-circle-magenta;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.highlight-project .circle-yellow {
+    animation-name: shift-circle-yellow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
 a {
     text-decoration: none;
     display: flex;
@@ -123,6 +144,42 @@ a:hover>.circle {
     transform: scale(1.5) rotate(360deg);
 }
 
+@keyframes shift-circle-cyan {
+
+    0%,
+    100% {
+        transform: translateY(-10%);
+    }
+
+    50% {
+        transform: scale(1.5) rotate(360deg);
+    }
+}
+
+@keyframes shift-circle-magenta {
+
+    0%,
+    100% {
+        transform: translate(-10%, 10%);
+    }
+
+    50% {
+        transform: scale(1.5) rotate(360deg);
+    }
+}
+
+@keyframes shift-circle-yellow {
+
+    0%,
+    100% {
+        transform: translate(10%, 10%);
+    }
+
+    50% {
+        transform: scale(1.5) rotate(360deg);
+    }
+}
+
 .link-activated>.circle {
     transform: scale(50) rotate(360deg) !important;
     background-color: white !important;
@@ -134,7 +191,7 @@ a:hover>.circle {
     z-index: 1;
 }
 
-.link-activated>.link>.link-text {
+.link-activated .link-text {
     opacity: 0;
     transition: opacity 0.3s;
 }
