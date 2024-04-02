@@ -249,7 +249,7 @@ class ProcessMenu extends HTMLElement {
         let listElementMikeJoyce = document.createElement('li');
         let linkMikeJoyce = document.createElement('a');
         linkMikeJoyce.href = `${baseUrl}/mike-joyce/`;
-        linkMikeJoyce.innerHTML = "Outlandos d'Amour";
+        linkMikeJoyce.innerHTML = "The Police";
         listElementMikeJoyce.appendChild(linkMikeJoyce);
         linkList.appendChild(listElementMikeJoyce);
 
