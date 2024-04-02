@@ -15,6 +15,7 @@ body {
     margin: 0;
     overflow: hidden;
     cursor: none;
+    background-color: #dae0d4;
 }
 
 main {
@@ -75,25 +76,26 @@ main {
     height: calc(var(--circle-radius) * 2);
     border-radius: var(--circle-radius);
     top: calc(50% - var(--circle-radius));
-    left: calc(50% - var);
+    left: calc(50% - var(--circle-radius));
     z-index: -1;
     mix-blend-mode: multiply;
     transition: all 1s;
+    isolation: isolate;
 }
 
 .circle-cyan {
     background-color: cyan;
-    transform: translateY(-25%);
+    transform: translateY(-10%);
 }
 
 .circle-magenta {
     background-color: magenta;
-    transform: translate(-25%, 25%);
+    transform: translate(-10%, 10%);
 }
 
 .circle-yellow {
     background-color: yellow;
-    transform: translate(25%, 25%);
+    transform: translate(10%, 10%);
 }
 
 a {
@@ -102,9 +104,9 @@ a {
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
 }
-a:hover{
+
+a:hover {
     cursor: none;
 }
 
@@ -119,6 +121,11 @@ a:hover>.circle {
 .link {
     mix-blend-mode: difference;
     color: cyan;
+    display: flex;
+    width: 7.5vmax;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .link-text {
