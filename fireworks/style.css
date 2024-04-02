@@ -1,3 +1,6 @@
+body{
+    background-color: black;
+}
 .firework {
     position: absolute;
     top: 50%;
@@ -7,18 +10,32 @@
     aspect-ratio: 1;
     background:
         /* random backgrounds */
-        radial-gradient(circle, #00f 0.2vmin, #0000 0) 50% 00%,
-        radial-gradient(circle, #00f 0.3vmin, #0000 0) 00% 50%,
-        radial-gradient(circle, #00f 0.5vmin, #0000 0) 50% 99%,
-        radial-gradient(circle, #00f 0.2vmin, #0000 0) 99% 50%,
-        radial-gradient(circle, #00f 0.3vmin, #0000 0) 80% 90%,
-        radial-gradient(circle, #00f 0.5vmin, #0000 0) 95% 90%,
-        radial-gradient(circle, #00f 0.5vmin, #0000 0) 10% 60%,
-        radial-gradient(circle, #00f 0.2vmin, #0000 0) 31% 80%,
-        radial-gradient(circle, #00f 0.3vmin, #0000 0) 80% 10%,
-        radial-gradient(circle, #00f 0.2vmin, #0000 0) 90% 23%,
-        radial-gradient(circle, #00f 0.3vmin, #0000 0) 45% 20%,
-        radial-gradient(circle, #00f 0.5vmin, #0000 0) 13% 24%;
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 50% 00%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 00% 50%,
+        radial-gradient(circle, magenta 0.5vmin, #0000 0) 50% 99%,
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 99% 50%,
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 55% 10%,
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 88% 10%,
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 10% 90%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 80% 90%,
+        radial-gradient(circle, magenta 0.5vmin, #0000 0) 95% 90%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 90% 85%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 100% 80%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 45% 90%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 25% 95%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 25% 30%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 83% 30%,
+        radial-gradient(circle, magenta 0.4vmin, #0000 0) 94% 66%,
+        radial-gradient(circle, magenta 0.5vmin, #0000 0) 10% 60%,
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 31% 80%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 80% 10%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 15% 75%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 10% 10%,
+        radial-gradient(circle, magenta 0.2vmin, #0000 0) 90% 23%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 45% 20%,
+        radial-gradient(circle, magenta 0.3vmin, #0000 0) 33% 17%,
+        radial-gradient(circle, magenta 0.5vmin, #0000 0) 66% 77%,
+        radial-gradient(circle, magenta 0.5vmin, #0000 0) 13% 24%;
     background-size: 0.5vmin 0.5vmin;
     background-repeat: no-repeat;
     animation: firework 1s infinite;
@@ -31,7 +48,7 @@
     }
 
     100% {
-        width: 45vmin;
+        width: 100vmin;
         opacity: 0;
     }
 }
