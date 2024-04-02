@@ -43,7 +43,7 @@ main {
 #project-grid {
     display: grid;
     width: 100%;
-    height: 90vmin;
+    height: 90vmax;
     align-items: center;
 }
 
@@ -60,12 +60,12 @@ main {
     width: 7.5vmin;
     height: 7.5vmin;
     border-radius: 3.75vmin;
-    background-color: black;
+    background-color: magenta;
     position: absolute;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.1s;
-    mix-blend-mode: multiply;
+    mix-blend-mode: color-dodge;
 }
 
 .circle {
@@ -98,7 +98,6 @@ main {
 
 a {
     text-decoration: none;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,7 +117,8 @@ a:hover>.circle {
 }
 
 .link {
-    mix-blend-mode: exclusion;
+    mix-blend-mode: difference;
+    color: cyan;
 }
 
 .link-text {
