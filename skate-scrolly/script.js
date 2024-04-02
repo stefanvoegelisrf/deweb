@@ -77,7 +77,7 @@ window.onload = function () {
     const stoneSections = document.querySelectorAll('.section-xl');
     for (let section of stoneSections) {
         const sectionBoundingRect = section.getBoundingClientRect();
-        const amountOfStones = Math.floor(Math.random() * 200);
+        const amountOfStones = Math.floor(Math.random() * 500);
         const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
         for (let stone of randomStones) {
             section.appendChild(stone);
