@@ -11,7 +11,9 @@ var boxes = [];
 var ground;
 
 function setup() {
-    createCanvas(window.innerWidth * 0.5, window.innerHeight * 0.5);
+    const canvasWidth = window.innerWidth > window.innerHeight ? window.innerWidth * 0.5 : window.innerWidth * 0.8;
+    const canvasHeight = window.innerWidth > window.innerHeight ? window.innerHeight * 0.5 : window.innerHeight * 0.6;
+    createCanvas(canvasWidth, canvasHeight);
     engine = Engine.create();
     world = engine.world;
     Runner.run(engine);
