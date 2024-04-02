@@ -3,16 +3,8 @@ body {
     font-family: sans-serif;
 }
 
-@media (orientation:portrait) {
-    html {
-        font-size: 2vw;
-    }
-}
-
-@media (orientation:landscape) {
-    html {
-        font-size: 2vh;
-    }
+html {
+    font-size: 2vmin;
 }
 
 .slot-container {
@@ -66,7 +58,7 @@ body {
     font-size: 1.4rem;
 }
 
-button{
+button {
     border-radius: 1rem;
     background-color: white;
     cursor: pointer;
