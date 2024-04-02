@@ -161,7 +161,7 @@ a:hover>.circle {
     position: absolute;
     transform: translate(-50%, -50%);
     opacity: 0;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: screen;
 }
 
 #cursor::after,
@@ -224,6 +224,7 @@ a:hover>.circle {
 }
 
 @keyframes left-to-right {
+
     0%,
     100% {
         transform: translateX(0);
