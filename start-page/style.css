@@ -44,7 +44,7 @@ main {
 #project-grid {
     display: grid;
     width: 100%;
-    height: 85vmax;
+    height: 100%;
     align-items: center;
 }
 
@@ -54,21 +54,21 @@ main {
 }
 
 #name {
-    margin-top: 1rem;
     font-size: 1rem;
     color: #632944;
     text-align: center;
     font-weight: 500;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .crow-icon {
     stroke: #632944;
     height: 1rem;
-    margin-left: 1rem;
 }
 
 #cursor {

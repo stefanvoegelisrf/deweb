@@ -40,8 +40,8 @@ class ProcessMenu extends HTMLElement {
             display: flex;
             flex-direction: column;
             position: fixed;
-            width: 13.5em;
-            height: 27em;
+            width: 16em;
+            height: 28em;
             top: .5em;
             left: .5em;
             padding: .5em;
@@ -242,119 +242,119 @@ class ProcessMenu extends HTMLElement {
         let listElementBrockmann = document.createElement('li');
         let linkBrockmann = document.createElement('a');
         linkBrockmann.href = `${baseUrl}/brockmann/musica-viva-1`;
-        linkBrockmann.innerHTML = "Brockmann";
+        linkBrockmann.innerHTML = "Musica Viva";
         listElementBrockmann.appendChild(linkBrockmann);
         linkList.appendChild(listElementBrockmann);
 
         let listElementMikeJoyce = document.createElement('li');
         let linkMikeJoyce = document.createElement('a');
         linkMikeJoyce.href = `${baseUrl}/mike-joyce/`;
-        linkMikeJoyce.innerHTML = "The Police";
+        linkMikeJoyce.innerHTML = "Outlandos d'Amour";
         listElementMikeJoyce.appendChild(linkMikeJoyce);
         linkList.appendChild(listElementMikeJoyce);
 
         let listElementPendulumSwing = document.createElement('li');
         let linkPendulumSwing = document.createElement('a');
         linkPendulumSwing.href = `${baseUrl}/pendulum-swing-with-motion/`;
-        linkPendulumSwing.innerHTML = "Pendulum";
+        linkPendulumSwing.innerHTML = "Pulse Pendulum";
         listElementPendulumSwing.appendChild(linkPendulumSwing);
         linkList.appendChild(listElementPendulumSwing);
 
         let listElementAlternatingCircles = document.createElement('li');
         let linkAlternatingCircles = document.createElement('a');
         linkAlternatingCircles.href = `${baseUrl}/alternating-circles/`;
-        linkAlternatingCircles.innerHTML = "Alternate Circles";
+        linkAlternatingCircles.innerHTML = "Sphere Shift";
         listElementAlternatingCircles.appendChild(linkAlternatingCircles);
         linkList.appendChild(listElementAlternatingCircles);
 
         let listElementMatterJsIntroduction = document.createElement('li');
         let linkMatterJsIntroduction = document.createElement('a');
         linkMatterJsIntroduction.href = `${baseUrl}/codingtrain-matterjs-introduction/`;
-        linkMatterJsIntroduction.innerHTML = "Matter.js";
+        linkMatterJsIntroduction.innerHTML = "Kinetic Canvas";
         listElementMatterJsIntroduction.appendChild(linkMatterJsIntroduction);
         linkList.appendChild(listElementMatterJsIntroduction);
 
         let listElementGradientWheel = document.createElement('li');
         let linkGradientWheel = document.createElement('a');
         linkGradientWheel.href = `${baseUrl}/gradient-wheel/`;
-        linkGradientWheel.innerHTML = "Gradient Wheel";
+        linkGradientWheel.innerHTML = "Spectrum Spin";
         listElementGradientWheel.appendChild(linkGradientWheel);
         linkList.appendChild(listElementGradientWheel);
 
         let listElementColorDance = document.createElement('li');
         let linkColorDance = document.createElement('a');
         linkColorDance.href = `${baseUrl}/color-dance/`;
-        linkColorDance.innerHTML = "Color Dance";
+        linkColorDance.innerHTML = "Tint Tango";
         listElementColorDance.appendChild(linkColorDance);
         linkList.appendChild(listElementColorDance);
 
         let listElementQuirkySkateboard = document.createElement('li');
         let linkQuirkySkateboard = document.createElement('a');
         linkQuirkySkateboard.href = `${baseUrl}/skate-scrolly/`;
-        linkQuirkySkateboard.innerHTML = "Quirky Skate";
+        linkQuirkySkateboard.innerHTML = "Wheel Wave";
         listElementQuirkySkateboard.appendChild(linkQuirkySkateboard);
         linkList.appendChild(listElementQuirkySkateboard);
 
         let listElementGradientColorChange = document.createElement('li');
         let linkGradientColorChange = document.createElement('a');
         linkGradientColorChange.href = `${baseUrl}/gradient-color-change/`;
-        linkGradientColorChange.innerHTML = "Gradient Change";
+        linkGradientColorChange.innerHTML = "Shimmering Shift";
         listElementGradientColorChange.appendChild(linkGradientColorChange);
         linkList.appendChild(listElementGradientColorChange);
 
         let listElementHeads = document.createElement('li');
         let linkHeads = document.createElement('a');
         linkHeads.href = `${baseUrl}/heads/`;
-        linkHeads.innerHTML = "Heads";
+        linkHeads.innerHTML = "Face Fête";
         listElementHeads.appendChild(linkHeads);
         linkList.appendChild(listElementHeads);
 
         let listElement3dSpinner = document.createElement('li');
         let link3dSpinner = document.createElement('a');
         link3dSpinner.href = `${baseUrl}/heads/3d-spinner/`;
-        link3dSpinner.innerHTML = "3D Spinner";
+        link3dSpinner.innerHTML = "Cubic Carousel";
         listElement3dSpinner.appendChild(link3dSpinner);
         linkList.appendChild(listElement3dSpinner);
 
         let listElementSlotMachine = document.createElement('li');
         let linkSlotMachine = document.createElement('a');
         linkSlotMachine.href = `${baseUrl}/heads/slot-machine/`;
-        linkSlotMachine.innerHTML = "Slot Machine";
+        linkSlotMachine.innerHTML = "Brainhead";
         listElementSlotMachine.appendChild(linkSlotMachine);
         linkList.appendChild(listElementSlotMachine);
 
         let listElementFireworks = document.createElement('li');
         let linkFireworks = document.createElement('a');
         linkFireworks.href = `${baseUrl}/fireworks/`;
-        linkFireworks.innerHTML = "Fireworks";
+        linkFireworks.innerHTML = "Boom Boom Bonanza";
         listElementFireworks.appendChild(linkFireworks);
         linkList.appendChild(listElementFireworks);
 
         let listElementProcessMenu = document.createElement('li');
         let linkProcessMenu = document.createElement('a');
         linkProcessMenu.href = `${baseUrl}/process-menu/`;
-        linkProcessMenu.innerHTML = "Process Menu";
+        linkProcessMenu.innerHTML = "Progress Portal";
         listElementProcessMenu.appendChild(linkProcessMenu);
         linkList.appendChild(listElementProcessMenu);
 
-        let listElementFlashingLight= document.createElement('li');
+        let listElementFlashingLight = document.createElement('li');
         let linkFlashingLight = document.createElement('a');
         linkFlashingLight.href = `${baseUrl}/effects/flashing-light/`;
-        linkFlashingLight.innerHTML = "Flashing Light";
+        linkFlashingLight.innerHTML = "Flashified";
         listElementFlashingLight.appendChild(linkFlashingLight);
         linkList.appendChild(listElementFlashingLight);
 
         let listElementLightArray = document.createElement('li');
         let linkLightArray = document.createElement('a');
         linkLightArray.href = `${baseUrl}/effects/light-array/`;
-        linkLightArray.innerHTML = "Light Array";
+        linkLightArray.innerHTML = "Radiant Rave";
         listElementLightArray.appendChild(linkLightArray);
         linkList.appendChild(listElementLightArray);
 
         let listElementSweatyPassion = document.createElement('li');
         let linkSweatyPassion = document.createElement('a');
         linkSweatyPassion.href = `${baseUrl}/sweaty-passion/`;
-        linkSweatyPassion.innerHTML = "Sweaty Passion";
+        linkSweatyPassion.innerHTML = "Eclipse Euphoria";
         listElementSweatyPassion.appendChild(linkSweatyPassion);
         linkList.appendChild(listElementSweatyPassion);
 
