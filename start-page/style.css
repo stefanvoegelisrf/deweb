@@ -11,6 +11,10 @@
     font-family: "Unbounded", sans-serif;
 }
 
+:root {
+    --cursor-width: 7.5vmin;
+}
+
 body {
     margin: 0;
     overflow: hidden;
@@ -62,8 +66,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
 }
 
 .crow-icon {
@@ -71,17 +73,7 @@ main {
     height: 1rem;
 }
 
-#cursor {
-    width: 7.5vmin;
-    height: 7.5vmin;
-    border-radius: 3.75vmin;
-    background-color: magenta;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.1s;
-    mix-blend-mode: color-dodge;
-}
+
 
 .circle {
     --circle-radius: 7.5vmin;
@@ -159,4 +151,85 @@ a:hover>.circle {
 
 .link-text {
     font-size: 1rem;
+}
+
+#cursor {
+    width: var(--cursor-width);
+    height: var(--cursor-width);
+    border-radius: calc(var(--cursor-width) / 2);
+    background-color: magenta;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    mix-blend-mode: color-dodge;
+}
+
+#cursor::after,
+#cursor::before {
+    content: "";
+    transition: opacity 0.5s, right 1s, left 1s;
+    position: absolute;
+    border-radius: inherit;
+    mix-blend-mode: darken;
+    opacity: 0;
+    width: inherit !important;
+    height: inherit !important;
+}
+
+#cursor::before {
+    left: 0;
+    background-color: cyan;
+}
+
+#cursor::after {
+    right: 0;
+    background-color: yellow;
+}
+
+.cursor-inside-name::after,
+.cursor-inside-name::before {
+    opacity: 1 !important;
+}
+
+.cursor-inside-name::before {
+    left: calc(100% / 6) !important;
+    background-color: cyan;
+    animation-name: right-to-left;
+    animation-delay: .5s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.cursor-inside-name::after {
+    right: calc(100% / 6) !important;
+    background-color: yellow;
+    animation-name: left-to-right;
+    animation-delay: .5s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes right-to-left {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes left-to-right {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(50%);
+    }
 }
