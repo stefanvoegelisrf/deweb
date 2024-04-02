@@ -41,7 +41,6 @@ body {
     transform-origin: 0 0;
     background-size: 100% 100%;
     background-position: 0px 0px;
-    /* background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 0, 0) 0%, rgb(255, 165, 0) 6%, rgb(255, 255, 0) 19%, rgb(0, 0, 255) 38%, rgb(0, 255, 0) 50%, rgb(128, 0, 255) 65%, rgb(75, 0, 130) 77%, rgb(255, 0, 0) 99%); */
     transition-property: transform;
     overflow: hidden;
 }
@@ -146,7 +145,7 @@ body {
 #radial-slider #radial-slider-handle:before {
     content: "";
     position: absolute;
-    background-color: silver;
+    background: radial-gradient(white 0%, white 50%, darkgray 100%);
     width: 200%;
     transform: translate3d(-50%, -50%, 0);
     height: 0;
