@@ -41,7 +41,7 @@ class ProcessMenu extends HTMLElement {
             flex-direction: column;
             position: fixed;
             width: 16em;
-            height: 23em;
+            height: 27em;
             top: .5em;
             left: .5em;
             padding: .5em;
@@ -250,7 +250,7 @@ class ProcessMenu extends HTMLElement {
         let listElementMikeJoyce = document.createElement('li');
         let linkMikeJoyce = document.createElement('a');
         linkMikeJoyce.href = `${baseUrl}/mike-joyce/`;
-        linkMikeJoyce.innerHTML = "Mike Joyce";
+        linkMikeJoyce.innerHTML = "The Police";
         listElementMikeJoyce.appendChild(linkMikeJoyce);
         linkList.appendChild(listElementMikeJoyce);
 
@@ -264,7 +264,7 @@ class ProcessMenu extends HTMLElement {
         let listElementAlternatingCircles = document.createElement('li');
         let linkAlternatingCircles = document.createElement('a');
         linkAlternatingCircles.href = `${baseUrl}/alternating-circles/`;
-        linkAlternatingCircles.innerHTML = "Alternating Circles";
+        linkAlternatingCircles.innerHTML = "Alternate Circles";
         listElementAlternatingCircles.appendChild(linkAlternatingCircles);
         linkList.appendChild(listElementAlternatingCircles);
 
@@ -292,14 +292,14 @@ class ProcessMenu extends HTMLElement {
         let listElementQuirkySkateboard = document.createElement('li');
         let linkQuirkySkateboard = document.createElement('a');
         linkQuirkySkateboard.href = `${baseUrl}/skate-scrolly/`;
-        linkQuirkySkateboard.innerHTML = "Skate";
+        linkQuirkySkateboard.innerHTML = "Quirky Skate";
         listElementQuirkySkateboard.appendChild(linkQuirkySkateboard);
         linkList.appendChild(listElementQuirkySkateboard);
 
         let listElementGradientColorChange = document.createElement('li');
         let linkGradientColorChange = document.createElement('a');
         linkGradientColorChange.href = `${baseUrl}/gradient-color-change/`;
-        linkGradientColorChange.innerHTML = "Gradient Color";
+        linkGradientColorChange.innerHTML = "Gradient Change";
         listElementGradientColorChange.appendChild(linkGradientColorChange);
         linkList.appendChild(listElementGradientColorChange);
 
@@ -324,12 +324,26 @@ class ProcessMenu extends HTMLElement {
         listElementSlotMachine.appendChild(linkSlotMachine);
         linkList.appendChild(listElementSlotMachine);
 
+        let listElementFireworks = document.createElement('li');
+        let linkFireworks = document.createElement('a');
+        linkFireworks.href = `${baseUrl}/fireworks/`;
+        linkFireworks.innerHTML = "Fireworks";
+        listElementFireworks.appendChild(linkFireworks);
+        linkList.appendChild(listElementFireworks);
+
         let listElementProcessMenu = document.createElement('li');
         let linkProcessMenu = document.createElement('a');
         linkProcessMenu.href = `${baseUrl}/process-menu/`;
         linkProcessMenu.innerHTML = "Process Menu";
         listElementProcessMenu.appendChild(linkProcessMenu);
         linkList.appendChild(listElementProcessMenu);
+
+        let listElementFlashingLight= document.createElement('li');
+        let linkFlashingLight = document.createElement('a');
+        linkFlashingLight.href = `${baseUrl}/effects/flashing-light/`;
+        linkFlashingLight.innerHTML = "Flashing Light";
+        listElementFlashingLight.appendChild(linkFlashingLight);
+        linkList.appendChild(listElementFlashingLight);
 
         let listElementLightArray = document.createElement('li');
         let linkLightArray = document.createElement('a');
