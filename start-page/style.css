@@ -14,6 +14,7 @@
 body {
     margin: 0;
     overflow: hidden;
+    cursor: none;
 }
 
 main {
@@ -22,21 +23,32 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw
+    width: 100%;
+}
+
+@media (orientation: landscape) {
+    #project-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+@media (orientation:portrait) {
+    #project-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
 }
 
 #project-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    width: 100vmin;
-    height: 80vmin;
+    width: 100%;
+    height: 90vmin;
     align-items: center;
 }
 
 .project {
     text-align: center;
-    font-size: 2rem;
     position: relative;
 }
 
@@ -53,45 +65,62 @@ main {
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.1s;
-    mix-blend-mode:color;
+    mix-blend-mode: multiply;
 }
 
 .circle {
+    --circle-radius: 7.5vmin;
     position: absolute;
-    width: 7.5vmin;
-    height: 7.5vmin;
-    border-radius: 3.75vmin;
-    top: calc(50% - 3.75vmin);
-    left: calc(50% - 3.75vmin);
+    width: calc(var(--circle-radius) * 2);
+    height: calc(var(--circle-radius) * 2);
+    border-radius: var(--circle-radius);
+    top: calc(50% - var(--circle-radius));
+    left: calc(50% - var);
     z-index: -1;
     mix-blend-mode: multiply;
+    transition: all 1s;
 }
 
 .circle-cyan {
     background-color: cyan;
-    transform: translateY(-30%);
+    transform: translateY(-25%);
 }
 
 .circle-magenta {
     background-color: magenta;
-    transform: translate(-30%, 30%);
+    transform: translate(-25%, 25%);
 }
 
 .circle-yellow {
     background-color: yellow;
-    transform: translate(30%, 30%);
+    transform: translate(25%, 25%);
 }
 
 a {
     text-decoration: none;
     color: white;
-    width: 12.5vmin;
-    height: 12.5vmin;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
+}
+a:hover{
+    cursor: none;
 }
 
 a:visited {
     color: white;
+}
+
+a:hover>.circle {
+    transform: scale(1.5) rotate(360deg);
+}
+
+.link {
+    mix-blend-mode: exclusion;
+}
+
+.link-text {
+    font-size: 1rem;
 }
