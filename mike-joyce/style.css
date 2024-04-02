@@ -215,24 +215,25 @@ body {
     transform: translate(-50%, -50%);
     color: yellow;
     mix-blend-mode: multiply;
-    animation-name: change-font-weight;
-    animation-duration: 5s;
+    animation-name: change-font-weight, change-font-weight, change-font-weight, change-font-weight;
+    animation-duration: 5s, 1s, 10s, 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+    font-weight: 400;
 }
 
-p{
+p {
     position: relative;
 }
 
 @keyframes change-font-weight {
 
-    0%,
-    100% {
-        font-weight: 300;
+    42%,
+    44% {
+        font-weight: 400;
     }
 
-    50% {
+    43% {
         font-weight: 600;
     }
 }
@@ -250,50 +251,50 @@ p{
 
 .shift-left-right::before {
     color: cyan;
-    animation-name: shift-left;
-    animation-duration: 5s;
+    animation-name: shift-left, shift-left, shift-left, shift-left;
+    animation-duration: 5s, 1s, 10s, 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
 
 .shift-left-right::after {
     color: magenta;
-    animation-name: shift-right;
-    animation-duration: 5s;
+    animation-name: shift-right, shift-right, shift-right, shift-right;
+    animation-duration: 5s, 1s, 10s, 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
 
 @keyframes shift-left {
 
-    20%,
-    100% {
+    41%,
+    44% {
         transform: translateX(0);
     }
 
-    25%,55% {
-        transform: translateX(-5%);
+    42% {
+        transform: translateX(-10%);
     }
 
-    50%,75%{
-        transform: translateX(5%);
-    
+    43% {
+        transform: translateX(10%);
+
     }
 
 }
 
 @keyframes shift-right {
 
-    20%,
-    100% {
+    41%,
+    44% {
         transform: translateX(0);
     }
 
-    25%,55% {
-        transform: translateX(5%);
+    42% {
+        transform: translateX(10%);
     }
 
-    50%,75% {
-        transform: translateX(-5%);
+    43% {
+        transform: translateX(-10%);
     }
 }
