@@ -63,23 +63,27 @@ body {
     top: 33%;
     left: 33%;
     transform: translate(-50%, -50%);
+    animation-delay: .2s;
 }
 
 .firework-3 {
     top: 45%;
     left: 85%;
     transform: translate(-50%, -50%);
+    animation-delay: .15s;
 }
 
 .firework-4 {
     top: 66%;
     left: 15%;
     transform: translate(-50%, -50%);
+    animation-delay: .05s;
 }
 .firework-5 {
     top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation-delay: .25s;
 }
 
 @keyframes firework {
