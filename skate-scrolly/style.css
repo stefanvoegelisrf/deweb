@@ -22,13 +22,17 @@ html {
     --quirky-skate-width: calc(16rem * 2);
     --quirky-skate-height: calc(22rem * 2);
     --quirky-wheel-size: calc(var(--quirky-skate-width) * 0.25);
-    --scroll-pixels: 0;
-    --scroll-percent: 0;
-    --skate-rotation: 0;
-    --skate-transform-x: 0;
+    --skate-rotation: 0deg;
+    --skate-transform-x: 0%;
     --skate-left: 50%;
     --background-color: rgb(255, 0, 255);
     --skate-scale: 1;
+    --eyes-scale: 1;
+    --eyes-rotation: -60;
+    --eyes-skew-x: 0deg;
+    --eyes-skey-y: 0deg;
+    --mouth-translate-x: -300%;
+    --mouth-scale: 0.5;
 }
 
 body {
@@ -631,6 +635,10 @@ section {
     }
 }
 
+#looks {
+    height: 50vmin;
+}
+
 /* Looks */
 #container-looks {
     position: absolute;
@@ -652,13 +660,9 @@ section {
     border-radius: 5rem;
     position: absolute;
     left: 50%;
-    transform: translateX(-300%) scale(0.5);
+    transform: translateX(var(--mouth-translate-x)) scale(var(--mouth-scale));
     background-color: cyan;
-    transition: all .5s;
-    animation-name: scale-mouth;
-    animation-duration: 1s;
-    animation-timeline: scroll();
-    animation-range: contain 30%;
+    transition: all .1s;
 }
 
 #looks-mouth-tongue {
@@ -694,10 +698,9 @@ section {
     position: absolute;
     top: 30%;
     border-radius: 1.25rem;
-    animation-duration: 1s;
-    animation-timeline: scroll();
-    animation-range: contain 30%;
     transform-origin: top center;
+    transform: scale(var(--eyes-scale), var(--eyes-scale)) rotate(var(--eyes-rotation)) skew(var(--eyes-skew-x), var(--eyes-skey-y));
+    transition: transform 0.1s;
 }
 
 .looks-eye::before {
@@ -715,28 +718,10 @@ section {
 
 #looks-eye-left {
     left: 0%;
-    animation-name: increase-eyes;
 }
 
 #looks-eye-right {
     left: 50%;
-    animation-name: increase-eyes;
-}
-
-@keyframes increase-eyes {
-    0% {
-        transform: scale(1, 1) rotate(-60deg) skew(0deg, 0deg);
-    }
-
-    100% {
-        transform: scale(2, 2) rotate(-20deg) skew(10deg, 45deg);
-    }
-}
-
-@keyframes scale-mouth {
-    100% {
-        transform: translateX(-200%) scale(3);
-    }
 }
 
 /* Wet */

@@ -4,37 +4,61 @@ const lenis = new Lenis({
 });
 
 lenis.on('scroll', (e) => {
-    // console.log(e)
-    // console.log(e.animatedScroll);
-
-    document.documentElement.style.setProperty('--scroll-pixels', e.animatedScroll);
-
     const height = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = (e.animatedScroll / height) * 100;
-    // Set the percentage of scroll as a css variable to the html element
-    document.documentElement.style.setProperty('--scroll-percent', scrolled);
+    console.log(scrolled)
+    setSkateRotation(e.animatedScroll, e.direction);
+    setBackgroundColor(scrolled);
+    setSkateTransformX(scrolled, e.direction);
+    setSkateScale(e.animatedScroll);
+    setFaceLook(scrolled);
+});
+
+function setFaceLook(scrollPercent) {
+    const startTransition = 45;
+    const endTransition = 49;
+    const scrollRange = Math.min(Math.max(startTransition, scrollPercent), endTransition);
+    const scale = map(scrollRange, startTransition, endTransition, 1, 2);
+    const rotation = map(scrollRange, startTransition, endTransition, -60, -20);
+    const skewX = map(scrollRange, startTransition, endTransition, 0, 30);
+    const skewY = map(scrollRange, startTransition, endTransition, 0, 100);
+    const mouthTranslateX = map(scrollRange, startTransition, endTransition, -300, -200);
+    const mouthScale = map(scrollRange, startTransition, endTransition, 0.5, 3);
+    document.documentElement.style.setProperty("--eyes-scale", scale);
+    document.documentElement.style.setProperty("--eyes-rotation", `${rotation}deg`);
+    document.documentElement.style.setProperty("--eyes-skew-x", `${skewX}deg`);
+    document.documentElement.style.setProperty("--eyes-skew-y", `${skewY}deg`);
+    document.documentElement.style.setProperty("--mouth-translate-x", `${mouthTranslateX}%`);
+    document.documentElement.style.setProperty("--mouth-scale", `${mouthScale}`);
+}
+
+function setSkateRotation(scrollPixels, direction) {
     let rotation = 0;
-    if (e.direction === 1) {
-        rotation = map(Math.min(window.innerHeight * 0.5, e.animatedScroll), 0, window.innerHeight * 0.5, 0, 180);
+    if (direction === 1) {
+        rotation = map(Math.min(window.innerHeight * 0.5, scrollPixels), 0, window.innerHeight * 0.5, 0, 180);
     }
     document.documentElement.style.setProperty("--skate-rotation", `-${rotation}deg`);
+}
 
-    // Map scrolled from 0 to 100 to 255 and 0
-    const color1 = map(scrolled, 0, 100, 255, 100);
-    const color2 = map(scrolled, 0, 100, 0, 200);
-    const color3 = map(scrolled, 0, 100, 255, 200);
+function setBackgroundColor(scrollPercent) {
+    const color1 = map(scrollPercent, 0, 100, 255, 100);
+    const color2 = map(scrollPercent, 0, 100, 0, 200);
+    const color3 = map(scrollPercent, 0, 100, 255, 200);
     document.documentElement.style.setProperty('--background-color', `rgb(${color1}, ${color2}, ${color3})`);
+}
 
-    // Set transform to 50% if scrolled is between 50 and 60
-    // Map scrolled from 0 to -70
-    let transformX = map(Math.min(50, Math.max(40, scrolled)), 40, 50, 0, -70);
-    if (e.direction === -1) {
+function setSkateTransformX(scrollPercent, direction) {
+    let transformX = map(Math.min(50, Math.max(40, scrollPercent)), 40, 50, 0, -70);
+    if (direction === -1) {
         transformX *= -1;
     }
     document.documentElement.style.setProperty('--skate-transform-x', `${transformX}%`);
-    const skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, e.animatedScroll)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
+}
+
+function setSkateScale(scrollPixels) {
+    const skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, scrollPixels)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
     document.documentElement.style.setProperty('--skate-scale', skateScale);
-});
+}
 
 const colors = ["cyan", "magenta", "yellow"]
 
