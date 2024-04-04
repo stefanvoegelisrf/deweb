@@ -7,14 +7,27 @@ html {
     font-size: 2vmin;
 }
 
+body {
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+}
+
 .slot-container {
-    left: 50%;
-    position: fixed;
-    top: 50%;
-    transform: translate(-50%, -50%);
     width: 30rem;
     height: 30rem;
     perspective: 30rem;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .wheel {
@@ -43,24 +56,15 @@ html {
     transform: translate(-50%, -50%);
 }
 
-#control {
-    bottom: 0;
-    left: 50%;
-    padding: 1rem;
-    position: fixed;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-}
-
-#control button {
-    font-size: 1.4rem;
-}
-
 button {
-    border-radius: 1rem;
+    border-radius: 50%;
     background-color: white;
     cursor: pointer;
-    padding-bottom: .2rem;
+    border: .5rem black solid;
+    min-width: 4rem;
+    min-height: 4rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

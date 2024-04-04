@@ -26,21 +26,19 @@ function rotate() {
 }
 
 function setup() {
-    let container = document.createElement("div");
-    container.classList.add("slot-container");
+    let container = document.querySelector(".slot-container");
     let wheel = document.createElement("div");
     wheel.classList.add("wheel");
     container.appendChild(wheel);
     for (let head in heads) {
-        let card = document.getElementById("template").cloneNode(true);
+        let card = document.createElement("div");
+        card.classList.add("card");
         const img = document.createElement("img");
         img.src = `../images/${heads[head]}`;
         img.id = head;
         card.appendChild(img);
         wheel.appendChild(card);
     }
-
-    document.body.appendChild(container);
 
     document.getElementById("prev").addEventListener("click", function () {
         current--;
