@@ -214,7 +214,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: yellow;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: hard-light;
     animation-name: change-font-weight, change-font-weight, change-font-weight, change-font-weight;
     animation-duration: 8s, 2s, 16s, 4s;
     animation-iteration-count: infinite;

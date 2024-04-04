@@ -60,10 +60,11 @@ button {
     border-radius: 50%;
     background-color: white;
     cursor: pointer;
-    border: .5rem black solid;
+    border: .3rem black solid;
     min-width: 4rem;
     min-height: 4rem;
     font-size: 2rem;
+    padding-bottom: .3rem;
     display: flex;
     justify-content: center;
     align-items: center;
