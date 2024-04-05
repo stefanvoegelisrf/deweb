@@ -215,10 +215,11 @@ body {
     transform: translate(-50%, -50%);
     color: yellow;
     mix-blend-mode: hard-light;
-    animation-name: change-font-weight, change-font-weight, change-font-weight, change-font-weight;
-    animation-duration: 7.68s, 1.92s, 15.36s, 3.84s;
+    animation-name: change-font-weight, change-font-weight, change-font-weight;
+    animation-duration: 7.68s, 1.92s, 3.84s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+    animation-play-state: paused;
     font-weight: 400;
 }
 
@@ -238,6 +239,10 @@ p {
     }
 }
 
+.shift-left-right{
+    animation-play-state: inherit;
+}
+
 .shift-left-right::before,
 .shift-left-right::after {
     content: attr(data-text);
@@ -247,20 +252,21 @@ p {
     top: 0;
     left: 0;
     mix-blend-mode: multiply;
+    animation-play-state: inherit;
 }
 
 .shift-left-right::before {
     color: cyan;
-    animation-name: shift-left, shift-left, shift-left, shift-left;
-    animation-duration: 8s, 2s, 16s, 4s;
+    animation-name: shift-left;
+    animation-duration:  1.92s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
 
 .shift-left-right::after {
     color: magenta;
-    animation-name: shift-right, shift-right, shift-right, shift-right;
-    animation-duration: 8s, 2s, 16s, 4s;
+    animation-name: shift-right;
+    animation-duration: 1.92s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }

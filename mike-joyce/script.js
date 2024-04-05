@@ -19,9 +19,11 @@ function togglePlayPause(play) {
     if (play) {
         document.getElementById("play").style.display = "none";
         document.getElementById("pause").style.display = "block";
+        document.getElementById("details").style.animationPlayState = "running";
     } else {
         document.getElementById("play").style.display = "block";
         document.getElementById("pause").style.display = "none";
+        document.getElementById("details").style.animationPlayState = "paused";
     }
 }
 
