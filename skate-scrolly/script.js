@@ -8,8 +8,8 @@ lenis.on('scroll', (e) => {
     const scrolled = (e.animatedScroll / height) * 100;
     setSkateRotation(e.animatedScroll, e.direction);
     setBackgroundColor(scrolled);
-    setSkateTransformX(scrolled, e.animatedScroll, e.direction);
-    setSkateScale(e.animatedScroll);
+    setSkateTransform(scrolled, e.animatedScroll, e.direction);
+    setSkateScale(e.animatedScroll, scrolled);
     setFaceLook(scrolled);
 });
 
@@ -46,8 +46,10 @@ function setBackgroundColor(scrollPercent) {
     document.documentElement.style.setProperty('--background-color', `rgb(${color1}, ${color2}, ${color3})`);
 }
 
-function setSkateTransformX(scrollPercentage, scrollPixels, direction) {
+function setSkateTransform(scrollPercentage, scrollPixels, direction) {
     let transformX = 0;
+    let transformY = 0;
+    let skateOpacity = 1;
 
     if (scrollPercentage <= 5) {
         // Stay in the middle until 5% is reached
@@ -58,22 +60,29 @@ function setSkateTransformX(scrollPercentage, scrollPixels, direction) {
     } else if (scrollPercentage > 90) {
         // Go back to the middle at 90%
         transformX = 0;
+        skateOpacity = map(scrollPercentage, 99, 99.5, 1, 0);
+        if (scrollPercentage > 97) {
+            transformY = map(scrollPercentage, 95, 100, 0, 150);
+        }
     }
     console.log(scrollPercentage, transformX);
-    // if (scrollPercentage >= eyesTransitionStart && scrollPercentage <= eyesTransitionEnd) {
-    //     transformX = map(Math.min(eyesTransitionEnd, Math.max(eyesTransitionStart, scrollPercentage)), eyesTransitionStart, eyesTransitionEnd, 0, -70);
-    // }
-    // else {
-    //     transformX = 50 * Math.sin((scrollPixels / window.innerHeight) * Math.PI);
-    // }
     if (direction === -1) {
         transformX *= -1;
     }
+    else {
+        transformY *= -1;
+    }
     document.documentElement.style.setProperty('--skate-transform-x', `${transformX}%`);
+    document.documentElement.style.setProperty('--skate-transform-y', `${transformY}%`);
+    document.documentElement.style.setProperty('--skate-opacity', skateOpacity);
+
 }
 
-function setSkateScale(scrollPixels) {
-    const skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, scrollPixels)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
+function setSkateScale(scrollPixels, scrollPercentage) {
+    let skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, scrollPixels)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
+    if (scrollPercentage > 97) {
+        skateScale = map(scrollPercentage, 97, 100, 0.5, 0.2);
+    }
     document.documentElement.style.setProperty('--skate-scale', skateScale);
 }
 

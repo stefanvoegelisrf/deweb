@@ -24,6 +24,8 @@ html {
     --quirky-wheel-size: calc(var(--quirky-skate-width) * 0.25);
     --skate-rotation: 0deg;
     --skate-transform-x: 0%;
+    --skate-transform-y: 0%;
+    --skate-opacity: 1;
     --skate-left: 50%;
     --background-color: rgb(255, 0, 255);
     --skate-scale: 1;
@@ -146,13 +148,14 @@ section {
 
 #container-quirky {
     position: fixed;
-    transform: rotate(var(--skate-rotation)) scale(var(--skate-scale)) translateX(var(--skate-transform-x));
+    transform: rotate(var(--skate-rotation)) scale(var(--skate-scale)) translate(var(--skate-transform-x), var(--skate-transform-y));
     left: calc(50% - var(--quirky-skate-width) / 2);
     top: calc(50% - var(--quirky-skate-height) / 2);
     width: var(--quirky-skate-width);
     height: var(--quirky-skate-height);
     margin: 0 auto;
     z-index: 10;
+    opacity: var(--skate-opacity);
 }
 
 .quirky-wheel {
