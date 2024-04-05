@@ -54,7 +54,7 @@ function setSkateTransformX(scrollPercentage, scrollPixels, direction) {
         transformX = 0;
     } else if (scrollPercentage > 5 && scrollPercentage <= 90) {
         // Go left and right afterwards until 40%
-        transformX = 50 * Math.sin((scrollPercentage - 5) / 85 * 2 * Math.PI);
+        transformX = 75 * Math.sin((scrollPercentage - 5) / 85 * 6 * Math.PI);
     } else if (scrollPercentage > 90) {
         // Go back to the middle at 90%
         transformX = 0;
