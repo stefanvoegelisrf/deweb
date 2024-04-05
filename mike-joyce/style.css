@@ -51,7 +51,7 @@ body {
 .bg-cyan {
     background-color: cyan;
     transform: translateY(-33%);
-    animation: bg-cyan-up-down 1s infinite;
+    animation: bg-cyan-up-down 0.96s infinite;
     animation-delay: inherit;
 }
 
@@ -72,7 +72,7 @@ body {
 .bg-magenta {
     background-color: magenta;
     transform: translateX(-33%) translateY(33%);
-    animation: bg-magenta-left-right 1s infinite;
+    animation: bg-magenta-left-right 0.96s infinite;
     animation-delay: inherit;
 }
 
@@ -93,7 +93,7 @@ body {
 .bg-yellow {
     background-color: yellow;
     transform: translateX(33%) translateY(33%);
-    animation: bg-yellow-left-right 1s infinite;
+    animation: bg-yellow-left-right 0.96s infinite;
     animation-delay: inherit;
 }
 
@@ -216,7 +216,7 @@ body {
     color: yellow;
     mix-blend-mode: hard-light;
     animation-name: change-font-weight, change-font-weight, change-font-weight, change-font-weight;
-    animation-duration: 8s, 2s, 16s, 4s;
+    animation-duration: 7.68s, 1.92s, 15.36s, 3.84s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     font-weight: 400;
