@@ -6,10 +6,9 @@ const lenis = new Lenis({
 lenis.on('scroll', (e) => {
     const height = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = (e.animatedScroll / height) * 100;
-    console.log(scrolled)
     setSkateRotation(e.animatedScroll, e.direction);
     setBackgroundColor(scrolled);
-    setSkateTransformX(scrolled, e.direction);
+    setSkateTransformX(scrolled, e.animatedScroll, e.direction);
     setSkateScale(e.animatedScroll);
     setFaceLook(scrolled);
 });
@@ -47,8 +46,26 @@ function setBackgroundColor(scrollPercent) {
     document.documentElement.style.setProperty('--background-color', `rgb(${color1}, ${color2}, ${color3})`);
 }
 
-function setSkateTransformX(scrollPercent, direction) {
-    let transformX = map(Math.min(50, Math.max(40, scrollPercent)), 40, 50, 0, -70);
+function setSkateTransformX(scrollPercentage, scrollPixels, direction) {
+    let transformX = 0;
+
+    if (scrollPercentage <= 5) {
+        // Stay in the middle until 5% is reached
+        transformX = 0;
+    } else if (scrollPercentage > 5 && scrollPercentage <= 90) {
+        // Go left and right afterwards until 40%
+        transformX = 50 * Math.sin((scrollPercentage - 5) / 85 * 2 * Math.PI);
+    } else if (scrollPercentage > 90) {
+        // Go back to the middle at 90%
+        transformX = 0;
+    }
+    console.log(scrollPercentage, transformX);
+    // if (scrollPercentage >= eyesTransitionStart && scrollPercentage <= eyesTransitionEnd) {
+    //     transformX = map(Math.min(eyesTransitionEnd, Math.max(eyesTransitionStart, scrollPercentage)), eyesTransitionStart, eyesTransitionEnd, 0, -70);
+    // }
+    // else {
+    //     transformX = 50 * Math.sin((scrollPixels / window.innerHeight) * Math.PI);
+    // }
     if (direction === -1) {
         transformX *= -1;
     }
@@ -100,22 +117,22 @@ function showAttributions() {
 window.onload = function () {
     document.getElementById('attributions-title').addEventListener('click', showAttributions);
     const stoneSections = document.querySelectorAll('.section-xl');
-    for (let section of stoneSections) {
-        const sectionBoundingRect = section.getBoundingClientRect();
-        const amountOfStones = Math.floor(Math.random() * 500);
-        const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
-        for (let stone of randomStones) {
-            section.appendChild(stone);
-        }
-    }
+    // for (let section of stoneSections) {
+    //     const sectionBoundingRect = section.getBoundingClientRect();
+    //     const amountOfStones = Math.floor(Math.random() * 500);
+    //     const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
+    //     for (let stone of randomStones) {
+    //         section.appendChild(stone);
+    //     }
+    // }
 
     const contentSections = document.querySelectorAll('.content-section');
-    for (let section of contentSections) {
-        const sectionBoundingRect = section.getBoundingClientRect();
-        const amountOfStones = Math.floor(Math.random() * 50);
-        const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
-        for (let stone of randomStones) {
-            section.appendChild(stone);
-        }
-    }
+    // for (let section of contentSections) {
+    //     const sectionBoundingRect = section.getBoundingClientRect();
+    //     const amountOfStones = Math.floor(Math.random() * 50);
+    //     const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
+    //     for (let stone of randomStones) {
+    //         section.appendChild(stone);
+    //     }
+    // }
 }

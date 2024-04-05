@@ -629,3 +629,7 @@ TODO: https://codesweetly.com/javascript-function-object
 TODO: use vmin instead of media queries for sizing
 
 TODO: css isolation
+
+https://developer.chrome.com/blog/autoplay/
+
+https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide
