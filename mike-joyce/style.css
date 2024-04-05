@@ -206,7 +206,7 @@ body {
     font-size: 10rem;
 }
 
-.details {
+#details {
     width: max-content;
     font-size: small;
     position: absolute;
@@ -297,4 +297,39 @@ p {
     43% {
         transform: translateX(-10%);
     }
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    mix-blend-mode: hard-light;
+}
+
+.control-button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    background-color: magenta;
+    padding: 1rem;
+    margin: .5rem;
+    border: none;
+    transition: transform .2s;
+    cursor: pointer;
+}
+
+.control-button:hover {
+    transform: scale(1.1);
+}
+
+.play-image {
+    transform: translateX(10%);
+}
+
+.control-button img {
+    width: 100%;
+    height: 100%;
 }
