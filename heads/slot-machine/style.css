@@ -60,14 +60,14 @@ html {
 @media (orientation:landscape) {
     :root {
         --slot-height: 20rem;
-        --slot-translate-z: -61rem;
+        --slot-translate-z: -83rem;
     }
 }
 
 @media (orientation:portrait) {
     :root {
         --slot-height: 30rem;
-        --slot-translate-z: -91rem;
+        --slot-translate-z: -124rem;
     }
 }
 

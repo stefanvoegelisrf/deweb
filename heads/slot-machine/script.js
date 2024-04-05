@@ -361,8 +361,9 @@ function rotate(slotName, rotationX) {
 function change(slotName) {
     const slot = document.getElementById(slotName);
     const wheelCard = slot.querySelectorAll(".wheel .card");
-    // If is portrait, translatez 91rem, else translatez 61rem
-    let translateZ = window.innerWidth < window.innerHeight ? "91rem" : "61rem";
+    // If is portrait, translatez 124rem, else translatez 83rem
+    // Note to also adjust the related css
+    let translateZ = window.innerWidth < window.innerHeight ? "124rem" : "83rem";
     wheelCard.forEach((card, key) => {
         card.style.transform = `rotateX(${theta * key}deg) translateZ(${translateZ}) scale(0.8)`;
     });
