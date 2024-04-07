@@ -35,6 +35,14 @@ html {
     --eyes-skey-y: 0deg;
     --mouth-translate-x: -300%;
     --mouth-scale: 0.5;
+    --big-wave-width: 0.2rem;
+    --big-wave-height: 0.1rem;
+    --big-wave-border-width: 0.5rem;
+    --big-wave-opacity: 0;
+    --small-wave-width: 0.1rem;
+    --small-wave-height: 0.1rem;
+    --small-wave-border-width: 0.2rem;
+    --small-wave-opacity: 0;
 }
 
 body {
@@ -102,9 +110,7 @@ section {
     isolation: isolate;
 }
 
-#lake {
-    overflow: hidden;
-}
+
 
 #looks-slogan-big {
     font-size: 12rem;
@@ -730,67 +736,37 @@ section {
 }
 
 /* Wet */
+
+#lake {
+    overflow: hidden;
+    height: 100vh;
+}
+
 #wave {
     position: relative;
-    opacity: 0;
-    top: 90%;
+    opacity: var(--big-wave-opacity);
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: .2rem;
-    height: .1rem;
-    border: #FFF .5rem solid;
+    width: var(--big-wave-width);
+    height: var(--big-wave-height);
+    border: #FFF var(--big-wave-border-width) solid;
     border-radius: 15rem / 7.5rem;
-    animation-name: ripple;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
 }
 
 #wave:after {
     content: "";
     position: absolute;
-    opacity: 0;
+    opacity: var(--small-wave-opacity);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: .1rem;
-    height: .1rem;
-    border: #FFF .2rem solid;
+    width: var(--small-wave-width);
+    height: var(--small-wave-height);
+    border: #FFF var(--small-wave-border-width) solid;
     border-radius: 5rem / 2.5rem;
-    animation-name: ripple-2;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
 }
 
-@keyframes ripple {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        width: 30rem;
-        height: 15rem;
-        border-width: 1rem;
-    }
-}
-
-@keyframes ripple-2 {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        width: 10rem;
-        height: 5rem;
-        border-width: 1rem;
-        left: 50%;
-    }
-}
 
 /* Connect */
 #container-connect {

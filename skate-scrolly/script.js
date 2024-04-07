@@ -8,10 +8,34 @@ lenis.on('scroll', (e) => {
     const scrolled = (e.animatedScroll / height) * 100;
     setSkateRotation(e.animatedScroll, e.direction);
     setBackgroundColor(scrolled);
-    setSkateTransform(scrolled, e.animatedScroll, e.direction);
+    setSkateTransform(scrolled, e.direction);
     setSkateScale(e.animatedScroll, scrolled);
     setFaceLook(scrolled);
+    animateWave(scrolled);
 });
+
+function animateWave(scrollPercent) {
+    let bigWaveOpacity = map(scrollPercent, 99, 9.5, 0, 1);
+    let smallWaveOpacity = map(scrollPercent, 99, 99.5, 0, 1);
+    if (scrollPercent > 99.5) {
+        smallWaveOpacity = map(scrollPercent, 99.5, 100, 1, 0)
+        bigWaveOpacity = map(scrollPercent, 99.5, 100, 1, 0)
+    }
+    const smallWaveWidth = map(scrollPercent, 99, 100, 0.1, 10);
+    const smallWaveHeight = map(scrollPercent, 99, 100, 0.1, 5);
+    const smallWaveBorderWidth = map(scrollPercent, 99, 100, 0.2, 1);
+    const bigWaveWidth = map(scrollPercent, 99, 100, 0.2, 30);
+    const bigWaveHeight = map(scrollPercent, 99, 100, 0.1, 15);
+    const bigWaveBorderWidth = map(scrollPercent, 99, 100, 0.5, 1);
+    document.documentElement.style.setProperty('--small-wave-opacity', smallWaveOpacity);
+    document.documentElement.style.setProperty('--small-wave-width', `${smallWaveWidth}rem`);
+    document.documentElement.style.setProperty('--small-wave-height', `${smallWaveHeight}rem`);
+    document.documentElement.style.setProperty('--small-wave-border-width', `${smallWaveBorderWidth}rem`);
+    document.documentElement.style.setProperty('--big-wave-opacity', bigWaveOpacity);
+    document.documentElement.style.setProperty('--big-wave-width', `${bigWaveWidth}rem`);
+    document.documentElement.style.setProperty('--big-wave-height', `${bigWaveHeight}rem`);
+    document.documentElement.style.setProperty('--big-wave-border-width', `${bigWaveBorderWidth}rem`);
+}
 
 function setFaceLook(scrollPercent) {
     const startTransition = 45;
@@ -46,7 +70,7 @@ function setBackgroundColor(scrollPercent) {
     document.documentElement.style.setProperty('--background-color', `rgb(${color1}, ${color2}, ${color3})`);
 }
 
-function setSkateTransform(scrollPercentage, scrollPixels, direction) {
+function setSkateTransform(scrollPercentage, direction) {
     let transformX = 0;
     let transformY = 0;
     let skateOpacity = 1;
@@ -54,18 +78,17 @@ function setSkateTransform(scrollPercentage, scrollPixels, direction) {
     if (scrollPercentage <= 5) {
         // Stay in the middle until 5% is reached
         transformX = 0;
-    } else if (scrollPercentage > 5 && scrollPercentage <= 90) {
+    } else if (scrollPercentage > 5 && scrollPercentage <= 95) {
         // Go left and right afterwards until 40%
-        transformX = 75 * Math.sin((scrollPercentage - 5) / 85 * 6 * Math.PI);
-    } else if (scrollPercentage > 90) {
+        transformX = 75 * Math.sin((scrollPercentage - 5) / 90 * 6 * Math.PI);
+    } else if (scrollPercentage > 95) {
         // Go back to the middle at 90%
         transformX = 0;
-        skateOpacity = map(scrollPercentage, 99, 99.5, 1, 0);
+        skateOpacity = map(scrollPercentage, 99, 99.8, 1, 0);
     }
     if (scrollPercentage > 97) {
-        transformY = map(scrollPercentage, 97, 100, 0, 150);
+        transformY = map(scrollPercentage, 97, 100, 0, 50);
     }
-    console.log(scrollPercentage, transformX);
     if (direction === -1) {
         transformX *= -1;
     }
@@ -80,28 +103,10 @@ function setSkateTransform(scrollPercentage, scrollPixels, direction) {
 
 function setSkateScale(scrollPixels, scrollPercentage) {
     let skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, scrollPixels)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
-    if (scrollPercentage > 97) {
-        skateScale = map(scrollPercentage, 97, 100, 0.5, 0.2);
+    if (scrollPercentage > 95) {
+        skateScale = map(scrollPercentage, 95, 100, 0.5, 0.2);
     }
     document.documentElement.style.setProperty('--skate-scale', skateScale);
-}
-
-const colors = ["cyan", "magenta", "yellow"]
-
-function createRandomStone(maxX, maxY) {
-    const stone = document.createElement('div');
-    stone.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    stone.style.left = `${Math.random() * maxX}px`;
-    stone.style.top = `${Math.random() * maxY}px`;
-    const size = Math.random() * 2;
-    stone.style.width = `${size}rem`;
-    stone.style.height = `${size}rem`;
-    const borderRadius = Math.max(size / 2, Math.random() * 1);
-    stone.style.borderRadius = `${borderRadius}rem`;
-    stone.style.transform = `rotate(${Math.random() * 360}deg) translate(-50%, -50%)`;
-    stone.style.mixBlendMode = 'lighten';
-    stone.style.position = 'absolute';
-    return stone;
 }
 
 // Map function
@@ -125,27 +130,8 @@ function showAttributions() {
 
 window.onload = function () {
     document.getElementById('attributions-title').addEventListener('click', showAttributions);
-    const stoneSections = document.querySelectorAll('.section-xl');
-    // for (let section of stoneSections) {
-    //     const sectionBoundingRect = section.getBoundingClientRect();
-    //     const amountOfStones = Math.floor(Math.random() * 500);
-    //     const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
-    //     for (let stone of randomStones) {
-    //         section.appendChild(stone);
-    //     }
-    // }
-
-    const contentSections = document.querySelectorAll('.content-section');
-    // for (let section of contentSections) {
-    //     const sectionBoundingRect = section.getBoundingClientRect();
-    //     const amountOfStones = Math.floor(Math.random() * 50);
-    //     const randomStones = new Array(amountOfStones).fill(null).map(() => createRandomStone(sectionBoundingRect.width, sectionBoundingRect.height));
-    //     for (let stone of randomStones) {
-    //         section.appendChild(stone);
-    //     }
-    // }
     const pavementSections = document.getElementsByClassName("section-pavement");
-    for(let section of pavementSections){
+    for (let section of pavementSections) {
         createPavement(section);
     }
 }
