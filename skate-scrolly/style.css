@@ -964,8 +964,8 @@ footer {
 
 .stone {
     box-shadow: 0 0 0.5rem rgba(90, 90, 90, 0.5);
-    background-color: cyan;
-    mix-blend-mode: luminosity;
+    background-color: yellow;
+    mix-blend-mode: difference;
     width: 100%;
     height: 100%;
     border-radius: 10%;
