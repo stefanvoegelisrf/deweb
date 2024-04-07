@@ -31,7 +31,7 @@ body {
     background: radial-gradient(ellipse at top, var(--background-gradient-color-1), var(--background-gradient-color-2)),
         radial-gradient(ellipse at bottom, var(--background-gradient-color-2), var(--background-gradient-color-1));
     animation-name: animate-background;
-    animation-duration: 10s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }

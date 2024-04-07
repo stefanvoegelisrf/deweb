@@ -61,9 +61,9 @@ function setSkateTransform(scrollPercentage, scrollPixels, direction) {
         // Go back to the middle at 90%
         transformX = 0;
         skateOpacity = map(scrollPercentage, 99, 99.5, 1, 0);
-        if (scrollPercentage > 97) {
-            transformY = map(scrollPercentage, 95, 100, 0, 150);
-        }
+    }
+    if (scrollPercentage > 97) {
+        transformY = map(scrollPercentage, 97, 100, 0, 150);
     }
     console.log(scrollPercentage, transformX);
     if (direction === -1) {
@@ -144,4 +144,15 @@ window.onload = function () {
     //         section.appendChild(stone);
     //     }
     // }
+    const sectionPavement1 = document.getElementById('section-pavement-1');
+    createPavement(sectionPavement1);
+}
+
+function createPavement(containerElement) {
+    const amountOfStones = 9 * 5 * 5;
+    for (let i = 0; i < amountOfStones; i++) {
+        const stone = document.createElement('div');
+        stone.classList.add('stone');
+        containerElement.appendChild(stone);
+    }
 }
