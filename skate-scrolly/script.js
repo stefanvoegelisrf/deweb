@@ -144,8 +144,10 @@ window.onload = function () {
     //         section.appendChild(stone);
     //     }
     // }
-    const sectionPavement1 = document.getElementById('section-pavement-1');
-    createPavement(sectionPavement1);
+    const pavementSections = document.getElementsByClassName("section-pavement");
+    for(let section of pavementSections){
+        createPavement(section);
+    }
 }
 
 function createPavement(containerElement) {

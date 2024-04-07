@@ -922,37 +922,48 @@ footer {
     transform: rotate(180deg);
 }
 
-#section-pavement-1 {
+.section-pavement {
     display: grid;
-
 }
 
-@media (orientation:landscape) {
-    #section-pavement-1 {
-        grid-template-columns: repeat(9, 9vw);
-        grid-auto-rows: 9vw;
-        gap: 1vw;
-        padding: 4.5vw;
-    }
-
-    
+.section-pavement {
+    grid-template-columns: repeat(9, 9vw);
+    grid-auto-rows: 9vw;
+    gap: 1vw;
+    padding: 4.5vw;
 }
 
-@media (orientation:portrait) {
-    #section-pavement-1 {
-        gap: 1vw;
-        padding: 3vw;
-        grid-template-columns: repeat(5, 18vw);
-        grid-auto-rows: 18vw;
-    }
+.section-pavement :nth-child(-n+9),
+.section-pavement :nth-child(-n+226):nth-child(n+216) {
+    opacity: 0.2;
 }
 
-#section-pavement-1 :nth-child(odd) {
-    opacity: 0;
+.section-pavement :nth-child(-n+18):nth-child(n+10),
+.section-pavement :nth-child(-n+217):nth-child(n+208) {
+    opacity: 0.4;
+}
+
+.section-pavement :nth-child(-n+27):nth-child(n+19),
+.section-pavement :nth-child(-n+209):nth-child(n+200) {
+    opacity: 0.6;
+}
+
+#section-pavement-1 :nth-child(-n+36):nth-child(n+28),
+#section-pavement-1 :nth-child(-n+199):nth-child(n+190) {
+    opacity: 0.8;
+}
+
+.section-pavement :nth-child(odd):nth-child(-n+9),
+.section-pavement :nth-child(odd):nth-child(n+217) {
+    opacity: 0.1 !important;
+}
+
+.section-pavement :nth-child(odd) {
+    opacity: 0.2 !important;
 }
 
 .stone {
-    box-shadow: 0 0 0.5rem rgba(90, 90, 90,0.5);
+    box-shadow: 0 0 0.5rem rgba(90, 90, 90, 0.5);
     background-color: cyan;
     mix-blend-mode: luminosity;
     width: 100%;
