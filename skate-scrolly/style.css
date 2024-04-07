@@ -507,8 +507,8 @@ section {
 }
 
 #tiny-clock-1 {
-    left: 5%;
-    top: 5%;
+    left: 10%;
+    top: 2.5%;
     --duration-hour: 12s;
     --duration-minute: 2s;
 }
@@ -637,32 +637,76 @@ section {
 }
 
 /* Looks */
-#container-looks {
+
+#turn-heads,
+#snag-smiles,
+#spark-whispers {
+    color: yellow;
+    font-size: 4rem;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-75%, -50%) scale(.5);
-    z-index: 11;
-    color: cyan;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+    width: 35vw;
 }
 
-#container-looks-mouth {
+.looks-face {
+    position: relative;
+}
+
+#turn-heads {
+    left: 30%;
+    top: 25%;
+}
+
+#snag-smiles {
+    left: 50%;
+    top: 50%;
+}
+
+#spark-whispers {
+    left: 70%;
+    top: 75%;
+}
+
+#face-1 {
+    position: absolute;
+    top: 10%;
+    left: calc(95% - 10rem);
+    transform: scale(-1, 1);
+    height: 10rem;
+    width: 10rem;
+}
+
+#face-2 {
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    height: 10rem;
+    width: 10rem;
+
+}
+
+.looks-face {
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
-#looks-mouth {
+.looks-mouth {
     width: 5rem;
     height: 2.5rem;
     border-radius: 5rem;
     position: absolute;
     left: 50%;
-    transform: translateX(var(--mouth-translate-x)) scale(var(--mouth-scale));
-    background-color: cyan;
+    top: 50%;
+    transform: translateX(-50%);
+    /* transform: translateX(var(--mouth-translate-x)) scale(var(--mouth-scale)); */
+    background-color: yellow;
     transition: all .1s;
 }
 
-#looks-mouth-tongue {
+.looks-mouth-tongue {
     width: 30%;
     height: 30%;
     position: absolute;
@@ -672,28 +716,13 @@ section {
     background-color: white;
 }
 
-#container-looks-eyes {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-65%, 20%);
-    width: 20rem;
-    height: 10rem;
-}
-
-#container-looks-eyes-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
 .looks-eye {
     width: 2.5rem;
     height: 2.5rem;
     left: 50%;
     background-color: white;
     position: absolute;
-    top: 30%;
+    top: 20%;
     border-radius: 1.25rem;
     transform-origin: top center;
     transform: scale(var(--eyes-scale), var(--eyes-scale)) rotate(var(--eyes-rotation)) skew(var(--eyes-skew-x), var(--eyes-skey-y));
@@ -713,12 +742,12 @@ section {
 
 }
 
-#looks-eye-left {
-    left: 0%;
+.looks-eye-left {
+    left: 10%;
 }
 
-#looks-eye-right {
-    left: 50%;
+.looks-eye-right {
+    left: 40%;
 }
 
 /* Wet */
@@ -925,10 +954,12 @@ footer {
 .colored-pavement-section :nth-child(odd) {
     opacity: 0.2 !important;
 }
-.muted-pavement-section :nth-child(odd).stone{
+
+.muted-pavement-section :nth-child(odd).stone {
     opacity: 0.1 !important;
 }
-.muted-pavement-section :nth-child(even).stone{
+
+.muted-pavement-section :nth-child(even).stone {
     opacity: 0.2 !important;
 }
 
