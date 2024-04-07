@@ -1,39 +1,7 @@
-@property --background-gradient-color-1 {
-    syntax: '<color>';
-    inherits: false;
-    initial-value: magenta;
-}
-
-@property --background-gradient-color-2 {
-    syntax: '<color>';
-    inherits: false;
-    initial-value: cyan;
-}
-
-@property --background-gradient-rotation {
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
-
-@keyframes animate-background {
-    50% {
-        --background-gradient-rotation: 360deg;
-        --background-gradient-color-1: cyan;
-        --background-gradient-color-2: magenta;
-    }
-}
-
 body {
     margin: 0;
     height: 100vh;
     width: 100vw;
-    background: radial-gradient(ellipse at top, var(--background-gradient-color-1), var(--background-gradient-color-2)),
-        radial-gradient(ellipse at bottom, var(--background-gradient-color-2), var(--background-gradient-color-1));
-    animation-name: animate-background;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
 }
 
 main {
@@ -42,6 +10,7 @@ main {
     display: grid;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
 }
 
 @media (orientation: landscape) {
@@ -62,4 +31,5 @@ main img {
     width: 100%;
     transition: all 5s;
     mix-blend-mode: difference;
+    height: 50%;
 }
