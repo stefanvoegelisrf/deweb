@@ -105,13 +105,6 @@ section {
     height: 100vh;
 }
 
-#connect {
-    min-height: 100vmin;
-    isolation: isolate;
-}
-
-
-
 #looks-slogan-big {
     font-size: 12rem;
     text-align: center;
@@ -430,9 +423,6 @@ section {
 }
 
 /* Timesaver */
-#timesaver {
-    height: 150vh
-}
 
 #container-timesaver {
     --indicator-width: calc(var(--clock-width) * 0.1);
@@ -552,7 +542,7 @@ section {
 }
 
 .clockface.clockface-background {
-    mix-blend-mode: luminosity;
+    /* mix-blend-mode: luminosity; */
 }
 
 .hour-hand {
@@ -592,10 +582,10 @@ section {
 .indicator {
     width: var(--indicator-width);
     height: var(--indicator-width);
-    background-color: red;
+    background-color: magenta;
     border-radius: calc(var(--indicator-width) * 0.5);
     position: absolute;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: screen;
     z-index: 9;
 }
 
@@ -644,10 +634,6 @@ section {
     100% {
         transform: translateX(-50%) rotate(360deg);
     }
-}
-
-#looks {
-    height: 50vmin;
 }
 
 /* Looks */
@@ -898,43 +884,51 @@ footer {
     transform: rotate(180deg);
 }
 
-.section-pavement {
+.pavement-section {
     display: grid;
 }
 
-.section-pavement {
+.pavement-section {
     grid-template-columns: repeat(9, 9vw);
     grid-auto-rows: 9vw;
     gap: 1vw;
-    padding: 4.5vw;
+    padding-left: 4.5vw;
+    padding-right: 4.5vw;
+    padding-top: 1vw;
 }
 
-.section-pavement :nth-child(-n+9),
-.section-pavement :nth-child(-n+226):nth-child(n+216) {
+.colored-pavement-section :nth-child(-n+9),
+.colored-pavement-section :nth-child(-n+226):nth-child(n+216) {
     opacity: 0.2;
 }
 
-.section-pavement :nth-child(-n+18):nth-child(n+10),
-.section-pavement :nth-child(-n+217):nth-child(n+208) {
+.colored-pavement-section :nth-child(-n+18):nth-child(n+10),
+.colored-pavement-section :nth-child(-n+217):nth-child(n+208) {
     opacity: 0.4;
 }
 
-.section-pavement :nth-child(-n+27):nth-child(n+19),
-.section-pavement :nth-child(-n+209):nth-child(n+200) {
+.colored-pavement-section :nth-child(-n+27):nth-child(n+19),
+.colored-pavement-section :nth-child(-n+209):nth-child(n+200) {
     opacity: 0.6;
 }
 
-#section-pavement-1 :nth-child(-n+36):nth-child(n+28),
-#section-pavement-1 :nth-child(-n+199):nth-child(n+190) {
+.colored-pavement-section-1 :nth-child(-n+36):nth-child(n+28),
+.pavement-section-1 :nth-child(-n+199):nth-child(n+190) {
     opacity: 0.8;
 }
 
-.section-pavement :nth-child(odd):nth-child(-n+9),
-.section-pavement :nth-child(odd):nth-child(n+217) {
+.colored-pavement-section :nth-child(odd):nth-child(-n+9),
+.colored-pavement-section :nth-child(odd):nth-child(n+217) {
     opacity: 0.1 !important;
 }
 
-.section-pavement :nth-child(odd) {
+.colored-pavement-section :nth-child(odd) {
+    opacity: 0.2 !important;
+}
+.muted-pavement-section :nth-child(odd).stone{
+    opacity: 0.1 !important;
+}
+.muted-pavement-section :nth-child(even).stone{
     opacity: 0.2 !important;
 }
 

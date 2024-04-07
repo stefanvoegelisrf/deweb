@@ -129,7 +129,7 @@ function showAttributions() {
 
 window.onload = function () {
     document.getElementById('attributions-title').addEventListener('click', showAttributions);
-    const pavementSections = document.getElementsByClassName("section-pavement");
+    const pavementSections = document.getElementsByClassName("pavement-section");
     for (let section of pavementSections) {
         createPavement(section);
     }
