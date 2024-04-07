@@ -10,3 +10,12 @@ Du kannst von deinem Poster aus dem Modul VisDes ausgehen oder von rasterbasiert
 - https://www.newrafael.com/
 - https://hallointer.net/
 - https://knoth-renner.com/
+
+## Skate
+
+### Sentences
+- Drive a quirky Skate
+- It's a huuge time saver
+- Turn Heads, Snag Smiles, Spark Whispers
+- Skate and Relate, Bond Over Boards, Ride and Unite
+- But don't get it wet

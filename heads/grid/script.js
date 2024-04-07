@@ -18,9 +18,9 @@ function setRandomFilter(element) {
 }
 
 function setRandomImageHeight(element) {
-    let multiplier = 100 / 4;
+    let multiplier = 100 / 7;
     if (window.innerHeight > window.innerWidth) {
-        multiplier = 100 / 8;
+        multiplier = 100 / 12;
     }
     const height = Math.min(Math.random() + 0.2, 1) * multiplier;
     element.style.height = `${height}vmin`;
