@@ -1,6 +1,5 @@
 const lenis = new Lenis({
     wheelMultiplier: 2,
-    touchMultiplier: 0.5
 });
 
 lenis.on('scroll', (e) => {
