@@ -36,7 +36,14 @@ html {
     --face-1-eyes-skew-y: 0deg;
     --face-1-mouth-translate-x: -300%;
     --face-1-mouth-scale: 0.5;
-    
+
+    --face-2-eyes-scale: 1;
+    --face-2-eyes-rotation: -60;
+    --face-2-eyes-skew-x: 0deg;
+    --face-2-eyes-skew-y: 0deg;
+    --face-2-mouth-translate-x: -300%;
+    --face-2-mouth-scale: 0.5;
+
     --big-wave-width: 0.2rem;
     --big-wave-height: 0.1rem;
     --big-wave-border-width: 0.5rem;
@@ -651,6 +658,7 @@ section {
     width: 35vw;
     z-index: 1;
 }
+
 #turn-heads {
     left: 30%;
     top: 25%;
@@ -674,6 +682,11 @@ section {
     height: 20rem;
     width: 20rem;
     z-index: 1;
+    --mouth-scale: var(--face-1-mouth-scale);
+    --eyes-scale: var(--face-1-eyes-scale);
+    --eyes-rotation: var(--face-1-eyes-rotation);
+    --eyes-skew-x: var(--face-1-eyes-skew-x);
+    --eyes-skew-y: var(--face-1-eyes-skew-y);
 }
 
 #face-2 {
@@ -683,6 +696,11 @@ section {
     height: 20rem;
     width: 20rem;
     z-index: 1;
+    --mouth-scale: var(--face-2-mouth-scale);
+    --eyes-scale: var(--face-2-eyes-scale);
+    --eyes-rotation: var(--face-2-eyes-rotation);
+    --eyes-skew-x: var(--face-2-eyes-skew-x);
+    --eyes-skew-y: var(--face-2-eyes-skew-y);
 }
 
 .looks-face {
@@ -697,8 +715,8 @@ section {
     border-radius: 5rem;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translateX(-50%) scale(var(--face-1-mouth-scale));
+    top: 45%;
+    transform: translateX(-50%) scale(var(--mouth-scale));
     background-color: yellow;
     transition: all .1s;
 }
@@ -721,7 +739,7 @@ section {
     top: 20%;
     border-radius: 1.25rem;
     transform-origin: top center;
-    transform: scale(var(--face-1-eyes-scale), var(--face-1-eyes-scale)) rotate(var(--face-1-eyes-rotation)) skew(var(--face-1-eyes-skew-x), var(--face-1-eyes-skew-y)) translateX(-50%);
+    transform: scale(var(--eyes-scale), var(--eyes-scale)) rotate(var(--eyes-rotation)) skew(var(--eyes-skew-x), var(--eyes-skew-y)) translateX(-50%);
     transition: transform 0.1s;
 }
 
@@ -739,11 +757,11 @@ section {
 }
 
 .looks-eye-left {
-    left: 30%;
+    left: 32.5%;
 }
 
 .looks-eye-right {
-    left: 55%;
+    left: 57.5%;
 }
 
 /* Wet */

@@ -9,7 +9,8 @@ lenis.on('scroll', (e) => {
     setBackgroundColor(scrolled);
     setSkateTransform(scrolled, e.direction);
     setSkateScale(e.animatedScroll, scrolled);
-    setFaceLook(scrolled);
+    setFaceLook(scrolled, "face-1", 42, 47);
+    setFaceLook(scrolled, "face-2", 52, 57);
     animateWave(scrolled);
 });
 
@@ -36,10 +37,7 @@ function animateWave(scrollPercent) {
     document.documentElement.style.setProperty('--big-wave-border-width', `${bigWaveBorderWidth}rem`);
 }
 
-function setFaceLook(scrollPercent) {
-    const startTransition = 42;
-    const endTransition = 47;
-    console.log(scrollPercent)
+function setFaceLook(scrollPercent, name, startTransition, endTransition) {
     const scrollRange = Math.min(Math.max(startTransition, scrollPercent), endTransition);
     const scale = map(scrollRange, startTransition, endTransition, 1, 1.5);
     const rotation = map(scrollRange, startTransition, endTransition, -60, -20);
@@ -47,12 +45,13 @@ function setFaceLook(scrollPercent) {
     const skewY = map(scrollRange, startTransition, endTransition, 0, 10);
     const mouthTranslateX = map(scrollRange, startTransition, endTransition, -300, -200);
     const mouthScale = map(scrollRange, startTransition, endTransition, 0.5, 1.5);
-    document.documentElement.style.setProperty("--face-1-eyes-scale", scale);
-    document.documentElement.style.setProperty("--face-1-eyes-rotation", `${rotation}deg`);
-    document.documentElement.style.setProperty("--face-1-eyes-skew-x", `${skewX}deg`);
-    document.documentElement.style.setProperty("--face-1-eyes-skew-y", `${skewY}deg`);
-    document.documentElement.style.setProperty("--face-1-mouth-translate-x", `${mouthTranslateX}%`);
-    document.documentElement.style.setProperty("--face-1-mouth-scale", `${mouthScale}`);
+    console.log(scrollPercent)
+    document.documentElement.style.setProperty(`--${name}-eyes-scale`, scale);
+    document.documentElement.style.setProperty(`--${name}-eyes-rotation`, `${rotation}deg`);
+    document.documentElement.style.setProperty(`--${name}-eyes-skew-x`, `${skewX}deg`);
+    document.documentElement.style.setProperty(`--${name}-eyes-skew-y`, `${skewY}deg`);
+    document.documentElement.style.setProperty(`--${name}-mouth-translate-x`, `${mouthTranslateX}%`);
+    document.documentElement.style.setProperty(`--${name}-mouth-scale`, `${mouthScale}`);
 }
 
 function setSkateRotation(scrollPixels, direction) {
