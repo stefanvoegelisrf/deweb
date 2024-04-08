@@ -9,7 +9,7 @@ lenis.on('scroll', (e) => {
     setBackgroundColor(scrolled);
     setSkateTransform(scrolled, e.direction);
     setSkateScale(e.animatedScroll, scrolled);
-    setFaceLook(scrolled, "face-1", 42, 47);
+    setFaceLook(scrolled, "face-1", 40, 47);
     setFaceLook(scrolled, "face-2", 52, 57);
     animateWave(scrolled);
 });
@@ -42,9 +42,9 @@ function setFaceLook(scrollPercent, name, startTransition, endTransition) {
     const scale = map(scrollRange, startTransition, endTransition, 1, 1.5);
     const rotation = map(scrollRange, startTransition, endTransition, -60, -20);
     const skewX = map(scrollRange, startTransition, endTransition, 0, 30);
-    const skewY = map(scrollRange, startTransition, endTransition, 0, 10);
+    const skewY = map(scrollRange, startTransition, endTransition, 0, 5);
     const mouthTranslateX = map(scrollRange, startTransition, endTransition, -300, -200);
-    const mouthScale = map(scrollRange, startTransition, endTransition, 0.5, 1.5);
+    const mouthScale = map(scrollRange, startTransition, endTransition, 0.7, 1.5);
     console.log(scrollPercent)
     document.documentElement.style.setProperty(`--${name}-eyes-scale`, scale);
     document.documentElement.style.setProperty(`--${name}-eyes-rotation`, `${rotation}deg`);

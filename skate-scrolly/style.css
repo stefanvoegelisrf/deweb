@@ -35,14 +35,14 @@ html {
     --face-1-eyes-skew-x: 0deg;
     --face-1-eyes-skew-y: 0deg;
     --face-1-mouth-translate-x: -300%;
-    --face-1-mouth-scale: 0.5;
+    --face-1-mouth-scale: 0.7;
 
     --face-2-eyes-scale: 1;
     --face-2-eyes-rotation: -60;
     --face-2-eyes-skew-x: 0deg;
     --face-2-eyes-skew-y: 0deg;
     --face-2-mouth-translate-x: -300%;
-    --face-2-mouth-scale: 0.5;
+    --face-2-mouth-scale: 0.7;
 
     --big-wave-width: 0.2rem;
     --big-wave-height: 0.1rem;
@@ -544,16 +544,10 @@ section {
     left: 0;
     width: var(--clock-width);
     height: var(--clock-width);
-    background-color: red;
     background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 2, 133) 0%, rgb(170, 58, 116) 33%, rgb(255, 255, 3) 66%, rgb(255, 2, 133) 100%);
     border-radius: calc(var(--clock-width) * 0.5);
     z-index: 1;
 }
-
-.clockface.clockface-background {
-    /* mix-blend-mode: luminosity; */
-}
-
 .hour-hand {
     width: var(--hand-width);
     height: calc(var(--clock-width) * 0.3);
@@ -650,13 +644,16 @@ section {
 #turn-heads,
 #snag-smiles,
 #spark-whispers {
-    color: yellow;
+    color: white;
     font-size: 4rem;
     transform: translate(-50%, -50%);
     position: absolute;
     text-align: center;
-    width: 35vw;
+    width: fit-content;
     z-index: 1;
+    padding: 2rem;
+    background: linear-gradient(magenta 0%, magenta 20%, transparent 90%);
+    border-radius: 2rem;
 }
 
 #turn-heads {
@@ -676,7 +673,7 @@ section {
 
 #face-1 {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: calc(95% - 20rem);
     transform: scale(-1, 1);
     height: 20rem;
@@ -691,7 +688,7 @@ section {
 
 #face-2 {
     position: absolute;
-    top: 90%;
+    top: 85%;
     left: 5%;
     height: 20rem;
     width: 20rem;
@@ -717,7 +714,7 @@ section {
     left: 50%;
     top: 45%;
     transform: translateX(-50%) scale(var(--mouth-scale));
-    background-color: yellow;
+    background-color: magenta;
     transition: all .1s;
 }
 
@@ -761,7 +758,7 @@ section {
 }
 
 .looks-eye-right {
-    left: 57.5%;
+    left: 55%;
 }
 
 /* Wet */
