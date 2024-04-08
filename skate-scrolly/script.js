@@ -37,21 +37,22 @@ function animateWave(scrollPercent) {
 }
 
 function setFaceLook(scrollPercent) {
-    const startTransition = 45;
-    const endTransition = 49;
+    const startTransition = 42;
+    const endTransition = 47;
+    console.log(scrollPercent)
     const scrollRange = Math.min(Math.max(startTransition, scrollPercent), endTransition);
-    const scale = map(scrollRange, startTransition, endTransition, 1, 2);
+    const scale = map(scrollRange, startTransition, endTransition, 1, 1.5);
     const rotation = map(scrollRange, startTransition, endTransition, -60, -20);
     const skewX = map(scrollRange, startTransition, endTransition, 0, 30);
-    const skewY = map(scrollRange, startTransition, endTransition, 0, 100);
+    const skewY = map(scrollRange, startTransition, endTransition, 0, 10);
     const mouthTranslateX = map(scrollRange, startTransition, endTransition, -300, -200);
-    const mouthScale = map(scrollRange, startTransition, endTransition, 0.5, 3);
-    document.documentElement.style.setProperty("--eyes-scale", scale);
-    document.documentElement.style.setProperty("--eyes-rotation", `${rotation}deg`);
-    document.documentElement.style.setProperty("--eyes-skew-x", `${skewX}deg`);
-    document.documentElement.style.setProperty("--eyes-skew-y", `${skewY}deg`);
-    document.documentElement.style.setProperty("--mouth-translate-x", `${mouthTranslateX}%`);
-    document.documentElement.style.setProperty("--mouth-scale", `${mouthScale}`);
+    const mouthScale = map(scrollRange, startTransition, endTransition, 0.5, 1.5);
+    document.documentElement.style.setProperty("--face-1-eyes-scale", scale);
+    document.documentElement.style.setProperty("--face-1-eyes-rotation", `${rotation}deg`);
+    document.documentElement.style.setProperty("--face-1-eyes-skew-x", `${skewX}deg`);
+    document.documentElement.style.setProperty("--face-1-eyes-skew-y", `${skewY}deg`);
+    document.documentElement.style.setProperty("--face-1-mouth-translate-x", `${mouthTranslateX}%`);
+    document.documentElement.style.setProperty("--face-1-mouth-scale", `${mouthScale}`);
 }
 
 function setSkateRotation(scrollPixels, direction) {
