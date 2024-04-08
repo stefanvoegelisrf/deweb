@@ -114,11 +114,6 @@ section {
     height: 100vh;
 }
 
-#looks-slogan-big {
-    font-size: 12rem;
-    text-align: center;
-}
-
 .title-slogan {
     font-size: 10rem;
     line-height: 12rem;
@@ -131,14 +126,6 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.slogan {
-    font-size: 6rem;
-    line-height: 12rem;
-    width: 100%;
-    text-align: center;
-
 }
 
 .slogan-small {
@@ -548,6 +535,7 @@ section {
     border-radius: calc(var(--clock-width) * 0.5);
     z-index: 1;
 }
+
 .hour-hand {
     width: var(--hand-width);
     height: calc(var(--clock-width) * 0.3);
@@ -799,6 +787,9 @@ section {
 #connect-slogan {
     color: yellow;
     z-index: 10;
+    font-size: 6rem;
+    text-align: center;
+    width: 100%;
 }
 
 footer {
@@ -911,4 +902,72 @@ footer {
 
 .rotate-90 {
     transform: rotate(90deg);
+}
+
+.chat {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.chat::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(images/chat-square.svg) no-repeat center;
+    background-size: contain;
+}
+
+#nice-ride {
+    width: 20rem;
+    height: 20rem;
+    left: 60%;
+    top: 0%;
+}
+
+#nice-ride.chat::after,
+#how-to-call.chat::after,
+#try-out.chat::after {
+    transform: scaleX(-1);
+}
+
+#how-to-drive {
+    width: 20rem;
+    height: 20rem;
+    left: 5%;
+    top: 15%;
+}
+
+#how-to-call {
+    width: 20rem;
+    height: 20rem;
+    left: 60%;
+    top: 30%
+}
+
+#hard-to-drive {
+    width: 20rem;
+    height: 20rem;
+    top: 55%;
+    left: 5%
+}
+
+#try-out {
+    width: 20rem;
+    height: 20rem;
+    top: 70%;
+    left: 60%
+}
+
+#never-seen {
+    width: 20rem;
+    height: 20rem;
+    top: 85%;
+    left: 5%
 }
