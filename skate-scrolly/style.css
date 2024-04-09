@@ -859,7 +859,8 @@ footer {
     width: max-content;
     border-radius: 1rem;
 }
-#attributions-container a{
+
+#attributions-container a {
     color: magenta;
 }
 
@@ -981,7 +982,7 @@ footer {
 #nice-ride {
     width: 20rem;
     height: 20rem;
-    left: 60%;
+    left: calc(90% - 20rem);
     top: 0%;
 }
 
@@ -994,7 +995,7 @@ footer {
 #how-to-drive {
     width: 20rem;
     height: 20rem;
-    left: 5%;
+    left: 10%;
     top: 15%;
 }
 
@@ -1005,7 +1006,7 @@ footer {
 #how-to-call {
     width: 20rem;
     height: 20rem;
-    left: 60%;
+    left: calc(90% - 20rem);
     top: 30%
 }
 
@@ -1021,19 +1022,19 @@ footer {
     width: 20rem;
     height: 20rem;
     top: 55%;
-    left: 5%
+    left: 10%
 }
 
 #try-out {
     width: 20rem;
     height: 20rem;
     top: 70%;
-    left: 60%
+    left: calc(90% - 20rem);
 }
 
 #never-seen {
     width: 20rem;
     height: 20rem;
     top: 85%;
-    left: 5%
+    left: 10%
 }
