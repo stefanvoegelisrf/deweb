@@ -176,7 +176,7 @@ section {
 }
 
 .quirky-wheel::after {
-    background-color: yellow;
+    background-color: cyan;
     animation-direction: reverse;
 }
 
@@ -848,15 +848,19 @@ footer {
 
 .attribution-small {
     font-size: 0.6rem;
-    color: #7d7d7d;
 }
 
 #attributions-container {
     margin: 1rem auto 0 auto;
     padding: 1rem;
-    background-color: rgb(236, 236, 236);
+    background-color: #ffff0c;
+    mix-blend-mode: lighten;
+    color: black;
     width: max-content;
     border-radius: 1rem;
+}
+#attributions-container a{
+    color: magenta;
 }
 
 #attributions {
@@ -942,8 +946,8 @@ footer {
 
 .stone {
     box-shadow: 0 0 0.5rem rgba(90, 90, 90, 0.5);
-    background-color: yellow;
-    mix-blend-mode: difference;
+    background-color: cyan;
+    mix-blend-mode: lighten;
     width: 100%;
     height: 100%;
     border-radius: 10%;
