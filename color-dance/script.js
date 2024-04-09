@@ -331,8 +331,11 @@ function onDragSlider(event) {
         boundingRect = radialSlider.getBoundingClientRect();
         centerX = (boundingRect.width * 0.5);
         centerY = (boundingRect.height * 0.5);
-        positionX = (event.offsetX || touch.offsetX);
-        positionY = (event.offsetY || touch.offsetY);
+        positionX = (event.offsetX || (touch && touch.offsetX));
+        positionY = (event.offsetY || (touch && touch.offsetY));
+        if (positionX === undefined || positionY === undefined) {
+            return;
+        }
         console.log(`position: ${positionX}, ${positionY}, center: ${centerX}, ${centerY}`)
         deltaY = centerY - positionY;
         deltaX = centerX - positionX;
