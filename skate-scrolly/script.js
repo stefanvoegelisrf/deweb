@@ -15,26 +15,14 @@ lenis.on('scroll', (e) => {
 });
 
 function animateWave(scrollPercent) {
-    let bigWaveOpacity = map(scrollPercent, 99, 9.5, 0, 1);
-    let smallWaveOpacity = map(scrollPercent, 99, 99.5, 0, 1);
-    if (scrollPercent > 99.5) {
-        smallWaveOpacity = map(scrollPercent, 99.5, 100, 1, 0)
-        bigWaveOpacity = map(scrollPercent, 99.5, 100, 1, 0)
+    const bigWave = document.getElementById("wave");
+
+    if (scrollPercent > 99) {
+        bigWave.classList.add("wave-animated");
     }
-    const smallWaveWidth = map(scrollPercent, 99, 100, 0.1, 10);
-    const smallWaveHeight = map(scrollPercent, 99, 100, 0.1, 5);
-    const smallWaveBorderWidth = map(scrollPercent, 99, 100, 0.2, 1);
-    const bigWaveWidth = map(scrollPercent, 99, 100, 0.2, 30);
-    const bigWaveHeight = map(scrollPercent, 99, 100, 0.1, 15);
-    const bigWaveBorderWidth = map(scrollPercent, 99, 100, 0.5, 1);
-    document.documentElement.style.setProperty('--small-wave-opacity', smallWaveOpacity);
-    document.documentElement.style.setProperty('--small-wave-width', `${smallWaveWidth}rem`);
-    document.documentElement.style.setProperty('--small-wave-height', `${smallWaveHeight}rem`);
-    document.documentElement.style.setProperty('--small-wave-border-width', `${smallWaveBorderWidth}rem`);
-    document.documentElement.style.setProperty('--big-wave-opacity', bigWaveOpacity);
-    document.documentElement.style.setProperty('--big-wave-width', `${bigWaveWidth}rem`);
-    document.documentElement.style.setProperty('--big-wave-height', `${bigWaveHeight}rem`);
-    document.documentElement.style.setProperty('--big-wave-border-width', `${bigWaveBorderWidth}rem`);
+    else {
+        bigWave.classList.remove("wave-animated");
+    }
 }
 
 function setFaceLook(scrollPercent, name, startTransition, endTransition) {
@@ -86,7 +74,7 @@ function setSkateTransform(scrollPercentage, direction) {
         skateOpacity = map(scrollPercentage, 99, 99.8, 1, 0);
     }
     if (scrollPercentage > 97) {
-        transformY = map(scrollPercentage, 97, 100, 0, 50);
+        transformY = map(scrollPercentage, 97, 100, 0, 75);
     }
     if (direction === -1) {
         transformX *= -1;
@@ -103,7 +91,7 @@ function setSkateTransform(scrollPercentage, direction) {
 function setSkateScale(scrollPixels, scrollPercentage) {
     let skateScale = map(Math.min(window.innerHeight * 2, Math.max(window.innerHeight, scrollPixels)), window.innerHeight, window.innerHeight * 2, 1, 0.5);
     if (scrollPercentage > 95) {
-        skateScale = map(scrollPercentage, 95, 100, 0.5, 0.2);
+        skateScale = map(scrollPercentage, 95, 100, 0.5, 0.1);
     }
     document.documentElement.style.setProperty('--skate-scale', skateScale);
 }
