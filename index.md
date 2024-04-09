@@ -126,7 +126,7 @@ I might continue to a better implementation of this poster in a different form, 
 #### Matter.js
 As I want to have a poster/experience, that can mix colors, similar to this video [Felipe Pantone - Pendulum color mix](https://www.instagram.com/p/CoUqdGtADxr/), I have started to look at a javascript library called [github.com - matter.js](https://github.com/liabru/matter-js).
 
-![Felipe Pantone - Pendulum Video Screenshot](pantone%20pendulum%20frame.png)
+![Felipe Pantone - Pendulum Video Screenshot](pantone-pendulum-frame.png)
 
 Matter.js is quite easy to use, as I figured out with a tutorial from Daniel Shiffmann. See: [youtube.com - 5.17: Introduction to Matter.js - The Nature of Code](https://www.youtube.com/watch?v=urR596FsU68)
 
