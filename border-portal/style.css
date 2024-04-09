@@ -12,8 +12,8 @@ body {
 .container {
     width: 80vmin;
     height: 80vmin;
-    border: 1px solid black;
     overflow: hidden;
+    border-radius: 50%;
 }
 
 .container-inner {
@@ -22,7 +22,7 @@ body {
     height: 100%;
 }
 
-.rectangle{
+.rectangle {
     position: absolute;
     border-top: 40vmin solid #FFA200;
     border-right: 40vmin solid #00FFFF;
@@ -41,19 +41,32 @@ body {
 @keyframes rotate-rectangle-clockwise {
     0% {
         transform: rotate(-360deg);
+        opacity: 0;
     }
+
+    50% {
+        opacity: 1;
+    }
+
     100% {
-        transform: rotate(360deg) scale(18); 
+        transform: rotate(360deg) scale(18);
+        opacity: 1;
     }
-    
+
 }
 
 @keyframes rotate-rectangle-counter-clockwise {
     0% {
         transform: rotate(360deg);
+        opacity: 0;
     }
+
+    50% {
+        opacity: 1;
+    }
+
     100% {
-        transform: rotate(-360deg) scale(18); 
+        transform: rotate(-360deg) scale(18);
     }
-    
+
 }
