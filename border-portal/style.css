@@ -10,8 +10,8 @@ body {
 }
 
 .container {
-    width: 50vmin;
-    height: 50vmin;
+    width: 80vmin;
+    height: 80vmin;
     border: 1px solid black;
     overflow: hidden;
 }
@@ -24,66 +24,36 @@ body {
 
 .rectangle{
     position: absolute;
-    border-top: 20vmin solid red;
-    border-right: 20vmin solid green;
-    border-bottom: 20vmin solid blue;
-    border-left: 20vmin solid yellow;
+    border-top: 40vmin solid #FFA200;
+    border-right: 40vmin solid #00FFFF;
+    border-bottom: 40vmin solid #FF5E00;
+    border-left: 40vmin solid #39AAAA;
     background: transparent;
-    animation-name: rotate-rectangle;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
+    width: 5vmin;
+    height: 5vmin;
+    left: calc(50% - 42.5vmin);
+    top: calc(50% - 42.5vmin);
+    animation-duration: 18s;
 }
 
-.rectangle-1 {
-    position: absolute;
-    width: 30vmin;
-    height: 30vmin;
-    left: calc(50% - 35vmin);
-    top: calc(50% - 35vmin);
-    animation-duration: 6s;
-}
-
-.rectangle-2 {
-    width: 25vmin;
-    height: 25vmin;
-    left: calc(50% - 32.5vmin);
-    top: calc(50% - 32.5vmin);
-    animation-duration: 5s;
-}
-
-.rectangle-3 {
-    position: absolute;
-    width: 20vmin;
-    height: 20vmin;
-    left: calc(50% - 30vmin);
-    top: calc(50% - 30vmin);
-    animation-duration: 4s;
-}
-
-.rectangle-4 {
-    position: absolute;
-    width: 15vmin;
-    height: 15vmin;
-    left: calc(50% - 27.5vmin);
-    top: calc(50% - 27.5vmin);
-    animation-duration: 3s;
-}
-
-.rectangle-5 {
-    position: absolute;
-    width: 10vmin;
-    height: 10vmin;
-    left: calc(50% - 25vmin);
-    top: calc(50% - 25vmin);
-    animation-duration: 2s;
-}
-
-@keyframes rotate-rectangle {
+@keyframes rotate-rectangle-clockwise {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(-360deg);
     }
     100% {
+        transform: rotate(360deg) scale(18); 
+    }
+    
+}
+
+@keyframes rotate-rectangle-counter-clockwise {
+    0% {
         transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(-360deg) scale(18); 
     }
     
 }
