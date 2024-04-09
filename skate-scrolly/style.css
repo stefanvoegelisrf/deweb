@@ -35,14 +35,16 @@ html {
     --face-1-eyes-skew-x: 0deg;
     --face-1-eyes-skew-y: 0deg;
     --face-1-mouth-translate-x: -300%;
-    --face-1-mouth-scale: 0.7;
+    --face-1-mouth-scale: 1;
+    --face-1-rotation: -20deg;
 
     --face-2-eyes-scale: 1;
     --face-2-eyes-rotation: -60;
     --face-2-eyes-skew-x: 0deg;
     --face-2-eyes-skew-y: 0deg;
     --face-2-mouth-translate-x: -300%;
-    --face-2-mouth-scale: 0.7;
+    --face-2-mouth-scale: 1;
+    --face-2-rotation: -20deg;
 }
 
 body {
@@ -428,8 +430,7 @@ section {
 
 #timesaver-slogan {
     z-index: 20;
-    mix-blend-mode: exclusion;
-    color: cyan;
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -522,7 +523,7 @@ section {
     left: 0;
     width: var(--clock-width);
     height: var(--clock-width);
-    background-image: conic-gradient(from 0deg at 50% 50%, rgb(255, 2, 133) 0%, rgb(170, 58, 116) 33%, rgb(255, 255, 3) 66%, rgb(255, 2, 133) 100%);
+    background-image: conic-gradient(from 0deg at 50% 50%, cyan 0%, magenta 33%, violet 66%, cyan 100%);
     border-radius: calc(var(--clock-width) * 0.5);
     z-index: 1;
 }
@@ -531,12 +532,12 @@ section {
     width: var(--hand-width);
     height: calc(var(--clock-width) * 0.3);
     border-radius: calc(var(--hand-width) * 0.5);
-    background-color: cyan;
+    background-color: yellow;
     position: absolute;
     top: calc(var(--clock-width) * 0.2);
     left: 50%;
     z-index: 9;
-    mix-blend-mode: exclusion;
+    mix-blend-mode: luminosity;
     animation-name: rotate-hand;
     animation-duration: var(--duration-hour);
     animation-timing-function: linear;
@@ -548,12 +549,12 @@ section {
     width: var(--hand-width);
     height: calc(var(--clock-width) * 0.45);
     border-radius: calc(var(--hand-width) * 0.5);
-    background-color: green;
+    background-color: yellow;
     position: absolute;
     top: calc(var(--clock-width) * 0.05);
     left: 50%;
     z-index: 5;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: luminosity;
     animation-name: rotate-hand;
     animation-duration: var(--duration-minute);
     animation-timing-function: linear;
@@ -599,7 +600,7 @@ section {
     width: 4rem;
     height: 4rem;
     border-radius: 2rem;
-    background-color: rgb(170, 58, 116);
+    background-color: cyan;
     filter: blur(1rem);
     position: absolute;
     left: 50%;
@@ -654,7 +655,7 @@ section {
     position: absolute;
     top: 5%;
     left: calc(95% - 20rem);
-    transform: scale(-1, 1);
+    transform: scale(-1, 1) rotate(var(--face-1-rotation));
     height: 20rem;
     width: 20rem;
     z-index: 1;
@@ -670,6 +671,7 @@ section {
     top: 85%;
     left: 5%;
     height: 20rem;
+    transform: rotate(var(--face-2-rotation));
     width: 20rem;
     z-index: 1;
     --mouth-scale: var(--face-2-mouth-scale);
@@ -685,6 +687,17 @@ section {
     height: 100%;
 }
 
+.looks-face-skin {
+    position: absolute;
+    width: 14rem;
+    height: 14rem;
+    background-color: magenta;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -40%);
+    border-radius: 50%;
+}
+
 .looks-mouth {
     width: 5rem;
     height: 2.5rem;
@@ -693,8 +706,9 @@ section {
     left: 50%;
     top: 45%;
     transform: translateX(-50%) scale(var(--mouth-scale));
-    background-color: magenta;
+    background-color: white;
     transition: all .1s;
+    z-index: 1;
 }
 
 .looks-mouth-tongue {
@@ -704,7 +718,7 @@ section {
     bottom: 10%;
     left: 30%;
     border-radius: 50% 50% 10% 10%;
-    background-color: white;
+    background-color: cyan;
 }
 
 .looks-eye {
@@ -712,11 +726,12 @@ section {
     height: 2.2rem;
     background-color: white;
     position: absolute;
-    top: 20%;
+    top: 22.5%;
     border-radius: 1.25rem;
     transform-origin: top center;
-    transform: scale(var(--eyes-scale), var(--eyes-scale)) rotate(var(--eyes-rotation)) skew(var(--eyes-skew-x), var(--eyes-skew-y)) translateX(-50%);
+    transform: scale(var(--eyes-scale), var(--eyes-scale)) rotate(var(--eyes-rotation)) skew(var(--eyes-skew-x), var(--eyes-skew-y));
     transition: transform 0.1s;
+    z-index: 1;
 }
 
 .looks-eye::before {
@@ -733,11 +748,11 @@ section {
 }
 
 .looks-eye-left {
-    left: 32.5%;
+    left: 27.5%;
 }
 
 .looks-eye-right {
-    left: 55%;
+    left: 52.5%;
 }
 
 /* Wet */
@@ -777,14 +792,14 @@ section {
     animation-name: ripple;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
 }
 
 .wave-animated::after {
     animation-name: ripple-2;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
 }
 
 @keyframes ripple {
@@ -947,7 +962,7 @@ footer {
     padding: 0rem 3.5rem 0 3.5rem;
     font-size: 2rem;
     z-index: 1;
-    color: yellow;
+    color: white;
 }
 
 .chat::after {

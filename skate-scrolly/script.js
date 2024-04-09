@@ -32,8 +32,9 @@ function setFaceLook(scrollPercent, name, startTransition, endTransition) {
     const skewX = map(scrollRange, startTransition, endTransition, 0, 30);
     const skewY = map(scrollRange, startTransition, endTransition, 0, 5);
     const mouthTranslateX = map(scrollRange, startTransition, endTransition, -300, -200);
-    const mouthScale = map(scrollRange, startTransition, endTransition, 0.7, 1.5);
-    console.log(scrollPercent)
+    const mouthScale = map(scrollRange, startTransition, endTransition, 1, 1.5);
+    const faceRotation = map(scrollRange, startTransition, endTransition, -20, 20);
+    document.documentElement.style.setProperty(`--${name}-rotation`, `${faceRotation}deg`);
     document.documentElement.style.setProperty(`--${name}-eyes-scale`, scale);
     document.documentElement.style.setProperty(`--${name}-eyes-rotation`, `${rotation}deg`);
     document.documentElement.style.setProperty(`--${name}-eyes-skew-x`, `${skewX}deg`);
