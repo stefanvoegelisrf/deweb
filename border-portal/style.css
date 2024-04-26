@@ -2,6 +2,16 @@ body {
     margin: 0;
 }
 
+@property --rectangle-width {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 30%;
+}
+
+:root {
+    --rectangle-border-width: 5rem;
+}
+
 .absolute-center {
     position: absolute;
     top: 50%;
@@ -10,8 +20,8 @@ body {
 }
 
 .container {
-    width: 80vmin;
-    height: 80vmin;
+    width: 90vmin;
+    height: 90vmin;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -24,49 +34,51 @@ body {
 
 .rectangle {
     position: absolute;
-    border-top: 40vmin solid #FFA200;
-    border-right: 40vmin solid #00FFFF;
-    border-bottom: 40vmin solid #FF5E00;
-    border-left: 40vmin solid #39AAAA;
+    border-top: var(--rectangle-border-width) solid #FFA200;
+    border-right: var(--rectangle-border-width) solid #00FFFF;
+    border-bottom: var(--rectangle-border-width) solid #FF5E00;
+    border-left: var(--rectangle-border-width) solid #39AAAA;
     background: transparent;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    width: 5vmin;
-    height: 5vmin;
-    left: calc(50% - 42.5vmin);
-    top: calc(50% - 42.5vmin);
-    animation-duration: 18s;
+    width: var(--rectangle-width);
+    height: var(--rectangle-width);
+    left: calc(50% - var(--rectangle-border-width) - var(--rectangle-width) / 2);
+    top: calc(50% - var(--rectangle-border-width) - var(--rectangle-width) / 2);
+    animation: rotate-rectangle-clockwise 9s infinite linear;
 }
 
 @keyframes rotate-rectangle-clockwise {
-    0% {
-        transform: rotate(-360deg);
-        opacity: 0;
+    from{
+        transform: rotate(0deg);
+        --rectangle-width: 30%;
+        opacity: .2;
     }
-
-    50% {
-        opacity: 1;
+    to{
+        transform: rotate(360deg);
+        --rectangle-width: 90%;
+        opacity: .7;
     }
-
-    100% {
-        transform: rotate(360deg) scale(18);
-        opacity: 1;
-    }
-
 }
 
-@keyframes rotate-rectangle-counter-clockwise {
-    0% {
-        transform: rotate(360deg);
-        opacity: 0;
-    }
+.animation-delay-3 {
+    animation-delay: -3s;
+}
 
-    50% {
-        opacity: 1;
-    }
+.animation-delay-6 {
+    animation-delay: -6s;
+}
 
-    100% {
-        transform: rotate(-360deg) scale(18);
-    }
+.animation-delay-9 {
+    animation-delay: -9s;
+}
 
+.animation-delay-12 {
+    animation-delay: -12s;
+}
+
+.animation-delay-15 {
+    animation-delay: -15s;
+}
+
+.rotate-rectangle-counter-clockwise {
+    animation-direction: reverse;
 }
