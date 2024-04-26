@@ -8,10 +8,6 @@ body {
     initial-value: 30%;
 }
 
-:root {
-    --rectangle-border-width: 10rem;
-}
-
 .absolute-center {
     position: absolute;
     top: 50%;
@@ -19,20 +15,21 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.container {
+.border-portal-container {
     width: 90vmin;
     height: 90vmin;
     overflow: hidden;
     border-radius: 50%;
 }
 
-.container-inner {
+.border-portal-container-inner {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
 .rectangle {
+    --rectangle-border-width: 10rem;
     position: absolute;
     background: transparent;
     width: var(--rectangle-width);
@@ -44,7 +41,7 @@ body {
 
 .rectangle::before {
     content: "";
-    position: absolute;
+    display: block;
     width: 100%;
     height: 100%;
     animation: rotate-rectangle-clockwise 9s infinite linear;
